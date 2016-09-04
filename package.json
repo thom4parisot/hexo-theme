@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/oncletom/hexo-theme#readme",
   "dependencies": {
-    "css.oncletom.io": "github:oncletom/css.oncletom.io"
+    "css.oncletom.io": "github:oncletom/css.oncletom.io",
+    "reading-time": "^1.1.0"
   }
 }
