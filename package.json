@@ -1,0 +1,25 @@
+{
+  "name": "hexo-theme-oncletom",
+  "version": "1.0.0",
+  "description": "Hexo theme for my portfolio and stuff.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oncletom/hexo-theme.git"
+  },
+  "keywords": [
+    "hexo"
+  ],
+  "author": "Thomas Parisot (https://oncletom.io)",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/oncletom/hexo-theme/issues"
+  },
+  "homepage": "https://github.com/oncletom/hexo-theme#readme",
+  "dependencies": {
+    "css.oncletom.io": "github:oncletom/css.oncletom.io"
+  }
+}
