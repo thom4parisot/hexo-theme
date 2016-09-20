@@ -1,10 +1,22 @@
 links:
-  "Photography": /photography/
-  "@oncletom": https://twitter.com/oncletom
-  "GitHub": https://github.com/oncletom
-  "RSS Feed": /feed/
+  - namespace: blog
+    label: Blog
+    href: /
+  - namespace: talks
+    label: Talks
+    href: /talks/
+  - namespace: photography
+    label: Photography
+    href: /photography/
+  - namespace: about
+    label: About
+    href: /slash-me/
 
 less:
+  layouts:
+    series-day-to-day:
+      - assets/css/series/day-to-day.css
+
   paths:
     - node_modules/css.oncletom.io/src/less
     - node_modules/bootstrap/less

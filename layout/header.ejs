@@ -17,10 +17,9 @@
 
       <div class="collapse navbar-collapse" id="static-top-navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="/">Blog</a></li>
-          <li><a href="/talks">Talks</a></li>
-          <li><a href="/photography">Photography</a></li>
-          <li><a href="/slash-me">About</a></li>
+          <% theme.links.forEach(link => { %>
+            <li class="<%= link.namespace === config.layout ? 'active' : '' %>"><a href="<%= link.href %>"><%= link.label %></a></li>
+          <% }) %>
         </ul>
       </div>
     </div>

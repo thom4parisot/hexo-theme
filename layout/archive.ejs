@@ -1,3 +1,4 @@
+<%- partial('header') %>
 <%- partial('cover/featured', { post: page.posts.first(), archiveType: page.year || page.category }) %>
 
 <main class="container" role="main">
@@ -7,3 +8,5 @@
     <% }); %>
   </div>
 </main>
+
+<%- partial("footer", {}, { cache: true }) %>
