@@ -1,0 +1,24 @@
+<% const d = moment(post.date) %>
+<div lang="<%= post.lang || 'fr' %>" class="post">
+  <header class="post__header">
+    <h2 class="post__headline">
+      <a href="<%= url_for(post.path) %>" title="<%= post.title %>" rel="bookmark"><%= post.title %></a>
+    </h2>
+
+    <div class="post__metadata">
+      <time class="post__date headline-list__date" datetime="<%= d.toISOString() %>">
+        <%= d.format('MM.YYYY') %></span>
+      </time>
+    </div>
+  </header>
+
+  <article class="post__article">
+    <div class="post__summary">
+      <div class="excerpt">
+        <%- post.excerpt %>
+
+        <a href="<%= url_for(post.path) %>#more" class="continue-reading"><%= (post.lang || "fr") === "fr" ? "Lire la suite" : "Continue reading" %></a>
+      </div>
+    </div>
+  </article>
+</div>

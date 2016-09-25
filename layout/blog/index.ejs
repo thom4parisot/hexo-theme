@@ -1,16 +1,14 @@
 <%- partial('header') %>
 <%- partial('cover/hello', { post: page.posts.first() }) %>
 
-<main class="container" role="main">
-  <div class="row" id="most-recent">
-    <div class="col-sm-12"><%- partial("_blog/post-condensed", {post: page.posts.first() })%></div>
-  </div>
+<main class="container timeline" role="main">
+  <section class="row timeline-header hero" id="most-recent">
+    <div class="col-sm-12"><%- partial("blog/post-condensed", {post: page.posts.first() })%></div>
+  </section>
 
-  <div class="row" id="a-bit-older">
-    <% page.posts.slice(1, 5).each(function(post){ %>
-    <div class="col-sm-12"><%- partial("_blog/post-condensed", {post: post})%></div>
-    <% }); %>
-  </div>
+  <section class="row timeline-section" id="a-bit-older">
+    <%- partial("blog/time-based-posts", { posts: page.posts.slice(1, 11) }) %>
+  </section>
 </main>
 
 <%- partial("footer", {}, { cache: true }) %>

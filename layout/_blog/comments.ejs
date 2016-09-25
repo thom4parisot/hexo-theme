@@ -1,10 +1,7 @@
 <% if (config.disqus_shortname && page.comments){ %>
-<section id="comments">
-  <header class="comments-header">
-    <h2><%= (page.lang || "fr") === "fr" ? 'Vos réactions' : 'Readers comments' %></h2>
-  </header>
+<section class="row" id="comments">
 
-  <div id="disqus_thread"></div>
+  <div class="col-md-8 col-md-push-2" id="disqus_thread"></div>
 
   <script src="//oncletom.disqus.com/embed.js" async></script>
 </section>
