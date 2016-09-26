@@ -1,0 +1,40 @@
+<% const d = moment(post.date) %>
+<article class="post <%= typeof classNames === 'string' ? classNames : '' %>">
+  <% if (features.indexOf('header') !== -1) { %>
+  <header class="post__header">
+    <h2 class="post__headline">
+      <a href="<%= url_for(post.path) %>" title="<%= post.title %>" rel="bookmark"><%= post.title %></a>
+    </h2>
+
+    <div class="post__metadata">
+      <time class="post__date headline-list__date" datetime="<%= d.toISOString() %>">
+        <%= d.format('MM.YYYY') %></span>
+      </time>
+    </div>
+  </header>
+  <% } %>
+
+  <% if (features.indexOf('summary') !== -1) { %>
+  <div class="post__summary<%= features.indexOf('content') !== -1 ? ' post__summary--plus-content' : '' %>">
+    <%- post.excerpt %>
+
+    <a href="<%= url_for(post.path) %>#more" class="continue-reading">Continue reading</a>
+  </div>
+  <% } %>
+
+  <% if (features.indexOf('content') !== -1) { %>
+  <div class="post__content post__content--text" lang="<%= post.lang || 'fr' %>"  data-signed-by="<%= features.indexOf('signature') !== -1 ? 'Thomas': '' %>">
+    <%- post.more %>
+  </div>
+  <% } %>
+
+  <% if (features.indexOf('signature') !== -1) { %>
+  <footer class="post__footer">
+    <p>
+      Published on
+      <time datatime="<%= d.toISOString() %>"><%= d.format(config.date_format) %></time>.
+      <a href=<%= `https://github.com/oncletom/oncletom.io/tree/master/source/${post.source}` %>>Found a typo or want to suggest an edit</a>?
+    </p>
+  </footer>
+  <% } %>
+</article>

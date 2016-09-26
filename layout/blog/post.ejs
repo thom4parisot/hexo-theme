@@ -2,12 +2,16 @@
 <%- partial('cover/post', { post: page }) %>
 
 <main class="container" role="main">
-  <div class="row">
-    <div class="col-sm-12">
-      <%- partial("_blog/post-full", { post: page }) %>
-      <%- partial("_blog/comments", { post: page }) %>
-    </div>
-  </div>
+  <section>
+    <%- partial("blog/post-single", {
+      post: page,
+      features: ["summary", "content", "signature"]
+    }) %>
+  </section>
+
+  <section>
+    <%- partial("blog/comments", { post: page }) %>
+  </section>
 </main>
 
 <%- partial("footer", {}, { cache: true }) %>
