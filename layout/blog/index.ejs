@@ -1,7 +1,7 @@
 <%- partial('header') %>
 <%- partial('cover/hello', { post: page.posts.first() }) %>
 
-<main class="container timeline" role="main">
+<main class="timeline" role="main">
   <section class="timeline-section" id="most-recent">
     <%- partial("blog/post-single", {
       post: page.posts.first(),
