@@ -16,6 +16,8 @@ less:
   layouts:
     series-day-to-day:
       - assets/css/series/day-to-day.css
+    series-default:
+      
 
   paths:
     - node_modules/css.oncletom.io/src/less

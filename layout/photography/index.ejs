@@ -1,16 +1,16 @@
 <%- partial('header') %>
 <%- partial('cover/hello', { post: page.posts.first() }) %>
 
-<main class="container" role="main">
-  <div class="row" id="most-recent">
-    <div class="col-sm-12"><%- partial("_blog/post-condensed", {post: page.posts.first() })%></div>
-  </div>
-
-  <div class="row" id="a-bit-older">
-    <% page.posts.slice(1, 5).each(function(post){ %>
-    <div class="col-sm-12"><%- partial("_blog/post-condensed", {post: post})%></div>
-    <% }); %>
-  </div>
+<main class="timeline" role="main">
+  <section class="timeline-section" id="a-bit-older">
+    <ol class="card-list">
+    <% page.posts.forEach(post => { %>
+      <li class="card-list__item">
+        <%- partial("photography/card", { post }) %>
+      </li>
+    <% }) %>
+    </ol>
+  </section>
 </main>
 
 <%- partial("footer", {}, { cache: true }) %>
