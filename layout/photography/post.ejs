@@ -1,35 +1,46 @@
-
+<% const m = moment(page.date) -%>
 <main class="photography-series series">
   <header class="series-header">
+    <h1 class="post__headline"><%= page.title %></h1>
+
     <%- page.content %>
 
     <ul class="series-header__metadata">
-      <li><date><%= moment(page.date).format('YYYY') %></date></li>
-      <li><%= page.pictures.length %> pictures</li>
-      <li><%= page.device.manufacturer %> <%= page.device.model %></li>
+      <li class="metadata metadata--date">
+        <time datetime="<%= m.toISOString() %>"><%= m.format('YYYY') %></time>
+      </li>
+      <li class="metadata"><%= page.pictures.length %> pictures</li>
+      <li class="metadata"><%= page.device.manufacturer %> <%= page.device.model %></li>
+      <% if (page.film) { const { film } = page; -%>
+      <li class="metadata"><%= film.manufacturer %> <%= film.model %> (<%= film.speed %>ISO)</li>
+      <% } %>
     </ul>
   </header>
 
-  <% page.pictures.forEach(p => { %>
-  <% const m = moment(p.date) %>
+  <% page.pictures.forEach(p => { -%>
+  <% const m = moment(p.date) -%>
   <article class="series-item">
 
     <figure class="series-item__enclosure">
-      <%- image_tag(`${page.slug}/${p.src.img}`, {
+      <div class="series-item__media">
+      <%- image_tag(`${page.slug}/${p.src.img || p.src}`, {
         class: 'series-item__picture',
         alt: '',
         'data-lazyload': true,
       }) %>
+      </div>
 
-      <figcaption>
+      <figcaption class="series-item__caption">
         <date time="<%= m.toISOString() %>" class="series-item__date">
           <%= m.format('MMMM Do YYYY') %>
         </date>
+        <% if (p.location){ -%>
         <address class="series-item__address">
           <span class="series-item__venue"><%= p.location.venue %></span>,
           <span class="series-item__region"><%= p.location.region %></span>,
           <span class="series-item__country"><%= p.location.country %></span>.
         </address>
+        <% } %>
       </figcaption>
     </figure>
   </article>

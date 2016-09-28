@@ -2,10 +2,9 @@
 
 const urlFor = hexo.extend.helper.store['url_for'].bind(hexo);
 
-hexo.extend.helper.register('cssCache', (urls) => {
+hexo.extend.helper.register('cssCache', (urls, page) => {
   const v = process.env.npm_package_version;
   const { layouts } = hexo.theme.config.less;
-  const { post:page } = hexo;
 
   return urls
     .concat(layouts[page.layout] || [])

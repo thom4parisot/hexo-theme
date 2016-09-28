@@ -1,0 +1,39 @@
+@import (reference) '_variables.less';
+@import (reference) 'grid.less';
+@import (reference) 'mixins.less';
+@import (reference) 'type.less';
+@import (reference) '_card.less';
+
+.series-header,
+.series-item {
+  max-width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+  position: relative;
+}
+
+.series-header {
+  .series-header__metadata {
+    .card .card__metadata;
+  }
+}
+
+.series-item {
+  .make-row();
+
+  .series-item__media {
+    .make-md-column(8);
+    text-align: center;
+
+    .series-item__picture {
+      object-fit: contain;
+      max-height: 85vh;
+      max-width: 100%;
+    }
+  }
+
+  .series-item__caption {
+    .make-md-column(2);
+    vertical-align: bottom;
+  }
+}
