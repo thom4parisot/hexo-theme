@@ -1,9 +1,9 @@
 <% const m = moment(page.date) -%>
 <main class="photography-series series">
   <header class="series-header">
-    <h1 class="post__headline"><%= page.title %></h1>
+    <h1 class="series__headline"><%= page.title %></h1>
 
-    <%- page.content %>
+    <div class="series__summary"><%- page.excerpt || page.content %></div>
 
     <ul class="series-header__metadata">
       <li class="metadata metadata--date">
@@ -18,27 +18,27 @@
   </header>
 
   <% page.pictures.forEach(p => { -%>
-  <% const m = moment(p.date) -%>
   <article class="series-item">
 
     <figure class="series-item__enclosure">
       <div class="series-item__media">
-      <%- image_tag(`${page.slug}/${p.src.img || p.src}`, {
-        class: 'series-item__picture',
-        alt: '',
-        'data-lazyload': true,
-      }) %>
+        <img src="<%= img_url(p.src.img || p.src, page)%>" alt="" class="series-item__picture" data-lazyload>
       </div>
 
       <figcaption class="series-item__caption">
+        <% if (p.comment) { %>
+        <div class="series-item__comment"><%- markdown(p.comment) %></div>
+        <% } -%>
+        <% if (p.date) { const m = moment(p.date) -%>
         <date time="<%= m.toISOString() %>" class="series-item__date">
           <%= m.format('MMMM Do YYYY') %>
         </date>
+        <% } -%>
         <% if (p.location){ -%>
         <address class="series-item__address">
-          <span class="series-item__venue"><%= p.location.venue %></span>,
-          <span class="series-item__region"><%= p.location.region %></span>,
-          <span class="series-item__country"><%= p.location.country %></span>.
+          <% ['venue', 'region', 'country'].filter(d => p.location[d]).forEach(d => { -%>
+          <span class="series-item__<%= d %>"><%= p.location[d] %></span>
+          <% }) -%>
         </address>
         <% } %>
       </figcaption>

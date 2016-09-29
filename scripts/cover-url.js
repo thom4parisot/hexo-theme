@@ -1,8 +1,7 @@
 'use strict';
 
-const urlFor = hexo.extend.helper.store['url_for'].bind(hexo);
 
-hexo.extend.helper.register('coverUrl', (post, config) => {
+hexo.extend.helper.register('coverUrl', function(post, config) {
   const { default_cover, url:siteUrl } = config;
   var url = post.cover ? (post.cover.url || post.cover) : '';
 
@@ -12,14 +11,10 @@ hexo.extend.helper.register('coverUrl', (post, config) => {
 
   if (url){
     if (url.match(/^\/images/) && process.env.NODE_ENV === 'production'){
-      url = `${siteUrl}${urlFor(url)}`;
+      url = `${siteUrl}${this.url_for(url)}`;
     }
 
-    if (url.match(/^\/\//)){
-      url = `https:${url}`;
-    }
-
-    url = url.replace('_c_d.jpg', '_b_d.jpg');
+    return this.img_url(url, post);
   }
 
   return url;

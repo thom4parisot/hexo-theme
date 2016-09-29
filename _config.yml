@@ -18,8 +18,6 @@ less:
       - assets/css/series/day-to-day.css
     series-default:
       - assets/css/series/default.css
-
-
   paths:
     - node_modules/css.oncletom.io/src/less
     - node_modules/bootstrap/less
