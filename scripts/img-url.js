@@ -2,12 +2,12 @@
 
 const { parse } = require('url');
 
-// const urlFor = hexo.extend.helper.store['url_for'].bind(hexo);
-
 hexo.extend.helper.register('img_url', function(src, post) {
+  const prefix = process.env.NODE_ENV === 'production' ? this.config.url : '';
+
   return parse(src).protocol
     ? src.replace('_c_d.jpg', '_b_d.jpg')
     : (post
-      ? this.url_for(`${post.slug}/${src}`)
-      : this.url_for(src));
+      ? prefix + this.url_for(`${post.slug}/${src}`)
+      : prefix + this.url_for(src));
 });

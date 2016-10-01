@@ -5,12 +5,15 @@
 @import (reference) '_card.less';
 
 .series-header,
+.series-footer,
 .series-item {
   .make-row();
+}
 
+.series-header,
+.series-item {
   max-width: 100%;
   min-height: 100vh;
-  height: 100vh;
   position: relative;
 }
 
@@ -18,6 +21,10 @@
   .series__headline {
     .make-sm-column(8);
     .make-sm-column-offset(2);
+
+    span {
+      .highlight(@brand-primary, .28em);
+    }
   }
 
   .series-header__metadata {
@@ -52,7 +59,9 @@
 
   .series-item__date {
     color: @gray-light;
+  }
 
+  .series-item__comment + .series-item__date {
     &:before {
       content: "–";
     }
@@ -64,6 +73,31 @@
 
     > span {
       &:extend(.list-inline > li);
+    }
+  }
+}
+
+.series-footer {
+  .clearfix();
+  color: @gray-light;
+  margin-bottom: unit(@line-height-base, em);
+
+  &:before {
+    background-color: @gray-light;
+    content: '';
+    display: block;
+    margin: unit(@line-height-base, em) auto;
+    height: 2px;
+    width: 5em;
+  }
+
+  .series-footer__content {
+    .make-sm-column(12);
+    text-align: center;
+
+    a:link,
+    a:visited {
+      .fancy-link(@gray-light, @gray);
     }
   }
 }

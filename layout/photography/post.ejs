@@ -1,7 +1,7 @@
 <% const m = moment(page.date) -%>
 <main class="photography-series series">
   <header class="series-header">
-    <h1 class="series__headline"><%= page.title %></h1>
+    <h1 class="series__headline"><span><%= page.title %></span></h1>
 
     <div class="series__summary"><%- page.excerpt || page.content %></div>
 
@@ -45,4 +45,15 @@
     </figure>
   </article>
   <% }) %>
+
+  <footer class="series-footer">
+    <div class="series-footer__content">
+      <p>
+        Thanks for having a look, I hope you enjoyed it.
+      </p>
+      <p>
+        <a href="<%= url_for('/') %>" rel="home">Navigate to the <em>Photography home</em></a>
+      </p>
+    </div>
+  </footer>
 </main>

@@ -10,10 +10,6 @@ hexo.extend.helper.register('coverUrl', function(post, config) {
   }
 
   if (url){
-    if (url.match(/^\/images/) && process.env.NODE_ENV === 'production'){
-      url = `${siteUrl}${this.url_for(url)}`;
-    }
-
     return this.img_url(url, post);
   }
 

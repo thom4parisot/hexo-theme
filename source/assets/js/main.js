@@ -8,50 +8,14 @@
       };
   })();
 
-  // Togglable navigation
-  if (typeof requestAnimationFrame === 'function') {
-    var elements = document.querySelectorAll('div.post-cover, footer.footer');
-    var nav = document.querySelector('header.header .navbar');
-
-    var raf = function(){
-      updateElementVisiblityAgainst(nav, elements);
-      requestAnimationFrame(raf);
-    };
-
-    requestAnimationFrame(raf);
-  }
-
   // Toggle menu
   var toggleButton = document.getElementById('static-top-navbar-toggle-button');
-  var toggleMenu = document.getElementById(toggleButton.getAttribute('data-target').slice(1));
+  if (toggleButton) {
+    var toggleMenu = document.getElementById(toggleButton.getAttribute('data-target').slice(1));
 
-  toggleButton.addEventListener('click', function(){
-    toggleMenu.classList[toggleMenu.classList.contains('in') ? 'remove' : 'add']('in');
-  });
-
-  /**
-   * An element is visible if:
-   * - a candidate is above the screen
-   * OR
-   * - a candidate is below the scren
-   *
-   * @param el {HTMLElement}
-   * @param elements
-   */
-  function updateElementVisiblityAgainst(el, elements){
-    var offsetY = window.scrollY;
-    var outerHeight = window.outerHeight;
-
-    var canBeVisible = Array.prototype.every.call(elements, function checkVisibility(candidate){
-      return (offsetY >= candidate.offsetTop + candidate.clientHeight) || (offsetY + outerHeight <= candidate.offsetTop);
+    toggleButton.addEventListener('click', function(){
+      toggleMenu.classList[toggleMenu.classList.contains('in') ? 'remove' : 'add']('in');
     });
-
-    if (canBeVisible && !el.classList.contains('visible')) {
-      el.classList.add('visible');
-    }
-    else if (!canBeVisible && el.classList.contains('visible')){
-      el.classList.remove('visible');
-    }
   }
 
   // Interactive Content
