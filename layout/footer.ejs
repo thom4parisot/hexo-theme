@@ -40,8 +40,8 @@
           <h3>/categories</h3>
 
           <ul class="tagged-links">
-            <% Object.keys(config.category_map).forEach(function(key){ -%>
-            <li><a href="<%= url_for(config.category_dir + '/' + config.category_map[key]) %>" rel="tag"><%= key %></a></li>
+            <% site.categories.filter(d => !d.parent).forEach(function(category){ -%>
+            <li><a href="<%= category.permalink %>" rel="tag"><%= category.name %></a></li>
             <% }) -%>
           </ul>
         </div>
