@@ -39,7 +39,7 @@
     .make-sm-column-offset(2);
 
     a {
-      .fancy-link(@gray, @brand-primary);      
+      .fancy-link(@gray, @brand-primary);
     }
   }
 }
@@ -47,7 +47,10 @@
 .series-item {
   .series-item__media {
     .make-sm-column(8);
-    text-align: center;
+
+    @media(min-width: @screen-sm-min) {
+      text-align: center;
+    }
 
     .series-item__picture {
       object-fit: contain;
