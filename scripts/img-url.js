@@ -9,6 +9,6 @@ hexo.extend.helper.register('img_url', function(src, post) {
   return parse(src).protocol
     ? src.replace('_c_d.jpg', '_b_d.jpg')
     : (post && src[0] !== '/'
-      ? prefix + this.url_for(`${post.slug}/${src}`)
+      ? prefix + this.url_for(`${post.path}/${src}`)
       : prefix + this.url_for(src));
 });
