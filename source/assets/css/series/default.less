@@ -68,11 +68,19 @@
     color: @gray-light;
   }
 
-  .series-item__comment + .series-item__date {
-    &:before {
-      content: "–";
+  .series-item__comment {
+    a {
+      .fancy-link(@gray, @brand-primary);
+    }
+
+    & + .series-item__date {
+      &:before {
+        content: "–";
+      }
     }
   }
+
+
 
   .series-item__address {
     color: @gray-light;
