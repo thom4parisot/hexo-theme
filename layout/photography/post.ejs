@@ -36,7 +36,7 @@
         <% } -%>
         <% if (p.location){ -%>
         <address class="series-item__address">
-          <% ['venue', 'region', 'country'].filter(d => p.location[d]).forEach(d => { -%>
+          <% ['venue', 'city', 'region', 'country'].filter(d => p.location[d]).forEach(d => { -%>
           <span class="series-item__<%= d %>"><%= p.location[d] %></span>
           <% }) -%>
         </address>
