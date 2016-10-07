@@ -32,6 +32,19 @@
     .make-sm-column-offset(2);
     .card .card__metadata;
     padding-left: @grid-gutter-width / 2;
+
+    :first-child {
+      padding-left: 0;
+    }
+
+    .camera, .film {
+      display: block;
+    }
+
+    .film {
+      color: lighten(@gray-light, 15%);
+      font-size: .9em;
+    }
   }
 
   .series__summary {

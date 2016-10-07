@@ -1,4 +1,5 @@
 <% const m = moment(page.date) -%>
+<% const { device } = page -%>
 <main class="photography-series series">
   <header class="series-header">
     <h1 class="series__headline"><span><%= page.title %></span></h1>
@@ -10,10 +11,15 @@
         <time datetime="<%= m.toISOString() %>"><%= m.format('YYYY') %></time>
       </li>
       <li class="metadata"><%= page.pictures.length %> pictures</li>
-      <li class="metadata"><%= page.device.manufacturer %> <%= page.device.model %></li>
-      <% if (page.film) { const { film } = page; -%>
-      <li class="metadata"><%= film.manufacturer %> <%= film.model %> (<%= film.speed %>ISO)</li>
-      <% } %>
+      <ul class="metadata__list">
+        <% (Array.isArray(device) ? device : [device]).forEach(d => { %>
+        <li class="metadata">
+          <span class="metadata camera"><%= d.manufacturer %> <%= d.model %></span>
+          <% if (d.film) { -%>
+            <span class="metadata film"><%= d.film.manufacturer %> <%= d.film.model %> (<%= d.film.speed %>ISO)</span>
+          <% } }) %>
+        </li>
+      </ul>
     </ul>
   </header>
 
