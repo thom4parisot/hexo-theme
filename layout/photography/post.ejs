@@ -24,8 +24,8 @@
   </header>
 
   <% page.pictures.forEach(p => { -%>
-  <article class="series-item">
-
+  <article class="series-item series-item--<%= p.src ? 'with' : 'without' -%>-media">
+    <% if (p.src) { -%>
     <figure class="series-item__enclosure">
       <div class="series-item__media">
         <img src="<%= img_url(p.src.img || p.src, page)%>" alt="" class="series-item__picture" data-lazyload>
@@ -49,6 +49,9 @@
         <% } %>
       </figcaption>
     </figure>
+    <% } else { -%>
+      <div class="series-item__comment"><%- markdown(p.comment) %></div>
+    <% } %>
   </article>
   <% }) %>
 
