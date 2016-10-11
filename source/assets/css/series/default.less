@@ -76,6 +76,12 @@
   .series-item__caption {
     .make-sm-column(3);
     vertical-align: bottom;
+
+    .icon {
+      margin-right: .1em;
+      height: .8em;
+      width: .8em;
+    }
   }
 
   .series-item__date {
@@ -86,20 +92,19 @@
     a {
       .fancy-link(@gray, @brand-primary);
     }
-
-    & + .series-item__date {
-      &:before {
-        content: "–";
-      }
-    }
   }
 
   .series-item__address {
     color: @gray-light;
     .list-inline;
+    margin-left: 0;
 
     > span {
       &:extend(.list-inline > li);
+
+      &:first-of-type {
+        padding-left: 0;
+      }
     }
   }
 }
