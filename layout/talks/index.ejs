@@ -1,0 +1,27 @@
+<%- partial('header') %>
+<%- partial('cover/hello', { post: page.posts.first() }) %>
+
+<main class="timeline" role="main">
+  <section class="timeline-section" id="most-recent">
+    <%- partial("blog/post-single", {
+      post: page.posts.first(),
+      classNames: 'post--hero',
+      features: ['header', 'summary']
+    }) %>
+  </section>
+
+  <section class="timeline-section" id="a-bit-older">
+    <ol class="headline-list">
+    <% page.posts.forEach(post => { %>
+      <li class="headline-list__item">
+        <%- partial("blog/post-single", {
+          post,
+          features: ['header', 'summary']
+        }) %>
+      </li>
+    <% }) %>
+    </ol>
+  </section>
+</main>
+
+<%- partial("footer", {}, { cache: true }) %>
