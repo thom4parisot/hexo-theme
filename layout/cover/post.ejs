@@ -8,7 +8,7 @@
           <h1><%= post.title %></h1>
 
           <p>
-            <span class="icon-clock"></span>
+            <svg class="icon" aria-hidden="true"><use xlink:href="<%= url_for('/assets/icons.svg#clock') %>"></use></svg>
             <a href="#more"><%= readingTime(post.content).text %></a>
           </p>
         </div>
