@@ -11,7 +11,7 @@
         <time datetime="<%= m.toISOString() %>"><%= m.format('YYYY') %></time>
       </li>
       <li class="metadata">
-        <%= _p('pictures.count', page.pictures.length) %>
+        <%= _p('pictures.count', pictures_count(page)) %>
       </li>
       <ul class="metadata__list">
         <% (Array.isArray(device) ? device : [device]).forEach(d => { %>

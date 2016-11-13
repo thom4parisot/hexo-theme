@@ -18,7 +18,7 @@
       </time>
     </li>
     <li class="metadata">
-      <%= post.pictures.length %>
+      <%= pictures_count(post) %>
       <svg class="icon">
         <title><%= _p('pictures.label', post.pictures.length) %></title>
         <use xlink:href="<%= url_for('/assets/icons.svg#images') %>"></use>
