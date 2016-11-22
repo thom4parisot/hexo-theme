@@ -2,6 +2,9 @@ links:
   - namespace: blog
     label: Blog
     href: /
+  - namespace: books
+    label: Node.js
+    href: /node.js
   - namespace: talks
     label: Talks
     href: /talks/
