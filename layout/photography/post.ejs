@@ -25,6 +25,16 @@
     </ul>
   </header>
 
+  <% if (page.map) { %>
+  <article class="series-item series-item--with-map">
+    <figure class="series-item__enclosure">
+      <div class="series-item__media">
+        <img src="<%= img_url(`maps/${page.map.src || page.map}`, page)%>" alt="" class="series-item__map series-item__map--large">
+      </div>
+    </figure>
+  </article>
+  <% } %>
+
   <% page.pictures.forEach(p => { -%>
   <article class="series-item series-item--<%= p.src ? 'with' : 'without' -%>-media">
     <% if (p.src) { -%>
@@ -46,6 +56,7 @@
           <%= m.format('MMMM Do YYYY') %>
         </date>
         <% } -%>
+
         <% if (p.location){ -%>
         <address class="series-item__address">
           <svg class="icon" aria-hidden="true">
@@ -57,10 +68,24 @@
           <% }) -%>
         </address>
         <% } %>
+
+        <% if (p.map) { -%>
+        <div class="series-item__map">
+          <img src="<%= img_url(`maps/${p.map.src || p.map}`, page)%>" class="" alt="">
+        </div>
+        <% } -%>
       </figcaption>
     </figure>
     <% } else { -%>
-      <div class="series-item__comment"><%- markdown(p.comment) %></div>
+      <div class="series-item__comment">
+        <%- markdown(p.comment) %>
+
+        <% if (p.map) { -%>
+        <div class="series-item__map">
+          <img src="<%= img_url(`maps/${p.map.src || p.map}`, page)%>" class="" alt="">
+        </div>
+        <% } -%>
+      </div>
     <% } %>
   </article>
   <% }) %>
