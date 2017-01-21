@@ -17,13 +17,18 @@
         <%= d.format('MM.YYYY') -%></span>
       </time>
     </li>
-    <li class="metadata">
-      <%= pictures_count(post) %>
+    <li class="metadata metadata--features">
       <svg class="icon">
         <title><%= _p('pictures.label', post.pictures.length) %></title>
         <use xlink:href="<%= url_for('/assets/icons.svg#images') %>"></use>
       </svg>
+      <% if (post.map) { -%>
+      <svg class="icon">
+        <title><%= _p('pictures.map') %></title>
+        <use xlink:href="<%= url_for('/assets/icons.svg#map') %>"></use>
+      </svg>
+      <% } -%>
     </li>
-    <li class="metadata metadata--tags"><%= post.categories.map(d => `#${d.name}`).join(', ') %></li>
+    <li class="metadata metadata--tags"><%= post.categories.map(d => `#${d.name}`).join(' ') %></li>
   </ul>
 </article>
