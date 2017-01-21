@@ -64,14 +64,18 @@
   }
 
   .series-item__media {
+    margin-bottom: 1em;
+
+    @media(min-width: @screen-sm-min) {
+      text-align: center;
+    }
+
     img {
       max-height: 90vh;
       max-width: 100%;
     }
 
-    @media(min-width: @screen-sm-min) {
-      text-align: center;
-    }
+
 
     .series-item__picture {
       object-fit: contain;
@@ -81,6 +85,10 @@
   }
 
   .series-item__caption {
+    @media(max-width: @screen-sm-min) {
+      font-size: .7em;
+    }
+
     .make-sm-column(4);
     vertical-align: bottom;
 
