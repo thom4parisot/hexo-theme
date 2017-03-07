@@ -4,7 +4,7 @@ links:
     href: /
   - namespace: books
     label: Node.js
-    href: /node.js
+    href: /node.js/
   - namespace: talks
     label: Talks
     href: /talks/
