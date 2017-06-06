@@ -34,11 +34,27 @@
 
     <aside>
       <section>
-        <form action="https://google.com/search" method="get" class="form" role="search">
-          <input type="hidden" name="q" value="site:oncletom.io" />
+        <form action="#search-results" method="get" class="form" role="search">
           <input type="search" name="q" value="" class="form-control" placeholder="What are you looking for?" required>
           <button type="submit" class="btn btn-primary">Search</button>
         </form>
+
+        <div id="search-results" class="tag-column">
+          <h3>/search results</h3>
+
+          <ul class="content-results">
+            <li class="content-result" hidden>
+              <h4>
+                <a href="#">Sample Title</a>
+              </h4>
+              <time datetime>2017-04-27</time>
+
+              <div class="excerpt">
+                <p><a href="http://sudweb.fr/2012/" target="_blank" rel="external">Sud Web 2012</a> : une discussion autour d’un <a href="http://www.pategrain.com/" target="_blank" rel="external">bon poulet à Toulouse</a> avec <a href="http://frank.taillandier.me/" target="_blank" rel="external">Frank</a> et compagnie.<br>Je réalise qu’il n’est <strong>pas si compliqué que ça d’organiser</strong> des évènements, et que la seule transmission de bonne humeur suffit à motiver les foules. Ça, et la simplicité d’organisation … genre moins y’en a, mieux ça fonctionne.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
       </section>
 
       <section>
