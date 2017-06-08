@@ -8,7 +8,7 @@
 
     <div class="post__metadata">
       <time class="post__date headline-list__date" datetime="<%= d.toISOString() %>">
-        <%= d.format('MM.YYYY') %></span>
+        <%= date(d) %></span>
       </time>
     </div>
   </header>
@@ -31,7 +31,7 @@
   <% if (features.indexOf('signature') !== -1) { %>
   <footer class="post__footer">
     <p>
-      Published on
+      Published in
       <time datatime="<%= d.toISOString() %>"><%= d.format(config.date_format) %></time>.
       <a href=<%= `https://github.com/oncletom/oncletom.io/tree/master/source/${post.source}` %>>Found a typo or want to suggest an edit</a>?
     </p>

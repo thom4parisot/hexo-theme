@@ -50,4 +50,72 @@
 
       el.addEventListener('click', loadElement);
   });
+
+  /* Search */
+  var algoliaConfig = document.querySelector('meta[property="algolia:search"]').dataset;
+  var searchForm = document.querySelector('form[role="search"]');
+  var searchField = searchForm.querySelector('[name="q"]');
+  var resultsContainer = document.querySelector('.content-results');
+  var sampleResult = document.querySelector('.content-result[hidden]');
+  var resultsFragment = document.createDocumentFragment();
+
+  searchForm.dataset.state = 'idle';
+  sampleResult.remove();
+
+  var index = algoliasearch(algoliaConfig.applicationId, algoliaConfig.apiKey).initIndex(algoliaConfig.indexName);
+
+  var executeSearchWith = function executeSearchWith(query) {
+    window.location = '#search:' + query;
+    resultsContainer.innerHTML = '';
+    searchForm.dataset.state = 'loading';
+
+    index.search(query, { hitsPerPage: 6 }).then(function(response){
+      searchForm.dataset.state = 'loaded';
+
+      response.hits.forEach(function(hit){
+        var dom = sampleResult.cloneNode(true);
+        dom.removeAttribute('hidden');
+
+        var a = dom.querySelector('a');
+        a.href = hit.permalink;
+        a.innerText = hit.title;
+
+        var time = dom.querySelector('time');
+        var date = new Date(hit.date);
+        time.setAttribute('datetime', hit.date);
+        time.innerText = date.toLocaleDateString('en-GB', {
+          month: 'long',
+          year: 'numeric'
+        });
+
+        dom.querySelector('.post__summary').innerHTML = hit.excerpt;
+        dom.querySelector('.post__summary').innerHTML = dom.querySelector('.post__summary').innerText;
+
+        resultsFragment.appendChild(dom);
+      });
+
+      searchForm.dataset.state = 'results';
+      resultsContainer.appendChild(resultsFragment);
+    });
+  };
+
+  document.addEventListener('DOMContentLoaded', function(e) {
+    window.location.hash.replace(/^#search:(.+)$/, function(m, query) {
+      searchField.value = query;
+      executeSearchWith(query);
+    });
+  });
+
+  searchForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    if (searchField.value) {
+      executeSearchWith(searchField.value);
+    }
+    else {
+      window.location = '#search';
+      searchForm.dataset.state = 'idle';
+      resultsContainer.innerHTML = '';
+    }
+  });
 })(document, window);
