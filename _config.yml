@@ -8,6 +8,9 @@ links:
   - namespace: talks
     label: Talks
     href: /talks/
+  - namespace: reading-notes
+    label: Reading Notes
+    href: /reading-notes/
   - namespace: photography
     label: Photography
     href: /photography/
