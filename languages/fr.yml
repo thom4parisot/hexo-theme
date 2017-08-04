@@ -1,5 +1,5 @@
 repost_tag: Ce billet a été initialement publié sur %s sous l'intitulé %s.
-pictures:
+metadata:
   label:
     one: photo
     other: photos
@@ -7,3 +7,7 @@ pictures:
     zero: Aucune photo
     one: 1 photo
     other: "%d photos"
+  published_in: Publié en
+  author:
+    one: Auteur
+    other: Auteurs

@@ -1,5 +1,5 @@
 repost_tag: This blogpost has originally been published on %s as %s.
-pictures:
+metadata:
   label:
     one: picture
     other: pictures
@@ -7,3 +7,7 @@ pictures:
     zero: No picture
     one: 1 picture
     other: "%d pictures"
+  published_in: Published in
+  author:
+    one: Author
+    other: "Authors"
