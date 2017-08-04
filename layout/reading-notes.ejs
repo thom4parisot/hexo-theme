@@ -11,7 +11,7 @@
 
   <section class="timeline-section">
     <ol class="card-list">
-    <% site.pages.filter(({layout}) => layout === 'reading-note').map(post => { %>
+    <% site.pages.find({ layout: 'reading-note' }).sort('updated', -1).forEach(post => { %>
       <li class="card-list__item">
         <%- partial("photography/card", { post }) %>
       </li>
