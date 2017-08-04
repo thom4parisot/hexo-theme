@@ -1,5 +1,5 @@
-<% const d = moment(post.date) %>
-<article class="post <%= typeof classNames === 'string' ? classNames : '' %>">
+<% const d = moment(post.date) -%>
+<article class="post <%= typeof classNames === 'string' ? classNames : '' %>" lang="<%= post.lang || config.language %>">
   <% if (features.indexOf('header') !== -1) { %>
   <header class="post__header">
     <h2 class="post__headline">
@@ -16,14 +16,14 @@
 
   <% if (features.indexOf('summary') !== -1) { %>
   <div class="post__summary<%= features.indexOf('content') !== -1 ? ' post__summary--plus-content' : '' %>">
-    <%- post.excerpt %>
+    <%- post.description || post.excerpt %>
 
     <a href="<%= url_for(post.path) %>#more" class="continue-reading">Continue reading</a>
   </div>
   <% } %>
 
   <% if (features.indexOf('content') !== -1) { %>
-  <div class="post__content post__content--text" lang="<%= post.lang || 'fr' %>"  data-signed-by="<%= features.indexOf('signature') !== -1 ? 'Thomas': '' %>">
+  <div class="post__content post__content--text" data-signed-by="<%= features.indexOf('signature') !== -1 ? 'Thomas': '' %>">
     <%- post.more %>
   </div>
   <% } %>

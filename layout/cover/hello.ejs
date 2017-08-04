@@ -1,3 +1,4 @@
+<% const subtitle = post.subtitle || config.subtitle %>
 <div class="post-cover">
   <%- partial("_hero", { post: post }) %>
 
@@ -5,7 +6,7 @@
     <div class="container">
       <section>
         <div class="post-cover__content">
-          <%- markdown('# ' + config.subtitle) %>
+          <%- markdown('# ' + subtitle) %>
         </div>
       </section>
     </div>

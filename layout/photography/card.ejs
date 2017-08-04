@@ -1,34 +1,55 @@
 <% const d = moment(post.date) %>
-<article class="card">
+<% const features = Object.assign({}, locals.features) %>
+<article class="card" lang="<%= post.lang || config.language %>">
   <header class="card__header">
+    <% if (post.cover) { %>
     <div class="card__cover" style="background-image:url(<%= img_url(post.cover, post) %>)"><a href="<%= url_for(post.path) %>" title="<%= post.title %>"></a></div>
+    <% } %>
     <h2 class="card__headline">
       <a href="<%= url_for(post.path).replace('index.html', '') %>" title="<%= post.title %>" rel="bookmark"><%= post.title %></a>
     </h2>
   </header>
 
   <div class="card__summary">
-    <%- post.excerpt || post.content %>
+    <%- post.description || post.summary || post.excerpt || post.content %>
   </div>
 
   <ul class="card__metadata">
+    <% if (features.date) { -%>
     <li class="metadata metadata--date">
       <time class="card__date" datetime="<%= d.toISOString() %>">
         <%= date(d) -%></span>
       </time>
     </li>
+    <% } -%>
     <li class="metadata metadata--features">
+      <% if (post.pictures) { -%>
       <svg class="icon">
-        <title><%= _p('pictures.label', post.pictures.length) %></title>
+        <title><%= _p('metadata.label', post.pictures.length) %></title>
         <use xlink:href="<%= url_for('/assets/icons.svg#images') %>"></use>
       </svg>
+      <% } -%>
       <% if (post.map) { -%>
       <svg class="icon">
-        <title><%= _p('pictures.map') %></title>
+        <title><%= _p('metadata.map') %></title>
         <use xlink:href="<%= url_for('/assets/icons.svg#map') %>"></use>
       </svg>
       <% } -%>
+      <% if (post.publication_year) { -%>
+      <svg class="icon">
+        <title><%= _p('metadata.published_in') %></title>
+        <use xlink:href="<%= url_for('/assets/icons.svg#book') %>"></use>
+      </svg>
+      <%= post.publication_year %>
+      <% } -%>
+      <% if (post.authors) { -%>
+      <svg class="icon">
+        <title><%= _p('metadata.author') %></title>
+        <use xlink:href="<%= url_for('/assets/icons.svg#user') %>"></use>
+      </svg>
+      <%= post.authors.join(', ') %>
+      <% } -%>
     </li>
-    <li class="metadata metadata--tags"><%= post.categories.map(d => `#${d.name}`).join(' ') %></li>
+    <li class="metadata metadata--tags"><%= (post.categories || []).map(d => `#${d.name}`).join(' ') %></li>
   </ul>
 </article>

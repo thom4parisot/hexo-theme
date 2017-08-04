@@ -1,0 +1,23 @@
+<%- partial('header') %>
+<%- partial('cover/hello', { post: page }) %>
+
+<main class="timeline" role="main">
+  <section>
+    <%- partial("blog/post-single", {
+      post: page,
+      features: ["content"]
+    }) %>
+  </section>
+
+  <section class="timeline-section">
+    <ol class="card-list">
+    <% site.pages.filter(({layout}) => layout === 'reading-note').map(post => { %>
+      <li class="card-list__item">
+        <%- partial("photography/card", { post }) %>
+      </li>
+    <% }) %>
+    </ol>
+  </section>
+</main>
+
+<%- partial("footer", {}, { cache: true }) %>

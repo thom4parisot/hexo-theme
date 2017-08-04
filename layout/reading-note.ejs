@@ -1,0 +1,15 @@
+<%- partial('header') %>
+<%- partial('cover/post', { post: Object.assign({
+  cover: site.pages.findOne({ layout: 'reading-notes' }).cover
+}, page) }) %>
+
+<main role="main">
+  <section>
+    <%- partial("blog/post-single", {
+      post: page,
+      features: ["summary", "content"]
+    }) %>
+  </section>
+</main>
+
+<%- partial("footer", {}, { cache: true }) %>
