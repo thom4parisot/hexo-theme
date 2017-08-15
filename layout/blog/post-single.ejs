@@ -24,6 +24,9 @@
 
   <% if (features.indexOf('content') !== -1) { %>
   <div class="post__content post__content--text" data-signed-by="<%= features.indexOf('signature') !== -1 ? 'Thomas': '' %>">
+    <% if (locals.content && locals.content.title) { -%>
+      <h1>Notes</h1>
+    <% } -%>
     <%- post.more %>
   </div>
   <% } %>

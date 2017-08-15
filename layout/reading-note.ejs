@@ -7,7 +7,10 @@
   <section>
     <%- partial("blog/post-single", {
       post: page,
-      features: ["summary", "content"]
+      features: ["summary", "content"],
+      content: {
+        title: "Notes",
+      },
     }) %>
   </section>
 </main>
