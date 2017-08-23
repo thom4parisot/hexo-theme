@@ -1,7 +1,6 @@
 <% const d = moment(post.date) -%>
 <article class="h-entry post <%= typeof classNames === 'string' ? classNames : '' %>" lang="<%= post.lang || config.language %>">
-  <% if (features.indexOf('header') !== -1) { %>
-  <header class="post__header">
+  <header class="post__header"<%= features.indexOf('header') !== -1 ? '' : 'hidden'%>>
     <h2 class="post__headline">
       <a href="<%= url_for(post.path) %>" title="<%= post.title %>" rel="bookmark" class="p-name"><%= post.title %></a>
     </h2>
@@ -12,11 +11,6 @@
       </time>
     </div>
   </header>
-  <% } else { -%>
-  <meta name="title" class="p-name" content="<%= post.title %>">
-  <meta name="canonical" class="u-url" content="<%= url_for(post.path) %>">
-  <meta name="date" class="dt-published" content="<%= d.toISOString() %>">
-  <% } %>
 
   <% if (features.indexOf('summary') !== -1) { %>
   <div class="post__summary p-summary <%= features.indexOf('content') !== -1 ? ' post__summary--plus-content' : '' %>">
