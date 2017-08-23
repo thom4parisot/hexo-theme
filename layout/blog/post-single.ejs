@@ -12,7 +12,7 @@
       </time>
     </div>
   </header>
-  <% else { -%>
+  <% } else { -%>
   <meta name="title" class="p-name" content="<%= post.title %>">
   <meta name="canonical" class="u-url" content="<%= url_for(post.path) %>">
   <meta name="date" class="dt-published" content="<%= d.toISOString() %>">
