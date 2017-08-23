@@ -11,7 +11,7 @@ hexo.extend.tag.register('repost', function(args, content){
     <p>
       Ce billet a été initialement publié sur
       <a href="http://${data.domain}" class="domain-link" rel="external">${data.domain}</a>
-      sous l'intitulé <a href="${data.url}" class="source-link" rel="external">${data.title}</a>.
+      sous l'intitulé <a href="${data.url}" class="source-link u-repost-of" rel="external">${data.title}</a>.
     </p>
   </blockquote>`;
 });

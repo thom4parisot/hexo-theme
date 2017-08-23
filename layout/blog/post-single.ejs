@@ -1,13 +1,13 @@
 <% const d = moment(post.date) -%>
-<article class="post <%= typeof classNames === 'string' ? classNames : '' %>" lang="<%= post.lang || config.language %>">
+<article class="h-entry post <%= typeof classNames === 'string' ? classNames : '' %>" lang="<%= post.lang || config.language %>">
   <% if (features.indexOf('header') !== -1) { %>
   <header class="post__header">
     <h2 class="post__headline">
-      <a href="<%= url_for(post.path) %>" title="<%= post.title %>" rel="bookmark"><%= post.title %></a>
+      <a href="<%= url_for(post.path) %>" title="<%= post.title %>" rel="bookmark" class="p-name"><%= post.title %></a>
     </h2>
 
     <div class="post__metadata">
-      <time class="post__date headline-list__date" datetime="<%= d.toISOString() %>">
+      <time class="post__date headline-list__date dt-published" datetime="<%= d.toISOString() %>">
         <%= date(d) %></span>
       </time>
     </div>
@@ -15,7 +15,7 @@
   <% } %>
 
   <% if (features.indexOf('summary') !== -1) { %>
-  <div class="post__summary<%= features.indexOf('content') !== -1 ? ' post__summary--plus-content' : '' %>">
+  <div class="post__summary p-summary <%= features.indexOf('content') !== -1 ? ' post__summary--plus-content' : '' %>">
     <%- post.description || post.excerpt %>
 
     <a href="<%= url_for(post.path) %>#more" class="continue-reading">Continue reading</a>
@@ -23,7 +23,7 @@
   <% } %>
 
   <% if (features.indexOf('content') !== -1) { %>
-  <div class="post__content post__content--text" data-signed-by="<%= features.indexOf('signature') !== -1 ? 'Thomas': '' %>">
+  <div class="post__content post__content--text e-content" data-signed-by="<%= features.indexOf('signature') !== -1 ? 'Thomas': '' %>">
     <% if (locals.content && locals.content.title) { -%>
       <h1>Notes</h1>
     <% } -%>
