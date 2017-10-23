@@ -31,6 +31,9 @@
 
   <% if (features.indexOf('signature') !== -1) { %>
   <footer class="post__footer">
+    <% if (post.thanks_to) { %>
+    <%- markdown(`Thanks to ${post.thanks_to}`) %>
+    <% } %>
     <p>
       Published in
       <time datatime="<%= d.toISOString() %>"><%= d.format(config.date_format) %></time>.
