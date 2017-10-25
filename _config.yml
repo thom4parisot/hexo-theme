@@ -27,3 +27,5 @@ less:
   paths:
     - node_modules/css.oncletom.io/src/less
     - node_modules/bootstrap/less
+    - node_modules/hexo-theme-oncletom/node_modules
+    - node_modules

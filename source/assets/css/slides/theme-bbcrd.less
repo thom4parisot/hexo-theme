@@ -1,0 +1,59 @@
+@import (reference) '_variables';
+
+@brand-primary:           #006fc9;
+@brand-darker:            #006fc9;
+
+@font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+@headings-font-family:    Gill Sans, sans-serif;
+
+@gray:                   #495057;
+@gray-light:             #999;
+
+@import './components/_reveal-overrides';
+@import './components/_reveal-backgrounds';
+
+.reveal {
+  strong {
+    background: transparent;
+    color: #fff;
+    font-weight: inherit;
+    padding: .05em .3em;
+    position: relative;
+
+    &:before {
+      background: @brand-primary;
+      content: "";
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      transform: skewX(-15deg);
+      width: 100%;
+      z-index: -1;
+    }
+  }
+}
+
+.contrasted {
+  .reveal {
+    .state-background {
+      background-color: @brand-primary;
+    }
+
+    .slides .present {
+      color: #fff;
+      text-shadow: 1px 1px rgba(0, 0, 0, .5);
+    }
+
+    em {
+      color: #ff0;
+    }
+
+    strong {
+      color: @brand-primary;
+      &:before {
+        background-color: #fff;
+      }
+    }
+  }
+}
