@@ -4,7 +4,9 @@
   "description": "Hexo theme for my portfolio and stuff.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "browserify source/assets/js/slides.js -o source/assets/js/slides.bundle.js -t [ babelify --presets [ env ] ]",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "watchify source/assets/js/slides.js -dv -o source/assets/js/slides.bundle.js -t [ babelify --presets [ env ] ]"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,15 @@
   "homepage": "https://github.com/oncletom/hexo-theme#readme",
   "dependencies": {
     "css.oncletom.io": "github:oncletom/css.oncletom.io",
-    "reading-time": "^1.1.0"
+    "highlight.js": "^9.12.0",
+    "reading-time": "^1.1.0",
+    "reveal.js": "^3.5.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0",
+    "browserify": "^14.5.0",
+    "watchify": "^3.9.0"
   }
 }
