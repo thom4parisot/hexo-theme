@@ -60,6 +60,7 @@
         </form>
       </section>
 
+      <% if (site.categories.length) { %>
       <section>
         <div class="tag-column">
           <h3>/categories</h3>
@@ -76,6 +77,7 @@
           <%- list_archives({type: "yearly", order: "desc", format: "YYYY", show_count: false }) %>
         </div>
       </section>
+      <% } %>
     </aside>
 
   </section>

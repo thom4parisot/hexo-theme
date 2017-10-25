@@ -2,13 +2,48 @@
 <article class="h-entry post <%= typeof classNames === 'string' ? classNames : '' %>" lang="<%= post.lang || config.language %>">
   <header class="post__header"<%= features.indexOf('header') !== -1 ? '' : 'hidden'%>>
     <h2 class="post__headline">
-      <a href="<%= url_for(post.path) %>" title="<%= post.title %>" rel="bookmark permalink" class="u-url p-name"><%= post.title %></a>
+      <a href="<%= url_for(post.external || post.path) %>" title="<%= post.title %>" rel="bookmark permalink" class="u-url p-name"><%= post.title %></a>
     </h2>
 
     <div class="post__metadata">
-      <time class="post__date headline-list__date dt-published" datetime="<%= d.toISOString() %>">
+      <time class="metadata metadata--date post__date headline-list__date dt-published" datetime="<%= d.toISOString() %>">
         <%= date(d) %></span>
       </time>
+
+      <% if (post.event && post.event.name) {%>
+      <span class="metadata">
+        •
+        <a href="<%= post.event.url %>"><%= post.event.name %></a>
+      </span>
+      <% } %>
+
+      <% if (post.event && post.event.location) {%>
+      <span class="metadata metadata--location">
+        <svg class="icon">
+          <title><%= _p('metadata.location') %></title>
+          <use xlink:href="<%= url_for('/assets/icons.svg#location') %>"></use>
+        </svg>
+        <%= post.event.location %>
+      </span>
+      <% } %>
+
+      <% if (post.event && post.video) {%>
+      <span class="metadata metadata--video">
+        <svg class="icon">
+          <use xlink:href="<%= url_for('/assets/icons.svg#youtube') %>"></use>
+        </svg>
+        <a href="<%= post.video %>"><%= _p('watch') %></a>
+      </span>
+      <% } %>
+
+      <% if (post.event && post.audio) {%>
+      <span class="metadata metadata--audio">
+        <svg class="icon">
+          <use xlink:href="<%= url_for('/assets/icons.svg#youtube') %>"></use>
+        </svg>
+        <a href="<%= post.audio %>"><%= _p('listen') %></a>
+      </span>
+      <% } %>
     </div>
   </header>
 
