@@ -1,6 +1,6 @@
 {
   "name": "hexo-theme-oncletom",
-  "version": "1.5.4",
+  "version": "1.6.0",
   "description": "Hexo theme for my portfolio and stuff.",
   "main": "index.js",
   "scripts": {
