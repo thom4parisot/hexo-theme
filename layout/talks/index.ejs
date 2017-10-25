@@ -1,22 +1,16 @@
 <%- partial('header') %>
-<%- partial('cover/hello', { post: page.posts.first() }) %>
+<% const posts = site.posts.find({ title: {$ne: ''} }).sort('date', -1) %>
+
+<%- partial('cover/hello', { post: posts.first() }) %>
 
 <main class="timeline" role="main">
-  <section class="timeline-section" id="most-recent">
-    <%- partial("blog/post-single", {
-      post: page.posts.first(),
-      classNames: 'post--hero',
-      features: ['header', 'summary']
-    }) %>
-  </section>
-
-  <section class="timeline-section" id="a-bit-older">
+  <section class="timeline-section">
     <ol class="headline-list">
-    <% page.posts.forEach(post => { %>
+    <% posts.forEach(post => { %>
       <li class="headline-list__item">
         <%- partial("blog/post-single", {
           post,
-          features: ['header', 'summary']
+          features: ['header', 'content']
         }) %>
       </li>
     <% }) %>

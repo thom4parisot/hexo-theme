@@ -1,0 +1,14 @@
+<div class="reveal">
+  <main class="slides" lang="<%= page.language || site.config.language %>">
+      <% (page.slides || []).forEach(slide => { %>
+        <section
+          data-separator-notes="^~~~~"
+          data-separator-vertical="\n@@@\n"
+          data-markdown>
+          <textarea data-template><%- markdown_slide({ page, slide }) %></textarea>
+        </section>
+      <% }) %>
+  </main>
+</div>
+
+<%- js(['assets/js/slides.bundle.js']) %>
