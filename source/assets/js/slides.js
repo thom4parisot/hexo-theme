@@ -31,7 +31,6 @@ Reveal.initialize({
   transition: 'linear'
 });
 
-// Reveal.addEventListener('ready', () => hljs.initHighlighting());
 Reveal.addEventListener('ready', function() {
   toArray(document.querySelectorAll('a > img')).forEach(function(el){
     el.parentNode.classList.add('image');
