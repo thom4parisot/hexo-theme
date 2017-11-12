@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "browserify source/assets/js/slides.js -o source/assets/js/slides.bundle.js",
-    "postinstall": "cp -rf node_modules/reveal.js/plugin/notes source/vendor && git add source/vendor/notes",
+    "copy:vendor": "cp -rf node_modules/reveal.js/plugin/notes source/vendor && git add source/vendor/notes",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "watchify source/assets/js/slides.js -dv -o source/assets/js/slides.bundle.js"
   },
