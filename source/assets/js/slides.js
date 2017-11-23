@@ -12,9 +12,13 @@ hljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascri
 
 const RevealMarkdown = require('reveal.js/plugin/markdown/markdown.js');
 
+const {colors, fonts} = require('./random.js');
+
 var toArray = function(arr){
   return Array.prototype.slice.call(arr);
 };
+
+const random = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 RevealMarkdown.initialize();
 Reveal.initialize({
@@ -55,6 +59,23 @@ Reveal.addEventListener('ready', function() {
   toArray(document.querySelectorAll('section[data-markdown]')).forEach(function(section){
     if (section.querySelectorAll('pre > code').length){
       section.setAttribute('data-state', 'code');
+    }
+  });
+
+  const App = document.querySelector('[role="application"]');
+
+  Reveal.addEventListener('slidechanged', ({previousSlide, currentSlide}) => {
+    if (currentSlide.dataset.state === 'random')
+    {
+      const [color, backgroundColor] = random(colors);
+      App.style.color = color;
+      App.style.backgroundColor = backgroundColor;
+      App.style.fontFamily = random(fonts);
+    }
+    else {
+      App.style.color = null;
+      App.style.backgroundColor = null;
+      App.style.fontFamily = null;
     }
   });
 });
