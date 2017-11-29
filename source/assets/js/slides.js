@@ -1,6 +1,10 @@
 'use strict';
 
-const Reveal = global.Reveal = require('reveal.js');
+import Reveal from 'reveal.js';
+global.Reveal = Reveal;
+
+import RandomColors from 'reveal-random-colors';
+import RevealMarkdown from 'reveal.js/plugin/markdown/markdown.js';
 
 const hljs = global.hljs = require('highlight.js/lib/highlight');
 hljs.registerLanguage('bash', require('highlight.js/lib/languages/bash'));
@@ -10,9 +14,6 @@ hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
 hljs.registerLanguage('asciidoc', require('highlight.js/lib/languages/asciidoc'));
 hljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'));
 
-const RevealMarkdown = require('reveal.js/plugin/markdown/markdown.js');
-
-const {colors, fonts} = require('./random.js');
 
 var toArray = function(arr){
   return Array.prototype.slice.call(arr);
@@ -35,6 +36,7 @@ Reveal.initialize({
   transition: 'linear'
 });
 
+Reveal.addEventListener('slidechanged', RandomColors());
 Reveal.addEventListener('ready', function() {
   toArray(document.querySelectorAll('a > img')).forEach(function(el){
     el.parentNode.classList.add('image');
@@ -59,23 +61,6 @@ Reveal.addEventListener('ready', function() {
   toArray(document.querySelectorAll('section[data-markdown]')).forEach(function(section){
     if (section.querySelectorAll('pre > code').length){
       section.setAttribute('data-state', 'code');
-    }
-  });
-
-  const App = document.querySelector('[role="application"]');
-
-  Reveal.addEventListener('slidechanged', ({previousSlide, currentSlide}) => {
-    if (currentSlide.dataset.state === 'random')
-    {
-      const [color, backgroundColor] = random(colors);
-      App.style.color = color;
-      App.style.backgroundColor = backgroundColor;
-      App.style.fontFamily = random(fonts);
-    }
-    else {
-      App.style.color = null;
-      App.style.backgroundColor = null;
-      App.style.fontFamily = null;
     }
   });
 });
