@@ -12,8 +12,10 @@ hexo.extend.helper.register('page_css', (page) => {
       `assets/css/slides/theme-${page.theme || 'oncletom'}.css`
     ];
   }
-  // photography layouts
-  // layouts[page.layout] || []
+  // photography layouts (as defined in _config.yml)
+  else if (layouts[page.layout]) {
+    files = files.concat(layouts[page.layout]);
+  }
 
   return files;
 });

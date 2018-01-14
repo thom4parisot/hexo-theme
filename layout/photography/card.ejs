@@ -1,5 +1,4 @@
 <% const d = moment(post.date) %>
-<% const features = Object.assign({}, locals.features) %>
 <article class="card" lang="<%= post.lang || config.language %>">
   <header class="card__header">
     <% if (post.cover) { %>
@@ -15,7 +14,7 @@
   </div>
 
   <ul class="card__metadata">
-    <% if (features.date) { -%>
+    <% if (features.includes('date')) { -%>
     <li class="metadata metadata--date">
       <time class="card__date" datetime="<%= d.toISOString() %>">
         <%= date(d) -%></span>

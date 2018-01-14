@@ -1,4 +1,12 @@
 repost_tag: This blogpost has originally been published on %s as %s.
+pictures:
+  label:
+    one: picture
+    other: pictures
+  count:
+    zero: No picture
+    one: 1 picture
+    other: "%d pictures"
 metadata:
   label:
     one: picture
