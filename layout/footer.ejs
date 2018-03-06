@@ -7,13 +7,19 @@
         </a>
       </p>
 
-      <p class="p-note">
-        Hello I am <a href="/slash-me/" class="p-name" rel="me">Thomas</a>, a french <em class="p-job-title">software designer</em> who lives in <em class="p-locality">London</em> and co-founded the <a href="https://dtc-innovation.org" class="p-org h-card" target="_blank">dtc innovation</a>  co-op 🙂<br>
-
-        I previously worked at <a href="http://bbc.co.uk/rd" class="p-org h-card" target="_blank">BBC R&amp;D</a> and curated the <a href="https://sudweb.fr" class="p-org h-card" target="_blank">Sud Web</a> conference.
-      </p>
+      <%- markdown(config.description || theme.description) %>
 
       <ul class="list-unstyled">
+        <li class="menu-item">
+          <svg class="icon" aria-hidden="true"><use xlink:href="<%= url_for('/assets/icons.svg#user') %>"></use></svg>
+
+          <a href="<%= url_for('/slash-me/') %>" rel="me" title="Biography">Learn more about my work</a>
+        </li>
+        <li class="menu-item" lang="fr">
+          <svg class="icon" aria-hidden="true"><use xlink:href="<%= url_for('/assets/icons.svg#book') %>"></use></svg>
+
+          <a href="<%= url_for('/node.js/') %>"><q>Apprendre Node.js</q> (gratuit)</a>
+        </li>
         <li class="menu-item">
           <svg class="icon" aria-hidden="true"><use xlink:href="<%= url_for('/assets/icons.svg#twitter') %>"></use></svg>
 
