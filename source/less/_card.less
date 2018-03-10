@@ -1,0 +1,73 @@
+@import (reference) 'mixins.less';
+@import (reference) 'type.less';
+@import './_links';
+@import './_text';
+@import './_hero';
+
+
+.card {
+  border-bottom: 1px solid @gray-light;
+  padding-bottom: .5em;
+
+  .card__cover {
+    background-color: @gray-lighter;
+    background-size: cover;
+    background-position: center center;
+    height: 200px;
+
+    a {
+      display: block;
+      height: 100%;
+    }
+  }
+
+  .card__headline {
+    padding-bottom: .5em;
+    padding-top: .5em;
+
+    a {
+      .highlight(@gray, .28em);
+    }
+  }
+
+  .card__summary {
+    min-height: (4em * @line-height-base);
+
+    a {
+      .fancy-link(@gray, @brand-primary);
+    }
+  }
+
+  .card__metadata {
+    .list-inline;
+
+    color: @gray-light;
+
+    .metadata,
+    .metadata__list {
+      vertical-align: top;
+    }
+
+    .metadata--features .icon {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .metadata:empty {
+      display: none;
+    }
+
+    .metadata__list {
+      .list-inline;
+      display: inline;
+    }
+
+    .metadata--date {
+      time {
+        border: 1px solid @gray-light;
+        border-radius: 3px;
+        padding: 3px 5px;
+      }
+    }
+  }
+}

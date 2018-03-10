@@ -1,0 +1,23 @@
+.hero (@background, @border) {
+  background-color: @background;
+
+  padding: @grid-gutter-width/2;
+  position: relative;
+
+  @media (min-width: @screen-sm-min) {
+    border: 4px solid multiply(@background, @border);
+  }
+
+  &:empty {
+    display: none;
+  }
+
+  p:last-of-type,
+  footer:last-child {
+    margin-bottom: 0;
+  }
+
+  footer {
+    margin: @grid-gutter-width/2 0 0;
+  }
+}

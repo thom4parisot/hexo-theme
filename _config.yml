@@ -25,7 +25,8 @@ less:
     series-default:
       - assets/css/series/default.css
   paths:
-    - node_modules/css.oncletom.io/src/less
+    - source/less
     - node_modules/bootstrap/less
+    - node_modules/hexo-theme-oncletom/source/less
     - node_modules/hexo-theme-oncletom/node_modules
     - node_modules

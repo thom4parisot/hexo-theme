@@ -1,0 +1,31 @@
+::selection {
+  color: white;
+  background: @link-color;
+}
+
+blockquote {
+  border: none;
+  position: relative;
+
+  &:before,
+  &:after {
+    font-size: 10em;
+    opacity: .25;
+    position: absolute;
+    z-index: 0;
+  }
+
+  &:before {
+    content: "\201C";
+    left: 0;
+    line-height: 1;
+    top: -.1em;
+  }
+
+  &:after {
+    content: "\201D";
+    bottom: -.1em;
+    line-height: 0;
+    right: 0;
+  }
+}

@@ -1,0 +1,59 @@
+@import (reference) 'grid.less';
+
+.header {
+  color: #fff;
+
+  h1, h2, blockquote {
+    text-shadow: 0 0 2px fade(#fff, 30%);
+  }
+
+  h2 {
+    padding: 0;
+  }
+
+  .container-fluid {
+    .container-fluid;
+  }
+
+  .avatar {
+    border-radius: 2px;
+    margin-right: .25em;
+    max-height: 100%;
+    vertical-align: top;
+  }
+
+  .navbar {
+    border: none;
+    border-bottom: 2px solid @brand-primary;
+    border-radius: 0;
+    font-family: @font-family-sans-serif;
+    font-weight: 300;
+  }
+
+  .navbar-collapse {
+
+  }
+
+  .navbar-brand small {
+    color: #fafafa;
+  }
+}
+
+@media (max-width: @screen-xs-max) {
+
+  h1 {
+    font-size: ceil((@font-size-base * 2.6154));
+  }
+  h2,
+  .site-title {
+    // font-size: ceil((@font-size-base * 2.1151));
+    word-wrap: break-word;
+  }
+  h3 {
+    // font-size: @font-size-base;
+    word-wrap: break-word;
+  }
+  h4 {
+    // font-size: ceil((@font-size-base * 0.8077));
+  }
+}

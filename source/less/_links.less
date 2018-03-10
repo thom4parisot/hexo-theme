@@ -1,0 +1,41 @@
+.fancy-link (@foreground, @underline, @background: transparent) {
+  background-color: @background;
+  color: @foreground;
+  text-decoration: none;
+
+  text-shadow: 1px 1px 0 @body-bg, -1px 1px 0 @body-bg, 2px 0 0 @body-bg, -2px 0 0 @body-bg;
+  box-shadow: inset 0 -0px 0 0 @body-bg, inset 0 -2px 0 0 fade(@underline, 70%);
+
+  &:hover, &:focus {
+    color: darken(@foreground, 15%);
+    box-shadow: inset 0 -0px 0 0 @body-bg, inset 0 -2px 0 0 fade(@underline, 85%);
+    text-decoration: none;
+  }
+}
+
+.highlight (@color, @width: 5px, @opacity: 10%) {
+  box-shadow: inset 0 -@width 0 0 fade(@color, @opacity);
+  text-decoration: none;
+}
+
+.continue-reading {
+  .prefix();
+  .highlight(@gray);
+}
+
+.link-pill (@color, @background){
+  @darken-factor: 25%;
+  @fade-factor: 13%;
+
+  background-color: fade(@background, @fade-factor);
+  border-radius: 3px;
+  color: @color;
+  padding: 3px 8px;
+
+  &:hover,
+  &:focus {
+    background-color: fade(darken(@background, @darken-factor), @fade-factor);
+    color: darken(@color, @darken-factor/3);
+    text-decoration: none;
+  }
+}

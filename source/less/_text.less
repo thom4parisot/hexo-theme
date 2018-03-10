@@ -1,0 +1,32 @@
+.text-dash (@background) {
+  position: relative;
+
+  &:before {
+    background-color: @background;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 25%;
+    bottom: 25%;
+    right: 0;
+    left: 0;
+    z-index: -1;
+  }
+}
+
+
+.prefix (@text: '•••') {
+  &:after {
+    content: @text;
+    margin-left: .2em;
+    opacity: .66;
+  }
+}
+
+[data-signed-by]:not([data-signed-by]="") {
+  &:after {
+    content: '— ' attr(data-signed-by) !important;
+    display: block;
+    color: @gray-light;
+  }
+}

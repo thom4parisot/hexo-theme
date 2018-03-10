@@ -1,0 +1,105 @@
+@import (reference) 'grid.less';
+@import (reference) 'mixins.less';
+@import './_links';
+
+.post-cover {
+  height: 80vh;
+  margin-bottom: 1.5em;
+  position: relative;
+
+  /* fix for iPad */
+  @media only screen
+  and (min-device-width : 768px)
+  and (max-device-width : 1024px)
+  and (orientation : landscape) {
+    height: 768px;
+  }
+  @media only screen
+  and (min-device-width : 768px)
+  and (max-device-width : 1024px)
+  and (orientation : portrait) {
+    height: 1024px;
+  }
+
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 480px)
+  and (orientation : landscape) {
+    height: 320px;
+  }
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 480px)
+  and (orientation : portrait) {
+    height: 480px;
+  }
+
+  .post-cover__hero {
+    background-position: center center;
+    background-size: cover;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+
+    &:after {
+      background-color: #000;
+      content: " ";
+      display: block;
+      opacity: 0.3;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .post-cover__body {
+    @color: #f0f0f0;
+
+    bottom: 0;
+    color: @color;
+    font-family: @font-family-sans-serif;
+    font-weight: 300;
+    position: absolute;
+    text-shadow: 1px 1px 1px fade(#000, 80%);
+    width: 100%;
+    z-index: 10;
+
+    section {
+      .make-row();
+
+      .post-cover__content {
+        .make-md-column(8);
+        .make-md-column-push(2);
+      }
+    }
+
+    .container {
+      .container-fluid;
+    }
+
+    em, strong {
+      background-color: fade(@brand-primary, 70%);
+      font-style: normal;
+      padding-left: .25em;
+      padding-right: .25em;
+    }
+
+    h1, h2 {
+      line-height: 1.35;
+      padding-top: 0;
+    }
+
+    .icon {
+      margin-right: .1em;
+      margin-bottom: -.15em;
+    }
+
+    a {
+      color: @body-bg;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

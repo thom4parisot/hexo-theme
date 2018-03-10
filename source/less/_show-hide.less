@@ -1,0 +1,9 @@
+.show-hide-content {
+  max-height: @line-height-computed * 2;
+  overflow-y: hidden;
+
+  .show-next-content:focus + [hidden],
+  .show-next-content:active + [hidden] {
+    display: block;
+  }
+}
