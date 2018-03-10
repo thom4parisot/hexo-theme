@@ -10,7 +10,7 @@ hexo.extend.helper.register('description', function(page) {
     description = page.content;
   }
   else {
-    description = this.config.description;
+    description = this.config.description || this.theme.description;
   }
 
   return this.strip_html(description)
