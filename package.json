@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/oncletom/hexo-theme#readme",
   "dependencies": {
-    "bootstrap": "~3.1.1",
+    "bootstrap": "~4.0.0",
     "highlight.js": "^9.12.0",
     "reading-time": "^1.1.0",
     "reveal-random-colors": "^1.0.1",
