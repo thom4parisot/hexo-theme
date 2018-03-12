@@ -13,7 +13,7 @@
     <ol class="card-list">
     <% site.pages.find({ layout: 'reading-note' }).sort('updated', -1).forEach(post => { %>
       <li class="card-list__item">
-        <%- partial("photography/card", { post }) %>
+        <%- partial("photography/card", { post, features: ["date"] }) %>
       </li>
     <% }) %>
     </ol>
