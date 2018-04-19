@@ -38,6 +38,8 @@ Reveal.initialize({
 
 Reveal.addEventListener('slidechanged', RandomColors());
 Reveal.addEventListener('ready', function() {
+  window.localStorage.setItem('reveal-speaker-layout', 'tall');
+  
   toArray(document.querySelectorAll('a > img')).forEach(function(el){
     el.parentNode.classList.add('image');
   });
