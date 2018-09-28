@@ -28,9 +28,10 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_GB">
 <meta property="og:site_name" content="<%= config.title %>">
+<link rel="me" href="<%= config.graph.mastodon %>">
 <% if (config.webmentions) { -%>
 <% Object.entries(config.webmentions.features).forEach(f => { -%>
-<link rel="<%= f[0] %>" href="<%= config.webmentions.url %>/<%= f[1] %>" >
+<link rel="<%= f[0] %>" href="<%= config.webmentions.url %>/<%= f[1] %>">
 <% }) -%>
 <% } -%>
 <%- algolia_search_config() %>
