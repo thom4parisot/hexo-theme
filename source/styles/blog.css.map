@@ -1,0 +1,1 @@
+{"version":3,"sources":["../source/css/blog.css"],"names":[],"mappings":"AAAA,wBAAwB;;AAExB;EACE,yBAAyB;CAC1B","file":"blog.css","sourcesContent":["@import 'variables.css';\n\nbody {\n  color: var(--dark-shade);\n}\n"]}

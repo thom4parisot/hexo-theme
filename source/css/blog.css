@@ -1,0 +1,9 @@
+@import '_variables.css';
+
+body {
+  color: var(--dark-shade)
+}
+
+a {
+  color: var(--brand-color)
+}

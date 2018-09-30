@@ -1,13 +1,18 @@
 {
   "name": "hexo-theme-oncletom",
   "version": "1.10.3",
+  "private": true,
   "description": "Hexo theme for my portfolio and stuff.",
   "main": "index.js",
   "scripts": {
-    "build": "browserify source/assets/js/slides.js -o source/assets/js/slides.bundle.js",
+    "build": "run-p 'build:*'",
+    "build:js": "browserify source/assets/js/slides.js -o source/assets/js/slides.bundle.js",
+    "build:css": "postcss source/css/*.css --config postcss.config.js --dir source/styles",
     "copy:vendor": "cp -rf node_modules/reveal.js/plugin/notes source/vendor && git add source/vendor/notes",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "watchify source/assets/js/slides.js -dv -o source/assets/js/slides.bundle.js"
+    "watch": "run-p 'watch:*'",
+    "watch:js": "watchify source/assets/js/slides.js -dv -o source/assets/js/slides.bundle.js",
+    "watch:css": "postcss source/css/*.css --watch --verbose --config postcss.config.js --dir source/styles --map"
   },
   "repository": {
     "type": "git",
@@ -23,17 +28,20 @@
   },
   "homepage": "https://github.com/oncletom/hexo-theme#readme",
   "dependencies": {
-    "bootstrap": "~3.1.1",
     "highlight.js": "^9.12.0",
-    "reading-time": "^1.1.0",
+    "reading-time": "^1.1.3",
     "reveal-random-colors": "^1.0.1",
-    "reveal.js": "^3.6.0"
+    "reveal.js": "^3.7.0"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babelify": "^8.0.0",
-    "browserify": "^14.5.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babelify": "^10.0.0",
+    "browserify": "^16.2.3",
+    "postcss": "^7.0.4",
+    "postcss-cli": "^6.0.0",
+    "postcss-import": "^12.0.0",
+    "postcss-preset-env": "^6.0.7",
     "watchify": "^3.11.0"
   },
   "browserify": {
