@@ -1,19 +1,17 @@
-description: |
-  Hey, I'm **Thomas** Parisot, a french **software designer**.
-
-  Recently, I have been up to writing a book, team facilitation, Node.js programming and user research.
-
-  I am **nomadic at the moment** • been a Londoner for 5 years and a Bordeaux chap for almost 20 years.
+description: >
+  Hello, I'm Thomas Parisot, a french web developer with team facilitation and user research skills.
+  My mission is to reinforce replicable, sustainable and open dynamics which benefit to citizens.
+  My values are …, … and ….
 
 links:
   - namespace: blog
-    label: Blog
+    label: Home
     href: /
   - namespace: books
-    label: Node.js
-    href: /node.js/
+    label: Publications
+    href: /publications/
   - namespace: talks
-    label: Talks
+    label: Presentations
     href: /talks/
   - namespace: reading-notes
     label: Reading Notes
@@ -23,7 +21,7 @@ links:
     href: /photography/
   - namespace: about
     label: About
-    href: /slash-me/
+    href: /about/
 
 less:
   layouts:

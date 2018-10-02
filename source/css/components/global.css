@@ -1,0 +1,29 @@
+@import '../modifiers/images.css';
+
+body {
+  background-color: var(--light-shade);
+  border-top: 4px solid var(--light-accent);
+  color: var(--dark-shade);
+  padding: 2rem;
+}
+
+body > *:first-child {
+  margin-top: 0;
+}
+
+a {
+  color: var(--brand-color);
+  text-decoration: underline;
+}
+a:hover, a:focus {
+  text-decoration: none;
+}
+
+.next::after {
+  content: "";
+  display: block;
+  border-top: 4px solid var(--light-accent);
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  width: 160px;
+}

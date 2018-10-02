@@ -1,27 +1,5 @@
 <%- partial('header') %>
-<%- partial('cover/hello', { post: page.posts.first() }) %>
 
-<main class="timeline" role="main">
-  <section class="timeline-section">
-    <ol class="headline-list">
-      <li>
-        <%- partial("blog/post-single", {
-          post: page.posts.first(),
-          classNames: 'post--hero',
-          features: ['header', 'summary']
-        }) %>
-      </li>
-
-    <% page.posts.slice(1, 6).forEach(post => { %>
-      <li class="headline-list__item">
-        <%- partial("blog/post-single", {
-          post,
-          features: ['header', 'summary']
-        }) %>
-      </li>
-    <% }) %>
-    </ol>
-  </section>
-</main>
+<%- partial('blog/hero', { post: page.posts.first() }) %>
 
 <%- partial("footer", {}, { cache: true }) %>

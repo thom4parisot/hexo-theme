@@ -1,0 +1,54 @@
+article.article {
+  position: relative;
+}
+article.article .cover {
+  background-color: var(--light-accent);
+  border-bottom: 4px solid var(--light-accent);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  line-height: 0;
+  max-height: 300px;
+  overflow: hidden;
+}
+article.article .cover:empty {
+  min-height: 300px;
+}
+
+article.article h1 {
+  padding: 1rem 0;
+}
+  article.article h1 a {
+    color: var(--dark-shade);
+    text-decoration: none;
+  }
+
+  /* article.article h1 a[rel="permalink"]:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  } */
+
+article.article .metadata {
+  color: var(--dark-accent);
+  font-size: .8rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: sans-serif;
+  margin: -1.5rem 0 2.5rem;
+}
+
+article.article .read-more a {
+  text-decoration: none;
+}
+  article.article .read-more a::after {
+    content: "→";
+    display: inline-block;
+    padding-left: .2em;
+    transition: .3s ease-in-out;
+  }
+    article.article .read-more a:hover::after {
+      transform: translateX(10px);
+    }

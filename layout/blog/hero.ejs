@@ -1,0 +1,19 @@
+<article class="article container" id="latest-writing" lang="<%= post.lang || config.language %>">
+  <div class="cover">
+    <% if (post.cover) { %><img src="<%= coverUrl(post, config) %>" alt="" class="is-responsive is-cover"><% } %>
+  </div>
+
+  <h1><a href="<%= url_for(post.path) %>" rel="permalink"><%= post.title %></a></h1>
+
+  <ul class="metadata is-inline is-dotted">
+    <li><time class="dt-published" datetime="<%= post.date.toISOString() %>">
+      <%= date(post.date) %>
+    </time></li>
+  </ul>
+
+  <div class="summary"><%- post.description || post.excerpt %></div>
+
+  <p class="read-more next">
+    <a href="<%= url_for(post.path) %>">Read the rest</a>
+  </p>
+</article>

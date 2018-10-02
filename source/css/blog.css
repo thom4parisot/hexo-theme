@@ -1,9 +1,10 @@
-@import '_variables.css';
+@import 'normalize.css';
+@import 'includes/_fonts.css';
+@import 'includes/_variables.css';
 
-body {
-  color: var(--dark-shade)
-}
+@import 'includes/_typography.css';
+@import 'includes/_grid.css';
 
-a {
-  color: var(--brand-color)
-}
+@import 'components/global.css';
+@import 'components/header.css';
+@import 'components/article.css';

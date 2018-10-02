@@ -1,0 +1,42 @@
+body {
+  font: 100% / 1.25 Butler, serif;
+}
+
+  @media screen and (min-width: 768px) {
+    body {
+      font: 112.5% / 1.25 Butler, serif;
+    }
+  }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Butler, serif;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 1.250;
+  margin: 0;
+}
+
+h1 {
+  font-size:3.42308rem;
+  padding:1.38345rem 0;
+}
+h2 {
+  font-size:2.61538rem;
+  padding:1.28673rem 0;
+}
+h3 {
+  font-size:2.11538rem;
+  padding:1.44313rem 0;
+}
+h4 {
+  font-size: 1.61538rem;
+  padding:1.30946rem 0;
+}
+h5 {
+  font-size:1.30769rem;
+  padding:1.2869rem 0;
+}
+h6 {
+  font-size:1rem;
+  padding:1.25rem 0;
+}

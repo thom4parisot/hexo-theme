@@ -1,0 +1,15 @@
+ul.is-inline,
+ol.is-inline {
+  padding-left: 0;
+}
+
+ul.is-inline > li,
+ol.is-inline > li {
+  display: inline;
+}
+
+ul.is-dotted > li:not(:last-of-type):after,
+ol.is-dotted > li:not(:last-of-type):after {
+  content: "•";
+  padding-left: .3em;
+}

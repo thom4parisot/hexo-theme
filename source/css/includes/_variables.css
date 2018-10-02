@@ -9,4 +9,7 @@
   --dark-accent: #D23B62;
   /* Use as the text color for dark-on-light designs, or as the background for inverted designs. */
   --dark-shade: #1F1F43;
+
+  --type-headlines: 'Butler Medium', serif;
+  --type-body: Butler, serif;
 }

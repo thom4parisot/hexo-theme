@@ -1,27 +1,16 @@
-<header class="header">
-  <nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" id="static-top-navbar-toggle-button" data-target="#static-top-navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+<header class="header container">
 
-        <a class="navbar-brand" href="<%= config.root %>" rel="home">
-          <img src="/assets/avatar.jpg" alt="" class="avatar">
-          <%- config.title.replace('.io', '<small>.io</small>') %>
-        </a>
-      </div>
+  <div class="profile-picture">
+    <img src="/assets/avatar.jpg" alt="" class="is-avatar is-responsive">
+  </div>
 
-      <div class="collapse navbar-collapse" id="static-top-navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <% getNavLinks(theme.links).forEach(link => { %>
-            <li class="<%= link.classNames %>"><a href="<%= link.href %>"><%= link.label %></a></li>
-          <% }) %>
-        </ul>
-      </div>
-    </div>
+  <div class="presentation"><%- markdown(theme.description) %></div>
+
+  <nav>
+    <ul class="is-inline is-dotted">
+      <% getNavLinks(theme.links).forEach(link => { %>
+        <li class="<%= link.classNames %>"><a href="<%= link.href %>"><%= link.label %></a></li>
+      <% }) %>
+    </ul>
   </nav>
 </header>
