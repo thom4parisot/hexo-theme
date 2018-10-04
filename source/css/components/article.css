@@ -1,3 +1,5 @@
+@import './code.css';
+
 article.article {
   position: relative;
 }
@@ -52,3 +54,20 @@ article.article .read-more a {
     article.article .read-more a:hover::after {
       transform: translateX(10px);
     }
+
+article.article .post__content h1 {
+  @extend h2;
+}
+article.article .post__content h2 {
+  @extend h3;
+}
+article.article .post__content h3 {
+  @extend h4;
+}
+article.article .post__content h4 {
+  @extend h5;
+}
+
+article.article .post__content p > img {
+  border: 2rem solid var(--light-accent);
+}

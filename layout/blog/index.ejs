@@ -1,5 +1,7 @@
 <%- partial('header') %>
 
-<%- partial('blog/hero', { post: page.posts.first() }) %>
+<main role="main">
+  <%- partial('blog/hero', { post: page.posts.first() }) %>
+</main>
 
 <%- partial("footer", {}, { cache: true }) %>

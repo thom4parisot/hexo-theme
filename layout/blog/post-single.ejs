@@ -1,50 +1,59 @@
 <% const d = moment(post.date) -%>
-<article class="h-entry post <%= typeof classNames === 'string' ? classNames : '' %>" lang="<%= post.lang || config.language %>">
+<article class="h-entry post article <%= typeof classNames === 'string' ? classNames : '' %> container" lang="<%= post.lang || config.language %>">
   <header class="post__header"<%= features.indexOf('header') !== -1 ? '' : 'hidden'%>>
-    <h2 class="post__headline">
-      <a href="<%= url_for(post.external || post.path) %>" title="<%= post.title %>" rel="bookmark permalink" class="u-url p-name"><%= post.title %></a>
-    </h2>
+    <% if (post.cover) { %>
+    <div class="cover">
+      <img src="<%= coverUrl(post, config) %>" alt="" class="is-responsive is-cover">
+    </div>
+    <% } %>
 
-    <div class="post__metadata">
-      <time class="metadata metadata--date post__date headline-list__date dt-published" datetime="<%= d.toISOString() %>">
-        <%= date(d) %></span>
-      </time>
+    <h1><%= post.title %></h1>
+
+    <ul class="metadata is-inline is-dotted">
+      <li>
+        <time class="metadata metadata--date post__date headline-list__date dt-published" datetime="<%= d.toISOString() %>">
+          <%= date(d) %></span>
+        </time>
+      </li>
+
+      <% if (post.categories && post.categories.length) { %>
+      <%- post.categories.map(({name}) => `<li>${name}</li>`).join(' ') %>
+      <% } %>
 
       <% if (post.event && post.event.name) {%>
-      <span class="metadata">
-        •
+      <li>
         <a href="<%= post.event.url %>"><%= post.event.name %></a>
-      </span>
+      </li>
       <% } %>
 
       <% if (post.event && post.event.location) {%>
-      <span class="metadata metadata--location">
+      <li class="metadata--location">
         <svg class="icon">
           <title><%= _p('metadata.location') %></title>
           <use xlink:href="<%= url_for('/assets/icons.svg#location') %>"></use>
         </svg>
         <%= post.event.location %>
-      </span>
+      </li>
       <% } %>
 
       <% if (post.event && post.video) {%>
-      <span class="metadata metadata--video">
+      <li class="metadata--video">
         <svg class="icon">
           <use xlink:href="<%= url_for('/assets/icons.svg#youtube') %>"></use>
         </svg>
         <a href="<%= post.video %>"><%= _p('watch') %></a>
-      </span>
+      </li>
       <% } %>
 
       <% if (post.event && post.audio) {%>
-      <span class="metadata metadata--audio">
+      <li class="metadata--audio">
         <svg class="icon">
           <use xlink:href="<%= url_for('/assets/icons.svg#youtube') %>"></use>
         </svg>
         <a href="<%= post.audio %>"><%= _p('listen') %></a>
-      </span>
+      </li>
       <% } %>
-    </div>
+    </ul>
   </header>
 
   <% if (features.indexOf('summary') !== -1) { %>

@@ -4,7 +4,10 @@ module.exports = {
     require('postcss-url')([
       { filter: '**/*.woff2', url: 'inline' },
     ]),
-    require('postcss-preset-env'),
-    require('autoprefixer'),
+    require('postcss-preset-env', {
+      stage: 0,
+      autoprefixer: {},
+    }),
+    require('postcss-extend-rule'),
   ]
 }
