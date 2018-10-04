@@ -1,7 +1,9 @@
 <%- partial('header') %>
 
 <main role="main">
-  <%- partial('blog/hero', { post: page.posts.first() }) %>
+  <%- partial('blog/hero', { post: page.posts.first(), aside: page.posts.slice(1, 4) }) %>
+
+  <%- partial('blog/work', {}) %>
 </main>
 
 <%- partial("footer", {}, { cache: true }) %>

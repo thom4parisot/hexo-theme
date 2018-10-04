@@ -19,3 +19,13 @@ metadata:
   author:
     one: Author
     other: "Authors"
+
+read_more:
+  article: Read the rest
+
+more:
+  writings: More writings
+  work: Notable projects
+
+work: Work
+hire_me: Hire me

@@ -19,3 +19,13 @@ metadata:
   author:
     one: Auteur
     other: Auteurs
+
+read_more:
+  article: Lire la suite
+
+more:
+  writings: D'autres écrits
+  work: Projets notables
+
+work: Boulot
+hire_me: Travailler ensemble

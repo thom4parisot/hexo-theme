@@ -14,6 +14,16 @@
   <div class="summary"><%- post.description || post.excerpt %></div>
 
   <p class="read-more next">
-    <a href="<%= url_for(post.path) %>">Read the rest</a>
+    <a href="<%= url_for(post.path) %>"><%= _p('read_more.article') %></a>
   </p>
+
+  <aside>
+    <h2><%= _p('more.writings') %></h2>
+
+    <ul>
+      <% aside.forEach(post => { %>
+      <li><a href="<%= url_for(post.path) %>"><%= post.title %></a></li>
+      <% }) %>
+    </ul>
+  </aside>
 </article>
