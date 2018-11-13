@@ -1,7 +1,11 @@
 <% if (config.disqus_shortname && page.comments){ %>
-<aside id="comments">
+<aside class="container next if-js-enabled" id="comments">
   <div id="disqus_thread"></div>
 
-  <script src="//oncletom.disqus.com/embed.js" async></script>
+  <button class="action action__load-comments" type="button">
+    <%= __('load.comments') %>
+  </button>
+
+  <p class="explainer"><%= __('explain.disqus') %></p>
 </aside>
 <% } %>

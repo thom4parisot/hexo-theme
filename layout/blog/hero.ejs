@@ -14,11 +14,11 @@
 
   <div class="summary"><%- post.description || post.excerpt %></div>
 
-  <p class="read-more next">
+  <p class="read-more">
     <a href="<%= url_for(post.path) %>"><%= _p('read_more.article') %></a>
   </p>
 
-  <aside>
+  <aside class="next">
     <h2><%= _p('more.writings') %></h2>
 
     <ul class="is-discrete with-metadata">

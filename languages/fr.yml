@@ -15,10 +15,12 @@ metadata:
     zero: Aucune photo
     one: 1 photo
     other: "%d photos"
-  published_in: Publié en
+  published_in: Publié en <time datetime="%s">%s</time>.
   author:
     one: Auteur
     other: Auteurs
+  suggest_edit: Suggère une amélioration ou une correction
+  thanks_to: Merci à %s.
 
 read_more:
   article: Lire la suite
@@ -26,6 +28,15 @@ read_more:
 more:
   writings: D'autres écrits
   work: Projets notables
+
+load:
+  comments: Affiche les commentaires
+
+explain:
+  disqus: |
+    Les commentaires sont hébergés sur Disqus.com.
+    Votre vie privée est préservée tant que le bouton reste intouché.
+    Ça devrait aller si vous utilisez un bloqueur de traceurs (type uBlock Origin, Better ou Brave).
 
 work: Boulot
 hire_me: Travailler ensemble

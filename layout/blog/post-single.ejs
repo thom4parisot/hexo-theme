@@ -10,15 +10,11 @@
     <h1><%= post.title %></h1>
 
     <ul class="metadata is-inline is-dotted">
-      <li>
-        <time class="metadata metadata--date post__date headline-list__date dt-published" datetime="<%= d.toISOString() %>">
-          <%= date(d) %></span>
-        </time>
-      </li>
+      <li><time class="dt-published" datetime="<%= post.date.toISOString() %>">
+        <%= date(post.date) %>
+      </time></li>
 
-      <% if (post.categories && post.categories.length) { %>
-      <%- post.categories.map(({name}) => `<li>${name}</li>`).join(' ') %>
-      <% } %>
+      <li><%= readingTime(post.content).text %></li>
 
       <% if (post.event && post.event.name) {%>
       <li>
@@ -74,14 +70,12 @@
   <% } %>
 
   <% if (features.indexOf('signature') !== -1) { %>
-  <footer class="post__footer">
+  <footer class="post__footer next">
     <% if (post.thanks_to) { %>
-    <%- markdown(`Thanks to ${post.thanks_to}`) %>
+    <%- markdown(__('metadata.thanks_to', post.thanks_to)) %>
     <% } %>
-    <p>
-      Published in
-      <time datatime="<%= d.toISOString() %>"><%= d.format(config.date_format) %></time>.
-      <a href=<%= `https://github.com/oncletom/oncletom.io/tree/master/source/${post.source}` %>>Found a typo or want to suggest an edit</a>?
+    <p class="read-more">
+      <a href="https://github.com/oncletom/oncletom.io/tree/master/source/<%= post.source %>"><%= __('metadata.suggest_edit') %></a>.
     </p>
   </footer>
   <% } %>

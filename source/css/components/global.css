@@ -24,7 +24,16 @@ nav li a {
   white-space: nowrap;
 }
 
-.next::after {
+.explainer {
+  font-style: italic;
+}
+.explainer::before {
+  content: "⚠️";
+  font-style: normal;
+  padding-right: .5em;
+}
+
+.next::before {
   content: "";
   display: block;
   border-top: 4px solid var(--light-accent);

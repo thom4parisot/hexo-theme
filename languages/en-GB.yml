@@ -15,13 +15,24 @@ metadata:
     zero: No picture
     one: 1 picture
     other: "%d pictures"
-  published_in: Published in
+  published_in: Publié en <time datetime="%s">%s</time>.
   author:
     one: Author
     other: "Authors"
+  suggest_edit: Suggest an improvement or a rather small change
+  thanks_to: Thanks to %s.
 
 read_more:
   article: Read the rest
+
+load:
+  comments: Load comments
+
+explain:
+  disqus: |
+    Comments are hosted on Disqus.com.
+    Your privacy remains untouched until you click on the button.
+    You should be okay if you already use a privacy shield (eg: uBlock Origin, Better or Brave).
 
 more:
   writings: More writings

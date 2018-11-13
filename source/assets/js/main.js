@@ -115,10 +115,26 @@
     });
   }
 
+  // load comments asynchronously
+  const loadCommentsBtn = document.querySelector('.action__load-comments');
+  if (loadCommentsBtn) {
+    loadCommentsBtn.addEventListener('click', ({target}) => {
+      loadCommentsBtn.disabled = true;
+
+      const script = document.createElement('script');
+      script.src = '//oncletom.disqus.com/embed.js';
+      script.onload = () => loadCommentsBtn.hidden = true;
+      document.body.appendChild(script);
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function(e) {
     window.location.hash.replace(/^#search:(.+)$/, function(m, query) {
       searchField.value = query;
       executeSearchWith(query);
     });
   });
+
+  // Specify JS is enabled
+  document.body.classList.add('js-enabled');
 })(document, window);
