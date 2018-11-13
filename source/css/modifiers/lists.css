@@ -23,7 +23,8 @@ ul.with-metadata > li {
   display: flex;
 }
   ul.with-metadata > li .metadata {
-    align-self: flex-end;
+    align-self: flex-start;
     font-size: 0.8em;
+    line-height: 2;
     min-width: 120px;
   }
