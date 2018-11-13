@@ -370,26 +370,26 @@ template {
   --code-background: #dee2e6;
   --code-foreground: var(--dark-shade);
 
-  --type-headlines: 'Butler', serif;
-  --type-body: Butler, serif;
+  --type-headlines: Inconsolata, sans-serif;
+  --type-body: Inconsolata, sans-serif;
   /* --type-body: Georgia, "Times New Roman", Times, serif; */
   --type-code: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 body {
-  font: 100% / 1.50 Butler, serif;
+  font: 100% / 1.50 Inconsolata, sans-serif;
   font: 100% / 1.50 var(--type-body);
 }
 
 @media screen and (min-width: 768px) {
     body {
-      font: 112.5% / 1.50 Butler, serif;
+      font: 112.5% / 1.50 Inconsolata, sans-serif;
       font: 112.5% / 1.50 var(--type-body);
     }
   }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Butler', serif;
+  font-family: Inconsolata, sans-serif;
   font-family: var(--type-headlines);
   font-style: normal;
   font-weight: bold;
@@ -460,13 +460,19 @@ body > *:first-child {
 }
 
 a {
-  color: #FD7E14;
-  color: var(--brand-color);
-  text-decoration: underline;
+  color: blue;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+  -webkit-text-decoration-color: blue;
+          text-decoration-color: blue;
 }
 
 a:hover, a:focus {
   text-decoration: none;
+}
+
+nav li a {
+  white-space: nowrap;
 }
 
 .next::after {
@@ -495,6 +501,21 @@ ol.is-dotted > li:not(:last-of-type):after {
   padding-left: .3em;
 }
 
+ul.is-discrete {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.with-metadata > li {
+  display: flex;
+}
+
+ul.with-metadata > li .metadata {
+    align-self: flex-end;
+    font-size: 0.8em;
+    min-width: 120px;
+  }
+
 header.header {
   display: grid;
   grid-row-gap: 1rem;
@@ -512,14 +533,28 @@ header.header {
     header.header .profile-picture {
       grid-row: 1 / span 2;
     }
-  }
 
-header.header .presentation p:first-child {
-    margin-top: 0;
-  }
+    header.header .presentation p:first-child {
+      margin-top: 0;
+    }
 
-header.header nav .is-inline {
-    margin: 0;
+    header.header nav .is-inline {
+      margin: 0;
+    }
+
+    header.header nav {
+      align-self: flex-end;
+    }
+
+    header.header a {
+      color: #1F1F43;
+      color: var(--dark-shade);
+      font-weight: bold;
+      -webkit-text-decoration-color: #FD7E14;
+              text-decoration-color: #FD7E14;
+      -webkit-text-decoration-color: var(--brand-color);
+              text-decoration-color: var(--brand-color);
+    }
   }
 
 pre {
@@ -599,7 +634,6 @@ article .cover {
   background-color: #D4C492;
   background-color: var(--light-accent);
   border-top-left-radius: 7px;
-  border-bottom-left-radius: 7px;
   line-height: 0;
   min-height: 300px;
   overflow: hidden;
@@ -637,17 +671,19 @@ article.article h1 a {
     height: 100%;
   } */
 
+article ul.metadata {
+  margin: -1rem 0 2.5rem;
+}
+
 article .metadata {
   color: #D23B62;
   color: var(--dark-accent);
-  font-size: .8rem;
   text-transform: uppercase;
   font-weight: bold;
-  font-family: sans-serif;
-  margin: -1.5rem 0 2.5rem;
 }
 
 article .read-more a {
+  font-weight: bold;
   text-decoration: none;
 }
 
@@ -664,7 +700,7 @@ article .read-more a:hover::after {
     }
 
 article.article .post__content h1 {
-  font-family: 'Butler', serif;
+  font-family: Inconsolata, sans-serif;
   font-family: var(--type-headlines);
   font-style: normal;
   font-weight: bold;
@@ -675,7 +711,7 @@ article.article .post__content h1 {
 }
 
 article.article .post__content article.article .post__content h1 {
-  font-family: 'Butler', serif;
+  font-family: Inconsolata, sans-serif;
   font-family: var(--type-headlines);
   font-style: normal;
   font-weight: bold;
@@ -686,7 +722,7 @@ article.article .post__content article.article .post__content h1 {
 }
 
 article.article .post__content article.article .post__content article.article .post__content h1 {
-  font-family: 'Butler', serif;
+  font-family: Inconsolata, sans-serif;
   font-family: var(--type-headlines);
   font-style: normal;
   font-weight: bold;
@@ -697,7 +733,7 @@ article.article .post__content article.article .post__content article.article .p
 }
 
 article.article .post__content article.article .post__content article.article .post__content article.article .post__content h1 {
-  font-family: 'Butler', serif;
+  font-family: Inconsolata, sans-serif;
   font-family: var(--type-headlines);
   font-style: normal;
   font-weight: bold;
@@ -707,8 +743,21 @@ article.article .post__content article.article .post__content article.article .p
   padding:1.2869rem 0;
 }
 
+article aside article.article .post__content h1 {
+  font-family: Inconsolata, sans-serif;
+  font-family: var(--type-headlines);
+  font-style: normal;
+  font-weight: bold;
+  line-height: 1.250;
+  margin: 0;
+  font-size:1.30769rem;
+  padding:1.2869rem 0;
+  margin: 0;
+  padding: 0;
+}
+
 article.article .post__content h2 {
-  font-family: 'Butler', serif;
+  font-family: Inconsolata, sans-serif;
   font-family: var(--type-headlines);
   font-style: normal;
   font-weight: bold;
@@ -719,7 +768,7 @@ article.article .post__content h2 {
 }
 
 article.article .post__content article.article .post__content h2 {
-  font-family: 'Butler', serif;
+  font-family: Inconsolata, sans-serif;
   font-family: var(--type-headlines);
   font-style: normal;
   font-weight: bold;
@@ -730,7 +779,7 @@ article.article .post__content article.article .post__content h2 {
 }
 
 article.article .post__content article.article .post__content article.article .post__content h2 {
-  font-family: 'Butler', serif;
+  font-family: Inconsolata, sans-serif;
   font-family: var(--type-headlines);
   font-style: normal;
   font-weight: bold;
@@ -741,7 +790,7 @@ article.article .post__content article.article .post__content article.article .p
 }
 
 article.article .post__content h3 {
-  font-family: 'Butler', serif;
+  font-family: Inconsolata, sans-serif;
   font-family: var(--type-headlines);
   font-style: normal;
   font-weight: bold;
@@ -752,7 +801,7 @@ article.article .post__content h3 {
 }
 
 article.article .post__content article.article .post__content h3 {
-  font-family: 'Butler', serif;
+  font-family: Inconsolata, sans-serif;
   font-family: var(--type-headlines);
   font-style: normal;
   font-weight: bold;
@@ -763,7 +812,7 @@ article.article .post__content article.article .post__content h3 {
 }
 
 article.article .post__content h4 {
-  font-family: 'Butler', serif;
+  font-family: Inconsolata, sans-serif;
   font-family: var(--type-headlines);
   font-style: normal;
   font-weight: bold;
@@ -776,4 +825,17 @@ article.article .post__content h4 {
 article.article .post__content p > img {
   border: 2rem solid #D4C492;
   border: 2rem solid var(--light-accent);
+}
+
+article aside h2 {
+  font-family: Inconsolata, sans-serif;
+  font-family: var(--type-headlines);
+  font-style: normal;
+  font-weight: bold;
+  line-height: 1.250;
+  margin: 0;
+  font-size:1.30769rem;
+  padding:1.2869rem 0;
+  margin: 0;
+  padding: 0;
 }

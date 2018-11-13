@@ -17,12 +17,22 @@ header.header {
     header.header .profile-picture {
       grid-row: 1 / span 2;
     }
-  }
 
-  header.header .presentation p:first-child {
-    margin-top: 0;
-  }
+    header.header .presentation p:first-child {
+      margin-top: 0;
+    }
 
-  header.header nav .is-inline {
-    margin: 0;
+    header.header nav .is-inline {
+      margin: 0;
+    }
+
+    header.header nav {
+      align-self: flex-end;
+    }
+
+    header.header a {
+      color: var(--dark-shade);
+      font-weight: bold;
+      text-decoration-color: var(--brand-color);
+    }
   }

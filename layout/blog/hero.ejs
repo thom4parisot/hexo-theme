@@ -9,6 +9,7 @@
     <li><time class="dt-published" datetime="<%= post.date.toISOString() %>">
       <%= date(post.date) %>
     </time></li>
+    <li><%= readingTime(post.content).text %></li>
   </ul>
 
   <div class="summary"><%- post.description || post.excerpt %></div>
@@ -20,9 +21,12 @@
   <aside>
     <h2><%= _p('more.writings') %></h2>
 
-    <ul>
+    <ul class="is-discrete with-metadata">
       <% aside.forEach(post => { %>
-      <li><a href="<%= url_for(post.path) %>"><%= post.title %></a></li>
+      <li>
+        <time class="metadata" datetime="<%= date_xml(post.date) %>"><%= date(post.date) %></time>
+        <a href="<%= url_for(post.path) %>" rel="permalink"><%= post.title %></a>
+      </li>
       <% }) %>
     </ul>
   </aside>

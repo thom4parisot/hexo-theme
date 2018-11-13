@@ -13,8 +13,8 @@
   --code-background: #dee2e6;
   --code-foreground: var(--dark-shade);
 
-  --type-headlines: 'Butler', serif;
-  --type-body: Butler, serif;
+  --type-headlines: Inconsolata, sans-serif;
+  --type-body: Inconsolata, sans-serif;
   /* --type-body: Georgia, "Times New Roman", Times, serif; */
   --type-code: Menlo, Monaco, Consolas, "Courier New", monospace;
 }

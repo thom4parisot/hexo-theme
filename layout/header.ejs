@@ -1,7 +1,9 @@
 <header class="header container">
 
   <div class="profile-picture">
-    <img src="/assets/avatar.jpg" alt="" class="is-avatar is-responsive">
+    <a href="<%= url_for('/' )%>" rel="home">
+      <img src="/assets/avatar.jpg" alt="<%= site.title %>" class="is-avatar is-responsive">
+    </a>
   </div>
 
   <div class="presentation"><%- markdown(theme.description) %></div>

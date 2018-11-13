@@ -12,7 +12,6 @@ article section.highlight {
 article .cover {
   background-color: var(--light-accent);
   border-top-left-radius: 7px;
-  border-bottom-left-radius: 7px;
   line-height: 0;
   min-height: 300px;
   overflow: hidden;
@@ -47,16 +46,18 @@ article.article h1 {
     height: 100%;
   } */
 
+article ul.metadata {
+  margin: -1rem 0 2.5rem;
+}
+
 article .metadata {
   color: var(--dark-accent);
-  font-size: .8rem;
   text-transform: uppercase;
   font-weight: bold;
-  font-family: sans-serif;
-  margin: -1.5rem 0 2.5rem;
 }
 
 article .read-more a {
+  font-weight: bold;
   text-decoration: none;
 }
   article .read-more a::after {

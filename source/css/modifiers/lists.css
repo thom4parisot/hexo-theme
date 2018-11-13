@@ -13,3 +13,17 @@ ol.is-dotted > li:not(:last-of-type):after {
   content: "•";
   padding-left: .3em;
 }
+
+ul.is-discrete {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.with-metadata > li {
+  display: flex;
+}
+  ul.with-metadata > li .metadata {
+    align-self: flex-end;
+    font-size: 0.8em;
+    min-width: 120px;
+  }

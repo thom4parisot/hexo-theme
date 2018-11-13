@@ -1,7 +1,5 @@
 description: >
-  Hello, I'm Thomas Parisot, a frenchman with web development, team facilitation and user research skills.
-  [My mission](/about/mission/) is to reinforce replicable, sustainable and open dynamics which benefit to citizens.
-  My values are [Nature, Love and Autonomy](/about/values/).
+  Hello, I'm **Thomas Parisot**, a frenchman with web development, collaborative work and user experience skills.
 
 summary:
   work: >
@@ -10,24 +8,20 @@ summary:
     and to move from ideas to prototyping then to production.
 
 links:
-  - namespace: blog
-    label: Home
+  - label: Writings
     href: /
-  - namespace: books
-    label: Publications
-    href: /publications/
-  - namespace: talks
-    label: Presentations
+  - label: Presentations
     href: /talks/
-  - namespace: reading-notes
-    label: Reading Notes
+  - label: Reading Notes
     href: /reading-notes/
-  - namespace: photography
-    label: Photography
+  - label: Photography
     href: /photography/
-  - namespace: about
-    label: About
+  - label: About
     href: /about/
+  - label: My values
+    href: /about/values/
+  - label: My mission
+    href: /about/mission/
 
 less:
   layouts:
