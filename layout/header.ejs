@@ -2,7 +2,7 @@
 
   <div class="profile-picture">
     <a href="<%= url_for('/' )%>" rel="home">
-      <img src="/assets/avatar.jpg" alt="<%= site.title %>" class="is-avatar is-responsive">
+      <img src="/assets/avatar.jpg" alt="<%= config.title %>" class="is-avatar is-responsive">
     </a>
   </div>
 
@@ -11,7 +11,7 @@
   <nav>
     <ul class="is-inline is-dotted">
       <% getNavLinks(theme.links).forEach(link => { %>
-        <li class="<%= link.classNames %>"><a href="<%= link.href %>"><%= link.label %></a></li>
+        <li class="<%= link.classNames %>"><a href="<%= link.href %>" lang="<%= link.lang || config.language %>"><%= link.label %></a></li>
       <% }) %>
     </ul>
   </nav>

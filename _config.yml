@@ -10,6 +10,9 @@ summary:
 links:
   - label: Writings
     href: /
+  - label: Livre Node.js
+    href: /node.js/
+    lang: fr
   - label: Presentations
     href: /talks/
   - label: Reading Notes
@@ -18,10 +21,10 @@ links:
     href: /photography/
   - label: About
     href: /about/
-  - label: My values
-    href: /about/values/
-  - label: My mission
-    href: /about/mission/
+  # - label: My values
+  #   href: /about/values/
+  # - label: My mission
+  #   href: /about/mission/
 
 less:
   layouts:
