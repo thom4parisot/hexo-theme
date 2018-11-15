@@ -381,7 +381,7 @@ body {
   font: 100% / 1.50 var(--type-body);
 }
 
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
     body {
       font: 112.5% / 1.50 Inconsolata, sans-serif;
       font: 112.5% / 1.50 var(--type-body);
@@ -395,37 +395,76 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  word-break: break-word;
+}
+
+@media (min-width: 768px) {
+  h1, h2, h3, h4, h5, h6 {
+    -webkit-hyphens: unset;
+        -ms-hyphens: unset;
+            hyphens: unset;
+  }
 }
 
 h1, .h1 {
-  font-size:3.42308rem;
-  padding:1.38345rem 0;
+  font-size:2rem;
+  padding:1.5rem 0;
 }
 
 h2, .h2 {
-  font-size:2.61538rem;
-  padding:1.28673rem 0;
+  font-size:1.75rem;
+  padding:1.82143rem 0;
 }
 
 h3, .h3 {
-  font-size:2.11538rem;
-  padding:1.44313rem 0;
+  font-size:1.5rem;
+  padding:1.75rem 0;
 }
 
 h4, .h4 {
-  font-size: 1.61538rem;
-  padding:1.30946rem 0;
+  font-size: 1.3rem;
+  padding:1.5rem 0;
 }
 
 h5, .h5 {
-  font-size:1.30769rem;
-  padding:1.2869rem 0;
+  font-size:1.1667rem;
+  padding:1.82142rem 0;
 }
 
 h6, .h6 {
   font-size:1rem;
-  padding:1.25rem 0;
+  padding:1.5rem 0;
 }
+
+@media (min-width: 768px) {
+    h1, .h1 {
+      font-size:3.42308rem;
+      padding:1.38345rem 0;
+    }
+    h2, .h2 {
+      font-size:2.61538rem;
+      padding:1.28673rem 0;
+    }
+    h3, .h3 {
+      font-size:2.11538rem;
+      padding:1.44313rem 0;
+    }
+    h4, .h4 {
+      font-size: 1.61538rem;
+      padding:1.30946rem 0;
+    }
+    h5, .h5 {
+      font-size:1.30769rem;
+      padding:1.2869rem 0;
+    }
+    h6, .h6 {
+      font-size:1rem;
+      padding:1.25rem 0;
+    }
+  }
 
 blockquote {
   margin-left: 0;
@@ -623,8 +662,18 @@ button {
   cursor: pointer;
 }
 
-button.action {
+button.action,
+input[type="button"].action,
+input[type="submit"].action {
   font-weight: bold;
+}
+
+button[disabled],
+input[type="button"],
+input[type="submit"] {
+  color: #D4C492;
+  color: var(--light-accent);
+  cursor: not-allowed;
 }
 
 h1 + ul.metadata,
@@ -734,7 +783,7 @@ figure.highlight .code pre {
   word-wrap: normal;
 }
 
-@media (min-width: 781px) {
+@media (min-width: 768px) {
 
   figure.highlight {
     margin-left: -6rem;
@@ -757,9 +806,14 @@ article .cover {
   background-color: var(--light-accent);
   border-top-left-radius: 7px;
   line-height: 0;
-  min-height: 300px;
-  overflow: hidden;
 }
+
+@media (min-width: 768px) {
+    article .cover {
+      min-height: 300px;
+      overflow: hidden;
+    }
+  }
 
 article.article .cover {
   border-bottom: 4px solid #D4C492;
@@ -769,6 +823,12 @@ article.article .cover {
   border-top-right-radius: 8px;
   max-height: 300px;
 }
+
+@media(min-width: 768px) {
+    article.article .cover.full {
+      max-height: none;
+    }
+  }
 
 article.article .cover:empty {
   min-height: 300px;
@@ -807,11 +867,32 @@ article.article .post__content h1 {
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  word-break: break-word;
+}
+
+@media (min-width: 768px) {
+
+  article.article .post__content h1 {
+    -webkit-hyphens: unset;
+    -ms-hyphens: unset;
+    hyphens: unset;
+  }
 }
 
 article.article .post__content h1, .article.article .post__content h1 {
-  font-size:2.61538rem;
-  padding:1.28673rem 0;
+  font-size:1.75rem;
+  padding:1.82143rem 0;
+}
+
+@media (min-width: 768px) {
+
+  article.article .post__content h1, .article.article .post__content h1 {
+    font-size:2.61538rem;
+    padding:1.28673rem 0;
+  }
 }
 
 article.article .post__content h1 + ul.metadata {
@@ -830,11 +911,32 @@ article.article .post__content article.article .post__content h1 {
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  word-break: break-word;
+}
+
+@media (min-width: 768px) {
+
+  article.article .post__content article.article .post__content h1 {
+    -webkit-hyphens: unset;
+    -ms-hyphens: unset;
+    hyphens: unset;
+  }
 }
 
 article.article .post__content article.article .post__content h1, .article.article .post__content article.article .post__content h1 {
-  font-size:2.11538rem;
-  padding:1.44313rem 0;
+  font-size:1.5rem;
+  padding:1.75rem 0;
+}
+
+@media (min-width: 768px) {
+
+  article.article .post__content article.article .post__content h1, .article.article .post__content article.article .post__content h1 {
+    font-size:2.11538rem;
+    padding:1.44313rem 0;
+  }
 }
 
 article.article .post__content article.article .post__content h1 + ul.metadata {
@@ -853,11 +955,32 @@ article.article .post__content article.article .post__content article.article .p
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  word-break: break-word;
+}
+
+@media (min-width: 768px) {
+
+  article.article .post__content article.article .post__content article.article .post__content h1 {
+    -webkit-hyphens: unset;
+    -ms-hyphens: unset;
+    hyphens: unset;
+  }
 }
 
 article.article .post__content article.article .post__content article.article .post__content h1, .article.article .post__content article.article .post__content article.article .post__content h1 {
-  font-size: 1.61538rem;
-  padding:1.30946rem 0;
+  font-size: 1.3rem;
+  padding:1.5rem 0;
+}
+
+@media (min-width: 768px) {
+
+  article.article .post__content article.article .post__content article.article .post__content h1, .article.article .post__content article.article .post__content article.article .post__content h1 {
+    font-size: 1.61538rem;
+    padding:1.30946rem 0;
+  }
 }
 
 article.article .post__content article.article .post__content article.article .post__content article.article .post__content h1 {
@@ -867,11 +990,32 @@ article.article .post__content article.article .post__content article.article .p
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  word-break: break-word;
+}
+
+@media (min-width: 768px) {
+
+  article.article .post__content article.article .post__content article.article .post__content article.article .post__content h1 {
+    -webkit-hyphens: unset;
+    -ms-hyphens: unset;
+    hyphens: unset;
+  }
 }
 
 article.article .post__content article.article .post__content article.article .post__content article.article .post__content h1, .article.article .post__content article.article .post__content article.article .post__content article.article .post__content h1 {
-  font-size:1.30769rem;
-  padding:1.2869rem 0;
+  font-size:1.1667rem;
+  padding:1.82142rem 0;
+}
+
+@media (min-width: 768px) {
+
+  article.article .post__content article.article .post__content article.article .post__content article.article .post__content h1, .article.article .post__content article.article .post__content article.article .post__content article.article .post__content h1 {
+    font-size:1.30769rem;
+    padding:1.2869rem 0;
+  }
 }
 
 article aside article.article .post__content h1, section.aside article.article .post__content h1 {
@@ -881,11 +1025,32 @@ article aside article.article .post__content h1, section.aside article.article .
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  word-break: break-word;
+}
+
+@media (min-width: 768px) {
+
+  article aside article.article .post__content h1, section.aside article.article .post__content h1 {
+    -webkit-hyphens: unset;
+    -ms-hyphens: unset;
+    hyphens: unset;
+  }
 }
 
 article aside article.article .post__content h1, .article aside article.article .post__content h1, section.aside article.article .post__content h1, .section.aside article.article .post__content h1 {
-  font-size:1.30769rem;
-  padding:1.2869rem 0;
+  font-size:1.1667rem;
+  padding:1.82142rem 0;
+}
+
+@media (min-width: 768px) {
+
+  article aside article.article .post__content h1, .article aside article.article .post__content h1, section.aside article.article .post__content h1, .section.aside article.article .post__content h1 {
+    font-size:1.30769rem;
+    padding:1.2869rem 0;
+  }
 }
 
 article aside article.article .post__content h1, section.aside article.article .post__content h1 {
@@ -900,11 +1065,32 @@ article.article .post__content h2 {
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  word-break: break-word;
+}
+
+@media (min-width: 768px) {
+
+  article.article .post__content h2 {
+    -webkit-hyphens: unset;
+    -ms-hyphens: unset;
+    hyphens: unset;
+  }
 }
 
 article.article .post__content h2, .article.article .post__content h2 {
-  font-size:2.11538rem;
-  padding:1.44313rem 0;
+  font-size:1.5rem;
+  padding:1.75rem 0;
+}
+
+@media (min-width: 768px) {
+
+  article.article .post__content h2, .article.article .post__content h2 {
+    font-size:2.11538rem;
+    padding:1.44313rem 0;
+  }
 }
 
 article.article .post__content h2 + ul.metadata {
@@ -923,11 +1109,32 @@ article.article .post__content article.article .post__content h2 {
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  word-break: break-word;
+}
+
+@media (min-width: 768px) {
+
+  article.article .post__content article.article .post__content h2 {
+    -webkit-hyphens: unset;
+    -ms-hyphens: unset;
+    hyphens: unset;
+  }
 }
 
 article.article .post__content article.article .post__content h2, .article.article .post__content article.article .post__content h2 {
-  font-size: 1.61538rem;
-  padding:1.30946rem 0;
+  font-size: 1.3rem;
+  padding:1.5rem 0;
+}
+
+@media (min-width: 768px) {
+
+  article.article .post__content article.article .post__content h2, .article.article .post__content article.article .post__content h2 {
+    font-size: 1.61538rem;
+    padding:1.30946rem 0;
+  }
 }
 
 article.article .post__content article.article .post__content article.article .post__content h2 {
@@ -937,11 +1144,32 @@ article.article .post__content article.article .post__content article.article .p
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  word-break: break-word;
+}
+
+@media (min-width: 768px) {
+
+  article.article .post__content article.article .post__content article.article .post__content h2 {
+    -webkit-hyphens: unset;
+    -ms-hyphens: unset;
+    hyphens: unset;
+  }
 }
 
 article.article .post__content article.article .post__content article.article .post__content h2, .article.article .post__content article.article .post__content article.article .post__content h2 {
-  font-size:1.30769rem;
-  padding:1.2869rem 0;
+  font-size:1.1667rem;
+  padding:1.82142rem 0;
+}
+
+@media (min-width: 768px) {
+
+  article.article .post__content article.article .post__content article.article .post__content h2, .article.article .post__content article.article .post__content article.article .post__content h2 {
+    font-size:1.30769rem;
+    padding:1.2869rem 0;
+  }
 }
 
 article.article .post__content h3 {
@@ -951,11 +1179,32 @@ article.article .post__content h3 {
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  word-break: break-word;
+}
+
+@media (min-width: 768px) {
+
+  article.article .post__content h3 {
+    -webkit-hyphens: unset;
+    -ms-hyphens: unset;
+    hyphens: unset;
+  }
 }
 
 article.article .post__content h3, .article.article .post__content h3 {
-  font-size: 1.61538rem;
-  padding:1.30946rem 0;
+  font-size: 1.3rem;
+  padding:1.5rem 0;
+}
+
+@media (min-width: 768px) {
+
+  article.article .post__content h3, .article.article .post__content h3 {
+    font-size: 1.61538rem;
+    padding:1.30946rem 0;
+  }
 }
 
 article.article .post__content article.article .post__content h3 {
@@ -965,11 +1214,32 @@ article.article .post__content article.article .post__content h3 {
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  word-break: break-word;
+}
+
+@media (min-width: 768px) {
+
+  article.article .post__content article.article .post__content h3 {
+    -webkit-hyphens: unset;
+    -ms-hyphens: unset;
+    hyphens: unset;
+  }
 }
 
 article.article .post__content article.article .post__content h3, .article.article .post__content article.article .post__content h3 {
-  font-size:1.30769rem;
-  padding:1.2869rem 0;
+  font-size:1.1667rem;
+  padding:1.82142rem 0;
+}
+
+@media (min-width: 768px) {
+
+  article.article .post__content article.article .post__content h3, .article.article .post__content article.article .post__content h3 {
+    font-size:1.30769rem;
+    padding:1.2869rem 0;
+  }
 }
 
 article.article .post__content h4 {
@@ -979,17 +1249,51 @@ article.article .post__content h4 {
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  word-break: break-word;
+}
+
+@media (min-width: 768px) {
+
+  article.article .post__content h4 {
+    -webkit-hyphens: unset;
+    -ms-hyphens: unset;
+    hyphens: unset;
+  }
 }
 
 article.article .post__content h4, .article.article .post__content h4 {
-  font-size:1.30769rem;
-  padding:1.2869rem 0;
+  font-size:1.1667rem;
+  padding:1.82142rem 0;
+}
+
+@media (min-width: 768px) {
+
+  article.article .post__content h4, .article.article .post__content h4 {
+    font-size:1.30769rem;
+    padding:1.2869rem 0;
+  }
+}
+
+article.article .post__content ul {
+  padding-left: 0;
+  list-style: inside;
 }
 
 article.article .post__content p > img {
-  border: 2rem solid #D4C492;
-  border: 2rem solid var(--light-accent);
+  border: 1rem solid #D4C492;
+  border: 1rem solid var(--light-accent);
+  max-width: 100%;
+  box-sizing: border-box;
 }
+
+@media (min-width: 768px) {
+    article.article .post__content p > img {
+      border-width: 2rem;
+    }
+  }
 
 article aside h2, section.aside h2 {
   font-family: Inconsolata, sans-serif;
@@ -998,11 +1302,32 @@ article aside h2, section.aside h2 {
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  word-break: break-word;
+}
+
+@media (min-width: 768px) {
+
+  article aside h2, section.aside h2 {
+    -webkit-hyphens: unset;
+    -ms-hyphens: unset;
+    hyphens: unset;
+  }
 }
 
 article aside h2, .article aside h2, section.aside h2, .section.aside h2 {
-  font-size:1.30769rem;
-  padding:1.2869rem 0;
+  font-size:1.1667rem;
+  padding:1.82142rem 0;
+}
+
+@media (min-width: 768px) {
+
+  article aside h2, .article aside h2, section.aside h2, .section.aside h2 {
+    font-size:1.30769rem;
+    padding:1.2869rem 0;
+  }
 }
 
 article aside h2,

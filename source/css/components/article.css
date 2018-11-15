@@ -13,9 +13,13 @@ article .cover {
   background-color: var(--light-accent);
   border-top-left-radius: 7px;
   line-height: 0;
-  min-height: 300px;
-  overflow: hidden;
 }
+  @media (width >= 768px) {
+    article .cover {
+      min-height: 300px;
+      overflow: hidden;
+    }
+  }
 
 article.article .cover {
   border-bottom: 4px solid var(--light-accent);
@@ -24,6 +28,11 @@ article.article .cover {
   border-top-right-radius: 8px;
   max-height: 300px;
 }
+  @media(width >= 768px) {
+    article.article .cover.full {
+      max-height: none;
+    }
+  }
 
 article.article .cover:empty {
   min-height: 300px;
@@ -67,6 +76,18 @@ article.article .post__content h4 {
   @extend h5;
 }
 
-article.article .post__content p > img {
-  border: 2rem solid var(--light-accent);
+article.article .post__content ul {
+  padding-left: 0;
+  list-style: inside;
 }
+
+article.article .post__content p > img {
+  border: 1rem solid var(--light-accent);
+  max-width: 100%;
+  box-sizing: border-box;
+}
+  @media (width >= 768px) {
+    article.article .post__content p > img {
+      border-width: 2rem;
+    }
+  }

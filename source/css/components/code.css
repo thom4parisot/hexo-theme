@@ -48,7 +48,7 @@ figure.highlight .code pre {
   word-wrap: normal;
 }
 
-@media (width > 780px) {
+@media (width >= 768px) {
 
   figure.highlight {
     margin-left: -6rem;

@@ -2,6 +2,15 @@ button {
   cursor: pointer;
 }
 
-button.action {
+button.action,
+input[type="button"].action,
+input[type="submit"].action {
   font-weight: bold;
+}
+
+button[disabled],
+input[type="button"],
+input[type="submit"] {
+  color: var(--light-accent);
+  cursor: not-allowed;
 }
