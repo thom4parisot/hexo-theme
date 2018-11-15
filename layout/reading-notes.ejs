@@ -10,7 +10,6 @@
 
     <ul class="is-discrete">
       <% site.pages.find({ layout: 'reading-note' }).sort('publication_year', -1).forEach(post => { %>
-      <% console.log(post.permalink) %>
       <li>
         <article>
           <h3><a href="<%= url_for_page(post.path) %>" rel="permalink"><%= post.title %></a></h3>
