@@ -806,12 +806,12 @@ article .cover {
   background-color: var(--light-accent);
   border-top-left-radius: 7px;
   line-height: 0;
+  overflow: hidden;
 }
 
 @media (min-width: 768px) {
     article .cover {
       min-height: 300px;
-      overflow: hidden;
     }
   }
 
