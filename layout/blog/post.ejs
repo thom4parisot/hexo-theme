@@ -1,11 +1,7 @@
 <%- partial('header') %>
 
 <main role="main">
-  <%- partial("blog/post-single", {
-    post: page,
-    features: ["header", "content", "signature"]
-  }) %>
-
+  <%- partial("blog/post-single", { post: page }) %>
   <%- partial("blog/comments", { post: page }) %>
 </main>
 

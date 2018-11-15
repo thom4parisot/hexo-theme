@@ -46,29 +46,6 @@ article.article h1 {
     height: 100%;
   } */
 
-article ul.metadata {
-  margin: -1rem 0 2.5rem;
-}
-
-article .metadata {
-  color: var(--dark-accent);
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-article .read-more a {
-  font-weight: bold;
-  text-decoration: none;
-}
-  article .read-more a::after {
-    content: "→";
-    display: inline-block;
-    padding-left: .2em;
-    transition: .3s ease-in-out;
-  }
-    article .read-more a:hover::after {
-      transform: translateX(10px);
-    }
 
 article.article .post__content h1:first-child,
 article.article .post__content h2:first-child,

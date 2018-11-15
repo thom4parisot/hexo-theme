@@ -15,15 +15,22 @@ metadata:
     zero: Aucune photo
     one: 1 photo
     other: "%d photos"
-  published_in: Publié en <time datetime="%s">%s</time>.
+  published_in: Publié en <time datetime="%s">%s</time>
   author:
     one: Auteur
     other: Auteurs
   suggest_edit: Suggère une amélioration ou une correction
   thanks_to: Merci à %s.
 
+book:
+  description: Description
+  notes: Notes de lecture
+  all_notes: Toutes les notes
+  find_in_store: Trouve « %s » près de chez toi
+
 read_more:
   article: Lire la suite
+  reading_note: Lire les notes
 
 more:
   writings: D'autres écrits

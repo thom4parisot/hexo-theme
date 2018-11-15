@@ -1,6 +1,6 @@
 <% const d = moment(post.date) -%>
 <article class="h-entry post article <%= typeof classNames === 'string' ? classNames : '' %> container" lang="<%= post.lang || config.language %>">
-  <header class="post__header"<%= features.indexOf('header') !== -1 ? '' : 'hidden'%>>
+  <header class="post__header">
     <% if (post.cover) { %>
     <div class="cover">
       <img src="<%= coverUrl(post, config) %>" alt="" class="is-responsive is-cover">
@@ -9,73 +9,28 @@
 
     <h1><%= post.title %></h1>
 
+    <% if (is_post(post)) { %>
     <ul class="metadata is-inline is-dotted">
       <li><time class="dt-published" datetime="<%= post.date.toISOString() %>">
         <%= date(post.date) %>
       </time></li>
 
       <li><%= readingTime(post.content).text %></li>
-
-      <% if (post.event && post.event.name) {%>
-      <li>
-        <a href="<%= post.event.url %>"><%= post.event.name %></a>
-      </li>
-      <% } %>
-
-      <% if (post.event && post.event.location) {%>
-      <li class="metadata--location">
-        <svg class="icon">
-          <title><%= _p('metadata.location') %></title>
-          <use xlink:href="<%= url_for('/assets/icons.svg#location') %>"></use>
-        </svg>
-        <%= post.event.location %>
-      </li>
-      <% } %>
-
-      <% if (post.event && post.video) {%>
-      <li class="metadata--video">
-        <svg class="icon">
-          <use xlink:href="<%= url_for('/assets/icons.svg#youtube') %>"></use>
-        </svg>
-        <a href="<%= post.video %>"><%= _p('watch') %></a>
-      </li>
-      <% } %>
-
-      <% if (post.event && post.audio) {%>
-      <li class="metadata--audio">
-        <svg class="icon">
-          <use xlink:href="<%= url_for('/assets/icons.svg#youtube') %>"></use>
-        </svg>
-        <a href="<%= post.audio %>"><%= _p('listen') %></a>
-      </li>
-      <% } %>
     </ul>
+    <% } %>
   </header>
 
-  <% if (features.indexOf('summary') !== -1) { %>
-  <div class="post__summary p-summary <%= features.indexOf('content') !== -1 ? ' post__summary--plus-content' : '' %>">
-    <%- post.description || post.excerpt %>
-
-    <a href="<%= url_for(post.path) %>#more" class="continue-reading">Continue reading</a>
+  <div class="post__content post__content--text e-content">
+    <%- post.content %>
   </div>
-  <% } %>
 
-  <% if (features.indexOf('content') !== -1) { %>
-  <div class="post__content post__content--text e-content" data-signed-by="<%= features.indexOf('signature') !== -1 ? 'Thomas': '' %>">
-    <% if (locals.content && locals.content.title) { -%>
-      <h1>Notes</h1>
-    <% } -%>
-    <%- post.more %>
-  </div>
-  <% } %>
-
-  <% if (features.indexOf('signature') !== -1) { %>
+  <% if (['post', 'page'].includes(post.layout)) { %>
   <footer class="post__footer next">
     <% if (post.thanks_to) { %>
     <%- markdown(__('metadata.thanks_to', post.thanks_to)) %>
     <% } %>
     <p class="read-more">
-      <a href="https://github.com/oncletom/oncletom.io/tree/master/source/<%= post.source %>"><%= __('metadata.suggest_edit') %></a>.
+      <a href="https://github.com/oncletom/oncletom.io/tree/master/source/<%= post.source %>"><%= __('metadata.suggest_edit') %></a>
     </p>
   </footer>
   <% } %>

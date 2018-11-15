@@ -1,12 +1,8 @@
 <%- partial('header') %>
-<%- partial('cover/post', { post: page }) %>
 
 <main role="main">
   <section>
-    <%- partial("blog/post-single", {
-      post: page,
-      features: ["content"]
-    }) %>
+    <%- partial("blog/post-single", { post: page }) %>
   </section>
 </main>
 

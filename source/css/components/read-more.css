@@ -1,0 +1,16 @@
+.read-more a,
+a.read-more {
+  font-weight: bold;
+  text-decoration: none;
+}
+  .read-more a::after,
+  a.read-more::after {
+    content: "→";
+    display: inline-block;
+    padding-left: .2em;
+    transition: .3s ease-in-out;
+  }
+    .read-more a:hover::after,
+    a.read-more:hover::after {
+      transform: translateX(10px);
+    }

@@ -397,35 +397,65 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-h1 {
+h1, .h1 {
   font-size:3.42308rem;
   padding:1.38345rem 0;
 }
 
-h2 {
+h2, .h2 {
   font-size:2.61538rem;
   padding:1.28673rem 0;
 }
 
-h3 {
+h3, .h3 {
   font-size:2.11538rem;
   padding:1.44313rem 0;
 }
 
-h4 {
+h4, .h4 {
   font-size: 1.61538rem;
   padding:1.30946rem 0;
 }
 
-h5 {
+h5, .h5 {
   font-size:1.30769rem;
   padding:1.2869rem 0;
 }
 
-h6 {
+h6, .h6 {
   font-size:1rem;
   padding:1.25rem 0;
 }
+
+blockquote {
+  margin-left: 0;
+  margin-right: 0;
+	position: relative;
+}
+
+blockquote::before,
+  blockquote p:last-child:after {
+    color: #D4C492;
+    color: var(--light-accent);
+    font-size: 3rem;
+		line-height: 1;
+    position: absolute;
+    z-index: 0;
+}
+
+blockquote::before {
+		content: "“";
+		left: -0.6em;
+		top: -0.1em;
+	}
+
+blockquote p:last-child:after {
+		content: "”";
+	}
+
+blockquote p:last-child {
+	  margin:0;
+	}
 
 .container {
   margin: 2rem auto;
@@ -457,6 +487,16 @@ body {
 
 body > *:first-child {
   margin-top: 0;
+}
+
+::-moz-selection {
+  background-color: #D4C492;
+  background-color: var(--light-accent);
+}
+
+::selection {
+  background-color: #D4C492;
+  background-color: var(--light-accent);
 }
 
 a {
@@ -553,11 +593,6 @@ header.header a {
           text-decoration-color: var(--brand-color);
 }
 
-header.header nav .active a {
-  color: #000;
-  text-decoration: none;
-}
-
 @media screen and (min-width: 768px) {
     header.header {
       display: grid;
@@ -590,6 +625,58 @@ button {
 
 button.action {
   font-weight: bold;
+}
+
+h1 + ul.metadata,
+h2 + ul.metadata,
+h3 + ul.metadata {
+  margin: -1rem 0 2.5rem;
+}
+
+li ul.metadata {
+  margin-bottom: .5em;
+}
+
+.metadata {
+  color: #D23B62;
+  color: var(--dark-accent);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.read-more a,
+a.read-more {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.read-more a::after,
+  a.read-more::after {
+    content: "→";
+    display: inline-block;
+    padding-left: .2em;
+    transition: .3s ease-in-out;
+  }
+
+.read-more a:hover::after,
+    a.read-more:hover::after {
+      -webkit-transform: translateX(10px);
+              transform: translateX(10px);
+    }
+
+svg {
+  fill: currentColor;
+  height: 1em;
+  width: 1em;
+}
+
+.icon {
+  margin-left: .4em;
+  margin-right: .4em;
+}
+
+.icon:first-child {
+  margin-left: 0;
 }
 
 pre {
@@ -706,34 +793,6 @@ article.article h1 a {
     height: 100%;
   } */
 
-article ul.metadata {
-  margin: -1rem 0 2.5rem;
-}
-
-article .metadata {
-  color: #D23B62;
-  color: var(--dark-accent);
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-article .read-more a {
-  font-weight: bold;
-  text-decoration: none;
-}
-
-article .read-more a::after {
-    content: "→";
-    display: inline-block;
-    padding-left: .2em;
-    transition: .3s ease-in-out;
-  }
-
-article .read-more a:hover::after {
-      -webkit-transform: translateX(10px);
-              transform: translateX(10px);
-    }
-
 article.article .post__content h1:first-child,
 article.article .post__content h2:first-child,
 article.article .post__content h3:first-child {
@@ -748,8 +807,15 @@ article.article .post__content h1 {
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+}
+
+article.article .post__content h1, .article.article .post__content h1 {
   font-size:2.61538rem;
   padding:1.28673rem 0;
+}
+
+article.article .post__content h1 + ul.metadata {
+  margin: -1rem 0 2.5rem;
 }
 
 article.article .post__content article.article .post__content h1:first-child {
@@ -764,8 +830,15 @@ article.article .post__content article.article .post__content h1 {
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+}
+
+article.article .post__content article.article .post__content h1, .article.article .post__content article.article .post__content h1 {
   font-size:2.11538rem;
   padding:1.44313rem 0;
+}
+
+article.article .post__content article.article .post__content h1 + ul.metadata {
+  margin: -1rem 0 2.5rem;
 }
 
 article.article .post__content article.article .post__content article.article .post__content h1:first-child {
@@ -780,6 +853,9 @@ article.article .post__content article.article .post__content article.article .p
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+}
+
+article.article .post__content article.article .post__content article.article .post__content h1, .article.article .post__content article.article .post__content article.article .post__content h1 {
   font-size: 1.61538rem;
   padding:1.30946rem 0;
 }
@@ -791,19 +867,28 @@ article.article .post__content article.article .post__content article.article .p
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+}
+
+article.article .post__content article.article .post__content article.article .post__content article.article .post__content h1, .article.article .post__content article.article .post__content article.article .post__content article.article .post__content h1 {
   font-size:1.30769rem;
   padding:1.2869rem 0;
 }
 
-article aside article.article .post__content h1 {
+article aside article.article .post__content h1, section.aside article.article .post__content h1 {
   font-family: Inconsolata, sans-serif;
   font-family: var(--type-headlines);
   font-style: normal;
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+}
+
+article aside article.article .post__content h1, .article aside article.article .post__content h1, section.aside article.article .post__content h1, .section.aside article.article .post__content h1 {
   font-size:1.30769rem;
   padding:1.2869rem 0;
+}
+
+article aside article.article .post__content h1, section.aside article.article .post__content h1 {
   margin: 0;
   padding: 0;
 }
@@ -815,8 +900,15 @@ article.article .post__content h2 {
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+}
+
+article.article .post__content h2, .article.article .post__content h2 {
   font-size:2.11538rem;
   padding:1.44313rem 0;
+}
+
+article.article .post__content h2 + ul.metadata {
+  margin: -1rem 0 2.5rem;
 }
 
 article.article .post__content article.article .post__content h2:first-child {
@@ -831,6 +923,9 @@ article.article .post__content article.article .post__content h2 {
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+}
+
+article.article .post__content article.article .post__content h2, .article.article .post__content article.article .post__content h2 {
   font-size: 1.61538rem;
   padding:1.30946rem 0;
 }
@@ -842,6 +937,9 @@ article.article .post__content article.article .post__content article.article .p
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+}
+
+article.article .post__content article.article .post__content article.article .post__content h2, .article.article .post__content article.article .post__content article.article .post__content h2 {
   font-size:1.30769rem;
   padding:1.2869rem 0;
 }
@@ -853,6 +951,9 @@ article.article .post__content h3 {
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+}
+
+article.article .post__content h3, .article.article .post__content h3 {
   font-size: 1.61538rem;
   padding:1.30946rem 0;
 }
@@ -864,6 +965,9 @@ article.article .post__content article.article .post__content h3 {
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+}
+
+article.article .post__content article.article .post__content h3, .article.article .post__content article.article .post__content h3 {
   font-size:1.30769rem;
   padding:1.2869rem 0;
 }
@@ -875,6 +979,9 @@ article.article .post__content h4 {
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+}
+
+article.article .post__content h4, .article.article .post__content h4 {
   font-size:1.30769rem;
   padding:1.2869rem 0;
 }
@@ -884,15 +991,22 @@ article.article .post__content p > img {
   border: 2rem solid var(--light-accent);
 }
 
-article aside h2 {
+article aside h2, section.aside h2 {
   font-family: Inconsolata, sans-serif;
   font-family: var(--type-headlines);
   font-style: normal;
   font-weight: bold;
   line-height: 1.250;
   margin: 0;
+}
+
+article aside h2, .article aside h2, section.aside h2, .section.aside h2 {
   font-size:1.30769rem;
   padding:1.2869rem 0;
+}
+
+article aside h2,
+section.aside h2 {
   margin: 0;
   padding: 0;
 }

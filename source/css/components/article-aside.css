@@ -1,6 +1,7 @@
 @import './code.css';
 
-article aside h2 {
+article aside h2,
+section.aside h2 {
   @extend h5;
   margin: 0;
   padding: 0;

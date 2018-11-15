@@ -1,0 +1,15 @@
+h1 + ul.metadata,
+h2 + ul.metadata,
+h3 + ul.metadata {
+  margin: -1rem 0 2.5rem;
+}
+
+li ul.metadata {
+  margin-bottom: .5em;
+}
+
+.metadata {
+  color: var(--dark-accent);
+  text-transform: uppercase;
+  font-weight: bold;
+}

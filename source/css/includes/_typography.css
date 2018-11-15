@@ -16,27 +16,55 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-h1 {
+h1, .h1 {
   font-size:3.42308rem;
   padding:1.38345rem 0;
 }
-h2 {
+h2, .h2 {
   font-size:2.61538rem;
   padding:1.28673rem 0;
 }
-h3 {
+h3, .h3 {
   font-size:2.11538rem;
   padding:1.44313rem 0;
 }
-h4 {
+h4, .h4 {
   font-size: 1.61538rem;
   padding:1.30946rem 0;
 }
-h5 {
+h5, .h5 {
   font-size:1.30769rem;
   padding:1.2869rem 0;
 }
-h6 {
+h6, .h6 {
   font-size:1rem;
   padding:1.25rem 0;
 }
+
+blockquote {
+  margin-left: 0;
+  margin-right: 0;
+	position: relative;
+}
+  blockquote::before,
+  blockquote p:last-child:after {
+    color: var(--light-accent);
+    font-size: 3rem;
+		line-height: 1;
+    position: absolute;
+    z-index: 0;
+}
+
+	blockquote::before {
+		content: "“";
+		left: -0.6em;
+		top: -0.1em;
+	}
+
+	blockquote p:last-child:after {
+		content: "”";
+	}
+
+	blockquote p:last-child {
+	  margin:0;
+	}

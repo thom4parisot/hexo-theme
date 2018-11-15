@@ -1,0 +1,35 @@
+<article class="h-entry post article <%= typeof classNames === 'string' ? classNames : '' %> container" lang="<%= post.lang || config.language %>">
+  <header class="post__header">
+    <h1><%= post.title %></h1>
+
+    <ul class="metadata is-inline is-dotted">
+      <li>
+        <%- _p('metadata.published_in', date_xml(post.publication_year), post.publication_year) %>
+      </li>
+      <li class="authors"><%= post.authors.join(', ') %></li>
+    </ul>
+
+    <h2 class="h5"><%= __('book.description') %></h2>
+    <div class="description"><%= post.description %></div>
+
+    <% if (post.lang === 'fr') { %>
+    <p>
+      <a href="https://www.placedeslibraires.fr/livre/<%= post.isbn %>" class="read-more" target="_blank">
+        <%= _p('book.find_in_store', post.title) %>
+      </a>
+    </p>
+    <% } %>
+  </header>
+
+  <div class="post__content post__content--text e-content next">
+    <h2><%= __('book.notes') %></h2>
+
+    <%- post.content %>
+  </div>
+
+  <footer class="post__footer next">
+    <p class="read-more">
+      <a href="https://github.com/oncletom/oncletom.io/tree/master/source/<%= post.source %>"><%= __('metadata.suggest_edit') %></a>
+    </p>
+  </footer>
+</article>

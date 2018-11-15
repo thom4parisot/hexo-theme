@@ -11,6 +11,10 @@ body > *:first-child {
   margin-top: 0;
 }
 
+::selection {
+  background-color: var(--light-accent);
+}
+
 a {
   color: blue;
   text-decoration-line: underline;
