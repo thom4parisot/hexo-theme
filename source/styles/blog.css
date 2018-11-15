@@ -1054,8 +1054,8 @@ article aside article.article .post__content h1, .article aside article.article 
 }
 
 article aside article.article .post__content h1, section.aside article.article .post__content h1 {
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 article.article .post__content h2 {
@@ -1332,6 +1332,6 @@ article aside h2, .article aside h2, section.aside h2, .section.aside h2 {
 
 article aside h2,
 section.aside h2 {
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
 }
