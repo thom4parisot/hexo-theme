@@ -1282,7 +1282,7 @@ article.article .post__content ul {
   list-style: inside;
 }
 
-article.article .post__content p > img {
+article.article .post__content p img {
   border: 1rem solid #D4C492;
   border: 1rem solid var(--light-accent);
   max-width: 100%;
