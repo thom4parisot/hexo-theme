@@ -1,5 +1,18 @@
 description: >
   Hello, I'm **Thomas Parisot**, a frenchman with web development, collaborative work and user experience skills.
+author: Thomas Parisot
+email: hi@oncletom.io
+disqus_shortname: oncletom
+
+graph:
+  twitter:        oncletom
+  pgp:            "https://keybase.io/oncletom/pgp_keys.asc?fingerprint=46637e267871df7f255788ee893c87dfb3335e7e"
+  mastodon:       https://framapiaf.org/@oncletom
+webmentions:
+  url: https://webmention.io/oncletom.io
+  features:
+    pingback:   xmlrpc
+    webmention: webmention
 
 summary:
   work: >
