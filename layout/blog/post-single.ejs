@@ -20,9 +20,27 @@
     <% } %>
   </header>
 
-  <div class="post__content post__content--text e-content">
+  <div id="read" class="post__content post__content--text e-content">
     <%- post.content %>
   </div>
+
+  <% if (is_post() && post.categories.first()) { %>
+  <% const aside = post.categories.first().posts.find({ date: {$lt: post.date}}).sort('date', -1).limit(5) %>
+  <% if (aside.length) { %>
+  <aside class="next">
+    <h2><%= __('more.topic')%></h2>
+
+    <ul class="is-discrete with-metadata">
+      <% aside.forEach(post => { %>
+      <li>
+        <time class="metadata" datetime="<%= date_xml(post.date) %>"><%= date(post.date) %></time>
+        <a href="<%= url_for(post.path) %>" rel="permalink"><%= post.title %></a>
+      </li>
+      <% }) %>
+    </ul>
+  </aside>
+  <% } %>
+  <% } %>
 
   <% if (['post', 'page'].includes(post.layout)) { %>
   <footer class="post__footer next">

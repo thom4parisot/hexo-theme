@@ -35,6 +35,7 @@ read_more:
 more:
   writings: D'autres écrits
   work: Projets notables
+  topic: D'autres écrits sur le même sujet
 
 load:
   comments: Affiche les commentaires
