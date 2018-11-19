@@ -528,6 +528,14 @@ body > *:first-child {
   margin-top: 0;
 }
 
+[lang="en"] [lang="fr"]::after,
+[lang="fr"] [lang="en"]::after {
+  content: "\00A0(" attr(lang) ")";
+  opacity: .4;
+  -webkit-text-decoration-color: transparent;
+          text-decoration-color: transparent;
+}
+
 ::-moz-selection {
   background-color: #D4C492;
   background-color: var(--light-accent);

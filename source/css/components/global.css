@@ -11,6 +11,13 @@ body > *:first-child {
   margin-top: 0;
 }
 
+[lang="en"] [lang="fr"]::after,
+[lang="fr"] [lang="en"]::after {
+  content: "\00A0(" attr(lang) ")";
+  opacity: .4;
+  text-decoration-color: transparent;
+}
+
 ::selection {
   background-color: var(--light-accent);
 }

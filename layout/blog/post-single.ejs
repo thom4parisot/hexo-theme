@@ -34,7 +34,7 @@
       <% aside.forEach(post => { %>
       <li>
         <time class="metadata" datetime="<%= date_xml(post.date) %>"><%= date(post.date) %></time>
-        <a href="<%= url_for(post.path) %>" rel="permalink"><%= post.title %></a>
+        <a href="<%= url_for(post.path) %>" rel="permalink" lang="<%= post.lang || config.lang %>"><%= post.title %></a>
       </li>
       <% }) %>
     </ul>
