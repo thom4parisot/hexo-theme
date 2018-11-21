@@ -20,9 +20,9 @@
     <% } %>
   </header>
 
-  <div id="read" class="post__content post__content--text e-content">
+  <section id="read" class="post__content post__content--text e-content">
     <%- post.content %>
-  </div>
+  </section>
 
   <% if (is_post() && post.categories.first()) { %>
   <% const aside = post.categories.first().posts.find({ date: {$lt: post.date}}).sort('date', -1).limit(5) %>

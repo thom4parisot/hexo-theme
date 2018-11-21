@@ -4,6 +4,7 @@
   <%- partial('blog/hero', { post: page.posts.first(), aside: page.posts.slice(1, 6) }) %>
 
   <% /* partial('blog/work', {}) */ %>
+  <%- partial('blog/book', { page: site.data.book }) %>
 </main>
 
 <%- partial("footer", {}, { cache: true }) %>
