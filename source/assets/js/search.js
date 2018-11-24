@@ -1,65 +1,37 @@
 import '../algolia/algoliasearchLite.min.js';
+import render from './search-template.bundle.js';
 
 const searchForm = document.querySelector('form[role="search"]');
 const algoliaConfig = document.querySelector('meta[property="algolia:search"]').dataset;
 const searchField = document.querySelector('form[role="search"] [name="q"]');
 const resultsContainer = document.querySelector('.content-results');
-const sampleResult = document.querySelector('.content-result[hidden]');
+const index = algoliasearch(algoliaConfig.applicationId, algoliaConfig.apiKey)
+  .initIndex(algoliaConfig.indexName);
 
-export const executeSearchWith = (query) => {
-  const resultsFragment = document.createDocumentFragment();
-
-  window.location = '#search:' + query;
-  resultsContainer.innerHTML = '';
-  searchForm.dataset.state = 'loading';
-
-  searchForm.dataset.state = 'results';
-  resultsContainer.appendChild(resultsFragment);
-
-  return index.search(query, { hitsPerPage: 6 }).then(function(response){
-    searchForm.dataset.state = 'loaded';
-
-    response.hits.forEach(function(hit){
-      const dom = sampleResult.cloneNode(true);
-      dom.removeAttribute('hidden');
-
-      const a = dom.querySelector('a');
-      a.href = hit.permalink;
-      a.innerText = hit.title;
-
-      const time = dom.querySelector('time');
-      const date = new Date(hit.date);
-      time.setAttribute('datetime', hit.date);
-      time.innerText = date.toLocaleDateString('en-GB', {
-        month: 'long',
-        year: 'numeric'
-      });
-
-      dom.querySelector('.post__summary').innerHTML = hit.excerpt;
-      dom.querySelector('.post__summary').innerHTML = dom.querySelector('.post__summary').innerText;
-
-      resultsFragment.appendChild(dom);
-    });
+export {render};
+export const search = (query) => {
+  return index.search(query, { hitsPerPage: 6 }).then(({hits}) => {
+    return hits;
   });
 };
 
 if (searchForm) {
   searchForm.dataset.state = 'idle';
-  sampleResult.remove();
-
-  const index = algoliasearch(algoliaConfig.applicationId, algoliaConfig.apiKey)
-    .initIndex(algoliaConfig.indexName);
 
   searchForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
     if (searchField.value) {
-      executeSearchWith(searchField.value);
+      searchForm.dataset.state = 'loading';
+      window.history.pushState({}, "", `?q=${searchField.value}#search`)
+
+      search(searchField.value).then(() => {
+        searchForm.dataset.state = 'loaded';
+      });
     }
     else {
       window.location = '#search';
       searchForm.dataset.state = 'idle';
-      resultsContainer.innerHTML = '';
     }
   });
 }

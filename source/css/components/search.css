@@ -1,0 +1,20 @@
+#search {
+  display: none;
+}
+
+#search:target {
+  display: block;
+}
+
+#search [data-state="loading"] {
+  cursor: progress;
+  opacity: .6;
+}
+
+#search details summary {
+  cursor: pointer;
+}
+
+#search .search-results:empty{
+  display: none;
+}

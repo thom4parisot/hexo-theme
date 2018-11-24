@@ -546,6 +546,10 @@ body > *:first-child {
   background-color: var(--light-accent);
 }
 
+main[role="main"] {
+  padding-top: 2rem;
+}
+
 a {
   color: blue;
   -webkit-text-decoration-line: underline;
@@ -617,7 +621,6 @@ ul.with-metadata > li .metadata {
 header.header {
   grid-row-gap: 1rem;
   grid-column-gap: 1rem;
-  margin-bottom: 4rem;
   /* position: sticky;
   top: 0rem; */
 }
@@ -665,6 +668,27 @@ header.header a {
       align-self: flex-start;
     }
   }
+
+#search {
+  display: none;
+}
+
+#search:target {
+  display: block;
+}
+
+#search [data-state="loading"] {
+  cursor: progress;
+  opacity: .6;
+}
+
+#search details summary {
+  cursor: pointer;
+}
+
+#search .search-results:empty{
+  display: none;
+}
 
 button {
   cursor: pointer;
@@ -801,7 +825,10 @@ figure.highlight .code pre {
 
 article.article {
   position: relative;
-  margin-bottom: 4rem;
+}
+
+article.article ~ .article {
+  margin-top: 8rem;
 }
 
 article section.highlight {
@@ -924,7 +951,9 @@ article.article h1 {
   padding: 1rem 0;
 }
 
-article.article h1 a {
+article h1 a,
+  article h2 a,
+  article h3 a {
     color: #1F1F43;
     color: var(--dark-shade);
     text-decoration: none;
@@ -1009,6 +1038,12 @@ article.article .post__content h1 + ul.metadata {
   }
 }
 
+article article.article .post__content h1 a {
+  color: #1F1F43;
+  color: var(--dark-shade);
+  text-decoration: none;
+}
+
 article.article .post__content article.article .post__content h1:first-child {
   margin-top: 0;
   padding-top: 0;
@@ -1051,6 +1086,12 @@ article.article .post__content article.article .post__content h1, .article.artic
 
 article.article .post__content article.article .post__content h1 + ul.metadata {
   margin: -1rem 0 2.5rem;
+}
+
+article article.article .post__content article.article .post__content h1 a {
+  color: #1F1F43;
+  color: var(--dark-shade);
+  text-decoration: none;
 }
 
 article.article .post__content article.article .post__content article.article .post__content h1:first-child {
@@ -1205,6 +1246,12 @@ article.article .post__content h2, .article.article .post__content h2 {
 
 article.article .post__content h2 + ul.metadata {
   margin: -1rem 0 2.5rem;
+}
+
+article article.article .post__content h2 a {
+  color: #1F1F43;
+  color: var(--dark-shade);
+  text-decoration: none;
 }
 
 article.article .post__content article.article .post__content h2:first-child {

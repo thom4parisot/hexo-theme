@@ -2,7 +2,10 @@
 
 article.article {
   position: relative;
-  margin-bottom: 4rem;
+}
+
+article.article ~ .article {
+  margin-top: 8rem;
 }
 
 article section.highlight {
@@ -94,7 +97,9 @@ article.article .cover:empty {
 article.article h1 {
   padding: 1rem 0;
 }
-  article.article h1 a {
+  article h1 a,
+  article h2 a,
+  article h3 a {
     color: var(--dark-shade);
     text-decoration: none;
   }
