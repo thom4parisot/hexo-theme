@@ -7,10 +7,10 @@ import json from 'rollup-plugin-json';
 import string from 'rollup-plugin-string';
 
 export default {
-  input: 'source/assets/js/search-template.js',
+  input: 'source/assets/js/templates.js',
   output: {
     format: 'es',
-    file: 'source/assets/js/search-template.bundle.js'
+    file: 'source/assets/js/templates.bundle.js'
   },
   plugins: [
     globals(),

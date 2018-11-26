@@ -5,6 +5,7 @@ body {
   border-top: 4px solid var(--light-accent);
   color: var(--dark-shade);
   padding: 2rem;
+  scroll-behavior: smooth;
 }
 
 body > *:first-child {
@@ -33,6 +34,14 @@ a {
 }
 a:hover, a:focus {
   text-decoration: none;
+}
+
+.needs-js {
+  display: none;
+}
+
+.js-enabled .needs-js {
+  display: inherit;
 }
 
 nav li a {

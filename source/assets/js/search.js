@@ -1,5 +1,5 @@
 import '../algolia/algoliasearchLite.min.js';
-import render from './search-template.bundle.js';
+import {search as render} from './templates.bundle.js';
 
 const searchForm = document.querySelector('form[role="search"]');
 const algoliaConfig = document.querySelector('meta[property="algolia:search"]').dataset;
@@ -9,10 +9,8 @@ const index = algoliasearch(algoliaConfig.applicationId, algoliaConfig.apiKey)
   .initIndex(algoliaConfig.indexName);
 
 export {render};
-export const search = (query) => {
-  return index.search(query, { hitsPerPage: 6 }).then(({hits}) => {
-    return hits;
-  });
+export const get = (query) => {
+  return index.search(query, { hitsPerPage: 6 }).then(({hits}) => hits);
 };
 
 if (searchForm) {

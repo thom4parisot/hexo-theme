@@ -34,10 +34,6 @@ links:
     href: /photography/
   - label: About
     href: /about/
-  # - label: My values
-  #   href: /about/values/
-  # - label: My mission
-  #   href: /about/mission/
 
 less:
   layouts:

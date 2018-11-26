@@ -1,9 +1,22 @@
-import {search, render} from './search.js';
+import * as search from './search.js';
+import * as pictures from './pictures.js';
 import './comments.js';
 
 document.body.classList.add('js-enabled');
 
-document.addEventListener('DOMContentLoaded', function(e) {
+document.addEventListener('DOMContentLoaded', (e) => {
+  const {get, render} = pictures;
+  const tilesContainer = document.querySelector('.photography-tiles > ul');
+
+  if (tilesContainer) {
+    get('https://oncletom.io/photography/atom.xml')
+      .then(items => items.slice(0, 8).map(post => '<li>' + render({post}) + '</li>'))
+      .then(items => tilesContainer.innerHTML = items.join(''));
+  }
+});
+
+document.addEventListener('DOMContentLoaded', (e) => {
+  const {get, render} = search;
   const query = new URLSearchParams(window.location.search).get('q');
   const searchForm = document.querySelector('#search [role="search"]');
   const searchField = document.querySelector('#search [name="q"]');
@@ -25,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
   const displayResults = (results) => {
     const parser = new DOMParser();
     searchResults.innerHTML = '';
-    
+
     results.forEach(post => {
       const html = parser.parseFromString(render({post}), 'text/html');
       const li = document.createElement('li');
@@ -37,11 +50,11 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
   if (searchForm) {
     searchForm.addEventListener('submit', () => {
-      search(searchField.value).then(displayResults);
+      get(searchField.value).then(displayResults);
     });
   }
 
   if (query) {
-    search(query).then(displayResults);
+    get(query).then(displayResults);
   }
 });
