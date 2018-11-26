@@ -10,7 +10,7 @@ export const get = (url) => {
       permalink: item.querySelector('link').getAttribute('href'),
       date: item.querySelector('published').textContent,
       excerpt: item.querySelector('summary[type="html"]').innerHTML,
-      image: item.querySelector('summary[type="image"]'),
+      image: item.querySelector('content[type="image"]').getAttribute('src'),
     })))
 }
 
