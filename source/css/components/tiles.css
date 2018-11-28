@@ -1,10 +1,26 @@
 .tiles {
   display: grid;
   padding: 0;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr;
   grid-column-gap: 1px;
   grid-row-gap: 1px;
   list-style: none;
+}
+
+.tiles:empty {
+  display: none;
+}
+
+@media (width >= 768px) {
+  .tiles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width > 1024px) {
+  .tiles {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .tile {

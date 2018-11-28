@@ -382,13 +382,7 @@ var utils_3 = utils.shallowCopy;
 var utils_4 = utils.shallowCopyFromList;
 var utils_5 = utils.cache;
 
-var _args = [
-	[
-		"ejs@2.6.1",
-		"/Users/oncletom/workspace/hexo-theme"
-	]
-];
-var _from = "ejs@2.6.1";
+var _from = "ejs@latest";
 var _id = "ejs@2.6.1";
 var _inBundle = false;
 var _integrity = "sha512-0xy4A/twfrRCnkhfk8ErDi5DqdAsAqeGxht4xkCUrsvhhbQNs7E+4jV0CN7+NKIY0aHE72+XvqtBIXzD31ZbXQ==";
@@ -396,20 +390,22 @@ var _location = "/ejs";
 var _phantomChildren = {
 };
 var _requested = {
-	type: "version",
+	type: "tag",
 	registry: true,
-	raw: "ejs@2.6.1",
+	raw: "ejs@latest",
 	name: "ejs",
 	escapedName: "ejs",
-	rawSpec: "2.6.1",
+	rawSpec: "latest",
 	saveSpec: null,
-	fetchSpec: "2.6.1"
+	fetchSpec: "latest"
 };
 var _requiredBy = [
-	"/"
+	"#DEV:/",
+	"#USER"
 ];
 var _resolved = "https://registry.npmjs.org/ejs/-/ejs-2.6.1.tgz";
-var _spec = "2.6.1";
+var _shasum = "498ec0d495655abc6f23cd61868d926464071aa0";
+var _spec = "ejs@latest";
 var _where = "/Users/oncletom/workspace/hexo-theme";
 var author = {
 	name: "Matthew Eernisse",
@@ -419,6 +415,7 @@ var author = {
 var bugs = {
 	url: "https://github.com/mde/ejs/issues"
 };
+var bundleDependencies = false;
 var contributors = [
 	{
 		name: "Timothy Gu",
@@ -428,6 +425,7 @@ var contributors = [
 ];
 var dependencies = {
 };
+var deprecated = false;
 var description = "Embedded JavaScript templates";
 var devDependencies = {
 	browserify: "^13.1.1",
@@ -465,7 +463,6 @@ var scripts = {
 };
 var version = "2.6.1";
 var _package = {
-	_args: _args,
 	_from: _from,
 	_id: _id,
 	_inBundle: _inBundle,
@@ -475,12 +472,15 @@ var _package = {
 	_requested: _requested,
 	_requiredBy: _requiredBy,
 	_resolved: _resolved,
+	_shasum: _shasum,
 	_spec: _spec,
 	_where: _where,
 	author: author,
 	bugs: bugs,
+	bundleDependencies: bundleDependencies,
 	contributors: contributors,
 	dependencies: dependencies,
+	deprecated: deprecated,
 	description: description,
 	devDependencies: devDependencies,
 	engines: engines,
@@ -495,7 +495,6 @@ var _package = {
 };
 
 var _package$1 = /*#__PURE__*/Object.freeze({
-	_args: _args,
 	_from: _from,
 	_id: _id,
 	_inBundle: _inBundle,
@@ -505,12 +504,15 @@ var _package$1 = /*#__PURE__*/Object.freeze({
 	_requested: _requested,
 	_requiredBy: _requiredBy,
 	_resolved: _resolved,
+	_shasum: _shasum,
 	_spec: _spec,
 	_where: _where,
 	author: author,
 	bugs: bugs,
+	bundleDependencies: bundleDependencies,
 	contributors: contributors,
 	dependencies: dependencies,
+	deprecated: deprecated,
 	description: description,
 	devDependencies: devDependencies,
 	engines: engines,
