@@ -2,7 +2,7 @@
 <article class="h-entry post article <%= typeof classNames === 'string' ? classNames : '' %> container" lang="<%= post.lang || config.language %>">
   <header class="post__header">
     <% if (post.cover) { %>
-    <div class="<%= ['cover', post.cover_type].filter(d=>d).join(' ') %>">
+    <div class="<%= ['cover', post.cover.type].filter(d=>d).join(' ') %>">
       <img src="<%= coverUrl(post, config) %>" alt="" class="is-responsive is-cover">
     </div>
     <% } %>
