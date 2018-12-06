@@ -593,12 +593,14 @@ nav li a {
   padding-right: .5em;
 }
 
-.next::before {
+.next::before,
+hr {
   content: "";
   display: block;
   border-top: 4px solid #D4C492;
   border-top: 4px solid var(--light-accent);
   margin-bottom: 1rem;
+  margin-left: 0;
   margin-top: 1rem;
   width: 160px;
 }
