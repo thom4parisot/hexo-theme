@@ -50,7 +50,12 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
   if (searchForm) {
     searchForm.addEventListener('submit', () => {
-      get(searchField.value).then(displayResults);
+      searchForm.dataset.state = 'loading';
+      get(searchField.value)
+        .then(displayResults)
+        .then(() => {
+          searchForm.dataset.state = 'idle';
+        });
     });
   }
 

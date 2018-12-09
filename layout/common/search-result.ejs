@@ -1,8 +1,12 @@
+<% if (post.layout === 'post') { %>
 <time class="metadata" datetime="<%= post.date %>"><%= new Date(post.date_as_int * 1000).toLocaleDateString(post.lang, {month: 'long', year: 'numeric'}) %></time>
+<% } %>
 <div>
   <a href="<%= post.permalink %>" rel="permalink"><%= post.title %></a>
+  <% if (post.excerpt) { %>
   <details>
     <summary>Display summary</summary>
     <%- post.excerpt %>
   </details>
+  <% } %>
 <div>

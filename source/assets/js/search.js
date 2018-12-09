@@ -14,22 +14,14 @@ export const get = (query) => {
 };
 
 if (searchForm) {
-  searchForm.dataset.state = 'idle';
-
   searchForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
     if (searchField.value) {
-      searchForm.dataset.state = 'loading';
       window.history.pushState({}, "", `?q=${searchField.value}#search`)
-
-      search(searchField.value).then(() => {
-        searchForm.dataset.state = 'loaded';
-      });
     }
     else {
       window.location = '#search';
-      searchForm.dataset.state = 'idle';
     }
   });
 }

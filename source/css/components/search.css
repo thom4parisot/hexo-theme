@@ -22,9 +22,7 @@
     color: var(--light-accent);
   }
 
-#search:target + main,
-#search.is-active + main {
-  padding-top: 0;
+#search + main {
   padding-top: 0;
 }
 

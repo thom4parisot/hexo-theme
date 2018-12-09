@@ -21,10 +21,15 @@ ul.is-discrete {
 
 ul.with-metadata > li {
   display: flex;
+  margin-bottom: .3rem;
 }
   ul.with-metadata > li .metadata {
     align-self: flex-start;
     font-size: 0.8em;
     line-height: 2;
     min-width: 120px;
+  }
+
+  ul.with-metadata > li div:first-child {
+    margin-left: 120px;
   }
