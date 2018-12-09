@@ -1,10 +1,31 @@
-#search {
-  display: none;
+#search form {
+  display: flex;
 }
+  #search form > input,
+  #search form > button {
+    padding: 8px;
+    border: 2px solid var(--dark-shade);
+    border-radius: 8px;
+    line-height: 1;
+  }
 
-#search:target,
-#search.is-active {
-  display: block;
+  #search form > input {
+    flex: 1;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  #search form > button {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background: var(--dark-shade);
+    color: var(--light-accent);
+  }
+
+#search:target + main,
+#search.is-active + main {
+  padding-top: 0;
+  padding-top: 0;
 }
 
 #search [data-state="loading"] {
