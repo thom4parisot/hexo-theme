@@ -2,7 +2,8 @@
   display: none;
 }
 
-#search:target {
+#search:target,
+#search.is-active {
   display: block;
 }
 

@@ -7,7 +7,7 @@ hexo.extend.tag.register('mindmeister', function(args){
     "zoom": args[3] || 'auto'
   };
 
-  return '<iframe class="video-container" src="//www.mindmeister.com/maps/public_map_shell/'+data.id+
+  return '<iframe class="video-container" src="https://www.mindmeister.com/maps/public_map_shell/'+data.id+
     '?height='+data.height+'&amp;width='+data.width+'&amp;z='+data.zoom+'"'+
     'height="'+data.height+'" width="'+data.width+'" frameborder="0"></iframe>';
 });

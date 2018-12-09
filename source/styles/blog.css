@@ -520,6 +520,7 @@ img.is-avatar {
 img.is-cover {
   -o-object-fit: cover;
      object-fit: cover;
+  width: 100%;
 }
 
 body {
@@ -707,7 +708,8 @@ header.header a {
   display: none;
 }
 
-#search:target {
+#search:target,
+#search.is-active {
   display: block;
 }
 
@@ -895,7 +897,8 @@ article.article .cover {
 }
 
 @media(min-width: 768px) {
-    article.article .cover.full {
+    article.article .cover.full,
+    article.article .cover.portrait {
       max-height: none;
     }
   }

@@ -33,7 +33,8 @@ article.article .cover {
   max-height: 300px;
 }
   @media(width >= 768px) {
-    article.article .cover.full {
+    article.article .cover.full,
+    article.article .cover.portrait {
       max-height: none;
     }
   }

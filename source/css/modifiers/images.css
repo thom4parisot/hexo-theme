@@ -8,4 +8,5 @@ img.is-avatar {
 
 img.is-cover {
   object-fit: cover;
+  width: 100%;
 }

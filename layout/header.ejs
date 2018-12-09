@@ -17,9 +17,9 @@
   </nav>
 </header>
 
-<section id="search" class="container">
+<section id="search" class="container<%= page.display_search ? ' is-active' : ''%>">
   <form action="#" role="search">
-    <input type="search" name="q"><button type="submit"><%= __('search') %></button>
+    <input type="search" name="q" autofocus placeholder="<%= __('explain.search') %>" spellcheck autocomplete><button type="submit"><%= __('search') %></button>
   </form>
 
   <ul class="search-results is-discrete with-metadata"></ul>
