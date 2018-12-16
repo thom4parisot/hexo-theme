@@ -3,7 +3,7 @@
   <header class="post__header">
     <% if (post.cover) { %>
     <div class="<%= ['cover', post.cover.type].filter(d=>d).join(' ') %>">
-      <img src="<%= coverUrl(post, config) %>" alt="" class="is-responsive is-cover">
+      <img src="<%= post.image %>" alt="" class="is-responsive is-cover">
     </div>
     <% } %>
 

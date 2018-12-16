@@ -17,12 +17,12 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@<%= theme.graph.twitter %>">
 <meta name="twitter:creator" content="@<%= theme.graph.twitter %>">
-<meta name="twitter:image" content="<%= coverUrl(page, theme) %>">
+<meta name="twitter:image" content="<%= page.image %>">
 <meta name="twitter:description" content="<%= description(page) %>">
 <meta property="og:title" content="<%= page.title || [config.title, config.subtitle].join(' &mdash; ') %>">
 <meta property="og:type" content="article">
 <meta property="og:url" content="<%= url_for(page.permalink).replace('index.html', '') %>">
-<meta property="og:image" content="<%= coverUrl(page, config) %>">
+<meta property="og:image" content="<%= page.image %>">
 <meta property="og:description" content="<%= description(page) %>">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_GB">
