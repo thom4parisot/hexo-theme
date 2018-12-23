@@ -9,10 +9,24 @@ function coverUrl(post, config) {
   return url ? (siteUrl + url_for(url)) : '';
 }
 
+/**
+ * Adds `post.image` from `post.cover[.url]`
+ */
 hexo.extend.filter.register('before_post_render', function(data){
   if (data.cover) {
     data.image = coverUrl(data, hexo.config);
   }
 
   return data;
+});
+
+/**
+ * Adds `post.quotes_count`
+ */
+hexo.extend.filter.register('after_init', function(){
+  const Page = hexo.model('Page');
+
+  Page.schema.virtual('quotes_count').get(function() {
+    return this.content.match(/^<blockquote/mg).length;
+  });
 });

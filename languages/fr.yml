@@ -24,13 +24,13 @@ metadata:
 
 book:
   description: Description
-  notes: Notes de lecture
+  notes: "%d citations et notes de lecture"
   all_notes: Toutes les notes
   find_in_store: Trouve « %s » près de chez toi
 
 read_more:
   article: Lire la suite
-  reading_note: Lire les notes
+  reading_note: Lire les %d notes
 
 more:
   writings: D'autres écrits

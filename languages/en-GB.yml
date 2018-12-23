@@ -24,13 +24,13 @@ metadata:
 
 book:
   description: Description
-  reading_notes: Reading Notes
+  reading_notes: "%d Reading Notes"
   notes: All the Notes
   find_in_store: Find “%s” nearby
 
 read_more:
   article: Read the rest
-  reading_notes: Read the notes
+  reading_notes: Read the %d notes
 
 load:
   comments: Load comments
