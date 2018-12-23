@@ -87,7 +87,7 @@ blockquote {
 		line-height: 1;
     position: absolute;
     z-index: 0;
-}
+  }
 
 	blockquote::before {
 		content: "“";
@@ -102,3 +102,17 @@ blockquote {
 	blockquote p:last-child {
 	  margin:0;
 	}
+
+  blockquote h3 {
+    font-size: inherit !important;
+    padding-bottom: .5em !important;
+  }
+
+  blockquote cite {
+    color: var(--dark-accent);
+    font-style: normal;
+  }
+  blockquote cite:before {
+    content: "—";
+    margin-right: .5em;
+  }

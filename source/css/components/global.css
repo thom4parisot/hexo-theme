@@ -75,6 +75,7 @@ nav li a {
 hr {
   content: "";
   display: block;
+  border: none;
   border-top: 4px solid var(--light-accent);
   margin-bottom: 1rem;
   margin-left: 0;
