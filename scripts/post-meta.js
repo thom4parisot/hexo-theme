@@ -22,6 +22,18 @@ hexo.extend.filter.register('before_post_render', function(data){
 });
 
 /**
+ * Adds `post.image` for book cover
+ */
+hexo.extend.filter.register('before_post_render', function(data){
+  if (data.layout && data.layout === 'reading-note' && data.isbn) {
+    const {isbn} = data;
+    data.image = `https://images.epagine.fr/${isbn.slice(-3)}/${isbn}_1_75.jpg`;
+  }
+
+  return data;
+});
+
+/**
  * Adds `post.quotes_count`
  */
 hexo.extend.filter.register('before_generate', function(){
