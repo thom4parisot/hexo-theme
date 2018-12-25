@@ -34,6 +34,18 @@ hexo.extend.filter.register('before_post_render', function(data){
 });
 
 /**
+ * Adds a default post langage to 'fr' when before 2013-03-01
+ * It's the date I moved to London
+ */
+hexo.extend.filter.register('before_post_render', function(post){
+  if (!post.lang && post.date.isBefore('2013-03-01')) {
+    post.lang = 'fr';
+  }
+
+  return post;
+});
+
+/**
  * Adds `post.quotes_count`
  */
 hexo.extend.filter.register('before_generate', function(){
