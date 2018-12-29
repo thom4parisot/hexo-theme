@@ -6,7 +6,7 @@ document.body.classList.add('js-enabled');
 
 document.addEventListener('DOMContentLoaded', (e) => {
   const {get, render} = pictures;
-  const tilesContainer = document.querySelector('.photography-tiles > ul');
+  const tilesContainer = document.querySelector('.site-blog .photography-tiles > ul');
 
   if (tilesContainer) {
     get('https://oncletom.io/photography/atom.xml')

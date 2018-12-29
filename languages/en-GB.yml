@@ -5,8 +5,8 @@ pictures:
     other: pictures
   count:
     zero: No picture
-    one: 1 picture
-    other: "%d pictures"
+    one: 1 picture series
+    other: "%d pictures series"
 metadata:
   label:
     one: picture

@@ -38,9 +38,9 @@ links:
 less:
   layouts:
     series-day-to-day:
-      - assets/css/series/day-to-day.css
+      - styles/series-day-to-day.css
     series-default:
-      - assets/css/series/default.css
+      - styles/series-default.css
   paths:
     - source/less
     - node_modules/bootstrap/less

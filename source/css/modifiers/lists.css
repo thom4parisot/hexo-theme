@@ -11,7 +11,7 @@ ol.is-inline > li {
 ul.is-dotted > li:not(:last-of-type):after,
 ol.is-dotted > li:not(:last-of-type):after {
   content: "•";
-  padding-left: .3em;
+  /* padding-left: .3em; */
 }
 
 ul.is-discrete {

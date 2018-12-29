@@ -15,6 +15,10 @@
   .tiles {
     grid-template-columns: repeat(2, 1fr);
   }
+  
+  .tile .cover.is-square img {
+    position: absolute;
+  }
 }
 
 @media (width > 1024px) {
@@ -30,6 +34,7 @@
 
   .tile .cover.is-square {
     border-radius: 0;
+    position: relative;
   }
     .tile .cover.is-square img {
       object-fit: cover;

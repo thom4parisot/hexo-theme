@@ -10,6 +10,8 @@
   /* Use as the text color for dark-on-light designs, or as the background for inverted designs. */
   --dark-shade: #1F1F43;
 
+  --commented: rgba(17, 17, 68, .65);
+
   --code-background: #dee2e6;
   --code-foreground: var(--dark-shade);
 

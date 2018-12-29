@@ -375,6 +375,8 @@ template {
   /* Use as the text color for dark-on-light designs, or as the background for inverted designs. */
   --dark-shade: #1F1F43;
 
+  --commented: rgba(17, 17, 68, .65);
+
   --code-background: #dee2e6;
   --code-foreground: var(--dark-shade);
 
@@ -474,8 +476,13 @@ h6, .h6 {
     }
   }
 
+address {
+  font-style: normal;
+}
+
 blockquote {
   color: rgba(17, 17, 68, .65);
+  color: var(--commented);
   margin-left: 0;
   margin-right: 0;
 	position: relative;
@@ -652,7 +659,7 @@ ol.is-inline > li {
 ul.is-dotted > li:not(:last-of-type):after,
 ol.is-dotted > li:not(:last-of-type):after {
   content: "•";
-  padding-left: .3em;
+  /* padding-left: .3em; */
 }
 
 ul.is-discrete {
@@ -1625,6 +1632,10 @@ section.aside h2 {
   .tiles {
     grid-template-columns: repeat(2, 1fr);
   }
+  
+  .tile .cover.is-square img {
+    position: absolute;
+  }
 }
 
 @media (min-width: 1025px) {
@@ -1639,6 +1650,7 @@ section.aside h2 {
 
 .tile .cover.is-square {
     border-radius: 0;
+    position: relative;
   }
 
 .tile .cover.is-square img {

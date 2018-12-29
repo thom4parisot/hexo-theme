@@ -75,8 +75,12 @@ h6, .h6 {
     }
   }
 
+address {
+  font-style: normal;
+}
+
 blockquote {
-  color: rgba(17, 17, 68, .65);
+  color: var(--commented);
   margin-left: 0;
   margin-right: 0;
 	position: relative;
