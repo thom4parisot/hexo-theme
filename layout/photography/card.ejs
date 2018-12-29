@@ -1,8 +1,8 @@
 <% const d = moment(post.date) %>
 <article class="card" lang="<%= post.lang || config.language %>">
   <header class="card__header">
-    <% if (post.cover) { %>
-    <div class="card__cover" style="background-image:url(<%= img_url(post.cover, post) %>)"><a href="<%= url_for(post.path) %>" title="<%= post.title %>"></a></div>
+    <% if (post.image) { %>
+    <div class="card__cover" style="background-image:url(<%= url_for(post.image) %>)"><a href="<%= url_for(post.path) %>" title="<%= post.title %>"></a></div>
     <% } %>
     <h2 class="card__headline">
       <a href="<%= url_for(post.path).replace('index.html', '') %>" title="<%= post.title %>" rel="bookmark"><%= post.title %></a>
