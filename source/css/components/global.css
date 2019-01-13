@@ -13,7 +13,9 @@ body > *:first-child {
 }
 
 [lang="en"] a[lang="fr"]::after,
-[lang="fr"] a[lang="en"]::after {
+[lang="en-GB"] a[lang="fr"]::after,
+[lang="fr"] a[lang="en"]::after,
+[lang="fr"] a[lang="en-GB"]::after {
   content: "\00A0(" attr(lang) ")";
   opacity: .4;
   text-decoration-color: transparent;
