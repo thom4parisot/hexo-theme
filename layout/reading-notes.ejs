@@ -12,7 +12,7 @@
       <% site.pages.find({ layout: 'reading-note' }).sort('publication_year', -1).forEach(post => { %>
       <li>
         <article>
-          <h3><a href="<%= url_for_page(post.path) %>" rel="permalink"><%= post.title %></a></h3>
+          <h3><a href="<%= url_for_page(post.path) %>" rel="permalink"><%= post.title %><%= post.subtitle ? ` — ${post.subtitle}` : '' %></a></h3>
           <ul class="metadata is-inline is-dotted">
             <li><time datetime="<%= date_xml(post.publication_year) %>"><%= post.publication_year %></time></li>
             <li class="authors"><%= post.authors.join(', ') %></li>

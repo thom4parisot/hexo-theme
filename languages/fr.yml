@@ -23,10 +23,11 @@ metadata:
   thanks_to: Merci à %s.
 
 book:
-  description: Description
+  description: Description de l'ouvrage
   notes: "%d citations et notes de lecture"
   all_notes: Toutes les notes
-  find_in_store: Trouve « %s » près de chez toi
+  find_in_store: Acheter « %s » dans une librairie indépendante
+  url: En savoir plus sur le site de l'éditeur
 
 read_more:
   article: Lire la suite

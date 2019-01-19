@@ -9,15 +9,18 @@
       <li class="authors"><%= post.authors.join(', ') %></li>
     </ul>
 
-    <h2 class="h5"><%= __('book.description') %></h2>
+    <h2 class="h5"><%= post.subtitle || __('book.description') %></h2>
     <div class="description"><%= post.description %></div>
 
     <% if (post.lang === 'fr') { %>
-    <p>
-      <a href="https://www.placedeslibraires.fr/livre/<%= post.isbn %>" class="read-more" target="_blank">
-        <%= _p('book.find_in_store', post.title) %>
-      </a>
-    </p>
+    <ul class="is-discrete">
+      <% if (post.url) { %>
+      <li><a href="<%= post.url %>" class="read-more" target="_blank" rel="noreferrer noopener"><%= __('book.url') %></a></li>
+      <% } %>
+      <li><a href="https://www.placedeslibraires.fr/livre/<%= post.isbn %>" class="read-more" target="_blank" rel="noreferrer noopener">
+        <%= __('book.find_in_store', post.title) %>
+      </a></li>
+    </ul>
     <% } %>
   </header>
 

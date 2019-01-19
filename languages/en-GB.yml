@@ -27,6 +27,7 @@ book:
   reading_notes: "%d Reading Notes"
   notes: All the Notes
   find_in_store: Find “%s” nearby
+  url: Read more about the book
 
 read_more:
   article: Read the rest

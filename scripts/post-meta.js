@@ -1,7 +1,6 @@
 'use strict';
 
 const url_for = hexo.extend.helper.store['url_for'].bind(hexo);
-const DEFAULT_ARRAY = [];
 
 function coverUrl(post, config) {
   const {url:siteUrl=''} = config;
@@ -52,6 +51,6 @@ hexo.extend.filter.register('before_generate', function(){
   const Page = hexo.model('Page');
 
   Page.schema.virtual('quotes_count').get(function() {
-    return (this.content.match(/^<blockquote/gm) || DEFAULT_ARRAY).length;
+    return ((this.content || '').match(/^<blockquote/gm) || []).length;
   });
 });
