@@ -1,7 +1,8 @@
 <%- partial('header') %>
+<% const posts = site.posts.find({ layout: {$ne: 'journal'} }).sort('date', -1).limit(10) %>
 
 <main role="main">
-  <%- partial('blog/hero', { post: page.posts.first(), aside: page.posts.slice(1, 6) }) %>
+  <%- partial('blog/hero', { post: posts.first(), aside: posts.slice(1, 6) }) %>
 
   <% /* partial('blog/work', {}) */ %>
   <%- partial('blog/book', { page: site.data.book }) %>

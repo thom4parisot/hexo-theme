@@ -1,0 +1,9 @@
+<%- partial('header') %>
+
+<main role="main">
+  <section>
+    <%- partial("blog/post-single", { post: page }) %>
+  </section>
+</main>
+
+<%- partial("footer", {}, { cache: true }) %>

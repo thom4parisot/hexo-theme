@@ -14,8 +14,15 @@
       <li><time class="dt-published" datetime="<%= post.date.toISOString() %>">
         <%= date(post.date) %>
       </time></li>
-
+      <% if (post.categories.findOne({name: 'Journal'})) { %>
+      <li>#Journal</li>
+        <% const categories = post.categories.filter(c => c.name !== 'Journal').map(({name}) => name) %>
+        <% if (categories.length) { %>
+        <li><%- categories.join(', ') %></li>
+        <% } %>
+      <% } else { %>
       <li><%= readingTime(post.content).text %></li>
+      <% } %>
     </ul>
     <% } %>
   </header>
@@ -40,6 +47,15 @@
     </ul>
   </aside>
   <% } %>
+  <% } %>
+
+  <% if (['journal'].includes(post.layout)) { %>
+  <% const {permalink} = post.categories.findOne({name: 'Journal'}) %>
+  <footer class="post__footer next">
+    <p class="read-more">
+      <a href="<%= permalink %>"><%= __('more.journal') %></a>
+    </p>
+  </footer>
   <% } %>
 
   <% if (['post', 'page'].includes(post.layout)) { %>
