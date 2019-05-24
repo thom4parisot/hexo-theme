@@ -54,3 +54,12 @@ hexo.extend.filter.register('before_generate', function(){
     return ((this.content || '').match(/^<blockquote/gm) || []).length;
   });
 });
+
+
+hexo.extend.filter.register('before_post_render', function(post){
+  if (post.layout === 'journal') {
+    post.title = `☕️ Journal : ${post.title}`;
+  }
+
+  return post;
+});

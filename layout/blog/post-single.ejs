@@ -31,7 +31,7 @@
     <%- post.content %>
   </section>
 
-  <% if (is_post() && post.categories.first()) { %>
+  <% if (is_post() && post.layout === 'post' && post.categories.first()) { %>
   <% const aside = post.categories.first().posts.find({ date: {$lt: post.date}}).sort('date', -1).limit(5) %>
   <% if (aside.length) { %>
   <aside class="next">
