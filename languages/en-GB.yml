@@ -51,6 +51,10 @@ more:
   archives: Browse the archives
   journal: Back to the journal
 
+categories:
+  Journal: |
+    A short format to document learnings, brain bites and long-term explorations.
+
 search: Search
 work: Work
 hire_me: Hire me

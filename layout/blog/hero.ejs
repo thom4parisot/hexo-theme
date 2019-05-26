@@ -1,6 +1,6 @@
 <article class="article container <%= typeof classNames === 'string' ? classNames : '' %>" id="latest-writing" lang="<%= post.lang || config.language %>">
   <header>
-    <div class="<%= ['cover', post.cover.type].filter(d=>d).join(' ') %>">
+    <div class="<%= ['cover', post.cover && post.cover.type].filter(d=>d).join(' ') %>">
       <% if (post.cover) { %><img src="<%= post.image %>" alt="" class="is-responsive is-cover"><% } %>
     </div>
 

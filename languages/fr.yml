@@ -51,6 +51,12 @@ explain:
     Ça devrait aller si vous utilisez un bloqueur de traceurs (type uBlock Origin, Better ou Brave).
   search: Mots à rechercher sur ce site
 
-search: Lancer la recherche
+categories:
+  Journal: |
+    Un format court pour documenter mes apprentissages, des réflexions
+    et des explorations de vie.
+
+
+search: Rechercher
 work: Boulot
 hire_me: Travailler ensemble

@@ -1,7 +1,9 @@
 <%- partial('header') %>
 
 <main role="main" class="container">
-  <h1>Archives</h1>
+  <h1><%= is_category() ? page.category : 'Archives' %></h1>
+
+  <%- is_category() && markdown(__(`categories.${page.category}`)) %>
 
   <% for (const [year, posts] of (page.years || [[page.year, page.posts]])) { %>
   <section id="year-<%= year %>">
