@@ -7,7 +7,7 @@ function createCommonjsModule(fn, module) {
 }
 
 function getCjsExportFromNamespace (n) {
-	return n && n.default || n;
+	return n && n['default'] || n;
 }
 
 var fs = {};

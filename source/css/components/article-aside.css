@@ -1,6 +1,6 @@
 @import './code.css';
 
-article aside h2,
+aside.next h2,
 section.aside h2 {
   @extend h5;
   margin: 0 !important;

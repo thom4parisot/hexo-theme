@@ -380,6 +380,8 @@ template {
   --code-background: #dee2e6;
   --code-foreground: var(--dark-shade);
 
+  --border-radius-base: 8px;
+
   --type-headlines: Inconsolata, sans-serif;
   --type-body: Inconsolata, sans-serif;
   /* --type-body: Georgia, "Times New Roman", Times, serif; */
@@ -563,7 +565,9 @@ body > *:first-child {
 }
 
 [lang="en"] a[lang="fr"]::after,
-[lang="fr"] a[lang="en"]::after {
+[lang="en-GB"] a[lang="fr"]::after,
+[lang="fr"] a[lang="en"]::after,
+[lang="fr"] a[lang="en-GB"]::after {
   content: "\00A0(" attr(lang) ")";
   opacity: .4;
   -webkit-text-decoration-color: transparent;
@@ -1282,7 +1286,7 @@ article.article .post__content article.article .post__content article.article .p
   }
 }
 
-article aside article.article .post__content h1, section.aside article.article .post__content h1 {
+aside.next article.article .post__content h1, section.aside article.article .post__content h1 {
   font-family: Inconsolata, sans-serif;
   font-family: var(--type-headlines);
   font-style: normal;
@@ -1297,27 +1301,27 @@ article aside article.article .post__content h1, section.aside article.article .
 
 @media (min-width: 768px) {
 
-  article aside article.article .post__content h1, section.aside article.article .post__content h1 {
+  aside.next article.article .post__content h1, section.aside article.article .post__content h1 {
     -webkit-hyphens: unset;
     -ms-hyphens: unset;
     hyphens: unset;
   }
 }
 
-article aside article.article .post__content h1, .article aside article.article .post__content h1, section.aside article.article .post__content h1, .section.aside article.article .post__content h1 {
+aside.next article.article .post__content h1, .aside.next article.article .post__content h1, section.aside article.article .post__content h1, .section.aside article.article .post__content h1 {
   font-size:1.1667rem;
   padding:1.82142rem 0;
 }
 
 @media (min-width: 768px) {
 
-  article aside article.article .post__content h1, .article aside article.article .post__content h1, section.aside article.article .post__content h1, .section.aside article.article .post__content h1 {
+  aside.next article.article .post__content h1, .aside.next article.article .post__content h1, section.aside article.article .post__content h1, .section.aside article.article .post__content h1 {
     font-size:1.30769rem;
     padding:1.2869rem 0;
   }
 }
 
-article aside article.article .post__content h1, section.aside article.article .post__content h1 {
+aside.next article.article .post__content h1, section.aside article.article .post__content h1 {
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -1574,7 +1578,7 @@ article.article .post__content p img {
     }
   }
 
-article aside h2, section.aside h2 {
+aside.next h2, section.aside h2 {
   font-family: Inconsolata, sans-serif;
   font-family: var(--type-headlines);
   font-style: normal;
@@ -1589,27 +1593,27 @@ article aside h2, section.aside h2 {
 
 @media (min-width: 768px) {
 
-  article aside h2, section.aside h2 {
+  aside.next h2, section.aside h2 {
     -webkit-hyphens: unset;
     -ms-hyphens: unset;
     hyphens: unset;
   }
 }
 
-article aside h2, .article aside h2, section.aside h2, .section.aside h2 {
+aside.next h2, .aside.next h2, section.aside h2, .section.aside h2 {
   font-size:1.1667rem;
   padding:1.82142rem 0;
 }
 
 @media (min-width: 768px) {
 
-  article aside h2, .article aside h2, section.aside h2, .section.aside h2 {
+  aside.next h2, .aside.next h2, section.aside h2, .section.aside h2 {
     font-size:1.30769rem;
     padding:1.2869rem 0;
   }
 }
 
-article aside h2,
+aside.next h2,
 section.aside h2 {
   margin: 0 !important;
   padding: 0 !important;

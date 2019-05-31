@@ -40,6 +40,10 @@ more:
   testimonies: Quelques témoignages
   archives: Toutes les archives
   journal: Retour au journal
+  feed: Fil RSS des écrits
+  photography: Photographies
+  photography_archives: Toutes les archives photographiques
+  photography_feed: Fil RSS des photos
 
 load:
   comments: Affiche les commentaires

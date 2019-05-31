@@ -15,7 +15,6 @@
 }
 
 .series-header .film {
-  color: #1F1F43;
   color: var(--dark-shade);
   font-weight: normal;
 }
@@ -70,7 +69,6 @@
 }
 
 .series-item__map img {
-  border: 5px solid #D4C492;
   border: 5px solid var(--light-accent);
   max-height: 160px;
   max-width: 100%
@@ -81,7 +79,6 @@
 }
 
 .series-item--with-map img {
-    border: 20px solid #D4C492;
     border: 20px solid var(--light-accent);
   }
 
