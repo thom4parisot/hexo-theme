@@ -5,7 +5,7 @@
     <h2><%= _p('more.photography') %></h2>
     <ul class="is-discrete">
       <li><a href="<%= url_for('/photography/')%>" class="read-more"><%= __('more.photography_archives') %></a></li>
-      <li><a href="<%= url_for('/photography/feed/')%>" class="read-more"><%= __('more.photography_feed') %></a></li>
+      <li><a href="<%= url_for('/photography/feed/')%>" type="application/rss+xml" class="read-more"><%= __('more.photography_feed') %></a></li>
     </ul>
   </aside>
 </section>
