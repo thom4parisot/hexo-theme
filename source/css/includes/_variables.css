@@ -15,6 +15,8 @@
   --code-background: #dee2e6;
   --code-foreground: var(--dark-shade);
 
+  --link-foreground: blue;
+
   --border-radius-base: 8px;
 
   --type-headlines: Inconsolata, sans-serif;

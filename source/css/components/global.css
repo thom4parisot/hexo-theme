@@ -30,9 +30,9 @@ main[role="main"] {
 }
 
 a {
-  color: blue;
+  color: var(--link-foreground);
   text-decoration-line: underline;
-  text-decoration-color: blue;
+  text-decoration-color: var(--link-foreground);
 }
 a:hover, a:focus {
   text-decoration: none;
@@ -50,9 +50,6 @@ nav li a {
   white-space: nowrap;
 }
 
-.explainer {
-  font-style: italic;
-}
 .explainer::before {
   content: "⚠️";
   font-style: normal;

@@ -18,7 +18,9 @@
             <li class="authors"><%= post.authors.join(', ') %></li>
           </ul>
           <%= post.description %>
-          <a href="<%= url_for_page(post.path) %>" class="read-more"><%= _p('read_more.reading_note', post.quotes_count) %></a>
+          <a href="<%= url_for_page(post.path) %>" class="read-more">
+            <%- partial('icon', {id: 'bookmarks'}) -%><%= _p('read_more.reading_note', post.quotes_count) %>
+          </a>
         </article>
       </li>
       <% }) %>

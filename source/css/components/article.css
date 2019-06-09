@@ -135,11 +135,11 @@ article.article .post__content h4 {
   @extend h5;
 }
 
-article.article .post__content ul {
+.post__content ul {
   padding-left: 0;
   list-style: inside;
 }
-  article.article .post__content ul ul {
+  .post__content ul ul {
     padding-left: 1.5em;
   }
 

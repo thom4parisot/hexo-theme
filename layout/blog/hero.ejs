@@ -18,7 +18,9 @@
     <div class="summary"><%- post.description || post.excerpt %></div>
 
     <p class="read-more">
-      <a href="<%= url_for(post.path) %>"><%= _p('read_more.article') %></a>
+      <a href="<%= url_for(post.path) %>">
+        <%- partial('icon', {id: 'bookmarks'}) -%><%= _p('read_more.article') %>
+      </a>
     </p>
   </section>
 
@@ -37,8 +39,12 @@
 
   <aside class="next">
     <ul class="is-discrete">
-      <li><a href="<%= url_for('/archives/')%>" class="read-more"><%= __('more.archives') %></a></li>
-      <li><a href="<%= url_for('/feed/')%>" type="application/rss+xml" class="read-more"><%= __('more.feed') %></a></li>
+      <li><a href="<%= url_for('/archives/')%>" class="read-more">
+        <%- partial('icon', {id: 'browse'}) -%><%= __('more.archives') %>
+      </a></li>
+      <li><a href="<%= url_for('/feed/')%>" type="application/rss+xml" class="read-more">
+        <%- partial('icon', {id: 'rss'}) -%><%= __('more.feed') %>
+      </a></li>
     </ul>
   </aside>
 </article>

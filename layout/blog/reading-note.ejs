@@ -15,11 +15,17 @@
     <% if (post.lang === 'fr') { %>
     <ul class="is-discrete">
       <% if (post.url) { %>
-      <li><a href="<%= post.url %>" class="read-more" target="_blank" rel="noreferrer noopener"><%= __('book.url') %></a></li>
+      <li>
+        <a href="<%= post.url %>" class="read-more" target="_blank" rel="noreferrer noopener">
+          <%- partial('icon', {id: 'bookmarks'}) -%><%= __('book.url') %>
+        </a>
+      </li>
       <% } %>
-      <li><a href="https://www.placedeslibraires.fr/livre/<%= post.isbn %>" class="read-more" target="_blank" rel="noreferrer noopener">
-        <%= __('book.find_in_store', post.title) %>
-      </a></li>
+      <li>
+        <a href="https://www.placedeslibraires.fr/livre/<%= post.isbn %>" class="read-more" target="_blank" rel="noreferrer noopener">
+          <%- partial('icon', {id: 'buy'}) -%><%= __('book.find_in_store', post.title) %>
+        </a>
+      </li>
     </ul>
     <% } %>
   </header>
@@ -31,8 +37,17 @@
   </div>
 
   <footer class="post__footer next">
-    <p class="read-more">
-      <a href="https://github.com/oncletom/oncletom.io/tree/master/source/<%= post.source %>"><%= __('metadata.suggest_edit') %></a>
-    </p>
+    <ul class="is-discrete read-more">
+      <li>
+        <a href="https://github.com/oncletom/oncletom.io/tree/master/source/<%= post.source %>">
+          <%- partial('icon', {id: 'html-tag'}) -%><%= __('metadata.suggest_edit') %>
+        </a>
+      </li>
+      <li>
+        <a href="<%= url_for('/reading-notes/') %>">
+          <%- partial('icon', {id: 'browse'}) -%><%= __('more.reading_notes') %>
+        </a>
+      </li>
+    </ul>
   </footer>
 </article>

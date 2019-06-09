@@ -23,17 +23,17 @@
   #search form > input:invalid {
     box-shadow: none;
   }
-  #search form > button {
-    border-left: 2px solid #fff;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    color: #fff;
-    transition: all .5s;
-  }
-  #search form > input:valid + button {
-    color: var(--dark-shade);
-    border-color: var(--light-accent);
+  #search form > input:valid + button:hover,
+  #search form > input:valid + button:focus {
     background: var(--light-accent);
+  }
+  #search form > input:valid + button .icon {
+    fill: var(--dark-shade);
+  }
+
+  #search .credits {
+    color: var(--dark-shade);
+    text-decoration: none;
   }
 
 #search + main {
@@ -49,6 +49,7 @@
   cursor: pointer;
 }
 
-#search .search-results:empty{
+#search .search-results:empty,
+#search .search-results:empty + .next {
   display: none;
 }

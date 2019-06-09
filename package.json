@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/oncletom/hexo-theme#readme",
   "dependencies": {
+    "clsx": "^1.0.4",
     "group-array": "^0.3.3",
     "highlight.js": "^9.13.1",
     "normalize.css": "^8.0.0",

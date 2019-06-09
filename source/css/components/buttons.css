@@ -7,6 +7,10 @@ input[type="button"].action,
 input[type="submit"].action {
   font-weight: bold;
 }
+  button a {
+    color: var(--dark-shade);
+    text-decoration: none;
+  }
 
 button[disabled],
 input[type="button"],

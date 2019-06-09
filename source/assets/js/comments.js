@@ -1,12 +1,16 @@
-// load comments asynchronously
-const loadCommentsBtn = document.querySelector('.action__load-comments');
-if (loadCommentsBtn) {
-  loadCommentsBtn.addEventListener('click', ({target}) => {
-    loadCommentsBtn.disabled = true;
+let loaded = false;
 
-    const script = document.createElement('script');
-    script.src = '//oncletom.disqus.com/embed.js';
-    script.onload = () => loadCommentsBtn.hidden = true;
-    document.body.appendChild(script);
-  });
+export function listen (location, options={hash: '#comments'}) {
+  if (!loaded && location.hash === options.hash) {
+    loadScript();
+  }
+}
+
+export function loadScript () {
+  loaded = true;
+
+  const script = document.createElement('script');
+  script.src = '//oncletom.disqus.com/embed.js';
+  document.body.appendChild(script);
+  document.body.classList.add('comments-enabled');
 }

@@ -19,14 +19,14 @@ metadata:
   author:
     one: Author
     other: "Authors"
-  suggest_edit: Suggest an improvement or a rather small change
+  suggest_edit: Noticed something? Suggest a change
   thanks_to: Thanks to %s.
 
 book:
   description: Description
   reading_notes: "%d Reading Notes"
   notes: All the Notes
-  find_in_store: Find “%s” nearby
+  find_in_store: Find in a bookstore
   url: Read more about the book
 
 read_more:
@@ -39,8 +39,9 @@ load:
 explain:
   disqus: |
     Comments are hosted on Disqus.com.
-    Your privacy remains untouched until you click on the button.
-    You should be okay if you already use a privacy shield (eg: uBlock Origin, Better or Brave).
+    I do not load them to protect your privacy.
+    Use a privacy shield (eg: uBlock Origin, Better or Brave) to prevent
+    abusive data collection and tracking.
   search: Type what you are looking for
 
 more:
@@ -49,16 +50,20 @@ more:
   topic: More on the same topic
   testimonies: Some testimonies
   archives: Browse the archives
+  reading_notes: Back to reading notes
   journal: Back to the journal
   feed: Get the writings RSS feed
   photography: More pictures
   photography_archives: Browse my photography archives
   photography_feed: Get the pictures RSS feed
+  comments: Read and react to comments
 
 categories:
   Journal: |
     A short format to document learnings, brain bites and long-term explorations.
 
-search: Search
+search:
+  label: Search
+  powered_by: Search is powered by
 work: Work
 hire_me: Hire me

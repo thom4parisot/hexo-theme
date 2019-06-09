@@ -1,14 +1,14 @@
 svg {
-  fill: currentColor;
-  height: 1em;
-  width: 1em;
+  fill: var(--light-accent);
+  height: .9em;
+  width: .9em;
 }
 
 .icon {
-  margin-left: .4em;
-  margin-right: .4em;
+  margin: 0;
+  vertical-align: text-bottom;
 }
 
-.icon:first-child {
-  margin-left: 0;
+.icon.icon--auto {
+  width: auto;
 }

@@ -9,6 +9,10 @@
 
     <h1><%= post.title %></h1>
 
+    <% if (is_page()) { %>
+    <%- toc(post.content, {list_number: false}) %>
+    <% } %>
+
     <% if (is_post(post)) { %>
     <ul class="metadata is-inline is-dotted">
       <li><time class="dt-published" datetime="<%= post.date.toISOString() %>">
@@ -31,6 +35,43 @@
     <%- post.content %>
   </section>
 
+  <% if (['journal'].includes(post.layout)) { %>
+  <% const {permalink} = post.categories.findOne({name: 'Journal'}) %>
+  <footer class="post__footer next">
+    <p class="read-more">
+      <a href="<%= permalink %>">
+        <%- partial('icon', {id: 'browse'}) -%><%= __('more.journal') %>
+      </a>
+    </p>
+  </footer>
+  <% } %>
+
+  <% if (is_post() && post.layout === 'post') { %>
+  <footer class="post__footer next">
+    <% if (post.thanks_to) { %>
+    <%- markdown(__('metadata.thanks_to', post.thanks_to)) %>
+    <% } %>
+    <ul class="is-discrete read-more">
+      <li>
+        <a href="https://github.com/oncletom/oncletom.io/tree/master/source/<%= post.source %>">
+          <%- partial('icon', {id: 'html-tag'}) -%><%= __('metadata.suggest_edit') %>
+        </a>
+      </li>
+      <% if (post.comments) { %><li>
+        <a href="#comments">
+          <%- partial('icon', {id: 'reactions'}) -%><%= __('more.comments') %>
+        </a>
+      </li><% } %>
+      <li>
+        <a href="https://github.com/oncletom/oncletom.io/tree/master/source/<%= post.source %>">
+          <%- partial('icon', {id: 'browse'}) -%><%= __('more.archives') %>
+        </a>
+      </li>
+    </ul>
+  </footer>
+  <% } %>
+
+
   <% if (is_post() && post.layout === 'post' && post.categories.first()) { %>
   <% const aside = post.categories.first().posts.find({ date: {$lt: post.date}}).sort('date', -1).limit(5) %>
   <% if (aside.length) { %>
@@ -47,25 +88,5 @@
     </ul>
   </aside>
   <% } %>
-  <% } %>
-
-  <% if (['journal'].includes(post.layout)) { %>
-  <% const {permalink} = post.categories.findOne({name: 'Journal'}) %>
-  <footer class="post__footer next">
-    <p class="read-more">
-      <a href="<%= permalink %>"><%= __('more.journal') %></a>
-    </p>
-  </footer>
-  <% } %>
-
-  <% if (['post', 'page'].includes(post.layout)) { %>
-  <footer class="post__footer next">
-    <% if (post.thanks_to) { %>
-    <%- markdown(__('metadata.thanks_to', post.thanks_to)) %>
-    <% } %>
-    <p class="read-more">
-      <a href="https://github.com/oncletom/oncletom.io/tree/master/source/<%= post.source %>"><%= __('metadata.suggest_edit') %></a>
-    </p>
-  </footer>
   <% } %>
 </article>

@@ -380,6 +380,8 @@ template {
   --code-background: #dee2e6;
   --code-foreground: var(--dark-shade);
 
+  --link-foreground: blue;
+
   --border-radius-base: 8px;
 
   --type-headlines: Inconsolata, sans-serif;
@@ -590,10 +592,13 @@ main[role="main"] {
 
 a {
   color: blue;
+  color: var(--link-foreground);
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
   -webkit-text-decoration-color: blue;
           text-decoration-color: blue;
+  -webkit-text-decoration-color: var(--link-foreground);
+          text-decoration-color: var(--link-foreground);
 }
 
 a:hover, a:focus {
@@ -610,10 +615,6 @@ a:hover, a:focus {
 
 nav li a {
   white-space: nowrap;
-}
-
-.explainer {
-  font-style: italic;
 }
 
 .explainer::before {
@@ -667,8 +668,8 @@ ol.is-dotted > li:not(:last-of-type):after {
 }
 
 ul.is-discrete {
-  list-style: none;
-  padding-left: 0;
+  list-style: none !important;
+  padding-left: 0 !important;
 }
 
 ul.with-metadata > li {
@@ -767,21 +768,21 @@ header.header a {
     box-shadow: none;
   }
 
-#search form > button {
-    border-left: 2px solid #fff;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    color: #fff;
-    transition: all .5s;
-  }
-
-#search form > input:valid + button {
-    color: #1F1F43;
-    color: var(--dark-shade);
-    border-color: #D4C492;
-    border-color: var(--light-accent);
+#search form > input:valid + button:hover,
+  #search form > input:valid + button:focus {
     background: #D4C492;
     background: var(--light-accent);
+  }
+
+#search form > input:valid + button .icon {
+    fill: #1F1F43;
+    fill: var(--dark-shade);
+  }
+
+#search .credits {
+    color: #1F1F43;
+    color: var(--dark-shade);
+    text-decoration: none;
   }
 
 #search + main {
@@ -797,7 +798,8 @@ header.header a {
   cursor: pointer;
 }
 
-#search .search-results:empty{
+#search .search-results:empty,
+#search .search-results:empty + .next {
   display: none;
 }
 
@@ -810,6 +812,12 @@ input[type="button"].action,
 input[type="submit"].action {
   font-weight: bold;
 }
+
+button a {
+    color: #1F1F43;
+    color: var(--dark-shade);
+    text-decoration: none;
+  }
 
 button[disabled],
 input[type="button"],
@@ -840,35 +848,37 @@ li ul.metadata {
 a.read-more {
   font-weight: bold;
   text-decoration: none;
+  white-space: nowrap;
+}
+
+.read-more a:hover,
+.read-more a:focus,
+a.read-more:hover,
+a.read-more:focus {
+  color: #D23B62;
+  color: var(--dark-accent);
 }
 
 .read-more a::after,
   a.read-more::after {
     content: "→";
     display: inline-block;
-    padding-left: .2em;
-    transition: .3s ease-in-out;
   }
 
-.read-more a:hover::after,
-    a.read-more:hover::after {
-      -webkit-transform: translateX(10px);
-              transform: translateX(10px);
-    }
-
 svg {
-  fill: currentColor;
-  height: 1em;
-  width: 1em;
+  fill: #D4C492;
+  fill: var(--light-accent);
+  height: .9em;
+  width: .9em;
 }
 
 .icon {
-  margin-left: .4em;
-  margin-right: .4em;
+  margin: 0;
+  vertical-align: text-bottom;
 }
 
-.icon:first-child {
-  margin-left: 0;
+.icon.icon--auto {
+  width: auto;
 }
 
 pre {
@@ -1556,12 +1566,12 @@ article.article .post__content h4, .article.article .post__content h4 {
   }
 }
 
-article.article .post__content ul {
+.post__content ul {
   padding-left: 0;
   list-style: inside;
 }
 
-article.article .post__content ul ul {
+.post__content ul ul {
     padding-left: 1.5em;
   }
 
@@ -1617,6 +1627,10 @@ aside.next h2,
 section.aside h2 {
   margin: 0 !important;
   padding: 0 !important;
+}
+
+.comments-enabled .action__load-comments {
+  display: none;
 }
 
 .tiles {

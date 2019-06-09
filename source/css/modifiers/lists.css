@@ -15,8 +15,8 @@ ol.is-dotted > li:not(:last-of-type):after {
 }
 
 ul.is-discrete {
-  list-style: none;
-  padding-left: 0;
+  list-style: none !important;
+  padding-left: 0 !important;
 }
 
 ul.with-metadata > li {

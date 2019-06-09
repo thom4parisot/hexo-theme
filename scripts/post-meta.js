@@ -1,6 +1,6 @@
 'use strict';
 
-const url_for = hexo.extend.helper.store['url_for'].bind(hexo);
+const url_for = hexo.extend.helper.get('url_for').bind(hexo);
 
 function coverUrl(post, config) {
   const {url:siteUrl=''} = config;

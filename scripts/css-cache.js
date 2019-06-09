@@ -1,6 +1,6 @@
 'use strict';
 
-const urlFor = hexo.extend.helper.store['url_for'].bind(hexo);
+const urlFor = hexo.extend.helper.get('url_for').bind(hexo);
 
 hexo.extend.helper.register('page_css', (page) => {
   const { layouts } = hexo.theme.config.less;
