@@ -98,7 +98,10 @@
         Thanks for having a look, I hope you enjoyed it.
       </p>
       <p>
-        <a class="read-more" href="<%= url_for('/') %>" rel="home">Navigate back to the Photography home</a>
+        <a class="read-more" href="<%= url_for('/') %>" rel="home">
+          <%- partial('icon', {id: 'images'}) %>
+          Navigate back to the Photography home
+        </a>
       </p>
     </div>
   </footer>
