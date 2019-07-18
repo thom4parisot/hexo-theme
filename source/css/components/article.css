@@ -135,6 +135,12 @@ article.article .post__content h4 {
   @extend h5;
 }
 
+.post__content .header-anchor {
+  color: var(--light-accent);
+  margin-left: -0.75em;
+  position: absolute;
+}
+
 .post__content ul {
   padding-left: 0;
   list-style: inside;

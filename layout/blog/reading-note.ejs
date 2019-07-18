@@ -17,7 +17,7 @@
       <% if (post.url) { %>
       <li>
         <a href="<%= post.url %>" class="read-more" target="_blank" rel="noreferrer noopener">
-          <%- partial('icon', {id: 'bookmarks'}) -%><%= __('book.url') %>
+          <%- partial('icon', {id: 'book'}) -%><%= __('book.url') %>
         </a>
       </li>
       <% } %>
@@ -45,7 +45,7 @@
       </li>
       <li>
         <a href="<%= url_for('/reading-notes/') %>">
-          <%- partial('icon', {id: 'browse'}) -%><%= __('more.reading_notes') %>
+          <%- partial('icon', {id: 'bookmarks'}) -%><%= __('more.reading_notes') %>
         </a>
       </li>
     </ul>

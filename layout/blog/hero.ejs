@@ -39,10 +39,16 @@
 
   <aside class="next">
     <ul class="is-discrete">
-      <li><a href="<%= url_for('/archives/')%>" class="read-more">
+      <li><a href="<%= url_for('/archives/') %>" class="read-more">
         <%- partial('icon', {id: 'browse'}) -%><%= __('more.archives') %>
       </a></li>
-      <li><a href="<%= url_for('/feed/')%>" type="application/rss+xml" class="read-more">
+      <li><a href="<%= url_for('/categories/journal/') %>" class="read-more">
+        <%- partial('icon', {id: 'coffee'}) -%><%= __('more.journal') %>
+      </a></li>
+      <li><a href="<%= url_for('/reading-notes/') %>" class="read-more">
+        <%- partial('icon', {id: 'bookmarks'}) -%><%= __('more.reading_notes') %>
+      </a></li>
+      <li><a href="<%= url_for('/feed/') %>" type="application/rss+xml" class="read-more">
         <%- partial('icon', {id: 'rss'}) -%><%= __('more.feed') %>
       </a></li>
     </ul>

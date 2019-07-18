@@ -40,7 +40,7 @@
   <footer class="post__footer next">
     <p class="read-more">
       <a href="<%= permalink %>">
-        <%- partial('icon', {id: 'browse'}) -%><%= __('more.journal') %>
+        <%- partial('icon', {id: 'coffee'}) -%><%= __('more.journal') %>
       </a>
     </p>
   </footer>
@@ -82,7 +82,7 @@
       <% aside.forEach(post => { %>
       <li>
         <time class="metadata" datetime="<%= date_xml(post.date) %>"><%= date(post.date) %></time>
-        <a href="<%= url_for(post.path) %>" rel="permalink" lang="<%= post.lang || config.lang %>"><%= post.title %></a>
+        <a href="<%= url_for(post.path) %>" rel="permalink" lang="<%= post.lang || config.lang %>"><%= post.title.replace(/☕️ Journal : /, '') %></a>
       </li>
       <% }) %>
     </ul>
