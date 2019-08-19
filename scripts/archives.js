@@ -8,6 +8,10 @@ hexo.extend.generator.register('archive_index', function(locals){
     (el) => el.date.year()
   )).sort((a, b) => b[0] - a[0]);
 
+  if (hexo.config.archive_dir === false) {
+    return null;
+  }
+
   return {
     path: 'archives/index.html',
     data: {...locals, years, display_search: true},
