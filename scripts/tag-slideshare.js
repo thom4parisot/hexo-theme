@@ -5,5 +5,5 @@ hexo.extend.tag.register('slideshare', function(args){
     "height": args[2] || 356
   };
 
-  return '<iframe class="video-container" src="//slideshare.net/slideshow/embed_code/'+data.id+'" height="'+data.height+'" width="'+data.width+'" frameborder="0"></iframe>';
+  return '<iframe class="video-container" src="https://slideshare.net/slideshow/embed_code/'+data.id+'" height="'+data.height+'" width="'+data.width+'" frameborder="0"></iframe>';
 });

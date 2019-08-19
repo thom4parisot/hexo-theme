@@ -1,27 +1,29 @@
 <% const m = moment(page.date) -%>
 <% const { device } = page -%>
 <main class="photography-series series">
-  <header class="series-header">
+  <header class="series-header container">
     <h1 class="series__headline"><span><%= page.title %></span></h1>
 
-    <div class="series__summary"><%- page.excerpt || page.content %></div>
+    <div class="series__summary"><%- page.excerpt || page.content || page.description %></div>
 
-    <ul class="series-header__metadata">
-      <li class="metadata metadata--date">
+    <ul class="metadata is-inline is-dotted">
+      <li>
         <time datetime="<%= m.toISOString() %>"><%= m.format('YYYY') %></time>
       </li>
-      <li class="metadata">
+      <li>
         <%= _p('pictures.count', pictures_count(page)) %>
       </li>
-      <ul class="metadata__list">
-        <% (Array.isArray(device) ? device : [device]).forEach(d => { %>
-        <li class="metadata">
-          <span class="metadata camera"><%= d.manufacturer %> <%= d.model %></span>
-          <% if (d.film) { -%>
-            <span class="metadata film"><%= d.film.manufacturer %> <%= d.film.model %> (<%= d.film.speed %>ISO)</span>
-          <% } }) %>
-        </li>
-      </ul>
+      <li>
+        <ul class="is-inline">
+          <% (Array.isArray(device) ? device : [device]).forEach(d => { %>
+          <li>
+            <span class="camera"><%= d.manufacturer %> <%= d.model %></span>
+            <% if (d.film) { -%>
+              <span class="film"><%= d.film.manufacturer %> <%= d.film.model %> (<%= d.film.speed %>ISO)</span>
+            <% } }) %>
+          </li>
+        </ul>
+      </li>
     </ul>
   </header>
 
@@ -90,13 +92,16 @@
   </article>
   <% }) %>
 
-  <footer class="series-footer">
+  <footer class="series-footer next container">
     <div class="series-footer__content">
       <p>
         Thanks for having a look, I hope you enjoyed it.
       </p>
       <p>
-        <a href="<%= url_for('/') %>" rel="home">Navigate to the <em>Photography home</em></a>
+        <a class="read-more" href="<%= url_for('/') %>" rel="home">
+          <%- partial('icon', {id: 'images'}) %>
+          Navigate back to the Photography home
+        </a>
       </p>
     </div>
   </footer>

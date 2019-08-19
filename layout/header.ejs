@@ -1,27 +1,33 @@
-<header class="header">
-  <nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" id="static-top-navbar-toggle-button" data-target="#static-top-navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+<header class="header container">
 
-        <a class="navbar-brand" href="<%= config.root %>" rel="home">
-          <img src="/assets/avatar.jpg" alt="" class="avatar">
-          <%- config.title.replace('.io', '<small>.io</small>') %>
-        </a>
-      </div>
+  <div class="profile-picture">
+    <a href="<%= url_for('/' )%>" rel="home">
+      <img src="/assets/avatar.jpg" alt="<%= config.title %>" class="is-avatar is-responsive">
+    </a>
+  </div>
 
-      <div class="collapse navbar-collapse" id="static-top-navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <% getNavLinks(theme.links).forEach(link => { %>
-            <li class="<%= link.classNames %>"><a href="<%= link.href %>"><%= link.label %></a></li>
-          <% }) %>
-        </ul>
-      </div>
-    </div>
+  <div class="presentation"><%- markdown(theme.description) %></div>
+
+  <nav>
+    <ul class="is-inline is-dotted">
+      <% getNavLinks(theme.links).forEach(link => { %>
+        <li class="<%= link.classNames %>"><a href="<%= link.href %>" lang="<%= link.lang || config.language %>"><%= link.label %></a></li>
+      <% }) %>
+    </ul>
   </nav>
 </header>
+
+<section id="search" class="container<%= page.display_search ? ' is-active' : ''%>">
+  <form action="#" role="search">
+    <input type="search" name="q" placeholder="<%= __('explain.search') %>" spellcheck autocomplete required><button type="submit"><%- partial('icon', {id: 'search', alt: __('search.label')}) %></button>
+  </form>
+
+  <ul class="search-results is-discrete with-metadata"></ul>
+
+  <p class="next">
+    <a href="https://www.algolia.com" class="credits" target="_blank" rel="noreferrer noopener">
+      <%= __('search.powered_by') %>
+      <%- partial('icon', {id: 'algolia', alt: 'Algolia', size: 'auto'}) %>
+    </a>
+  </p>
+</section>

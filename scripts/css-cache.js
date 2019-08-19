@@ -1,15 +1,15 @@
 'use strict';
 
-const urlFor = hexo.extend.helper.store['url_for'].bind(hexo);
+const urlFor = hexo.extend.helper.get('url_for').bind(hexo);
 
 hexo.extend.helper.register('page_css', (page) => {
   const { layouts } = hexo.theme.config.less;
-  let files = ['assets/css/core.css'];
+  let files = ['styles/blog.css'];
 
   if (page.layout === 'post' && hexo.config.layout === 'talks') {
     files = [
-      'assets/css/slides.css',
-      `assets/css/slides/theme-${page.theme || 'oncletom'}.css`
+      'styles/slides.css',
+      `styles/slides/theme-${page.theme || 'oncletom'}.css`
     ];
   }
   // photography layouts (as defined in _config.yml)

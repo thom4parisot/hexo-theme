@@ -1,0 +1,6 @@
+<svg class="<%= cx('icon', arguments[0].size && `icon--${arguments[0].size}`) %>" aria-hidden="true">
+  <% if (arguments[0].alt) { -%>
+  <title><%= arguments[0].alt %></title>
+  <% } -%>
+  <use xlink:href="<%= url_for(`/assets/icons.svg#${id}`) %>"></use>
+</svg>

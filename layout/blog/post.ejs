@@ -1,17 +1,8 @@
 <%- partial('header') %>
-<%- partial('cover/post', { post: page }) %>
 
 <main role="main">
-  <section>
-    <%- partial("blog/post-single", {
-      post: page,
-      features: ["summary", "content", "signature"]
-    }) %>
-  </section>
-
-  <section>
-    <%- partial("blog/comments", { post: page }) %>
-  </section>
+  <%- partial("blog/post-single", { post: page }) %>
+  <%- partial("blog/comments", { post: page }) %>
 </main>
 
 <%- partial("footer", {}, { cache: true }) %>

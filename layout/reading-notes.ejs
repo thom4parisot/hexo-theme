@@ -1,22 +1,30 @@
 <%- partial('header') %>
-<%- partial('cover/hello', { post: page }) %>
 
 <main class="timeline" role="main">
   <section>
-    <%- partial("blog/post-single", {
-      post: page,
-      features: ["content"]
-    }) %>
+    <%- partial("blog/post-single", { post: page }) %>
   </section>
 
-  <section class="timeline-section">
-    <ol class="card-list">
-    <% site.pages.find({ layout: 'reading-note' }).sort('updated', -1).forEach(post => { %>
-      <li class="card-list__item">
-        <%- partial("photography/card", { post, features: ["date"] }) %>
+  <section class="aside container next">
+    <h2><%= __('book.all_notes') %></h2>
+
+    <ul class="is-discrete">
+      <% site.pages.find({ layout: 'reading-note' }).sort('publication_year', -1).forEach(post => { %>
+      <li>
+        <article>
+          <h3><a href="<%= url_for_page(post.path) %>" rel="permalink"><%= post.title %><%= post.subtitle ? ` — ${post.subtitle}` : '' %></a></h3>
+          <ul class="metadata is-inline is-dotted">
+            <li><time datetime="<%= date_xml(post.publication_year) %>"><%= post.publication_year %></time></li>
+            <li class="authors"><%= post.authors.join(', ') %></li>
+          </ul>
+          <%= post.description %>
+          <a href="<%= url_for_page(post.path) %>" class="read-more">
+            <%- partial('icon', {id: 'bookmarks'}) -%><%= _p('read_more.reading_note', post.quotes_count) %>
+          </a>
+        </article>
       </li>
-    <% }) %>
-    </ol>
+      <% }) %>
+    </ul>
   </section>
 </main>
 

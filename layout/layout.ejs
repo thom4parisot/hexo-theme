@@ -3,6 +3,6 @@
 <head><%- partial('_head') %></head>
 <body class="home <%= `site-${config.layout} content-${page.layout}` %>">
 <%- body %>
-<%- js(['assets/algolia/algoliasearchLite.min.js', 'assets/js/main.js']) %>
+<script src="<%= url_for(`/assets/js/main.js?v=${process.env.npm_package_version}`)%>" type="module" defer></script>
 </body>
 </html>

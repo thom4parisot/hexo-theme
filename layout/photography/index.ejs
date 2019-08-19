@@ -1,19 +1,13 @@
 <%- partial('header') %>
-<%- partial('cover/hello', { post: page.posts.first() }) %>
 
-<main class="timeline" role="main">
-  <section class="timeline-section" id="a-bit-older">
-    <ol class="card-list">
+<section class="photography-tiles needs-js">
+  <ul class="tiles">
     <% page.posts.forEach(post => { %>
       <li class="card-list__item">
-        <%- partial("photography/card", {
-          post,
-          features: ["date"]
-        }) %>
+        <%- partial("photography/tile", { post }) %>
       </li>
     <% }) %>
-    </ol>
-  </section>
-</main>
+  </ul>
+</section>
 
 <%- partial("footer", {}, { cache: true }) %>

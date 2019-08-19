@@ -1,36 +1,46 @@
-description: |
-  Hey, I'm **Thomas** Parisot, a french **software designer**.
+description: >
+  Hello, I'm **Thomas Parisot**, a frenchman with web development, collaborative work and user experience skills.
+author: Thomas Parisot
+email: hi@oncletom.io
+disqus_shortname: oncletom
 
-  Recently, I have been up to writing a book, team facilitation, Node.js programming and user research.
+graph:
+  twitter:        oncletom
+  pgp:            "https://keybase.io/oncletom/pgp_keys.asc?fingerprint=FD7AA82DF0BB977542BB4F44CB88AA7D815E0D6B"
+  mastodon:       https://masto.oncletom.io/thomas
+webmentions:
+  url: https://webmention.io/oncletom.io
+  features:
+    pingback:   xmlrpc
+    webmention: webmention
 
-  I am **nomadic at the moment** • been a Londoner for 5 years and a Bordeaux chap for almost 20 years.
+summary:
+  work: >
+    I combine web development, UX research and human-centered agile practices
+    to put people at ease, to create a shared understanding of the _whys_ and the _whats_
+    and to move from ideas to prototyping then to production.
 
 links:
-  - namespace: blog
-    label: Blog
+  - label: Writings
     href: /
-  - namespace: books
-    label: Node.js
+  - label: Livre Node.js
     href: /node.js/
-  - namespace: talks
-    label: Talks
+    lang: fr
+  - label: Presentations
     href: /talks/
-  - namespace: reading-notes
-    label: Reading Notes
+  - label: Reading Notes
     href: /reading-notes/
-  - namespace: photography
-    label: Photography
+  - label: Photography
     href: /photography/
-  - namespace: about
-    label: About
-    href: /slash-me/
+  - label: About
+    href: /about/
 
 less:
   layouts:
     series-day-to-day:
-      - assets/css/series/day-to-day.css
+      - styles/series-day-to-day.css
     series-default:
-      - assets/css/series/default.css
+      - styles/series-default.css
   paths:
     - source/less
     - node_modules/bootstrap/less

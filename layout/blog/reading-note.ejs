@@ -1,0 +1,53 @@
+<article class="h-entry post article <%= typeof classNames === 'string' ? classNames : '' %> container" lang="<%= post.lang || config.language %>">
+  <header class="post__header">
+    <h1><%= post.title %></h1>
+
+    <ul class="metadata is-inline is-dotted">
+      <li>
+        <%- _p('metadata.published_in', date_xml(post.publication_year), post.publication_year) %>
+      </li>
+      <li class="authors"><%= post.authors.join(', ') %></li>
+    </ul>
+
+    <h2 class="h5"><%= post.subtitle || __('book.description') %></h2>
+    <div class="description"><%= post.description %></div>
+
+    <% if (post.lang === 'fr') { %>
+    <ul class="is-discrete">
+      <% if (post.url) { %>
+      <li>
+        <a href="<%= post.url %>" class="read-more" target="_blank" rel="noreferrer noopener">
+          <%- partial('icon', {id: 'book'}) -%><%= __('book.url') %>
+        </a>
+      </li>
+      <% } %>
+      <li>
+        <a href="https://www.placedeslibraires.fr/livre/<%= post.isbn %>" class="read-more" target="_blank" rel="noreferrer noopener">
+          <%- partial('icon', {id: 'buy'}) -%><%= __('book.find_in_store', post.title) %>
+        </a>
+      </li>
+    </ul>
+    <% } %>
+  </header>
+
+  <div class="post__content post__content--text e-content next">
+    <h2><%= _p('book.notes', post.quotes_count) %></h2>
+
+    <%- post.content %>
+  </div>
+
+  <footer class="post__footer next">
+    <ul class="is-discrete read-more">
+      <li>
+        <a href="https://github.com/oncletom/oncletom.io/tree/master/source/<%= post.source %>">
+          <%- partial('icon', {id: 'html-tag'}) -%><%= __('metadata.suggest_edit') %>
+        </a>
+      </li>
+      <li>
+        <a href="<%= url_for('/reading-notes/') %>">
+          <%- partial('icon', {id: 'bookmarks'}) -%><%= __('more.reading_notes') %>
+        </a>
+      </li>
+    </ul>
+  </footer>
+</article>

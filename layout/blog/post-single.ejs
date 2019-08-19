@@ -1,79 +1,92 @@
 <% const d = moment(post.date) -%>
-<article class="h-entry post <%= typeof classNames === 'string' ? classNames : '' %>" lang="<%= post.lang || config.language %>">
-  <header class="post__header"<%= features.indexOf('header') !== -1 ? '' : 'hidden'%>>
-    <h2 class="post__headline">
-      <a href="<%= url_for(post.external || post.path) %>" title="<%= post.title %>" rel="bookmark permalink" class="u-url p-name"><%= post.title %></a>
-    </h2>
-
-    <div class="post__metadata">
-      <time class="metadata metadata--date post__date headline-list__date dt-published" datetime="<%= d.toISOString() %>">
-        <%= date(d) %></span>
-      </time>
-
-      <% if (post.event && post.event.name) {%>
-      <span class="metadata">
-        •
-        <a href="<%= post.event.url %>"><%= post.event.name %></a>
-      </span>
-      <% } %>
-
-      <% if (post.event && post.event.location) {%>
-      <span class="metadata metadata--location">
-        <svg class="icon">
-          <title><%= _p('metadata.location') %></title>
-          <use xlink:href="<%= url_for('/assets/icons.svg#location') %>"></use>
-        </svg>
-        <%= post.event.location %>
-      </span>
-      <% } %>
-
-      <% if (post.event && post.video) {%>
-      <span class="metadata metadata--video">
-        <svg class="icon">
-          <use xlink:href="<%= url_for('/assets/icons.svg#youtube') %>"></use>
-        </svg>
-        <a href="<%= post.video %>"><%= _p('watch') %></a>
-      </span>
-      <% } %>
-
-      <% if (post.event && post.audio) {%>
-      <span class="metadata metadata--audio">
-        <svg class="icon">
-          <use xlink:href="<%= url_for('/assets/icons.svg#youtube') %>"></use>
-        </svg>
-        <a href="<%= post.audio %>"><%= _p('listen') %></a>
-      </span>
-      <% } %>
+<article class="h-entry post article <%= typeof classNames === 'string' ? classNames : '' %> container" lang="<%= post.lang || config.language %>">
+  <header class="post__header">
+    <% if (post.cover) { %>
+    <div class="<%= ['cover', post.cover.type].filter(d=>d).join(' ') %>">
+      <img src="<%= post.image %>" alt="" class="is-responsive is-cover">
     </div>
+    <% } %>
+
+    <h1><%= post.title %></h1>
+
+    <% if (is_page()) { %>
+    <%- toc(post.content, {list_number: false}) %>
+    <% } %>
+
+    <% if (is_post(post)) { %>
+    <ul class="metadata is-inline is-dotted">
+      <li><time class="dt-published" datetime="<%= post.date.toISOString() %>">
+        <%= date(post.date) %>
+      </time></li>
+      <% if (post.categories.findOne({name: 'Journal'})) { %>
+      <li>#Journal</li>
+        <% const categories = post.categories.filter(c => c.name !== 'Journal').map(({name}) => name) %>
+        <% if (categories.length) { %>
+        <li><%- categories.join(', ') %></li>
+        <% } %>
+      <% } else { %>
+      <li><%= readingTime(post.content).text %></li>
+      <% } %>
+    </ul>
+    <% } %>
   </header>
 
-  <% if (features.indexOf('summary') !== -1) { %>
-  <div class="post__summary p-summary <%= features.indexOf('content') !== -1 ? ' post__summary--plus-content' : '' %>">
-    <%- post.description || post.excerpt %>
+  <section id="read" class="post__content post__content--text e-content">
+    <%- post.content %>
+  </section>
 
-    <a href="<%= url_for(post.path) %>#more" class="continue-reading">Continue reading</a>
-  </div>
-  <% } %>
-
-  <% if (features.indexOf('content') !== -1) { %>
-  <div class="post__content post__content--text e-content" data-signed-by="<%= features.indexOf('signature') !== -1 ? 'Thomas': '' %>">
-    <% if (locals.content && locals.content.title) { -%>
-      <h1>Notes</h1>
-    <% } -%>
-    <%- post.more %>
-  </div>
-  <% } %>
-
-  <% if (features.indexOf('signature') !== -1) { %>
-  <footer class="post__footer">
-    <% if (post.thanks_to) { %>
-    <%- markdown(`Thanks to ${post.thanks_to}`) %>
-    <% } %>
-    <p>
-      Published in
-      <time datatime="<%= d.toISOString() %>"><%= d.format(config.date_format) %></time>.
-      <a href=<%= `https://github.com/oncletom/oncletom.io/tree/master/source/${post.source}` %>>Found a typo or want to suggest an edit</a>?
+  <% if (['journal'].includes(post.layout)) { %>
+  <% const {permalink} = post.categories.findOne({name: 'Journal'}) %>
+  <footer class="post__footer next">
+    <p class="read-more">
+      <a href="<%= permalink %>">
+        <%- partial('icon', {id: 'coffee'}) -%><%= __('more.journal') %>
+      </a>
     </p>
   </footer>
+  <% } %>
+
+  <% if (is_post() && post.layout === 'post') { %>
+  <footer class="post__footer next">
+    <% if (post.thanks_to) { %>
+    <%- markdown(__('metadata.thanks_to', post.thanks_to)) %>
+    <% } %>
+    <ul class="is-discrete read-more">
+      <li>
+        <a href="https://github.com/oncletom/oncletom.io/tree/master/source/<%= post.source %>">
+          <%- partial('icon', {id: 'html-tag'}) -%><%= __('metadata.suggest_edit') %>
+        </a>
+      </li>
+      <% if (post.comments) { %><li>
+        <a href="#comments">
+          <%- partial('icon', {id: 'reactions'}) -%><%= __('more.comments') %>
+        </a>
+      </li><% } %>
+      <li>
+        <a href="https://github.com/oncletom/oncletom.io/tree/master/source/<%= post.source %>">
+          <%- partial('icon', {id: 'browse'}) -%><%= __('more.archives') %>
+        </a>
+      </li>
+    </ul>
+  </footer>
+  <% } %>
+
+
+  <% if (is_post() && post.layout === 'post' && post.categories.first()) { %>
+  <% const aside = post.categories.first().posts.find({ date: {$lt: post.date}}).sort('date', -1).limit(5) %>
+  <% if (aside.length) { %>
+  <aside class="next">
+    <h2><%= __('more.topic')%></h2>
+
+    <ul class="is-discrete with-metadata">
+      <% aside.forEach(post => { %>
+      <li>
+        <time class="metadata" datetime="<%= date_xml(post.date) %>"><%= date(post.date) %></time>
+        <a href="<%= url_for(post.path) %>" rel="permalink" lang="<%= post.lang || config.lang %>"><%= post.title.replace(/☕️ Journal : /, '') %></a>
+      </li>
+      <% }) %>
+    </ul>
+  </aside>
+  <% } %>
   <% } %>
 </article>

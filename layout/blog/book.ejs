@@ -1,0 +1,21 @@
+<article class="article with-aside container" id="book-nodejs" lang="<%= page.lang || config.language %>">
+  <header class="cover">
+    <% if (page.image) { %><img src="<%= page.image %>" alt="" class="is-responsive is-cover"><% } %>
+  </header>
+
+  <section>
+    <h1><a href="<%= url_for(page.url) %>"><%= page.title %></a></h1>
+
+    <div class="summary"><%- markdown(page.description) %></div>
+  </section>
+
+  <aside class="next">
+    <h2><%= __('Quelques témoignages') %></h2>
+
+    <ul class="is-discrete with-quotes">
+      <% page.testimonies.forEach(t => { %>
+      <li><blockquote><%- t.text ? `<a href="${t.link}" target="_blank" rel="noopener noreferrer">${t.text}</a>` : (t.text || t) %></blockquote></li>
+      <% }) %>
+    </ul>
+  </aside>
+</article>

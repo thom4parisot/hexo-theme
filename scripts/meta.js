@@ -19,7 +19,9 @@ hexo.extend.helper.register('description', function(page) {
 });
 
 hexo.extend.helper.register('title', function(page) {
-  return page.title
-    ? [page.title, this.config.title].join(" — ")
-    : [this.config.title, this.config.subtitle].join(" — ");
+  let title = page.title;
+
+  return title
+    ? [title, this.config.title].join(" • ")
+    : [this.config.title, this.config.subtitle].join(" • ");
 });

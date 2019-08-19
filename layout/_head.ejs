@@ -1,37 +1,40 @@
 <meta charset="utf-8">
-<%- cssCache(page_css(page)) %>
 <title><%= title(page) %></title>
 <meta http-equiv="x-ua-compatible" content="ie=edge">
+<link rel="preload" href="/assets/icons.svg">
+<link rel="preload" href="/assets/avatar.png">
+<link rel="preload" href="/assets/favicon.png">
+<link rel="preload" href="/images/publications/nodejs-cover.png">
+<%- cssCache(page_css(page)) %>
 <meta name="viewport" content="initial-scale=1.0">
-<link rel="apple-touch-icon" type="image/x-icon" href="/assets/avatar.jpg">
-<link rel="icon" type="image/jpg" href="/assets/avatar.jpg">
-<link rel="pgpkey" href="<%= config.graph.pgp %>">
-<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" type="image/x-icon" href="/assets/favicon.png">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="pgpkey" href="<%= theme.graph.pgp %>">
 <meta name="description" content="<%= description(page) %>">
 <meta name="keywords" content="<%= (page.tags && page.tags.toArray().map(tag => tag.name) || []).concat(config.keywords).join(',') %>">
 <link rel="alternate" type="application/rss+xml" title="<%= [config.title, config.subtitle].join(' &mdash; ') %>" href="<%= config.url %>/feed/">
-<link rel="author" href="<%= config.author %>">
-<% if (is_post()){ -%><link rel="canonical" data-disqus-shortname="<%= config.disqus_shortname %>" href="<%= page.permalink %>"><% } %>
+<link rel="author" href="<%= theme.author %>">
+<% if (is_post()){ -%><link rel="canonical" data-disqus-shortname="<%= theme.disqus_shortname %>" href="<%= page.permalink %>"><% } %>
 <% if (is_home() || is_archive()){ -%><link rel="prefetch" href="<%= page.posts.first().permalink %>"><% } %>
 <% if (page.next){ -%><link rel="prefetch" href="<%= page.next.permalink %>"><% } %>
 <% if (page.prev){ -%><link rel="prefetch" href="<%= page.prev.permalink %>"><% } %>
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@<%= config.graph.twitter %>">
-<meta name="twitter:creator" content="@<%= config.graph.twitter %>">
-<meta name="twitter:image" content="<%= coverUrl(page, config) %>">
+<meta name="twitter:site" content="@<%= theme.graph.twitter %>">
+<meta name="twitter:creator" content="@<%= theme.graph.twitter %>">
+<meta name="twitter:image" content="<%= page.image || config.default_cover %>">
 <meta name="twitter:description" content="<%= description(page) %>">
 <meta property="og:title" content="<%= page.title || [config.title, config.subtitle].join(' &mdash; ') %>">
 <meta property="og:type" content="article">
 <meta property="og:url" content="<%= url_for(page.permalink).replace('index.html', '') %>">
-<meta property="og:image" content="<%= coverUrl(page, config) %>">
+<meta property="og:image" content="<%= page.image || config.default_cover %>">
 <meta property="og:description" content="<%= description(page) %>">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_GB">
 <meta property="og:site_name" content="<%= config.title %>">
-<link rel="me" href="<%= config.graph.mastodon %>">
-<% if (config.webmentions) { -%>
-<% Object.entries(config.webmentions.features).forEach(f => { -%>
-<link rel="<%= f[0] %>" href="<%= config.webmentions.url %>/<%= f[1] %>">
+<link rel="me" href="<%= theme.graph.mastodon %>">
+<% if (theme.webmentions) { -%>
+<% Object.entries(theme.webmentions.features).forEach(f => { -%>
+<link rel="<%= f[0] %>" href="<%= theme.webmentions.url %>/<%= f[1] %>">
 <% }) -%>
 <% } -%>
 <%- algolia_search_config() %>

@@ -15,7 +15,70 @@ metadata:
     zero: Aucune photo
     one: 1 photo
     other: "%d photos"
-  published_in: Publié en
+  published_in: Publié en <time datetime="%s">%s</time>
   author:
     one: Auteur
     other: Auteurs
+  suggest_edit: Quelque chose cloche ? Propose une correction
+  thanks_to: Merci à %s.
+
+book:
+  description: Description de l'ouvrage
+  notes: "%d citations et notes de lecture"
+  all_notes: Toutes les notes
+  find_in_store: Acheter en librairie indépendante
+  url: En savoir plus sur le site de l'éditeur
+
+read_more:
+  article: Lire la suite
+  reading_note: Lire les %d notes
+  summary: Déplier le résumé
+
+more:
+  writings: D'autres écrits
+  work: Projets notables
+  topic: D'autres écrits sur le même sujet
+  testimonies: Quelques témoignages
+  archives: Toutes les archives
+  reading_notes: Toutes les notes de lecture
+  journal: Toutes les entrées du journal
+  feed: Fil RSS des écrits
+  photography: Photographies
+  photography_archives: Toutes les archives photographiques
+  photography_feed: Fil RSS des photos
+  comments: Lire et répondre aux commentaires
+  talks: Présentations, ateliers et conférences
+
+load:
+  comments: Affiche les commentaires
+
+talk:
+  post: Présentation
+  workshop: Atelier
+  meetup: Meetup
+
+hosted:
+  organized: organisé
+  in: à %s
+  by: organisé par <a href="%s" target="_blank" rel="noopener">%s</a>
+  page: Page web
+
+explain:
+  disqus: |
+    Les commentaires sont hébergés sur Disqus.com.
+    Je ne les charge pas par défaut pour protéger votre vie privée.
+    Utilisez un bloqueur de traceurs (type uBlock Origin, Better ou Brave) pour
+    vous protéger du pistage et de la collecte abusive de données.
+  search: Mots à rechercher sur ce site
+
+categories:
+  Journal: |
+    Un format court pour documenter mes apprentissages, des réflexions
+    et des explorations de vie.
+
+
+search:
+  label: Rechercher
+  powered_by: Outil de recherche fourni par
+work: Boulot
+hire_me: Travailler ensemble

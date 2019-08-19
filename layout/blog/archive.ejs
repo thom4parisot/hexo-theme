@@ -1,22 +1,24 @@
 <%- partial('header') %>
-<%- partial('cover/featured', {
-  post: page.posts.first(),
-  archiveType: page.year || page.category
-}) %>
 
-<main class="timeline" role="main">
-  <section class="timeline-section" id="a-bit-older">
-    <ol class="headline-list">
-    <% page.posts.forEach(post => { %>
-      <li class="headline-list__item">
-        <%- partial("blog/post-single", {
-          post,
-          features: ['header', 'summary']
-        }) %>
+<main role="main" class="container">
+  <h1><%= is_category() ? page.category : 'Archives' %></h1>
+
+  <%- is_category() && markdown(__(`categories.${page.category}`)) %>
+
+  <% for (const [year, posts] of (page.years || [[page.year, page.posts]])) { %>
+  <section id="year-<%= year %>">
+    <h2><%= year %></h2>
+
+    <ul class="is-discrete with-metadata">
+      <% posts.forEach(post => { %>
+      <li>
+        <time class="metadata" datetime="<%= date_xml(post.date) %>"><%= date(post.date) %></time>
+        <a href="<%= url_for(post.path) %>" rel="permalink" lang="<%= post.lang || config.lang %>"><%= post.title.replace(/☕️ Journal : /, '') %></a>
       </li>
-    <% }) %>
-    </ol>
+      <% }) %>
+    </ul>
   </section>
+  <% } %>
 </main>
 
 <%- partial("footer", {}, { cache: true }) %>

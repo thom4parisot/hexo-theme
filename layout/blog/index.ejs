@@ -1,27 +1,12 @@
 <%- partial('header') %>
-<%- partial('cover/hello', { post: page.posts.first() }) %>
+<% const posts = site.posts.find({ layout: {$ne: 'journal'} }).sort('date', -1).limit(10) %>
 
-<main class="timeline" role="main">
-  <section class="timeline-section">
-    <ol class="headline-list">
-      <li>
-        <%- partial("blog/post-single", {
-          post: page.posts.first(),
-          classNames: 'post--hero',
-          features: ['header', 'summary']
-        }) %>
-      </li>
+<main role="main">
+  <%- partial('blog/hero', { post: posts.first(), aside: posts.slice(1, 6) }) %>
 
-    <% page.posts.slice(1, 6).forEach(post => { %>
-      <li class="headline-list__item">
-        <%- partial("blog/post-single", {
-          post,
-          features: ['header', 'summary']
-        }) %>
-      </li>
-    <% }) %>
-    </ol>
-  </section>
+  <% /* partial('blog/work', {}) */ %>
+  <%- partial('blog/book', { page: site.data.book }) %>
+  <%- partial('blog/pictures', {}) %>
 </main>
 
 <%- partial("footer", {}, { cache: true }) %>
