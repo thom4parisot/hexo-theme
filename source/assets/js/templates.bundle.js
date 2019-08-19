@@ -1456,7 +1456,7 @@ var ejs_11 = ejs.__express;
 var ejs_12 = ejs.VERSION;
 var ejs_13 = ejs.name;
 
-var searchResult = "<% if (post.layout === 'post') { %>\n<time class=\"metadata\" datetime=\"<%= post.date %>\"><%= new Date(post.date_as_int * 1000).toLocaleDateString(post.lang, {month: 'long', year: 'numeric'}) %></time>\n<% } %>\n<div>\n  <a href=\"<%= post.permalink %>\" rel=\"permalink\"><%= post.title %></a>\n  <% if (post.excerpt) { %>\n  <details>\n    <summary>Display summary</summary>\n    <%- post.excerpt %>\n  </details>\n  <% } %>\n<div>\n";
+var searchResult = "<% if (post.layout === 'post') { %>\n<time class=\"metadata\" datetime=\"<%= post.date %>\"><%= new Date(post.date_as_int * 1000).toLocaleDateString(post.lang, {month: 'long', year: 'numeric'}) %></time>\n<% } %>\n<div>\n  <a href=\"<%= post.permalink %>\" rel=\"permalink\"><%= post.title %></a>\n  <% if (post.excerpt) { %>\n  <details>\n    <summary><%= __('display_summary') %></summary>\n    <%- post.excerpt %>\n  </details>\n  <% } %>\n<div>\n";
 
 var photographyTile = "<article class=\"tile\">\n  <aside class=\"cover is-square is-empty\">\n    <img src=\"<%= post.image %>\" alt=\"\" loading=\"auto\">\n  </aside>\n  <a href=\"<%= post.permalink %>\" rel=\"permalink\"><%= post.title %></a>\n</article>\n";
 

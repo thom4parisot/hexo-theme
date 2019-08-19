@@ -32,6 +32,7 @@ book:
 read_more:
   article: Lire la suite
   reading_note: Lire les %d notes
+  summary: Déplier le résumé
 
 more:
   writings: D'autres écrits
@@ -46,9 +47,21 @@ more:
   photography_archives: Toutes les archives photographiques
   photography_feed: Fil RSS des photos
   comments: Lire et répondre aux commentaires
+  talks: Présentations, ateliers et conférences
 
 load:
   comments: Affiche les commentaires
+
+talk:
+  post: Présentation
+  workshop: Atelier
+  meetup: Meetup
+
+hosted:
+  organized: organisé
+  in: à %s
+  by: organisé par <a href="%s" target="_blank" rel="noopener">%s</a>
+  page: Page web
 
 explain:
   disqus: |

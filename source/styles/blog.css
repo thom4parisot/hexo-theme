@@ -566,10 +566,19 @@ body > *:first-child {
   margin-top: 0;
 }
 
+details summary {
+  cursor: pointer;
+}
+
 [lang="en"] a[lang="fr"]::after,
 [lang="en-GB"] a[lang="fr"]::after,
+[lang="en"] a[lang="fr-FR"]::after,
+[lang="en-GB"] a[lang="fr-FR"]::after,
+/* */
 [lang="fr"] a[lang="en"]::after,
-[lang="fr"] a[lang="en-GB"]::after {
+[lang="fr"] a[lang="en-GB"]::after,
+[lang="fr-FR"] a[lang="en"]::after,
+[lang="fr-FR"] a[lang="en-GB"]::after {
   content: "\00A0(" attr(lang) ")";
   opacity: .4;
   -webkit-text-decoration-color: transparent;
@@ -661,10 +670,9 @@ ol.is-inline > li {
   display: inline;
 }
 
-ul.is-dotted > li:not(:last-of-type):after,
-ol.is-dotted > li:not(:last-of-type):after {
+.is-dotted > li:not(:first-of-type):before {
   content: "•";
-  /* padding-left: .3em; */
+  padding-right: .3em;
 }
 
 ul.is-discrete {
@@ -680,8 +688,16 @@ ul.with-metadata > li {
 ul.with-metadata > li .metadata {
     align-self: flex-start;
     font-size: 0.8em;
+    font-weight: bold;
     line-height: 2;
     min-width: 120px;
+    text-transform: uppercase;
+  }
+
+ul.with-metadata h2,
+  ul.with-metadata h3,
+  ul.with-metadata h4 {
+    padding-top: 0;
   }
 
 ul.with-metadata > li div:first-child {
@@ -794,10 +810,6 @@ header.header a {
   opacity: .6;
 }
 
-#search details summary {
-  cursor: pointer;
-}
-
 #search .search-results:empty,
 #search .search-results:empty + .next {
   display: none;
@@ -833,6 +845,16 @@ h3 + ul.metadata {
   margin: -1rem 0 2.5rem;
 }
 
+h3 + ul.metadata,
+.h3 + ul.metadata {
+  margin-top: calc(-1.75rem + 0.25rem);
+}
+
+h4 + ul.metadata,
+.h4 + ul.metadata {
+  margin-top: calc(-1.5rem + 0.25rem);
+}
+
 li ul.metadata {
   margin-bottom: .5em;
 }
@@ -840,8 +862,22 @@ li ul.metadata {
 .metadata {
   color: #D23B62;
   color: var(--dark-accent);
-  text-transform: uppercase;
+}
+
+.metadata--type {
   font-weight: bold;
+}
+
+.metadata--artifacts {
+  display: block !important;
+}
+
+.metadata--artifacts:before {
+    content: "" !important;
+  }
+
+.metadata + details {
+  margin-top: -0.5em;
 }
 
 .read-more a,
@@ -1058,6 +1094,10 @@ article.article.with-aside > * {
 
 @media (min-width: 768px) {
 
+  article.article.with-aside section h2 + ul.metadata {
+    margin-top: calc(-1.75rem + 0.25rem);
+  }
+
   article.article.with-aside section h1,
     article.article.with-aside section h2 {
       margin-top: 0;
@@ -1132,6 +1172,10 @@ article.article .post__content h1, .article.article .post__content h1 {
   }
 }
 
+ul.with-metadata article.article .post__content h1 {
+  padding-top: 0;
+}
+
 article.article .post__content h1 + ul.metadata {
   margin: -1rem 0 2.5rem;
 }
@@ -1149,6 +1193,13 @@ article.article .post__content h1 + ul.metadata {
   article.article.with-aside section article.article .post__content h1 {
     font-size:2.11538rem;
     padding:1.44313rem 0;
+  }
+}
+
+@media (min-width: 768px) {
+
+  article.article.with-aside section article.article .post__content h1 + ul.metadata {
+    margin-top: calc(-1.75rem + 0.25rem);
   }
 }
 
@@ -1211,8 +1262,16 @@ blockquote article.article .post__content article.article .post__content h1 {
   padding-bottom: .5em !important;
 }
 
+ul.with-metadata article.article .post__content article.article .post__content h1 {
+  padding-top: 0;
+}
+
 article.article .post__content article.article .post__content h1 + ul.metadata {
   margin: -1rem 0 2.5rem;
+}
+
+article.article .post__content article.article .post__content h1 + ul.metadata, .article.article .post__content article.article .post__content h1 + ul.metadata {
+  margin-top: calc(-1.75rem + 0.25rem);
 }
 
 article article.article .post__content article.article .post__content h1 a {
@@ -1259,6 +1318,14 @@ article.article .post__content article.article .post__content article.article .p
     font-size: 1.61538rem;
     padding:1.30946rem 0;
   }
+}
+
+ul.with-metadata article.article .post__content article.article .post__content article.article .post__content h1 {
+  padding-top: 0;
+}
+
+article.article .post__content article.article .post__content article.article .post__content h1 + ul.metadata, .article.article .post__content article.article .post__content article.article .post__content h1 + ul.metadata {
+  margin-top: calc(-1.5rem + 0.25rem);
 }
 
 article.article .post__content article.article .post__content article.article .post__content article.article .post__content h1 {
@@ -1376,8 +1443,16 @@ blockquote article.article .post__content h2 {
   padding-bottom: .5em !important;
 }
 
+ul.with-metadata article.article .post__content h2 {
+  padding-top: 0;
+}
+
 article.article .post__content h2 + ul.metadata {
   margin: -1rem 0 2.5rem;
+}
+
+article.article .post__content h2 + ul.metadata, .article.article .post__content h2 + ul.metadata {
+  margin-top: calc(-1.75rem + 0.25rem);
 }
 
 article article.article .post__content h2 a {
@@ -1424,6 +1499,14 @@ article.article .post__content article.article .post__content h2, .article.artic
     font-size: 1.61538rem;
     padding:1.30946rem 0;
   }
+}
+
+ul.with-metadata article.article .post__content article.article .post__content h2 {
+  padding-top: 0;
+}
+
+article.article .post__content article.article .post__content h2 + ul.metadata, .article.article .post__content article.article .post__content h2 + ul.metadata {
+  margin-top: calc(-1.5rem + 0.25rem);
 }
 
 article.article .post__content article.article .post__content article.article .post__content h2 {
@@ -1494,6 +1577,14 @@ article.article .post__content h3, .article.article .post__content h3 {
     font-size: 1.61538rem;
     padding:1.30946rem 0;
   }
+}
+
+ul.with-metadata article.article .post__content h3 {
+  padding-top: 0;
+}
+
+article.article .post__content h3 + ul.metadata, .article.article .post__content h3 + ul.metadata {
+  margin-top: calc(-1.5rem + 0.25rem);
 }
 
 article.article .post__content article.article .post__content h3 {

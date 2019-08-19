@@ -8,10 +8,9 @@ ol.is-inline > li {
   display: inline;
 }
 
-ul.is-dotted > li:not(:last-of-type):after,
-ol.is-dotted > li:not(:last-of-type):after {
+.is-dotted > li:not(:first-of-type):before {
   content: "•";
-  /* padding-left: .3em; */
+  padding-right: .3em;
 }
 
 ul.is-discrete {
@@ -26,8 +25,15 @@ ul.with-metadata > li {
   ul.with-metadata > li .metadata {
     align-self: flex-start;
     font-size: 0.8em;
+    font-weight: bold;
     line-height: 2;
     min-width: 120px;
+    text-transform: uppercase;
+  }
+  ul.with-metadata h2,
+  ul.with-metadata h3,
+  ul.with-metadata h4 {
+    padding-top: 0;
   }
 
   ul.with-metadata > li div:first-child {

@@ -32,9 +32,21 @@ book:
 read_more:
   article: Read the rest
   reading_notes: Read the %d notes
+  summary: Display summary
 
 load:
   comments: Load comments
+
+talk:
+  post: Talk
+  workshop: Workshop
+  meetup: Meetup
+
+hosted:
+  organized: organized
+  in: in %s
+  by: hosted by <a href="%s" target="_blank" rel="noopener">%s</a>
+  page: Event page
 
 explain:
   disqus: |
@@ -57,6 +69,7 @@ more:
   photography_archives: Browse my photography archives
   photography_feed: Get the pictures RSS feed
   comments: Read and react to comments
+  talks: Talks, workshops and events
 
 categories:
   Journal: |

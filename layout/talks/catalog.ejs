@@ -1,0 +1,46 @@
+<section class="aside container next" id="catalog">
+  <h2><%= __('more.talks') %></h2>
+
+  <ul class="is-discrete chronology">
+    <% posts.forEach(post => { %>
+    <li>
+      <article>
+        <h3><%= post.title %></h3>
+
+        <ul class="metadata is-inline is-dotted">
+          <li class="metadata--date"><time class="metadata" datetime="<%= date_xml(post.date) %>"><%= date(post.date) %></time></li>
+          <li class="metadata--type"><%= __(`talk.${post.layout}`)%></li>
+          <li class="metadata--location"><%- post.event.name ? __('hosted.by', post.event.url, post.event.name) : __('hosted.organized') %>
+            <%= __('hosted.in', post.event.location) %>
+          </li>
+          <li class="metadata--artifacts">
+            <% if (post.layout === 'post') { %>
+              <%- partial('icon', {id: 'browse'}) -%>
+              <a href="<%= url_for(post.external || post.path) %>" rel="permalink" lang="<%= post.lang || config.language %>" class="<%= post.external ? 'external' : '' %>"><%= __('slideshow') %></a>
+            <% } %>
+            <% if (post.event && !post.event.name) {%>
+              <%- partial('icon', {id: 'bookmarks'}) -%>
+              <a href="<%= post.event.url %>" target="_blank" rel="noreferrer noopener" lang="<%= post.lang || config.language %>"><%= __('hosted.page') %></a>
+            <% } %>
+            <% if (post.event && post.video) {%>
+              <%- partial('icon', {id: 'youtube'}) -%>
+              <a href="<%= post.video %>"><%= __('watch') %></a>
+            <% } %>
+            <% if (post.event && post.audio) {%>
+              <%- partial('icon', {id: 'youtube'}) -%>
+              <a href="<%= post.audio %>"><%= __('listen') %></a>
+            <% } %>
+          </li>
+        </ul>
+
+        <% if (post.content) { %>
+        <details>
+          <summary><%= __('read_more.summary') %></summary>
+          <%- post.content %>
+        </details>
+        <% } %>
+      </article>
+    </li>
+    <% }) %>
+  </ul>
+</section>

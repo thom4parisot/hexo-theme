@@ -12,10 +12,19 @@ body > *:first-child {
   margin-top: 0;
 }
 
+details summary {
+  cursor: pointer;
+}
+
 [lang="en"] a[lang="fr"]::after,
 [lang="en-GB"] a[lang="fr"]::after,
+[lang="en"] a[lang="fr-FR"]::after,
+[lang="en-GB"] a[lang="fr-FR"]::after,
+/* */
 [lang="fr"] a[lang="en"]::after,
-[lang="fr"] a[lang="en-GB"]::after {
+[lang="fr"] a[lang="en-GB"]::after,
+[lang="fr-FR"] a[lang="en"]::after,
+[lang="fr-FR"] a[lang="en-GB"]::after {
   content: "\00A0(" attr(lang) ")";
   opacity: .4;
   text-decoration-color: transparent;

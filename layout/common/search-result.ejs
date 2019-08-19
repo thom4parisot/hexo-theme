@@ -5,7 +5,7 @@
   <a href="<%= post.permalink %>" rel="permalink"><%= post.title %></a>
   <% if (post.excerpt) { %>
   <details>
-    <summary>Display summary</summary>
+    <summary><%= __('display_summary') %></summary>
     <%- post.excerpt %>
   </details>
   <% } %>

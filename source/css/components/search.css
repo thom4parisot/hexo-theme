@@ -45,10 +45,6 @@
   opacity: .6;
 }
 
-#search details summary {
-  cursor: pointer;
-}
-
 #search .search-results:empty,
 #search .search-results:empty + .next {
   display: none;
