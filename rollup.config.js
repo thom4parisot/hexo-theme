@@ -4,25 +4,31 @@ import globals from 'rollup-plugin-node-globals';
 import builtins from 'rollup-plugin-node-builtins';
 import babel from 'rollup-plugin-babel';
 import json from 'rollup-plugin-json';
-import string from 'rollup-plugin-string';
+import {string} from 'rollup-plugin-string';
 
 export default {
-  input: 'source/assets/js/templates.js',
+  input: {
+    'templates': 'source/assets/js/templates.js',
+    'slides': 'source/assets/js/slides.js',
+  },
   output: {
-    format: 'es',
-    file: 'source/assets/js/templates.bundle.js'
+    format: 'esm',
+    dir: 'source/assets/js/',
+    entryFileNames: '[name].bundle.js',
+    chunkFileNames: 'chunk_[name].js',
+    preferConst: true,
   },
   plugins: [
     globals(),
-    resolve({
-      preferBuiltins: false
-    }),
     builtins(),
-    commonjs(),
-    json(),
+    resolve({
+      preferBuiltins: true
+    }),
     string({
       include: '**/*.ejs'
     }),
+    commonjs(),
+    json(),
     babel({
       babelrc: true,
       runtimeHelpers: true,

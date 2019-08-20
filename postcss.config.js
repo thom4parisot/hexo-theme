@@ -8,6 +8,8 @@ module.exports = {
       stage: 0,
       autoprefixer: {},
     }),
+    require('postcss-nested'),
+    require('postcss-color-function'),
     require('postcss-extend-rule'),
   ]
 }

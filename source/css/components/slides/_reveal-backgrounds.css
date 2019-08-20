@@ -1,8 +1,13 @@
 .contrasted,
 .attention {
   body {
-    background-color: @brand-darker;
+    background-color: var(--dark-accent);
     color: #fff;
+  }
+
+  strong {
+    background: #fff;
+    color: var(--dark-accent);
   }
 
   em, i, a {
@@ -15,5 +20,3 @@
     background-color: #000;
   }
 }
-
-@import './_code';

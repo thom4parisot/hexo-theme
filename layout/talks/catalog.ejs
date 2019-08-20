@@ -13,24 +13,22 @@
           <li class="metadata--location"><%- post.event.name ? __('hosted.by', post.event.url, post.event.name) : __('hosted.organized') %>
             <%= __('hosted.in', post.event.location) %>
           </li>
-          <li class="metadata--artifacts">
-            <% if (post.layout === 'post') { %>
+          <li class="metadata--artifacts"><%_ if (post.layout === 'post') { %>
               <%- partial('icon', {id: 'browse'}) -%>
               <a href="<%= url_for(post.external || post.path) %>" rel="permalink" lang="<%= post.lang || config.language %>" class="<%= post.external ? 'external' : '' %>"><%= __('slideshow') %></a>
-            <% } %>
-            <% if (post.event && !post.event.name) {%>
+            <% } _%>
+            <%_ if (post.event && !post.event.name) { %>
               <%- partial('icon', {id: 'bookmarks'}) -%>
               <a href="<%= post.event.url %>" target="_blank" rel="noreferrer noopener" lang="<%= post.lang || config.language %>"><%= __('hosted.page') %></a>
-            <% } %>
-            <% if (post.event && post.video) {%>
+            <% } _%>
+            <%_ if (post.event && post.video) { %>
               <%- partial('icon', {id: 'youtube'}) -%>
               <a href="<%= post.video %>"><%= __('watch') %></a>
-            <% } %>
-            <% if (post.event && post.audio) {%>
+            <% } _%>
+            <%_ if (post.event && post.audio) { %>
               <%- partial('icon', {id: 'youtube'}) -%>
               <a href="<%= post.audio %>"><%= __('listen') %></a>
-            <% } %>
-          </li>
+            <% } _%></li>
         </ul>
 
         <% if (post.content) { %>

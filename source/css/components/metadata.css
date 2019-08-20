@@ -29,10 +29,6 @@ li ul.metadata {
 .metadata--artifacts {
   display: block !important;
 }
-  .metadata--artifacts:before {
-    content: "" !important;
+  .metadata--artifacts:empty::before {
+    display: none;
   }
-
-.metadata + details {
-  margin-top: -0.5em;
-}

@@ -12,6 +12,10 @@ ol.is-inline > li {
   content: "•";
   padding-right: .3em;
 }
+.is-dotted > li.metadata--artifacts:before {
+  content: "";
+  padding-right: 0;
+}
 
 ul.is-discrete {
   list-style: none !important;

@@ -1,5 +1,8 @@
+@import './_controls.css';
+@import './_code.css';
+
 .reveal {
-  font-family: @headings-font-family;
+  font-family: var(--type-headlines);
   font-size: 36px;
   font-weight: 300;
   line-height: 1.25;
@@ -24,12 +27,12 @@
   }
 
   h1, h2, h3, h4, h5 {
-    font-family: @headings-font-family;
+    font-family: var(--type-headlines);
     font-weight: 300;
     line-height: 1.25;
 
     small {
-      color: @gray-light;
+      color: var(--light-accent);
     }
   }
 
@@ -43,7 +46,7 @@
     width: 80%;
 
     p {
-      border-left: 7px solid @gray-light;
+      border-left: 7px solid var(--light-accent);
       padding-left: 1em;
     }
   }
@@ -52,13 +55,13 @@
     border-collapse: collapse;
 
     thead th {
-      border-bottom: 1px double @gray;
+      border-bottom: 1px double var(--dark-accent);
       font-weight: normal;
       padding: .7em .5em;
     }
 
     tbody td, tbody th {
-      border-bottom: 1px solid @gray;
+      border-bottom: 1px solid var(--dark-accent);
       padding: .5em;
     }
   }
@@ -70,12 +73,12 @@
   }
 
   pre, code {
-    font-family: "Droid Sans Mono", "Andale Mono", "Courrier New", monospace;
+    font-family: var(--type-code);
   }
 
   code {
-    background-color: @code-bg;
-    color: @code-color;
+    background-color: var(--code-background);
+    color: var(--code-foreground);
   }
 
   pre {
@@ -90,23 +93,23 @@
   }
 
   a {
-    color: @brand-primary;
-    border-bottom: 1px solid @brand-primary;
-    text-decoration: none;
+    color: var(--link-foreground);
+    text-decoration: underline;
   }
 
   em {
-    color: @brand-primary;
+    color: var(--brand-color);
     font-style: normal;
   }
 
   strong {
-    background: fade(@brand-primary, 70%);
+    background: var(--dark-accent);
+    border-radius: 3px;
     color: #fff;
     font-weight: inherit;
     padding-left: .3em;
     padding-right: .3em;
-    text-shadow: 1px 1px 1px fade(black, 50%);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   }
 
   section h1:last-child,
@@ -117,8 +120,6 @@
   section h3.last-child {
     margin-bottom: 0;
   }
-
-  @import './_controls';
 }
 
 .background-light,
@@ -150,9 +151,9 @@
 .background-dark,
 .background-contrasted {
     strong {
-      background: fade(@brand-primary, 80%);
+      background: color(var(--brand-color) tint(80%));
       color: #fff;
-      text-shadow: 1px 1px 1px fade(black, 50%);
+      text-shadow: 1px 1px 1px color(black tint(50%));
     }
 }
 

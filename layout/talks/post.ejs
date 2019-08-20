@@ -11,4 +11,5 @@
   </main>
 </div>
 
-<%- js(['assets/js/slides.bundle.js', 'vendor/notes/notes.js']) %>
+<script src="<%= url_for('assets/js/slides.bundle.js') %>" type="module"></script>
+<script src="<%= url_for('vendor/notes/notes.js') %>" defer></script>

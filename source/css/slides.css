@@ -1,5 +1,5 @@
-@import (inline) 'reveal.js/css/reveal.css';
-@import (inline) './slides/highlight.css';
+@import '../../node_modules/reveal.js/css/reveal.css';
+@import './includes/highlight.css';
 
 body {
   background: #fafafa;
@@ -18,7 +18,7 @@ body {
 }
 
 .reveal {
-  h1 {
+  /* h1 {
     font-size: 3.77em;
   }
 
@@ -32,7 +32,7 @@ body {
 
   h4 {
     font-size: 1em;
-  }
+  } */
 
   video,
   iframe,
@@ -50,7 +50,8 @@ body {
     }
   }
 
-  footer {
+  footer,
+  .footer {
     bottom: -25%;
     position: absolute;
     width: 100%;

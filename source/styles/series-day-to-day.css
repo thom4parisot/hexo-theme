@@ -4,9 +4,9 @@
   min-height: 100vh;
   height: 100vh;
   position: relative;
+}
 
-  .series-item__picture {
+  .series-header .series-item__picture, .series-item .series-item__picture {
     height: 80vh;
     width: auto;
   }
-}

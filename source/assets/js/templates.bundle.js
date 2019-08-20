@@ -1,16 +1,6 @@
-function commonjsRequire () {
-	throw new Error('Dynamic requires are not currently supported by rollup-plugin-commonjs');
-}
+import { c as createCommonjsModule, g as getCjsExportFromNamespace, a as commonjsRequire } from './chunk__commonjsHelpers.js';
 
-function createCommonjsModule(fn, module) {
-	return module = { exports: {} }, fn(module, module.exports), module.exports;
-}
-
-function getCjsExportFromNamespace (n) {
-	return n && n['default'] || n;
-}
-
-var fs = {};
+const fs = {};
 
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -209,7 +199,7 @@ function basename(path, ext) {
 function extname(path) {
   return splitPath(path)[3];
 }
-var path = {
+const path = {
   extname: extname,
   basename: basename,
   dirname: dirname,
@@ -371,6 +361,9 @@ var utils = createCommonjsModule(function (module, exports) {
     get: function (key) {
       return this._data[key];
     },
+    remove: function (key) {
+      delete this._data[key];
+    },
     reset: function () {
       this._data = {};
     }
@@ -382,54 +375,28 @@ var utils_3 = utils.shallowCopy;
 var utils_4 = utils.shallowCopyFromList;
 var utils_5 = utils.cache;
 
-var _args = [
-	[
-		"ejs@2.6.1",
-		"/Users/oncletom/workspace/hexo-theme"
-	]
+var name = "ejs";
+var description = "Embedded JavaScript templates";
+var keywords = [
+	"template",
+	"engine",
+	"ejs"
 ];
-var _development = true;
-var _from = "ejs@2.6.1";
-var _id = "ejs@2.6.1";
-var _inBundle = false;
-var _integrity = "sha512-0xy4A/twfrRCnkhfk8ErDi5DqdAsAqeGxht4xkCUrsvhhbQNs7E+4jV0CN7+NKIY0aHE72+XvqtBIXzD31ZbXQ==";
-var _location = "/ejs";
-var _phantomChildren = {
-};
-var _requested = {
-	type: "version",
-	registry: true,
-	raw: "ejs@2.6.1",
-	name: "ejs",
-	escapedName: "ejs",
-	rawSpec: "2.6.1",
-	saveSpec: null,
-	fetchSpec: "2.6.1"
-};
-var _requiredBy = [
-	"#DEV:/"
-];
-var _resolved = "https://registry.npmjs.org/ejs/-/ejs-2.6.1.tgz";
-var _spec = "2.6.1";
-var _where = "/Users/oncletom/workspace/hexo-theme";
-var author = {
-	name: "Matthew Eernisse",
-	email: "mde@fleegix.org",
-	url: "http://fleegix.org"
-};
-var bugs = {
-	url: "https://github.com/mde/ejs/issues"
-};
+var version = "2.6.2";
+var author = "Matthew Eernisse <mde@fleegix.org> (http://fleegix.org)";
 var contributors = [
-	{
-		name: "Timothy Gu",
-		email: "timothygu99@gmail.com",
-		url: "https://timothygu.github.io"
-	}
+	"Timothy Gu <timothygu99@gmail.com> (https://timothygu.github.io)"
 ];
+var license = "Apache-2.0";
+var main = "./lib/ejs.js";
+var repository = {
+	type: "git",
+	url: "git://github.com/mde/ejs.git"
+};
+var bugs = "https://github.com/mde/ejs/issues";
+var homepage = "https://github.com/mde/ejs";
 var dependencies = {
 };
-var description = "Embedded JavaScript templates";
 var devDependencies = {
 	browserify: "^13.1.1",
 	eslint: "^4.14.0",
@@ -444,91 +411,60 @@ var devDependencies = {
 var engines = {
 	node: ">=0.10.0"
 };
-var homepage = "https://github.com/mde/ejs";
-var keywords = [
-	"template",
-	"engine",
-	"ejs"
-];
-var license = "Apache-2.0";
-var main = "./lib/ejs.js";
-var name = "ejs";
-var repository = {
-	type: "git",
-	url: "git://github.com/mde/ejs.git"
-};
 var scripts = {
-	coverage: "istanbul cover node_modules/mocha/bin/_mocha",
-	devdoc: "jake doc[dev]",
-	doc: "jake doc",
+	test: "jake test",
 	lint: "eslint \"**/*.js\" Jakefile",
-	test: "jake test"
+	coverage: "istanbul cover node_modules/mocha/bin/_mocha",
+	doc: "jake doc",
+	devdoc: "jake doc[dev]"
 };
-var version = "2.6.1";
-var _package = {
-	_args: _args,
-	_development: _development,
-	_from: _from,
-	_id: _id,
-	_inBundle: _inBundle,
-	_integrity: _integrity,
-	_location: _location,
-	_phantomChildren: _phantomChildren,
-	_requested: _requested,
-	_requiredBy: _requiredBy,
-	_resolved: _resolved,
-	_spec: _spec,
-	_where: _where,
-	author: author,
-	bugs: bugs,
-	contributors: contributors,
-	dependencies: dependencies,
+var _resolved = "https://registry.npmjs.org/ejs/-/ejs-2.6.2.tgz";
+var _integrity = "sha512-PcW2a0tyTuPHz3tWyYqtK6r1fZ3gp+3Sop8Ph+ZYN81Ob5rwmbHEzaqs10N3BEsaGTkh/ooniXK+WwszGlc2+Q==";
+var _from = "ejs@2.6.2";
+const _package = {
+	name: name,
 	description: description,
-	devDependencies: devDependencies,
-	engines: engines,
-	homepage: homepage,
 	keywords: keywords,
+	version: version,
+	author: author,
+	contributors: contributors,
 	license: license,
 	main: main,
-	name: name,
 	repository: repository,
+	bugs: bugs,
+	homepage: homepage,
+	dependencies: dependencies,
+	devDependencies: devDependencies,
+	engines: engines,
 	scripts: scripts,
-	version: version
+	_resolved: _resolved,
+	_integrity: _integrity,
+	_from: _from
 };
 
-var _package$1 = /*#__PURE__*/Object.freeze({
-	_args: _args,
-	_development: _development,
-	_from: _from,
-	_id: _id,
-	_inBundle: _inBundle,
-	_integrity: _integrity,
-	_location: _location,
-	_phantomChildren: _phantomChildren,
-	_requested: _requested,
-	_requiredBy: _requiredBy,
-	_resolved: _resolved,
-	_spec: _spec,
-	_where: _where,
-	author: author,
-	bugs: bugs,
-	contributors: contributors,
-	dependencies: dependencies,
-	description: description,
-	devDependencies: devDependencies,
-	engines: engines,
-	homepage: homepage,
-	keywords: keywords,
-	license: license,
-	main: main,
-	name: name,
-	repository: repository,
-	scripts: scripts,
-	version: version,
-	default: _package
+const _package$1 = /*#__PURE__*/Object.freeze({
+  name: name,
+  description: description,
+  keywords: keywords,
+  version: version,
+  author: author,
+  contributors: contributors,
+  license: license,
+  main: main,
+  repository: repository,
+  bugs: bugs,
+  homepage: homepage,
+  dependencies: dependencies,
+  devDependencies: devDependencies,
+  engines: engines,
+  scripts: scripts,
+  _resolved: _resolved,
+  _integrity: _integrity,
+  _from: _from,
+  'default': _package
 });
 
-var require$$0 = getCjsExportFromNamespace(_package$1);
+const require$$0 = getCjsExportFromNamespace(_package$1);
 
 var ejs = createCommonjsModule(function (module, exports) {
   /**
@@ -559,6 +495,8 @@ var ejs = createCommonjsModule(function (module, exports) {
 
   var scopeOptionWarned = false;
   var _VERSION_STRING = require$$0.version;
+  var _DEFAULT_OPEN_DELIMITER = '<';
+  var _DEFAULT_CLOSE_DELIMITER = '>';
   var _DEFAULT_DELIMITER = '%';
   var _DEFAULT_LOCALS_NAME = 'locals';
   var _NAME = 'ejs';
@@ -639,18 +577,19 @@ var ejs = createCommonjsModule(function (module, exports) {
    */
 
 
-  function getIncludePath(path$$1, options) {
+  function getIncludePath(path, options) {
     var includePath;
     var filePath;
-    var views = options.views; // Abs path
+    var views = options.views;
+    var match = /^[A-Za-z]+:\\|^\//.exec(path); // Abs path
 
-    if (path$$1.charAt(0) == '/') {
-      includePath = exports.resolveInclude(path$$1.replace(/^\/*/, ''), options.root || '/', true);
+    if (match && match.length) {
+      includePath = exports.resolveInclude(path.replace(/^\/*/, ''), options.root || '/', true);
     } // Relative paths
     else {
         // Look relative to a passed filename first
         if (options.filename) {
-          filePath = exports.resolveInclude(path$$1, options.filename);
+          filePath = exports.resolveInclude(path, options.filename);
 
           if (fs.existsSync(filePath)) {
             includePath = filePath;
@@ -660,7 +599,7 @@ var ejs = createCommonjsModule(function (module, exports) {
 
         if (!includePath) {
           if (Array.isArray(views) && views.some(function (v) {
-            filePath = exports.resolveInclude(path$$1, v, true);
+            filePath = exports.resolveInclude(path, v, true);
             return fs.existsSync(filePath);
           })) {
             includePath = filePath;
@@ -668,7 +607,7 @@ var ejs = createCommonjsModule(function (module, exports) {
         }
 
         if (!includePath) {
-          throw new Error('Could not find the include file "' + options.escapeFunction(path$$1) + '"');
+          throw new Error('Could not find the include file "' + options.escapeFunction(path) + '"');
         }
       }
 
@@ -794,9 +733,9 @@ var ejs = createCommonjsModule(function (module, exports) {
    */
 
 
-  function includeFile(path$$1, options) {
+  function includeFile(path, options) {
     var opts = utils.shallowCopy({}, options);
-    opts.filename = getIncludePath(path$$1, opts);
+    opts.filename = getIncludePath(path, opts);
     return handleCache(opts);
   }
   /**
@@ -810,11 +749,11 @@ var ejs = createCommonjsModule(function (module, exports) {
    */
 
 
-  function includeSource(path$$1, options) {
+  function includeSource(path, options) {
     var opts = utils.shallowCopy({}, options);
     var includePath;
     var template;
-    includePath = getIncludePath(path$$1, opts);
+    includePath = getIncludePath(path, opts);
     template = fileLoader(includePath).toString().replace(_BOM, '');
     opts.filename = includePath;
     var templ = new Template(template, opts);
@@ -996,6 +935,13 @@ var ejs = createCommonjsModule(function (module, exports) {
    * @public
    */
 
+  /**
+   * EJS template class
+   * @public
+   */
+
+
+  exports.Template = Template;
 
   exports.clearCache = function () {
     exports.cache.reset();
@@ -1011,10 +957,12 @@ var ejs = createCommonjsModule(function (module, exports) {
     this.source = '';
     this.dependencies = [];
     options.client = opts.client || false;
-    options.escapeFunction = opts.escape || utils.escapeXML;
+    options.escapeFunction = opts.escape || opts.escapeFunction || utils.escapeXML;
     options.compileDebug = opts.compileDebug !== false;
     options.debug = !!opts.debug;
     options.filename = opts.filename;
+    options.openDelimiter = opts.openDelimiter || exports.openDelimiter || _DEFAULT_OPEN_DELIMITER;
+    options.closeDelimiter = opts.closeDelimiter || exports.closeDelimiter || _DEFAULT_CLOSE_DELIMITER;
     options.delimiter = opts.delimiter || exports.delimiter || _DEFAULT_DELIMITER;
     options.strict = opts.strict || false;
     options.context = opts.context;
@@ -1047,7 +995,9 @@ var ejs = createCommonjsModule(function (module, exports) {
     createRegex: function () {
       var str = _REGEX_STRING;
       var delim = utils.escapeRegExpChars(this.opts.delimiter);
-      str = str.replace(/%/g, delim);
+      var open = utils.escapeRegExpChars(this.opts.openDelimiter);
+      var close = utils.escapeRegExpChars(this.opts.closeDelimiter);
+      str = str.replace(/%/g, delim).replace(/</g, open).replace(/>/g, close);
       return new RegExp(str);
     },
     compile: function () {
@@ -1057,7 +1007,7 @@ var ejs = createCommonjsModule(function (module, exports) {
       var prepended = '';
       var appended = '';
       var escapeFn = opts.escapeFunction;
-      var asyncCtor;
+      var ctor;
 
       if (!this.source) {
         this.generateSource();
@@ -1103,7 +1053,7 @@ var ejs = createCommonjsModule(function (module, exports) {
           // Have to use generated function for this, since in envs without support,
           // it breaks in parsing
           try {
-            asyncCtor = new Function('return (async function(){}).constructor;')();
+            ctor = new Function('return (async function(){}).constructor;')();
           } catch (e) {
             if (e instanceof SyntaxError) {
               throw new Error('This environment does not support async/await');
@@ -1112,10 +1062,10 @@ var ejs = createCommonjsModule(function (module, exports) {
             }
           }
         } else {
-          asyncCtor = Function;
+          ctor = Function;
         }
 
-        fn = new asyncCtor(opts.localsName + ', escapeFn, include, rethrow', src);
+        fn = new ctor(opts.localsName + ', escapeFn, include, rethrow', src);
       } catch (e) {
         // istanbul ignore else
         if (e instanceof SyntaxError) {
@@ -1145,14 +1095,14 @@ var ejs = createCommonjsModule(function (module, exports) {
 
 
       var returnedFn = function (data) {
-        var include = function (path$$1, includeData) {
+        var include = function (path, includeData) {
           var d = utils.shallowCopy({}, data);
 
           if (includeData) {
             d = utils.shallowCopy(d, includeData);
           }
 
-          return includeFile(path$$1, opts)(d);
+          return includeFile(path, opts)(d);
         };
 
         return fn.apply(opts.context, [data || {}, escapeFn, include, rethrow]);
@@ -1166,8 +1116,8 @@ var ejs = createCommonjsModule(function (module, exports) {
 
       if (opts.rmWhitespace) {
         // Have to use two separate replace here as `^` and `$` operators don't
-        // work well with `\r`.
-        this.templateText = this.templateText.replace(/\r/g, '').replace(/^\s+|\s+$/gm, '');
+        // work well with `\r` and empty lines don't work well with the `m` flag.
+        this.templateText = this.templateText.replace(/[\r\n]+/g, '\n').replace(/^\s+|\s+$/gm, '');
       } // Slurp spaces and tabs before <%_ and after _%>
 
 
@@ -1175,6 +1125,8 @@ var ejs = createCommonjsModule(function (module, exports) {
       var self = this;
       var matches = this.parseTemplateText();
       var d = this.opts.delimiter;
+      var o = this.opts.openDelimiter;
+      var c = this.opts.closeDelimiter;
 
       if (matches && matches.length) {
         matches.forEach(function (line, index) {
@@ -1185,15 +1137,15 @@ var ejs = createCommonjsModule(function (module, exports) {
           var includeObj;
           var includeSrc; // If this is an opening tag, check for closing tags
           // FIXME: May end up with some false positives here
-          // Better to store modes as k/v with '<' + delimiter as key
+          // Better to store modes as k/v with openDelimiter + delimiter as key
           // Then this can simply check against the map
 
-          if (line.indexOf('<' + d) === 0 // If it is a tag
-          && line.indexOf('<' + d + d) !== 0) {
+          if (line.indexOf(o + d) === 0 // If it is a tag
+          && line.indexOf(o + d + d) !== 0) {
             // and is not escaped
             closing = matches[index + 2];
 
-            if (!(closing == d + '>' || closing == '-' + d + '>' || closing == '_' + d + '>')) {
+            if (!(closing == d + c || closing == '-' + d + c || closing == '_' + d + c)) {
               throw new Error('Could not find matching close tag for "' + line + '".');
             }
           } // HACK: backward-compat `include` preprocessor directives
@@ -1202,7 +1154,7 @@ var ejs = createCommonjsModule(function (module, exports) {
           if (include = line.match(/^\s*include\s+(\S+)/)) {
             opening = matches[index - 1]; // Must be in EVAL or RAW mode
 
-            if (opening && (opening == '<' + d || opening == '<' + d + '-' || opening == '<' + d + '_')) {
+            if (opening && (opening == o + d || opening == o + d + '-' || opening == o + d + '_')) {
               includeOpts = utils.shallowCopy({}, self.opts);
               includeObj = includeSource(include[1], includeOpts);
 
@@ -1257,10 +1209,6 @@ var ejs = createCommonjsModule(function (module, exports) {
         // combo first in the regex-or
         line = line.replace(/^(?:\r\n|\r|\n)/, '');
         this.truncate = false;
-      } else if (this.opts.rmWhitespace) {
-        // rmWhitespace has already removed trailing spaces, just need
-        // to remove linebreaks
-        line = line.replace(/^\n/, '');
       }
 
       if (!line) {
@@ -1280,40 +1228,42 @@ var ejs = createCommonjsModule(function (module, exports) {
     scanLine: function (line) {
       var self = this;
       var d = this.opts.delimiter;
+      var o = this.opts.openDelimiter;
+      var c = this.opts.closeDelimiter;
       var newLineCount = 0;
       newLineCount = line.split('\n').length - 1;
 
       switch (line) {
-        case '<' + d:
-        case '<' + d + '_':
+        case o + d:
+        case o + d + '_':
           this.mode = Template.modes.EVAL;
           break;
 
-        case '<' + d + '=':
+        case o + d + '=':
           this.mode = Template.modes.ESCAPED;
           break;
 
-        case '<' + d + '-':
+        case o + d + '-':
           this.mode = Template.modes.RAW;
           break;
 
-        case '<' + d + '#':
+        case o + d + '#':
           this.mode = Template.modes.COMMENT;
           break;
 
-        case '<' + d + d:
+        case o + d + d:
           this.mode = Template.modes.LITERAL;
-          this.source += '    ; __append("' + line.replace('<' + d + d, '<' + d) + '")' + '\n';
+          this.source += '    ; __append("' + line.replace(o + d + d, o + d) + '")' + '\n';
           break;
 
-        case d + d + '>':
+        case d + d + c:
           this.mode = Template.modes.LITERAL;
-          this.source += '    ; __append("' + line.replace(d + d + '>', d + '>') + '")' + '\n';
+          this.source += '    ; __append("' + line.replace(d + d + c, d + c) + '")' + '\n';
           break;
 
-        case d + '>':
-        case '-' + d + '>':
-        case '_' + d + '>':
+        case d + c:
+        case '-' + d + c:
+        case '_' + d + c:
           if (this.mode == Template.modes.LITERAL) {
             this._addOutput(line);
           }
@@ -1450,20 +1400,21 @@ var ejs_5 = ejs.resolveInclude;
 var ejs_6 = ejs.compile;
 var ejs_7 = ejs.render;
 var ejs_8 = ejs.renderFile;
-var ejs_9 = ejs.clearCache;
-var ejs_10 = ejs.escapeXML;
-var ejs_11 = ejs.__express;
-var ejs_12 = ejs.VERSION;
-var ejs_13 = ejs.name;
+var ejs_9 = ejs.Template;
+var ejs_10 = ejs.clearCache;
+var ejs_11 = ejs.escapeXML;
+var ejs_12 = ejs.__express;
+var ejs_13 = ejs.VERSION;
+var ejs_14 = ejs.name;
 
-var searchResult = "<% if (post.layout === 'post') { %>\n<time class=\"metadata\" datetime=\"<%= post.date %>\"><%= new Date(post.date_as_int * 1000).toLocaleDateString(post.lang, {month: 'long', year: 'numeric'}) %></time>\n<% } %>\n<div>\n  <a href=\"<%= post.permalink %>\" rel=\"permalink\"><%= post.title %></a>\n  <% if (post.excerpt) { %>\n  <details>\n    <summary><%= __('display_summary') %></summary>\n    <%- post.excerpt %>\n  </details>\n  <% } %>\n<div>\n";
+const searchResult = "<% if (post.layout === 'post') { %>\n<time class=\"metadata\" datetime=\"<%= post.date %>\"><%= new Date(post.date_as_int * 1000).toLocaleDateString(post.lang, {month: 'long', year: 'numeric'}) %></time>\n<% } %>\n<div>\n  <a href=\"<%= post.permalink %>\" rel=\"permalink\"><%= post.title %></a>\n  <% if (post.excerpt) { %>\n  <details>\n    <summary><%= __('display_summary') %></summary>\n    <%- post.excerpt %>\n  </details>\n  <% } %>\n<div>\n";
 
-var photographyTile = "<article class=\"tile\">\n  <aside class=\"cover is-square is-empty\">\n    <img src=\"<%= post.image %>\" alt=\"\" loading=\"auto\">\n  </aside>\n  <a href=\"<%= post.permalink %>\" rel=\"permalink\"><%= post.title %></a>\n</article>\n";
+const photographyTile = "<article class=\"tile\">\n  <aside class=\"cover is-square is-empty\">\n    <img src=\"<%= post.image %>\" alt=\"\" loading=\"auto\">\n  </aside>\n  <a href=\"<%= post.permalink %>\" rel=\"permalink\"><%= post.title %></a>\n</article>\n";
 
-var searchResultTemplate = ejs.compile(searchResult, {
+var searchResultTemplate = ejs_6(searchResult, {
   client: false
 });
-var photographyTileTemplate = ejs.compile(photographyTile, {
+var photographyTileTemplate = ejs_6(photographyTile, {
   client: false
 });
 var search = function search(data) {
@@ -1473,4 +1424,4 @@ var photography = function photography(data) {
   return photographyTileTemplate(data, {});
 };
 
-export { search, photography };
+export { photography, search };

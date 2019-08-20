@@ -1,7 +1,7 @@
 
 .code {
   body {
-    background-color: #23241f;    //monokai background color
+    background-color: #23241f;    /*monokai background color*/
     color: #fff;
   }
 
@@ -17,11 +17,12 @@
       .tag .title,
       .value,
       .css .tag {
-        color: lighten(#f92672, 15%);
+        color: color(#f92672 tint(15%));
       }
 
       code {
-        color: lighten(@gray-light, 15%);
+        background: transparent;
+        color: var(--code-background);
       }
     }
 

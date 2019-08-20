@@ -1,27 +1,32 @@
-@import (reference) '_variables';
+@import 'normalize.css';
+@import '../includes/_fonts.css';
+@import '../includes/_variables.css';
 
-@brand-primary:           #006fc9;
-@brand-darker:            #006fc9;
+@import '../components/slides/_reveal-overrides.css';
+@import '../components/slides/_reveal-backgrounds.css';
 
-@font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
-@headings-font-family:    Gill Sans, sans-serif;
+:root {
+  --brand-color:           #006fc9;
+  --dark-accent:           #006fc9;
+  --link-foreground:       #006fc9;
 
-@gray:                   #495057;
-@gray-light:             #999;
+  --type-headlines:    Gill Sans, sans-serif;
 
-@import './components/_reveal-overrides';
-@import './components/_reveal-backgrounds';
+  --light-accent:          #495057;
+  --light-shade:           #999;
+}
 
 .reveal {
   strong {
     background: transparent;
     color: #fff;
+    display: inline-block;
     font-weight: inherit;
     padding: .05em .3em;
     position: relative;
 
     &:before {
-      background: @brand-primary;
+      background: var(--brand-color);
       content: "";
       height: 100%;
       left: 0;
@@ -37,7 +42,7 @@
 .contrasted {
   .reveal {
     .state-background {
-      background-color: @brand-primary;
+      background-color: var(--brand-color);
     }
 
     .slides .present {
@@ -50,7 +55,7 @@
     }
 
     strong {
-      color: @brand-primary;
+      color: var(--brand-color);
       &:before {
         background-color: #fff;
       }

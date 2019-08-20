@@ -1,27 +1,18 @@
-'use strict';
-
 import Reveal from 'reveal.js';
 global.Reveal = Reveal;
 
 import RandomColors from 'reveal-random-colors';
-import RevealMarkdown from 'reveal.js/plugin/markdown/markdown.js';
+import RevealMarkdown from '../../vendor/markdown/markdown.js';
 
-const hljs = global.hljs = require('highlight.js/lib/highlight');
-hljs.registerLanguage('bash', require('highlight.js/lib/languages/bash'));
-hljs.registerLanguage('shell', require('highlight.js/lib/languages/shell'));
-hljs.registerLanguage('shell', require('highlight.js/lib/languages/shell'));
-hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
-hljs.registerLanguage('asciidoc', require('highlight.js/lib/languages/asciidoc'));
-hljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'));
-
-
-var toArray = function(arr){
-  return Array.prototype.slice.call(arr);
+const $$ = (selector) => {
+  return Array.from(document.querySelectorAll(selector));
 };
 
 const random = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-RevealMarkdown.initialize();
+Reveal.registerPlugin('randomColors', RandomColors());
+Reveal.registerPlugin('markdown', RevealMarkdown);
+
 Reveal.initialize({
   width: 1024,
   height: 728,
@@ -36,16 +27,15 @@ Reveal.initialize({
   transition: 'linear'
 });
 
-Reveal.addEventListener('slidechanged', RandomColors());
 Reveal.addEventListener('ready', function() {
   window.localStorage.setItem('reveal-speaker-layout', 'tall');
-  
-  toArray(document.querySelectorAll('a > img')).forEach(function(el){
+
+  $$('a > img').forEach(function(el){
     el.parentNode.classList.add('image');
   });
 
-  toArray(document.querySelectorAll('section[data-background]')).forEach(function(el){
-    var isEmpty = toArray(el.children).every(function(child){
+  $$('section[data-background]').forEach(function(el){
+    var isEmpty = Array.from(el.children).every(function(child){
       return (typeof child.nodeValue === 'text' && child.nodeValue.trim() === '') || child.classList.contains('notes');
     });
 
@@ -54,13 +44,13 @@ Reveal.addEventListener('ready', function() {
     }
   });
 
-  toArray(document.querySelectorAll('section[data-markdown] > h1, section[data-markdown] > h2, section[data-markdown] > h3')).forEach(function(el){
+  $$('section[data-markdown] > h1, section[data-markdown] > h2, section[data-markdown] > h3').forEach(function(el){
     if (el.nextElementSibling && el.nextElementSibling.classList.contains('notes')){
       el.classList.add('last-child');
     }
   });
 
-  toArray(document.querySelectorAll('section[data-markdown]')).forEach(function(section){
+  $$('section[data-markdown]').forEach(function(section){
     if (section.querySelectorAll('pre > code').length){
       section.setAttribute('data-state', 'code');
     }
