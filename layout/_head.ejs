@@ -12,9 +12,9 @@
 <link rel="pgpkey" href="<%= theme.graph.pgp %>">
 <meta name="description" content="<%= description(page) %>">
 <meta name="keywords" content="<%= (page.tags && page.tags.toArray().map(tag => tag.name) || []).concat(config.keywords).join(',') %>">
-<link rel="alternate" type="application/rss+xml" title="<%= [config.title, config.subtitle].join(' • ') %>" href="<%= config.url %>/feed/">
-<link rel="alternate" type="application/rss+xml" title="<%= [config.title, 'Photography'].join(' • ') %>" href="<%= config.url %>/photography/feed/'">
-<link rel="alternate" type="application/rss+xml" title="<%= [config.title, 'Talks'].join(' • ') %>" href="<%= config.url %>/talks/feed/'">
+<link rel="alternate" type="application/rss+xml" title="<%= [config.title].join(' • ') %>" href="https://oncletom.io/feed/">
+<link rel="alternate" type="application/rss+xml" title="<%= [config.title, 'Photography'].join(' • ') %>" href="https://oncletom.io/photography/feed/'">
+<link rel="alternate" type="application/rss+xml" title="<%= [config.title, 'Talks'].join(' • ') %>" href="https://oncletom.io/talks/feed/'">
 <link rel="author" href="<%= theme.author %>">
 <% if (is_post()){ -%><link rel="canonical" data-disqus-shortname="<%= theme.disqus_shortname %>" href="<%= page.permalink %>"><% } %>
 <% if (is_home() || is_archive()){ -%><link rel="prefetch" href="<%= page.posts.first().permalink %>"><% } %>
