@@ -41,6 +41,7 @@ talk:
   post: Talk
   workshop: Workshop
   meetup: Meetup
+  conference: Conference
 
 hosted:
   organized: organized
