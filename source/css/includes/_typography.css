@@ -124,9 +124,13 @@ blockquote {
 
 
 .leading {
-  font-size: 1.80rem;
+  font-size: 1.30rem;
 
-  p {
-    max-width: 80%;
+  @media (width >= 738px) {
+    font-size: 1.80rem;
+
+    p {
+      max-width: 80%;
+    }
   }
 }

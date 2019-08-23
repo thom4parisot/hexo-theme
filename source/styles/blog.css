@@ -533,11 +533,18 @@ blockquote cite:before {
   }
 
 .leading {
-  font-size: 1.80rem;
+  font-size: 1.30rem;
 }
 
-.leading p {
-    max-width: 80%;
+@media (min-width: 738px) {
+
+.leading {
+    font-size: 1.80rem
+}
+
+    .leading p {
+      max-width: 80%;
+    }
   }
 
 .container {
