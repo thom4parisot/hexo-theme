@@ -121,3 +121,12 @@ blockquote {
     content: "—";
     margin-right: .5em;
   }
+
+
+.leading {
+  font-size: 1.80rem;
+
+  p {
+    max-width: 80%;
+  }
+}

@@ -532,6 +532,14 @@ blockquote cite:before {
     margin-right: .5em;
   }
 
+.leading {
+  font-size: 1.80rem;
+}
+
+.leading p {
+    max-width: 80%;
+  }
+
 .container {
   margin: 2rem auto;
   max-width: 46rem;
