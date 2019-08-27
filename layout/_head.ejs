@@ -40,3 +40,4 @@
 <% }) -%>
 <% } -%>
 <%- algolia_search_config() %>
+<%- (page.scripts || []).map(script => `<script type="module" src="/assets/js/${script}"></script>`).join('\n') %>
