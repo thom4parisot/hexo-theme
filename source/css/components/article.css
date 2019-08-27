@@ -49,6 +49,18 @@ article.article .cover {
     grid-column: 2;
   }
 
+  article .toc {
+    background: var(--light-accent);
+    border: 4px solid #fff;
+    list-style-position: inside;
+    padding: 1.5rem;
+
+    &, * {
+      color: #fff;
+      text-decoration-color: var(--light-shade);
+    }
+  }
+
   @media(width >= 768px) {
     article.article.with-aside {
       display: grid;

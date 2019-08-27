@@ -10,7 +10,7 @@
     <h1><%= post.title %></h1>
 
     <% if (is_page()) { %>
-    <%- toc(post.content, {list_number: false}) %>
+    <%- toc(post.content, {list_number: false}).replace(/>§/g, '>') %>
     <% } %>
 
     <% if (is_post(post)) { %>

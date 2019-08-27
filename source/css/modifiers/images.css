@@ -4,6 +4,11 @@ img.is-responsive {
 
 img.is-avatar {
   border-radius: 4px;
+
+  ul &,
+  ol & {
+    vertical-align: middle;
+  }
 }
 
 img.is-cover {

@@ -1,0 +1,7 @@
+<span class="metadata">
+  <img src="<%= commit.author.avatar_url %>&amp;size=30" class="is-avatar" alt="<%= commit.author.login %>">
+  <time datetime="<%= commit.commit.author.date %>"><%= new Date(commit.commit.author.date).toLocaleDateString('fr', {month: 'long', year: 'numeric'})%></time>
+</span>
+
+
+<pre class="message"><a href="<%= commit.html_url %>" rel="noreferrer noopener nofollow" target="_blank"><%= commit.commit.message %></a></pre>

@@ -1407,21 +1407,29 @@ var ejs_12 = ejs.__express;
 var ejs_13 = ejs.VERSION;
 var ejs_14 = ejs.name;
 
-const searchResult = "<% if (post.layout === 'post') { %>\n<time class=\"metadata\" datetime=\"<%= post.date %>\"><%= new Date(post.date_as_int * 1000).toLocaleDateString(post.lang, {month: 'long', year: 'numeric'}) %></time>\n<% } %>\n<div>\n  <a href=\"<%= post.permalink %>\" rel=\"permalink\"><%= post.title %></a>\n  <% if (post.excerpt) { %>\n  <details>\n    <summary><%= __('display_summary') %></summary>\n    <%- post.excerpt %>\n  </details>\n  <% } %>\n<div>\n";
+const searchResultEjs = "<% if (post.layout === 'post') { %>\n<time class=\"metadata\" datetime=\"<%= post.date %>\"><%= new Date(post.date_as_int * 1000).toLocaleDateString(post.lang, {month: 'long', year: 'numeric'}) %></time>\n<% } %>\n<div>\n  <a href=\"<%= post.permalink %>\" rel=\"permalink\"><%= post.title %></a>\n  <% if (post.excerpt) { %>\n  <details>\n    <summary><%= __('display_summary') %></summary>\n    <%- post.excerpt %>\n  </details>\n  <% } %>\n<div>\n";
 
-const photographyTile = "<article class=\"tile\">\n  <aside class=\"cover is-square is-empty\">\n    <img src=\"<%= post.image %>\" alt=\"\" loading=\"auto\">\n  </aside>\n  <a href=\"<%= post.permalink %>\" rel=\"permalink\"><%= post.title %></a>\n</article>\n";
+const nodebookUpdateEjs = "<span class=\"metadata\">\n  <img src=\"<%= commit.author.avatar_url %>&amp;size=30\" class=\"is-avatar\" alt=\"<%= commit.author.login %>\">\n  <time datetime=\"<%= commit.commit.author.date %>\"><%= new Date(commit.commit.author.date).toLocaleDateString('fr', {month: 'long', year: 'numeric'})%></time>\n</span>\n\n\n<pre class=\"message\"><a href=\"<%= commit.html_url %>\" rel=\"noreferrer noopener nofollow\" target=\"_blank\"><%= commit.commit.message %></a></pre>\n";
 
-var searchResultTemplate = ejs_6(searchResult, {
+const photographyTileEjs = "<article class=\"tile\">\n  <aside class=\"cover is-square is-empty\">\n    <img src=\"<%= post.image %>\" alt=\"\" loading=\"auto\">\n  </aside>\n  <a href=\"<%= post.permalink %>\" rel=\"permalink\"><%= post.title %></a>\n</article>\n";
+
+var searchResultTemplate = ejs_6(searchResultEjs, {
   client: false
 });
-var photographyTileTemplate = ejs_6(photographyTile, {
+var nodebookUpdateTemplate = ejs_6(nodebookUpdateEjs, {
+  client: false
+});
+var photographyTileTemplate = ejs_6(photographyTileEjs, {
   client: false
 });
 var search = function search(data) {
   return searchResultTemplate(data, {});
 };
+var nodebookUpdate = function nodebookUpdate(data) {
+  return nodebookUpdateTemplate(data, {});
+};
 var photography = function photography(data) {
   return photographyTileTemplate(data, {});
 };
 
-export { photography, search };
+export { nodebookUpdate, photography, search };
