@@ -1140,15 +1140,6 @@ article h1 a,
     text-decoration: none;
   }
 
-/* article.article h1 a[rel="permalink"]:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  } */
-
 article.article .post__content h1:first-child,
 article.article .post__content h2:first-child,
 article.article .post__content h3:first-child {
@@ -1245,7 +1236,8 @@ article.article .post__content p img {
     }
   }
 
-aside.next h2,
+.next h2:first-child,
+.next .h2:first-child,
 section.aside h2 {
   font-size:1.1667rem;
   padding:1.82142rem 0;
@@ -1253,14 +1245,16 @@ section.aside h2 {
 
 @media (min-width: 768px) {
 
-  aside.next h2,
+  .next h2:first-child,
+.next .h2:first-child,
 section.aside h2 {
       font-size:1.30769rem;
       padding:1.2869rem 0;
 }
   }
 
-aside.next h2,
+.next h2:first-child,
+.next .h2:first-child,
 section.aside h2 {
   margin: 0 !important;
   padding: 0 !important;
@@ -1287,7 +1281,7 @@ section.aside h2 {
   .tiles {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .tile .cover.is-square img {
     position: absolute;
   }

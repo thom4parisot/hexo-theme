@@ -37,6 +37,12 @@ read_more:
 load:
   comments: Load comments
 
+most_recent_post: Most recent post
+writings:
+  posts: Blog posts
+  journal: Journal entries
+  reading_notes: Reading notes
+
 talk:
   post: Talk
   workshop: Workshop

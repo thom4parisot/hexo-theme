@@ -1,6 +1,7 @@
 @import './code.css';
 
-aside.next h2,
+.next h2:first-child,
+.next .h2:first-child,
 section.aside h2 {
   @extend h5;
   margin: 0 !important;

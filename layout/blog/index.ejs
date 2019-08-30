@@ -1,10 +1,14 @@
 <%- partial('header') %>
-<% const posts = site.posts.find({ layout: {$ne: 'journal'} }).sort('date', -1).limit(10) %>
+<% const posts = site.posts.find({ layout: 'post' }).sort('date', -1).limit(10) %>
 
 <main role="main">
-  <%- partial('blog/hero', { post: posts.first(), aside: posts.slice(1, 6) }) %>
+  <%- partial('blog/writings', {
+    post: posts.first(),
+    entries: posts.slice(1, 6),
+    readingNotes: site.pages.find({ layout: 'reading-note' }).sort('date', -1).limit(5),
+    journalEntries: site.posts.find({ layout: 'journal' }).sort('date', -1).limit(5),
+  }) %>
 
-  <% /* partial('blog/work', {}) */ %>
   <%- partial('blog/book', { page: site.data.book }) %>
   <%- partial('blog/pictures', {}) %>
 </main>

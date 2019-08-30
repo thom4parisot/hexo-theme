@@ -52,6 +52,12 @@ more:
 load:
   comments: Affiche les commentaires
 
+most_recent_post: Dernier article en date
+writings:
+  posts: Articles
+  journal: Journal
+  reading_notes: Notes de lecture
+
 talk:
   post: Présentation
   workshop: Atelier

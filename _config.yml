@@ -15,6 +15,11 @@ webmentions:
     webmention: webmention
 
 summary:
+  home: |
+    Hello and welcome to my online&nbsp;space.
+    Here, I explore a way to document my journey through life.
+
+    _Enjoy!_ — Thomas
   work: >
     I combine web development, UX research and human-centered agile practices
     to put people at ease, to create a shared understanding of the _whys_ and the _whats_
