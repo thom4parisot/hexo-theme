@@ -13,7 +13,7 @@
       <% posts.forEach(post => { %>
       <li>
         <time class="metadata" datetime="<%= date_xml(post.date) %>"><%= date(post.date) %></time>
-        <a href="<%= url_for(post.path) %>" rel="permalink" lang="<%= post.lang || config.lang %>"><%= post.title.replace(/☕️ Journal : /, '') %></a>
+        <a href="<%= url_for(post.path) %>" rel="bookmark" lang="<%= post.lang || config.lang %>"><%= post.title.replace(/☕️ Journal : /, '') %></a>
       </li>
       <% }) %>
     </ul>

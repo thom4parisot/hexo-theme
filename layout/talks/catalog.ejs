@@ -15,7 +15,7 @@
           </li>
           <li class="metadata--artifacts"><%_ if (post.layout === 'post') { %>
               <%- partial('icon', {id: 'browse'}) -%>
-              <a href="<%= url_for(post.external || post.path) %>" rel="permalink" lang="<%= post.lang || config.language %>" class="<%= post.external ? 'external' : '' %>"><%= __('slideshow') %></a>
+              <a href="<%= url_for(post.external || post.path) %>" rel="bookmark" lang="<%= post.lang || config.language %>" class="<%= post.external ? 'external' : '' %>"><%= __('slideshow') %></a>
             <% } _%>
             <%_ if (post.event && !post.event.name) { %>
               <%- partial('icon', {id: 'bookmarks'}) -%>
