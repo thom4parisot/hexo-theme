@@ -36,7 +36,8 @@
     "normalize.css": "^8.0.0",
     "reading-time": "^1.2.0",
     "reveal-random-colors": "^2.0.0",
-    "reveal.js": "^3.8.0"
+    "reveal.js": "^3.8.0",
+    "somebody": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

@@ -10,10 +10,13 @@
         <ul class="metadata is-inline is-dotted">
           <li class="metadata--date"><time class="metadata" datetime="<%= date_xml(post.date) %>"><%= date(post.date) %></time></li>
           <li class="metadata--type"><%= __(`talk.${post.layout}`)%></li>
+          <%_ if (Array.isArray(post.with)) { %><li class="metadata--co-host"><%= __('with') _%>
+            <%- post.with.map(el => somebody(el)).map(({name, url}) => `<a href="${url}" target="_blank" rel="noopener">${name}</a>`).join(', ') _%>
+          </li><% } _%>
           <li class="metadata--location"><%- post.event.name ? __('hosted.by', post.event.url, post.event.name) : __('hosted.organized') %>
             <%= __('hosted.in', post.event.location) %>
           </li>
-          <li class="metadata--artifacts"><%_ if (post.layout === 'post') { %>
+          <li class="metadata--artifacts"><%_ if (post.external || post.slides) { %>
               <%- partial('icon', {id: 'browse'}) -%>
               <a href="<%= url_for(post.external || post.path) %>" rel="bookmark" lang="<%= post.lang || config.language %>" class="<%= post.external ? 'external' : '' %>"><%= __('slideshow') %></a>
             <% } _%>
