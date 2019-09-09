@@ -7,7 +7,7 @@ disqus_shortname: oncletom
 graph:
   twitter:        oncletom
   pgp:            "https://keybase.io/oncletom/pgp_keys.asc?fingerprint=FD7AA82DF0BB977542BB4F44CB88AA7D815E0D6B"
-  mastodon:       https://masto.oncletom.io/thomas
+  mastodon:       https://masto.oncletom.io/@thomas
 webmentions:
   url: https://webmention.io/oncletom.io
   features:
