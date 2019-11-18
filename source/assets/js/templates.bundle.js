@@ -375,34 +375,50 @@ var utils_3 = utils.shallowCopy;
 var utils_4 = utils.shallowCopyFromList;
 var utils_5 = utils.cache;
 
-var name = "ejs";
-var description = "Embedded JavaScript templates";
-var keywords = [
-	"template",
-	"engine",
-	"ejs"
-];
-var version = "2.6.2";
-var author = "Matthew Eernisse <mde@fleegix.org> (http://fleegix.org)";
-var contributors = [
-	"Timothy Gu <timothygu99@gmail.com> (https://timothygu.github.io)"
-];
-var license = "Apache-2.0";
-var main = "./lib/ejs.js";
-var repository = {
-	type: "git",
-	url: "git://github.com/mde/ejs.git"
+var _from = "ejs@2.7.2";
+var _id = "ejs@2.7.2";
+var _inBundle = false;
+var _integrity = "sha512-rHGwtpl67oih3xAHbZlpw5rQAt+YV1mSCu2fUZ9XNrfaGEhom7E+AUiMci+ByP4aSfuAWx7hE0BPuJLMrpXwOw==";
+var _location = "/ejs";
+var _phantomChildren = {
 };
-var bugs = "https://github.com/mde/ejs/issues";
-var homepage = "https://github.com/mde/ejs";
+var _requested = {
+	type: "version",
+	registry: true,
+	raw: "ejs@2.7.2",
+	name: "ejs",
+	escapedName: "ejs",
+	rawSpec: "2.7.2",
+	saveSpec: null,
+	fetchSpec: "2.7.2"
+};
+var _requiredBy = [
+	"#DEV:/",
+	"#USER"
+];
+var _resolved = "https://registry.npmjs.org/ejs/-/ejs-2.7.2.tgz";
+var _shasum = "749037c4c09bd57626a6140afbe6b7e650661614";
+var _spec = "ejs@2.7.2";
+var _where = "/Users/oncletom/workspace/hexo-theme";
+var author = {
+	name: "Matthew Eernisse",
+	email: "mde@fleegix.org",
+	url: "http://fleegix.org"
+};
+var bugs = {
+	url: "https://github.com/mde/ejs/issues"
+};
+var bundleDependencies = false;
 var dependencies = {
 };
+var deprecated = false;
+var description = "Embedded JavaScript templates";
 var devDependencies = {
 	browserify: "^13.1.1",
 	eslint: "^4.14.0",
 	"git-directory-deploy": "^1.5.1",
 	istanbul: "~0.4.3",
-	jake: "^8.0.16",
+	jake: "^10.3.1",
 	jsdoc: "^3.4.0",
 	"lru-cache": "^4.0.1",
 	mocha: "^5.0.5",
@@ -411,56 +427,84 @@ var devDependencies = {
 var engines = {
 	node: ">=0.10.0"
 };
-var scripts = {
-	test: "jake test",
-	lint: "eslint \"**/*.js\" Jakefile",
-	coverage: "istanbul cover node_modules/mocha/bin/_mocha",
-	doc: "jake doc",
-	devdoc: "jake doc[dev]"
+var homepage = "https://github.com/mde/ejs";
+var keywords = [
+	"template",
+	"engine",
+	"ejs"
+];
+var license = "Apache-2.0";
+var main = "./lib/ejs.js";
+var name = "ejs";
+var repository = {
+	type: "git",
+	url: "git://github.com/mde/ejs.git"
 };
-var _resolved = "https://registry.npmjs.org/ejs/-/ejs-2.6.2.tgz";
-var _integrity = "sha512-PcW2a0tyTuPHz3tWyYqtK6r1fZ3gp+3Sop8Ph+ZYN81Ob5rwmbHEzaqs10N3BEsaGTkh/ooniXK+WwszGlc2+Q==";
-var _from = "ejs@2.6.2";
+var scripts = {
+	postinstall: "node -e \"console.log('Thank you for installing \\u001b[35mEJS\\u001b[0m: built with the \\u001b[32mJake\\u001b[0m JavaScript build tool (\\u001b[32mhttps://jakejs.com/\\u001b[0m)\\n');\""
+};
+var version = "2.7.2";
 const _package = {
-	name: name,
-	description: description,
-	keywords: keywords,
-	version: version,
+	_from: _from,
+	_id: _id,
+	_inBundle: _inBundle,
+	_integrity: _integrity,
+	_location: _location,
+	_phantomChildren: _phantomChildren,
+	_requested: _requested,
+	_requiredBy: _requiredBy,
+	_resolved: _resolved,
+	_shasum: _shasum,
+	_spec: _spec,
+	_where: _where,
 	author: author,
-	contributors: contributors,
-	license: license,
-	main: main,
-	repository: repository,
 	bugs: bugs,
-	homepage: homepage,
+	bundleDependencies: bundleDependencies,
 	dependencies: dependencies,
+	deprecated: deprecated,
+	description: description,
 	devDependencies: devDependencies,
 	engines: engines,
+	homepage: homepage,
+	keywords: keywords,
+	license: license,
+	main: main,
+	name: name,
+	repository: repository,
 	scripts: scripts,
-	_resolved: _resolved,
-	_integrity: _integrity,
-	_from: _from
+	version: version
 };
 
 const _package$1 = /*#__PURE__*/Object.freeze({
-  name: name,
-  description: description,
-  keywords: keywords,
-  version: version,
+  __proto__: null,
+  _from: _from,
+  _id: _id,
+  _inBundle: _inBundle,
+  _integrity: _integrity,
+  _location: _location,
+  _phantomChildren: _phantomChildren,
+  _requested: _requested,
+  _requiredBy: _requiredBy,
+  _resolved: _resolved,
+  _shasum: _shasum,
+  _spec: _spec,
+  _where: _where,
   author: author,
-  contributors: contributors,
-  license: license,
-  main: main,
-  repository: repository,
   bugs: bugs,
-  homepage: homepage,
+  bundleDependencies: bundleDependencies,
   dependencies: dependencies,
+  deprecated: deprecated,
+  description: description,
   devDependencies: devDependencies,
   engines: engines,
+  homepage: homepage,
+  keywords: keywords,
+  license: license,
+  main: main,
+  name: name,
+  repository: repository,
   scripts: scripts,
-  _resolved: _resolved,
-  _integrity: _integrity,
-  _from: _from,
+  version: version,
   'default': _package
 });
 
@@ -973,6 +1017,8 @@ var ejs = createCommonjsModule(function (module, exports) {
     options.localsName = opts.localsName || exports.localsName || _DEFAULT_LOCALS_NAME;
     options.views = opts.views;
     options.async = opts.async;
+    options.destructuredLocals = opts.destructuredLocals;
+    options.legacyInclude = typeof opts.legacyInclude != 'undefined' ? !!opts.legacyInclude : true;
 
     if (options.strict) {
       options._with = false;
@@ -1011,10 +1057,26 @@ var ejs = createCommonjsModule(function (module, exports) {
 
       if (!this.source) {
         this.generateSource();
-        prepended += '  var __output = [], __append = __output.push.bind(__output);' + '\n';
+        prepended += '  var __output = "";\n' + '  function __append(s) { if (s !== undefined && s !== null) __output += s }\n';
 
         if (opts.outputFunctionName) {
           prepended += '  var ' + opts.outputFunctionName + ' = __append;' + '\n';
+        }
+
+        if (opts.destructuredLocals && opts.destructuredLocals.length) {
+          var destructuring = '  var __locals = (' + opts.localsName + ' || {}),\n';
+
+          for (var i = 0; i < opts.destructuredLocals.length; i++) {
+            var name = opts.destructuredLocals[i];
+
+            if (i > 0) {
+              destructuring += ',\n  ';
+            }
+
+            destructuring += name + ' = __locals.' + name;
+          }
+
+          prepended += destructuring + ';\n';
         }
 
         if (opts._with !== false) {
@@ -1022,7 +1084,7 @@ var ejs = createCommonjsModule(function (module, exports) {
           appended += '  }' + '\n';
         }
 
-        appended += '  return __output.join("");' + '\n';
+        appended += '  return __output;' + '\n';
         this.source = prepended + this.source + appended;
       }
 
@@ -1046,6 +1108,10 @@ var ejs = createCommonjsModule(function (module, exports) {
 
       if (opts.debug) {
         console.log(src);
+      }
+
+      if (opts.compileDebug && opts.filename) {
+        src = src + '\n' + '//# sourceURL=' + opts.filename + '\n';
       }
 
       try {
@@ -1077,24 +1143,19 @@ var ejs = createCommonjsModule(function (module, exports) {
           e.message += 'If the above error is not helpful, you may want to try EJS-Lint:\n';
           e.message += 'https://github.com/RyanZim/EJS-Lint';
 
-          if (!e.async) {
+          if (!opts.async) {
             e.message += '\n';
-            e.message += 'Or, if you meant to create an async function, pass async: true as an option.';
+            e.message += 'Or, if you meant to create an async function, pass `async: true` as an option.';
           }
         }
 
         throw e;
-      }
-
-      if (opts.client) {
-        fn.dependencies = this.dependencies;
-        return fn;
       } // Return a callable function which will execute the function
       // created by the source-code, with the passed data as locals
       // Adds a local `include` function which allows full recursive include
 
 
-      var returnedFn = function (data) {
+      var returnedFn = opts.client ? fn : function anonymous(data) {
         var include = function (path, includeData) {
           var d = utils.shallowCopy({}, data);
 
@@ -1107,8 +1168,24 @@ var ejs = createCommonjsModule(function (module, exports) {
 
         return fn.apply(opts.context, [data || {}, escapeFn, include, rethrow]);
       };
-
       returnedFn.dependencies = this.dependencies;
+
+      if (opts.filename && typeof Object.defineProperty === 'function') {
+        var filename = opts.filename;
+        var basename = path.basename(filename, path.extname(filename));
+
+        try {
+          Object.defineProperty(returnedFn, 'name', {
+            value: basename,
+            writable: false,
+            enumerable: false,
+            configurable: true
+          });
+        } catch (e) {
+          /* ignore */
+        }
+      }
+
       return returnedFn;
     },
     generateSource: function () {
@@ -1151,7 +1228,7 @@ var ejs = createCommonjsModule(function (module, exports) {
           } // HACK: backward-compat `include` preprocessor directives
 
 
-          if (include = line.match(/^\s*include\s+(\S+)/)) {
+          if (opts.legacyInclude && (include = line.match(/^\s*include\s+(\S+)/))) {
             opening = matches[index - 1]; // Must be in EVAL or RAW mode
 
             if (opening && (opening == o + d || opening == o + d + '-' || opening == o + d + '_')) {
@@ -1354,6 +1431,7 @@ var ejs = createCommonjsModule(function (module, exports) {
 
   if (commonjsRequire.extensions) {
     commonjsRequire.extensions['.ejs'] = function (module, flnm) {
+      console.log('Deprecated: this API will go away in EJS v2.8');
       var filename = flnm ||
       /* istanbul ignore next */
       module.filename;
