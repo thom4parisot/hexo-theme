@@ -13,7 +13,7 @@
     <h2><%= __('Quelques témoignages') %></h2>
 
     <ul class="is-discrete with-quotes">
-      <% page.testimonies.forEach(t => { %>
+      <% page.testimonies.slice(0, 4).forEach(t => { %>
       <li><blockquote><%- t.text ? `<a href="${t.link}" target="_blank" rel="noopener noreferrer">${t.text}</a>` : (t.text || t) %></blockquote></li>
       <% }) %>
     </ul>

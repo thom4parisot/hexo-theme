@@ -73,10 +73,30 @@
 
 
   <% if (is_post() && post.layout === 'post' && post.categories.first()) { %>
+  <% const category = post.categories.first() %>
   <% const aside = post.categories.first().posts.find({ date: {$lt: post.date}}).sort('date', -1).limit(5) %>
   <% if (aside.length) { %>
   <aside class="next">
-    <h2><%= __('more.topic')%></h2>
+    <h2><%= __('more.topic', category.name)%></h2>
+
+    <ul class="is-discrete with-metadata">
+      <% aside.forEach(post => { %>
+      <li>
+        <time class="metadata" datetime="<%= date_xml(post.date) %>"><%= date(post.date) %></time>
+        <a href="<%= url_for(post.path) %>" rel="bookmark" lang="<%= post.lang || config.lang %>"><%= post.title.replace(/☕️ Journal : /, '') %></a>
+      </li>
+      <% }) %>
+    </ul>
+  </aside>
+  <% } %>
+  <% } %>
+
+  <% if (is_post() && post.layout === 'journal') { %>
+  <% const category = post.categories.last() %>
+  <% const aside = category.posts.find({ date: {$lt: post.date}}).sort('date', -1).limit(5) %>
+  <% if (aside.length && category !== post.categories.first()) { %>
+  <aside class="next">
+    <h2><%= __('more.topic', category.name)%></h2>
 
     <ul class="is-discrete with-metadata">
       <% aside.forEach(post => { %>
