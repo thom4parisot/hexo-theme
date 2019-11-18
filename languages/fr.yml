@@ -37,7 +37,7 @@ read_more:
 more:
   writings: D'autres écrits
   work: Projets notables
-  topic: D'autres écrits sur le même sujet
+  topic: D'autres écrits à propos de « %s »
   testimonies: Quelques témoignages
   archives: Toutes les archives
   reading_notes: Toutes les notes de lecture

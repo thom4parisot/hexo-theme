@@ -64,21 +64,4 @@
       <%- partial('icon', {id: 'coffee'}) -%><%= __('more.journal') %>
     </a></p>
   </aside>
-
-  <aside class="next">
-    <h2><%= _p('writings.reading_notes') %></h2>
-
-    <ul class="is-discrete with-metadata">
-      <% readingNotes.forEach(post => { %>
-      <li>
-        <time class="metadata" datetime="<%= date_xml(post.publication_year) %>"><%= post.publication_year %></time>
-        <a href="<%= url_for(post.path).replace('index.html', '') %>" rel="bookmark"><%= post.title %></a>
-      </li>
-      <% }) %>
-    </ul>
-
-    <p><a href="<%= url_for('/reading-notes/') %>" class="read-more">
-      <%- partial('icon', {id: 'bookmarks'}) -%><%= __('more.reading_notes') %>
-    </a></p>
-  </aside>
 </section>
