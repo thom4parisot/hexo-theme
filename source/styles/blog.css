@@ -1297,6 +1297,22 @@ section.aside h2 {
   position: relative;
 }
 
+.tile.tile--portrait {
+    padding-bottom: 1rem;
+    padding-right: 1rem;
+  }
+
+.tile.tile--portrait .cover {
+      float: left;
+      margin-right: .5rem;
+      max-height: 120px;
+      max-width: 100%;
+    }
+
+.tile.tile--portrait [itemprop="name"] {
+      font-weight: bold;
+    }
+
 .tile .cover.is-square {
     border-radius: 0;
     position: relative;

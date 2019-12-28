@@ -3,6 +3,21 @@
 <main class="timeline" role="main">
   <section>
     <%- partial("blog/post-single", { post: page }) %>
+
+    <% if (page.now && page.now.length) { %>
+    <aside>
+      <ul class="tiles">
+      <% page.now.forEach(({title, isbn, authors, publication_year}) => { %>
+        <li class="tile tile--portrait" itemscope itemtype="http://schema.org/Book">
+          <img alt="" class="cover" src="<%= `https://images.epagine.fr/${isbn.slice(-3)}/${isbn}_1_75.jpg` %>">
+          <span itemprop="name"><%= title %></span>,
+          par <%= new Intl.ListFormat('en').format(authors) %>
+          (<span itemprop="copyrightYear"><%= publication_year %></span>)
+        </li>
+      <% }) %>
+      </ul>
+    </aside>
+    <% } %>
   </section>
 
   <section class="aside container next">
