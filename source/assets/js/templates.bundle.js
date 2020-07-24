@@ -1,4 +1,4 @@
-import { c as createCommonjsModule, g as getCjsExportFromNamespace, a as commonjsRequire } from './chunk__commonjsHelpers.js';
+import { c as createCommonjsModule, g as getCjsExportFromNamespace } from './chunk__commonjsHelpers.js';
 
 const fs = {};
 
@@ -199,7 +199,7 @@ function basename(path, ext) {
 function extname(path) {
   return splitPath(path)[3];
 }
-const path = {
+const require$$0 = {
   extname: extname,
   basename: basename,
   dirname: dirname,
@@ -347,7 +347,7 @@ var utils = createCommonjsModule(function (module, exports) {
    * Simple in-process cache implementation. Does not implement limits of any
    * sort.
    *
-   * @implements Cache
+   * @implements {Cache}
    * @static
    * @private
    */
@@ -375,59 +375,62 @@ var utils_3 = utils.shallowCopy;
 var utils_4 = utils.shallowCopyFromList;
 var utils_5 = utils.cache;
 
-var _from = "ejs@2.7.2";
-var _id = "ejs@2.7.2";
+var _from = "ejs@latest";
+var _id = "ejs@3.1.3";
 var _inBundle = false;
-var _integrity = "sha512-rHGwtpl67oih3xAHbZlpw5rQAt+YV1mSCu2fUZ9XNrfaGEhom7E+AUiMci+ByP4aSfuAWx7hE0BPuJLMrpXwOw==";
+var _integrity = "sha512-wmtrUGyfSC23GC/B1SMv2ogAUgbQEtDmTIhfqielrG5ExIM9TP4UoYdi90jLF1aTcsWCJNEO0UrgKzP0y3nTSg==";
 var _location = "/ejs";
 var _phantomChildren = {
 };
 var _requested = {
-	type: "version",
+	type: "tag",
 	registry: true,
-	raw: "ejs@2.7.2",
+	raw: "ejs@latest",
 	name: "ejs",
 	escapedName: "ejs",
-	rawSpec: "2.7.2",
+	rawSpec: "latest",
 	saveSpec: null,
-	fetchSpec: "2.7.2"
+	fetchSpec: "latest"
 };
 var _requiredBy = [
 	"#DEV:/",
 	"#USER"
 ];
-var _resolved = "https://registry.npmjs.org/ejs/-/ejs-2.7.2.tgz";
-var _shasum = "749037c4c09bd57626a6140afbe6b7e650661614";
-var _spec = "ejs@2.7.2";
+var _resolved = "https://registry.npmjs.org/ejs/-/ejs-3.1.3.tgz";
+var _shasum = "514d967a8894084d18d3d47bd169a1c0560f093d";
+var _spec = "ejs@latest";
 var _where = "/Users/oncletom/workspace/hexo-theme";
 var author = {
 	name: "Matthew Eernisse",
 	email: "mde@fleegix.org",
 	url: "http://fleegix.org"
 };
+var bin = {
+	ejs: "bin/cli.js"
+};
 var bugs = {
 	url: "https://github.com/mde/ejs/issues"
 };
 var bundleDependencies = false;
 var dependencies = {
+	jake: "^10.6.1"
 };
 var deprecated = false;
 var description = "Embedded JavaScript templates";
 var devDependencies = {
-	browserify: "^13.1.1",
-	eslint: "^4.14.0",
+	browserify: "^16.5.1",
+	eslint: "^6.8.0",
 	"git-directory-deploy": "^1.5.1",
-	istanbul: "~0.4.3",
-	jake: "^10.3.1",
-	jsdoc: "^3.4.0",
+	jsdoc: "^3.6.4",
 	"lru-cache": "^4.0.1",
-	mocha: "^5.0.5",
+	mocha: "^7.1.1",
 	"uglify-js": "^3.3.16"
 };
 var engines = {
 	node: ">=0.10.0"
 };
 var homepage = "https://github.com/mde/ejs";
+var jsdelivr = "ejs.min.js";
 var keywords = [
 	"template",
 	"engine",
@@ -441,9 +444,11 @@ var repository = {
 	url: "git://github.com/mde/ejs.git"
 };
 var scripts = {
-	postinstall: "node -e \"console.log('Thank you for installing \\u001b[35mEJS\\u001b[0m: built with the \\u001b[32mJake\\u001b[0m JavaScript build tool (\\u001b[32mhttps://jakejs.com/\\u001b[0m)\\n');\""
+	postinstall: "node --harmony ./postinstall.js",
+	test: "mocha"
 };
-var version = "2.7.2";
+var unpkg = "ejs.min.js";
+var version = "3.1.3";
 const _package = {
 	_from: _from,
 	_id: _id,
@@ -458,6 +463,7 @@ const _package = {
 	_spec: _spec,
 	_where: _where,
 	author: author,
+	bin: bin,
 	bugs: bugs,
 	bundleDependencies: bundleDependencies,
 	dependencies: dependencies,
@@ -466,12 +472,14 @@ const _package = {
 	devDependencies: devDependencies,
 	engines: engines,
 	homepage: homepage,
+	jsdelivr: jsdelivr,
 	keywords: keywords,
 	license: license,
 	main: main,
 	name: name,
 	repository: repository,
 	scripts: scripts,
+	unpkg: unpkg,
 	version: version
 };
 
@@ -490,6 +498,7 @@ const _package$1 = /*#__PURE__*/Object.freeze({
   _spec: _spec,
   _where: _where,
   author: author,
+  bin: bin,
   bugs: bugs,
   bundleDependencies: bundleDependencies,
   dependencies: dependencies,
@@ -498,17 +507,19 @@ const _package$1 = /*#__PURE__*/Object.freeze({
   devDependencies: devDependencies,
   engines: engines,
   homepage: homepage,
+  jsdelivr: jsdelivr,
   keywords: keywords,
   license: license,
   main: main,
   name: name,
   repository: repository,
   scripts: scripts,
+  unpkg: unpkg,
   version: version,
   'default': _package
 });
 
-const require$$0 = getCjsExportFromNamespace(_package$1);
+const require$$1 = getCjsExportFromNamespace(_package$1);
 
 var ejs = createCommonjsModule(function (module, exports) {
   /**
@@ -537,8 +548,11 @@ var ejs = createCommonjsModule(function (module, exports) {
    * @public
    */
 
+  var path = require$$0;
   var scopeOptionWarned = false;
-  var _VERSION_STRING = require$$0.version;
+  /** @type {string} */
+
+  var _VERSION_STRING = require$$1.version;
   var _DEFAULT_OPEN_DELIMITER = '<';
   var _DEFAULT_CLOSE_DELIMITER = '>';
   var _DEFAULT_DELIMITER = '%';
@@ -584,7 +598,7 @@ var ejs = createCommonjsModule(function (module, exports) {
    * Promise implementation -- defaults to the native implementation if available
    * This is mostly just for testability
    *
-   * @type {Function}
+   * @type {PromiseConstructorLike}
    * @public
    */
 
@@ -595,7 +609,7 @@ var ejs = createCommonjsModule(function (module, exports) {
    *
    * @param {String}  name     specified path
    * @param {String}  filename parent file path
-   * @param {Boolean} isDir    parent file path whether is directory
+   * @param {Boolean} [isDir=false] whether the parent file path is a directory
    * @return {String}
    */
 
@@ -613,6 +627,25 @@ var ejs = createCommonjsModule(function (module, exports) {
     return includePath;
   };
   /**
+   * Try to resolve file path on multiple directories
+   *
+   * @param  {String}        name  specified path
+   * @param  {Array<String>} paths list of possible parent directory paths
+   * @return {String}
+   */
+
+
+  function resolvePaths(name, paths) {
+    var filePath;
+
+    if (paths.some(function (v) {
+      filePath = exports.resolveInclude(name, v, true);
+      return fs.existsSync(filePath);
+    })) {
+      return filePath;
+    }
+  }
+  /**
    * Get the path to the included file by Options
    *
    * @param  {String}  path    specified path
@@ -628,7 +661,13 @@ var ejs = createCommonjsModule(function (module, exports) {
     var match = /^[A-Za-z]+:\\|^\//.exec(path); // Abs path
 
     if (match && match.length) {
-      includePath = exports.resolveInclude(path.replace(/^\/*/, ''), options.root || '/', true);
+      path = path.replace(/^\/*/, '');
+
+      if (Array.isArray(options.root)) {
+        includePath = resolvePaths(path, options.root);
+      } else {
+        includePath = exports.resolveInclude(path, options.root || '/', true);
+      }
     } // Relative paths
     else {
         // Look relative to a passed filename first
@@ -641,16 +680,11 @@ var ejs = createCommonjsModule(function (module, exports) {
         } // Then look in any views directories
 
 
-        if (!includePath) {
-          if (Array.isArray(views) && views.some(function (v) {
-            filePath = exports.resolveInclude(path, v, true);
-            return fs.existsSync(filePath);
-          })) {
-            includePath = filePath;
-          }
+        if (!includePath && Array.isArray(views)) {
+          includePath = resolvePaths(path, views);
         }
 
-        if (!includePath) {
+        if (!includePath && typeof options.includer !== 'function') {
           throw new Error('Could not find the include file "' + options.escapeFunction(path) + '"');
         }
       }
@@ -780,44 +814,34 @@ var ejs = createCommonjsModule(function (module, exports) {
   function includeFile(path, options) {
     var opts = utils.shallowCopy({}, options);
     opts.filename = getIncludePath(path, opts);
+
+    if (typeof options.includer === 'function') {
+      var includerResult = options.includer(path, opts.filename);
+
+      if (includerResult) {
+        if (includerResult.filename) {
+          opts.filename = includerResult.filename;
+        }
+
+        if (includerResult.template) {
+          return handleCache(opts, includerResult.template);
+        }
+      }
+    }
+
     return handleCache(opts);
-  }
-  /**
-   * Get the JavaScript source of an included file.
-   *
-   * @memberof module:ejs-internal
-   * @param {String}  path    path for the specified file
-   * @param {Options} options compilation options
-   * @return {Object}
-   * @static
-   */
-
-
-  function includeSource(path, options) {
-    var opts = utils.shallowCopy({}, options);
-    var includePath;
-    var template;
-    includePath = getIncludePath(path, opts);
-    template = fileLoader(includePath).toString().replace(_BOM, '');
-    opts.filename = includePath;
-    var templ = new Template(template, opts);
-    templ.generateSource();
-    return {
-      source: templ.source,
-      filename: includePath,
-      template: template
-    };
   }
   /**
    * Re-throw the given `err` in context to the `str` of ejs, `filename`, and
    * `lineno`.
    *
-   * @implements RethrowCallback
+   * @implements {RethrowCallback}
    * @memberof module:ejs-internal
    * @param {Error}  err      Error object
    * @param {String} str      EJS source
-   * @param {String} filename file name of the EJS file
-   * @param {String} lineno   line number of the error
+   * @param {String} flnm     file name of the EJS file
+   * @param {Number} lineno   line number of the error
+   * @param {EscapeCallback} esc
    * @static
    */
 
@@ -826,8 +850,7 @@ var ejs = createCommonjsModule(function (module, exports) {
     var lines = str.split('\n');
     var start = Math.max(lineno - 3, 0);
     var end = Math.min(lines.length, lineno + 3);
-    var filename = esc(flnm); // eslint-disable-line
-    // Error context
+    var filename = esc(flnm); // Error context
 
     var context = lines.slice(start, end).map(function (line, i) {
       var curr = i + start + 1;
@@ -847,7 +870,7 @@ var ejs = createCommonjsModule(function (module, exports) {
    *
    * @param {String}  template EJS template
    *
-   * @param {Options} opts     compilation options
+   * @param {Options} [opts] compilation options
    *
    * @return {(TemplateFunction|ClientFunction)}
    * Depending on the value of `opts.client`, either type might be returned.
@@ -995,11 +1018,12 @@ var ejs = createCommonjsModule(function (module, exports) {
     opts = opts || {};
     var options = {};
     this.templateText = text;
+    /** @type {string | null} */
+
     this.mode = null;
     this.truncate = false;
     this.currentLine = 1;
     this.source = '';
-    this.dependencies = [];
     options.client = opts.client || false;
     options.escapeFunction = opts.escape || opts.escapeFunction || utils.escapeXML;
     options.compileDebug = opts.compileDebug !== false;
@@ -1013,6 +1037,7 @@ var ejs = createCommonjsModule(function (module, exports) {
     options.cache = opts.cache || false;
     options.rmWhitespace = opts.rmWhitespace;
     options.root = opts.root;
+    options.includer = opts.includer;
     options.outputFunctionName = opts.outputFunctionName;
     options.localsName = opts.localsName || exports.localsName || _DEFAULT_LOCALS_NAME;
     options.views = opts.views;
@@ -1047,12 +1072,19 @@ var ejs = createCommonjsModule(function (module, exports) {
       return new RegExp(str);
     },
     compile: function () {
+      /** @type {string} */
       var src;
+      /** @type {ClientFunction} */
+
       var fn;
       var opts = this.opts;
       var prepended = '';
       var appended = '';
+      /** @type {EscapeCallback} */
+
       var escapeFn = opts.escapeFunction;
+      /** @type {FunctionConstructor} */
+
       var ctor;
 
       if (!this.source) {
@@ -1168,7 +1200,6 @@ var ejs = createCommonjsModule(function (module, exports) {
 
         return fn.apply(opts.context, [data || {}, escapeFn, include, rethrow]);
       };
-      returnedFn.dependencies = this.dependencies;
 
       if (opts.filename && typeof Object.defineProperty === 'function') {
         var filename = opts.filename;
@@ -1207,12 +1238,7 @@ var ejs = createCommonjsModule(function (module, exports) {
 
       if (matches && matches.length) {
         matches.forEach(function (line, index) {
-          var opening;
-          var closing;
-          var include;
-          var includeOpts;
-          var includeObj;
-          var includeSrc; // If this is an opening tag, check for closing tags
+          var closing; // If this is an opening tag, check for closing tags
           // FIXME: May end up with some false positives here
           // Better to store modes as k/v with openDelimiter + delimiter as key
           // Then this can simply check against the map
@@ -1224,26 +1250,6 @@ var ejs = createCommonjsModule(function (module, exports) {
 
             if (!(closing == d + c || closing == '-' + d + c || closing == '_' + d + c)) {
               throw new Error('Could not find matching close tag for "' + line + '".');
-            }
-          } // HACK: backward-compat `include` preprocessor directives
-
-
-          if (opts.legacyInclude && (include = line.match(/^\s*include\s+(\S+)/))) {
-            opening = matches[index - 1]; // Must be in EVAL or RAW mode
-
-            if (opening && (opening == o + d || opening == o + d + '-' || opening == o + d + '_')) {
-              includeOpts = utils.shallowCopy({}, self.opts);
-              includeObj = includeSource(include[1], includeOpts);
-
-              if (self.opts.compileDebug) {
-                includeSrc = '    ; (function(){' + '\n' + '      var __line = 1' + '\n' + '      , __lines = ' + JSON.stringify(includeObj.template) + '\n' + '      , __filename = ' + JSON.stringify(includeObj.filename) + ';' + '\n' + '      try {' + '\n' + includeObj.source + '      } catch (e) {' + '\n' + '        rethrow(e, __lines, __filename, __line, escapeFn);' + '\n' + '      }' + '\n' + '    ; }).call(this)' + '\n';
-              } else {
-                includeSrc = '    ; (function(){' + '\n' + includeObj.source + '    ; }).call(this)' + '\n';
-              }
-
-              self.source += includeSrc;
-              self.dependencies.push(exports.resolveInclude(include[1], includeOpts.filename));
-              return;
             }
           }
 
@@ -1425,26 +1431,7 @@ var ejs = createCommonjsModule(function (module, exports) {
    * @func
    */
 
-  exports.__express = exports.renderFile; // Add require support
-
-  /* istanbul ignore else */
-
-  if (commonjsRequire.extensions) {
-    commonjsRequire.extensions['.ejs'] = function (module, flnm) {
-      console.log('Deprecated: this API will go away in EJS v2.8');
-      var filename = flnm ||
-      /* istanbul ignore next */
-      module.filename;
-      var options = {
-        filename: filename,
-        client: true
-      };
-      var template = fileLoader(filename).toString();
-      var fn = exports.compile(template, options);
-
-      module._compile('module.exports = ' + fn.toString() + ';', filename);
-    };
-  }
+  exports.__express = exports.renderFile;
   /**
    * Version of EJS.
    *
@@ -1452,7 +1439,6 @@ var ejs = createCommonjsModule(function (module, exports) {
    * @type {String}
    * @public
    */
-
 
   exports.VERSION = _VERSION_STRING;
   /**
@@ -1485,7 +1471,7 @@ var ejs_12 = ejs.__express;
 var ejs_13 = ejs.VERSION;
 var ejs_14 = ejs.name;
 
-const searchResultEjs = "<% if (post.layout === 'post') { %>\n<time class=\"metadata\" datetime=\"<%= post.date %>\"><%= new Date(post.date_as_int * 1000).toLocaleDateString(post.lang, {month: 'long', year: 'numeric'}) %></time>\n<% } %>\n<div>\n  <a href=\"<%= post.permalink %>\" rel=\"bookmark\"><%= post.title %></a>\n  <% if (post.excerpt) { %>\n  <details>\n    <summary><%= __('display_summary') %></summary>\n    <%- post.excerpt %>\n  </details>\n  <% } %>\n<div>\n";
+const searchResultEjs = "<% if (post.layout === 'post') { %>\n<time class=\"metadata\" datetime=\"<%= post.date %>\"><%= new Date(post.date_as_int * 1000).toLocaleDateString(post.lang, {month: 'long', year: 'numeric'}) %></time>\n<% } %>\n<div>\n  <a href=\"<%= post.permalink %>\" rel=\"bookmark\"><%= post.title %></a>\n  <% if (post.excerpt) { %>\n  <details>\n    <summary>Display_summary</summary>\n    <%- post.excerpt %>\n  </details>\n  <% } %>\n<div>\n";
 
 const nodebookUpdateEjs = "<span class=\"metadata\">\n  <img src=\"<%= commit.author.avatar_url %>&amp;size=30\" class=\"is-avatar\" alt=\"<%= commit.author.login %>\">\n  <time datetime=\"<%= commit.commit.author.date %>\"><%= new Date(commit.commit.author.date).toLocaleDateString('fr', {month: 'long', year: 'numeric'})%></time>\n</span>\n\n\n<pre class=\"message\"><a href=\"<%= commit.html_url %>\" rel=\"noreferrer noopener nofollow\" target=\"_blank\"><%= commit.commit.message %></a></pre>\n";
 

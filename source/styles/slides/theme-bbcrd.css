@@ -377,7 +377,7 @@ template {
 
   --commented: rgba(17, 17, 68, .65);
 
-  --code-background: #dee2e6;
+  --code-background: #fefefe;
   --code-foreground: var(--dark-shade);
 
   --link-foreground: blue;
@@ -432,7 +432,7 @@ template {
 
 .code .reveal pre code {
         background: transparent;
-        color: #dee2e6;
+        color: #fefefe;
         color: var(--code-background);
       }
 
@@ -524,7 +524,7 @@ template {
   }
 
 .reveal code {
-    background-color: #dee2e6;
+    background-color: #fefefe;
     background-color: var(--code-background);
     color: #1F1F43;
     color: var(--code-foreground);
