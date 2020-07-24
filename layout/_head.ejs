@@ -33,7 +33,7 @@
 <meta name="twitter:description" content="<%= description(page) %>">
 <meta property="og:title" content="<%= page.title || [config.title, config.subtitle].join(' &mdash; ') %>">
 <meta property="og:type" content="article">
-<meta property="og:url" content="<%= url_for(page.permalink).replace('index.html', '') %>">
+<meta property="og:url" content="<%= url_for(page.permalink) %>">
 <meta property="og:image" content="<%= page.image || config.default_cover %>">
 <meta property="og:description" content="<%= description(page) %>">
 <meta property="og:locale" content="fr_FR">
