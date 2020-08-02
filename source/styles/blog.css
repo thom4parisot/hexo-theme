@@ -1228,6 +1228,31 @@ article.article .post__content h4 {
   position: absolute;
 }
 
+.post__content table {
+  border-collapse: collapse;
+  margin: 1.5em 0;
+}
+
+.post__content table td,
+.post__content table th {
+  padding: 0.25em;
+}
+
+.post__content table thead th {
+    vertical-align: bottom;
+    text-align: left;
+    border-bottom: 2px solid #1F1F43;
+    border-bottom: 2px solid var(--dark-shade);
+  }
+
+.post__content table tbody td,
+  .post__content table tbody th {
+      padding-bottom: .5em;
+      padding-top: .5em;
+      border-bottom: 1px solid #D4C492;
+      border-bottom: 1px solid var(--light-accent);
+  }
+
 .post__content ul {
   padding-left: 0;
   list-style: inside;
