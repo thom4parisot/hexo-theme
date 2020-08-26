@@ -368,37 +368,52 @@ var utils = createCommonjsModule(function (module, exports) {
       this._data = {};
     }
   };
+  /**
+   * Transforms hyphen case variable into camel case.
+   *
+   * @param {String} string Hyphen case string
+   * @return {String} Camel case string
+   * @static
+   * @private
+   */
+
+  exports.hyphenToCamel = function (str) {
+    return str.replace(/-[a-z]/g, function (match) {
+      return match[1].toUpperCase();
+    });
+  };
 });
 var utils_1 = utils.escapeRegExpChars;
 var utils_2 = utils.escapeXML;
 var utils_3 = utils.shallowCopy;
 var utils_4 = utils.shallowCopyFromList;
 var utils_5 = utils.cache;
+var utils_6 = utils.hyphenToCamel;
 
-var _from = "ejs@latest";
-var _id = "ejs@3.1.3";
+var _from = "ejs@3.1.5";
+var _id = "ejs@3.1.5";
 var _inBundle = false;
-var _integrity = "sha512-wmtrUGyfSC23GC/B1SMv2ogAUgbQEtDmTIhfqielrG5ExIM9TP4UoYdi90jLF1aTcsWCJNEO0UrgKzP0y3nTSg==";
+var _integrity = "sha512-dldq3ZfFtgVTJMLjOe+/3sROTzALlL9E34V4/sDtUd/KlBSS0s6U1/+WPE1B4sj9CXHJpL1M6rhNJnc9Wbal9w==";
 var _location = "/ejs";
 var _phantomChildren = {
 };
 var _requested = {
-	type: "tag",
+	type: "version",
 	registry: true,
-	raw: "ejs@latest",
+	raw: "ejs@3.1.5",
 	name: "ejs",
 	escapedName: "ejs",
-	rawSpec: "latest",
+	rawSpec: "3.1.5",
 	saveSpec: null,
-	fetchSpec: "latest"
+	fetchSpec: "3.1.5"
 };
 var _requiredBy = [
 	"#DEV:/",
 	"#USER"
 ];
-var _resolved = "https://registry.npmjs.org/ejs/-/ejs-3.1.3.tgz";
-var _shasum = "514d967a8894084d18d3d47bd169a1c0560f093d";
-var _spec = "ejs@latest";
+var _resolved = "https://registry.npmjs.org/ejs/-/ejs-3.1.5.tgz";
+var _shasum = "aed723844dc20acb4b170cd9ab1017e476a0d93b";
+var _spec = "ejs@3.1.5";
 var _where = "/Users/oncletom/workspace/hexo-theme";
 var author = {
 	name: "Matthew Eernisse",
@@ -444,11 +459,10 @@ var repository = {
 	url: "git://github.com/mde/ejs.git"
 };
 var scripts = {
-	postinstall: "node --harmony ./postinstall.js",
 	test: "mocha"
 };
 var unpkg = "ejs.min.js";
-var version = "3.1.3";
+var version = "3.1.5";
 const _package = {
 	_from: _from,
 	_id: _id,
