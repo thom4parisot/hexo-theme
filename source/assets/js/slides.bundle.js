@@ -22908,8 +22908,7 @@ const HLJS = function (hljs) {
 
 
 var highlight = HLJS({});
-
-var highlight$1 = {};
+var core = highlight;
 
 /*
 Language: Bash
@@ -23613,15 +23612,15 @@ function javascript(hljs) {
 
 var javascript_1 = javascript;
 
-highlight$1.registerLanguage('bash', bash_1);
-highlight$1.registerLanguage('shell', shell_1);
-highlight$1.registerLanguage('xml', xml_1);
-highlight$1.registerLanguage('asciidoc', asciidoc_1);
-highlight$1.registerLanguage('javascript', javascript_1);
+core.registerLanguage('bash', bash_1);
+core.registerLanguage('shell', shell_1);
+core.registerLanguage('xml', xml_1);
+core.registerLanguage('asciidoc', asciidoc_1);
+core.registerLanguage('javascript', javascript_1);
 var md = markdownIt({
   html: true,
   highlight: function highlight(code, lang) {
-    return highlight$1.highlightAuto(code, [lang]).value;
+    return core.highlightAuto(code, [lang]).value;
   }
 });
 md.use(markdownItAttrs);

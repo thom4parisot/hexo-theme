@@ -1,6 +1,6 @@
 import markdown from 'markdown-it';
 import markdownAttributes from 'markdown-it-attrs';
-import hljs from 'highlight.js/lib/highlight.js';
+import hljs from 'highlight.js/lib/core';
 
 import bashLang from 'highlight.js/lib/languages/bash.js';
 import shellLang from 'highlight.js/lib/languages/shell.js';
