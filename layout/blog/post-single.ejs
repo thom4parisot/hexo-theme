@@ -53,7 +53,7 @@
     <% } %>
     <ul class="is-discrete read-more">
       <li>
-        <a href="https://github.com/oncletom/oncletom.io/tree/master/source/<%= post.source %>">
+        <a href="https://github.com/oncletom/oncletom/tree/main/source/<%= post.source %>">
           <%- partial('icon', {id: 'html-tag'}) -%><%= __('metadata.suggest_edit') %>
         </a>
       </li>
@@ -63,7 +63,7 @@
         </a>
       </li><% } %>
       <li>
-        <a href="https://github.com/oncletom/oncletom.io/tree/master/source/<%= post.source %>">
+        <a href="<%= url_for('/archives/') %>">
           <%- partial('icon', {id: 'browse'}) -%><%= __('more.archives') %>
         </a>
       </li>
