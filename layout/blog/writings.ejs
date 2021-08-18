@@ -5,7 +5,7 @@
 
   <h3 class="h2 next"><%= __('most_recent_post') %></h3>
 
-  <article class="article" id="latest-writing" lang="<%= post.lang || config.language %>">
+  <article class="article" id="latest-writing" aria-label="<%= post.title %>" aria-describedby="latest-writing-content" lang="<%= post.lang || config.language %>">
     <header>
       <div class="<%= ['cover', post.cover && post.cover.type].filter(d=>d).join(' ') %>">
         <% if (post.cover) { %><img src="<%= post.image %>" alt="" class="is-responsive is-cover"><% } %>
@@ -21,7 +21,7 @@
       </ul>
     </header>
 
-    <div class="summary"><%- post.description || post.excerpt %></div>
+    <div class="summary" id="latest-writing-content"><%- post.description || post.excerpt %></div>
 
     <p class="read-more">
       <a href="<%= url_for(post.path) %>">
@@ -30,8 +30,8 @@
     </p>
   </article>
 
-  <aside class="next">
-    <h2><%= _p('writings.posts') %></h2>
+  <aside class="next" aria-labelledby="next-posts-title">
+    <h2 id="next-posts-title"><%= _p('writings.posts') %></h2>
 
     <ul class="is-discrete with-metadata">
       <% entries.forEach(post => { %>
@@ -52,8 +52,8 @@
     </ul>
   </aside>
 
-  <aside class="next">
-    <h2><%= _p('writings.journal') %></h2>
+  <aside class="next" aria-labelledby="next-journal-title">
+    <h2 id="next-journal-title"><%= _p('writings.journal') %></h2>
 
     <ul class="is-discrete with-metadata">
       <% journalEntries.forEach(post => { %>

@@ -1,5 +1,5 @@
 <% const d = moment(post.date) -%>
-<article class="h-entry post article <%= typeof classNames === 'string' ? classNames : '' %> container" lang="<%= post.lang || config.language %>">
+<article class="h-entry post article <%= typeof classNames === 'string' ? classNames : '' %> container" aria-labelledby="post-title" aria-describedby="read" lang="<%= post.lang || config.language %>">
   <header class="post__header">
     <% if (post.cover) { %>
     <div class="<%= ['cover', post.cover.type].filter(d=>d).join(' ') %>">
@@ -7,7 +7,7 @@
     </div>
     <% } %>
 
-    <h1><%= post.title %></h1>
+    <h1 id="post-title"><%= post.title %></h1>
 
     <% if (is_page()) { %>
     <%- toc(post.content, {list_number: false}).replace(/>§/g, '>') %>
@@ -47,7 +47,7 @@
   <% } %>
 
   <% if (is_post() && post.layout === 'post') { %>
-  <footer class="post__footer next">
+  <footer class="post__footer next" aria-label="Feedback links">
     <% if (post.thanks_to) { %>
     <%- markdown(__('metadata.thanks_to', post.thanks_to)) %>
     <% } %>
@@ -76,8 +76,8 @@
   <% const category = post.categories.first() %>
   <% const aside = post.categories.first().posts.find({ date: {$lt: post.date}}).sort('date', -1).limit(5) %>
   <% if (aside.length) { %>
-  <aside class="next">
-    <h2><%= __('more.topic', category.name)%></h2>
+  <aside class="next" aria-labelledby="next-content-title">
+    <h2 id="next-content-title"><%= __('more.topic', category.name)%></h2>
 
     <ul class="is-discrete with-metadata">
       <% aside.forEach(post => { %>
@@ -95,8 +95,8 @@
   <% const category = post.categories.last() %>
   <% const aside = category.posts.find({ date: {$lt: post.date}}).sort('date', -1).limit(5) %>
   <% if (aside.length && category !== post.categories.first()) { %>
-  <aside class="next">
-    <h2><%= __('more.topic', category.name)%></h2>
+  <aside class="next" aria-labelledby="next-category-title">
+    <h2 id="next-category-title"><%= __('more.topic', category.name)%></h2>
 
     <ul class="is-discrete with-metadata">
       <% aside.forEach(post => { %>
