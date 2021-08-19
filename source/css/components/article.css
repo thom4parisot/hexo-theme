@@ -164,6 +164,27 @@ article.article .post__content h4 {
       border-bottom: 1px solid var(--light-accent);
   }
 
+.post__content ins {
+  background-color: #C3D49280;
+  text-decoration: none;
+}
+
+.post__content ins::before {
+  display: block;
+  font-style: italic;
+  font-weight: bold;
+}
+
+
+article .post__content ins::before,
+article[lang*="en"] .post__content ins::before {
+  content: "Content added on " attr(datetime);
+}
+article[lang*="fr"] .post__content ins::before {
+  content: "Contenu ajouté le " attr(datetime);
+}
+
+
 .post__content ul {
   padding-left: 0;
   list-style: inside;
