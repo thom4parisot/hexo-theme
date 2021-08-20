@@ -176,6 +176,9 @@ article.article .post__content h4 {
 }
 
 
+article .post__content ins.section {
+  display: block;
+}
 article .post__content ins::before,
 article[lang*="en"] .post__content ins::before {
   content: "Content added on " attr(datetime);
