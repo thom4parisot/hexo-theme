@@ -367,7 +367,7 @@ template {
   /* Use this color as the background for your dark-on-light designs, or the text color of an inverted design */
   --light-shade: #F4F4F0;
   /* Accent colors can be used to bring attention to design elements by contrasting with the rest of the palette. */
-  --light-accent: #D4C492;
+  --light-accent: #83693A;
   /* This color should be eye-catching but not harsh. It can be liberally applied to your layout as its main identity. */
   --brand-color: #FD7E14;
   /* Another accent color to consider. Not all colors have to be used - sometimes a simple color scheme works best. */
@@ -494,7 +494,7 @@ blockquote {
 
 blockquote::before,
   blockquote p:last-child:after {
-    color: #D4C492;
+    color: #83693A;
     color: var(--light-accent);
     font-size: 3rem;
 		line-height: 1;
@@ -574,8 +574,8 @@ img.is-cover {
 body {
   background-color: #F4F4F0;
   background-color: var(--light-shade);
-  border-top: 4px solid #D4C492;
-  border-top: 4px solid var(--light-accent);
+  border-top: 4px solid #FD7E14;
+  border-top: 4px solid var(--brand-color);
   color: #1F1F43;
   color: var(--dark-shade);
   padding: 2rem;
@@ -606,13 +606,17 @@ details summary {
 }
 
 ::-moz-selection {
-  background-color: #D4C492;
+  background-color: #83693A;
   background-color: var(--light-accent);
+  color: #F4F4F0;
+  color: var(--light-shade);
 }
 
 ::selection {
-  background-color: #D4C492;
+  background-color: #83693A;
   background-color: var(--light-accent);
+  color: #F4F4F0;
+  color: var(--light-shade);
 }
 
 main[role="main"] {
@@ -672,7 +676,7 @@ hr {
   content: "";
   display: block;
   border: none;
-  border-top: 4px solid #D4C492;
+  border-top: 4px solid #83693A;
   border-top: 4px solid var(--light-accent);
   margin-bottom: 1rem;
   margin-left: 0;
@@ -800,7 +804,7 @@ header.header a {
 #search form {
   display: flex;
   background: #fff;
-  border: 2px solid #D4C492;
+  border: 2px solid #83693A;
   border: 2px solid var(--light-accent);
   border-radius: 8px;
 }
@@ -823,7 +827,7 @@ header.header a {
 
 #search form > input:valid + button:hover,
   #search form > input:valid + button:focus {
-    background: #D4C492;
+    background: #83693A;
     background: var(--light-accent);
   }
 
@@ -871,7 +875,7 @@ button a {
 button[disabled],
 input[type="button"],
 input[type="submit"] {
-  color: #D4C492;
+  color: #83693A;
   color: var(--light-accent);
   cursor: not-allowed;
 }
@@ -935,8 +939,7 @@ a.read-more:focus {
   }
 
 svg {
-  fill: #D4C492;
-  fill: var(--light-accent);
+  fill: currentColor;
   height: .9em;
   width: .9em;
 }
@@ -993,7 +996,7 @@ figure.highlight pre {
 }
 
 figure.highlight .gutter pre {
-  border: 2px solid #D4C492;
+  border: 2px solid #83693A;
   border: 2px solid var(--light-accent);
   border-right: none;
   border-radius: 10px 0 0 10px;
@@ -1005,7 +1008,7 @@ figure.highlight .gutter pre {
 }
 
 figure.highlight .code pre {
-  border: 2px solid #D4C492;
+  border: 2px solid #83693A;
   border: 2px solid var(--light-accent);
   border-left: none;
   border-radius: 0 10px 10px 0;
@@ -1036,13 +1039,13 @@ article.article ~ .article {
 }
 
 article section.highlight {
-  border: 1px solid #D4C492;
+  border: 1px solid #83693A;
   border: 1px solid var(--light-accent);
   border-radius: 8px;
 }
 
 article .cover {
-  background-color: #D4C492;
+  background-color: #83693A;
   background-color: var(--light-accent);
   border-top-left-radius: 7px;
   line-height: 0;
@@ -1056,7 +1059,7 @@ article .cover {
   }
 
 article.article .cover {
-  border-bottom: 4px solid #D4C492;
+  border-bottom: 4px solid #83693A;
   border-bottom: 4px solid var(--light-accent);
   border-radius: none;
   border-top-left-radius: 8px;
@@ -1082,7 +1085,7 @@ article.article.with-aside > * {
   }
 
 article .toc {
-    background: #D4C492;
+    background: #83693A;
     background: var(--light-accent);
     border: 4px solid #fff;
     list-style-position: inside;
@@ -1109,7 +1112,7 @@ article .toc, article .toc * {
 
     article.article.with-aside .cover {
       border: none;
-      border-right: 4px solid #D4C492;
+      border-right: 4px solid #83693A;
       border-right: 4px solid var(--light-accent);
       border-radius: 0;
       border-top-left-radius: 8px;
@@ -1222,7 +1225,7 @@ article.article .post__content h4 {
   }
 
 .post__content .header-anchor {
-  color: #D4C492;
+  color: #83693A;
   color: var(--light-accent);
   margin-left: -0.75em;
   position: absolute;
@@ -1249,7 +1252,7 @@ article.article .post__content h4 {
   .post__content table tbody th {
       padding-bottom: .5em;
       padding-top: .5em;
-      border-bottom: 1px solid #D4C492;
+      border-bottom: 1px solid #83693A;
       border-bottom: 1px solid var(--light-accent);
   }
 
@@ -1287,7 +1290,7 @@ article[lang*="fr"] .post__content ins::before {
   }
 
 article.article .post__content p img {
-  border: 1rem solid #D4C492;
+  border: 1rem solid #83693A;
   border: 1rem solid var(--light-accent);
   max-width: 100%;
   box-sizing: border-box;
