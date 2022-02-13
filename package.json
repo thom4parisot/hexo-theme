@@ -1,5 +1,5 @@
 {
-  "name": "hexo-theme-oncletom",
+  "name": "hexo-theme-thom4",
   "version": "2.19.1",
   "private": true,
   "description": "Hexo theme for my portfolio and stuff.",
@@ -16,17 +16,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oncletom/hexo-theme.git"
+    "url": "git+https://github.com/thom4parisot/hexo-theme.git"
   },
   "keywords": [
     "hexo"
   ],
-  "author": "Thomas Parisot (https://oncletom.io)",
+  "author": "Thomas Parisot (https://thom4.net)",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/oncletom/hexo-theme/issues"
+    "url": "https://github.com/thom4parisot/hexo-theme/issues"
   },
-  "homepage": "https://github.com/oncletom/hexo-theme#readme",
+  "homepage": "https://github.com/thom4parisot/hexo-theme#readme",
   "dependencies": {
     "clsx": "^1.1.1",
     "group-array": "^1.0.0",

@@ -9,7 +9,7 @@ hexo.extend.helper.register('page_css', (page) => {
   if (page.layout === 'post' && hexo.config.layout === 'talks') {
     files = [
       'styles/slides.css',
-      `styles/slides/theme-${page.theme || 'oncletom'}.css`
+      `styles/slides/theme-${page.theme || 'thom4'}.css`
     ];
   }
   // photography layouts (as defined in _config.yml)
