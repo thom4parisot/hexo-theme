@@ -10,7 +10,7 @@ export function loadScript () {
   loaded = true;
 
   const script = document.createElement('script');
-  script.src = '//thom4parisot.disqus.com/embed.js';
+  script.src = '//oncletom.disqus.com/embed.js';
   document.body.appendChild(script);
   document.body.classList.add('comments-enabled');
 }
