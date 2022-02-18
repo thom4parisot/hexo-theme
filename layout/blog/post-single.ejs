@@ -93,16 +93,23 @@
 
   <% if (is_post() && post.layout === 'journal') { %>
   <% const category = post.categories.last() %>
-  <% const aside = category.posts.find({ date: {$lt: post.date}}).sort('date', -1).limit(5) %>
+  <% const next = category.posts.find({ date: {$gte: post.date} }).sort('date', -1).limit(5) %>
+  <% const previous = category.posts.find({ date: {$lt: post.date} }).sort('date', -1).limit(5) %>
+  <% const aside = [].concat(next.toArray(), previous.toArray()) %>
   <% if (aside.length && category !== post.categories.first()) { %>
   <aside class="next" aria-labelledby="next-category-title">
     <h2 id="next-category-title"><%= __('more.topic', category.name)%></h2>
 
     <ul class="is-discrete with-metadata">
-      <% aside.forEach(post => { %>
-      <li>
-        <time class="metadata" datetime="<%= date_xml(post.date) %>"><%= date(post.date) %></time>
-        <a href="<%= url_for(post.path) %>" rel="bookmark" lang="<%= post.lang || config.lang %>"><%= post.title.replace(/☕️ Journal : /, '') %></a>
+      <% aside.forEach(p => { %>
+      <% const title = p.title.replace(/☕️ Journal : /, '') %>
+      <li<%- post.path === p.path ? ' aria-current="true"' : '' -%>>
+        <time class="metadata" datetime="<%= date_xml(p.date) %>"><%= date(p.date) %></time>
+        <% if (post.path === p.path) { %>
+        <span><%= title %></span>
+        <% } else { %>
+        <a href="<%= url_for(p.path) %>" rel="bookmark" lang="<%= p.lang || config.lang %>"><%= title %></a>
+        <% } %>
       </li>
       <% }) %>
     </ul>
