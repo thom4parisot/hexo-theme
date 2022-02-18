@@ -28,7 +28,7 @@ links:
   - label: Writings
     href: /
   - label: Livre Node.js
-    href: /node.js/
+    href: https://apprendre-nodejs.fr/v1/
     lang: fr
   - label: Presentations
     href: /talks/

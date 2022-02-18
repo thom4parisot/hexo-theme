@@ -2,3 +2,21 @@
   margin: 2rem auto;
   max-width: 46rem;
 }
+
+@media(min-width: 738px) {
+  .side-by-side {
+    display: flex;
+    gap: 4rem;
+    justify-content: center;
+  }
+
+  .side-by-side > * {
+    flex: 0 0 50%;
+  }
+}
+
+@media(min-width: 1025px) {
+  .side-by-side > * {
+    flex: 0 0 33%;
+  }
+}
