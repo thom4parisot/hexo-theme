@@ -1,6 +1,6 @@
 {
   "name": "hexo-theme-thom4",
-  "version": "2.21.0",
+  "version": "2.21.1",
   "private": true,
   "description": "Hexo theme for my portfolio and stuff.",
   "main": "index.js",
