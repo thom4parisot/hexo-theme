@@ -26,7 +26,7 @@ article .cover {
   }
 
 article.article .cover {
-  border-bottom: 4px solid var(--light-accent);
+  border-bottom: 4px solid var(--brand-color);
   border-radius: none;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
@@ -78,7 +78,7 @@ article.article .cover {
 
     article.article.with-aside .cover {
       border: none;
-      border-right: 4px solid var(--light-accent);
+      border-right: 4px solid var(--brand-color);
       border-radius: 0;
       border-top-left-radius: 8px;
       border-bottom-left-radius: 8px;
@@ -119,7 +119,7 @@ article.article h1 {
   article h1 a,
   article h2 a,
   article h3 a {
-    color: var(--dark-shade);
+    color: inherit;
     text-decoration: none;
   }
 
@@ -203,7 +203,8 @@ article[lang*="fr"] .post__content ins::before {
   }
 
 article.article .post__content p img {
-  border: 1rem solid var(--light-accent);
+  border: 1rem solid #fff;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, .2);
   max-width: 100%;
   box-sizing: border-box;
 }

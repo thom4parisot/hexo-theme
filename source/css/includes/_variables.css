@@ -1,21 +1,21 @@
 :root {
   /* Use this color as the background for your dark-on-light designs, or the text color of an inverted design */
-  --light-shade: #F4F4F0;
+  --light-shade: #FFF9F4;
   /* Accent colors can be used to bring attention to design elements by contrasting with the rest of the palette. */
-  --light-accent: #83693A;
+  --light-accent: #B15A17;
   /* This color should be eye-catching but not harsh. It can be liberally applied to your layout as its main identity. */
-  --brand-color: #FD7E14;
+  --brand-color: #FE821F;
   /* Another accent color to consider. Not all colors have to be used - sometimes a simple color scheme works best. */
-  --dark-accent: #D23B62;
+  --dark-accent: #733D15;
   /* Use as the text color for dark-on-light designs, or as the background for inverted designs. */
-  --dark-shade: #1F1F43;
+  --dark-shade: #343C47;
 
-  --commented: rgba(17, 17, 68, .65);
+  --commented: #3B3B3B;
 
-  --code-background: #fefefe;
-  --code-foreground: var(--dark-shade);
+  --code-background: #ECEEF1;
+  --code-foreground: #424C5A;
 
-  --link-foreground: blue;
+  --link-foreground: #0000FC;
 
   --border-radius-base: 8px;
 

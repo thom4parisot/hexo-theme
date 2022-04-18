@@ -85,9 +85,13 @@ hr {
   content: "";
   display: block;
   border: none;
-  border-top: 4px solid var(--light-accent);
+  border-top: 4px solid var(--brand-color);
   margin-bottom: 1rem;
   margin-left: 0;
   margin-top: 1rem;
   width: 160px;
+}
+
+footer.next + .next::before {
+  display: none;
 }
