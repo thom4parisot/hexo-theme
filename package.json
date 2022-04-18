@@ -32,7 +32,7 @@
     "group-array": "^1.0.0",
     "markdown-it": "^9.1.0",
     "markdown-it-attrs": "^3.0.3",
-    "normalize.css": "^8.0.0",
+    "normalize.css": "^8.0.1",
     "reading-time": "^1.2.0",
     "reveal-random-colors": "^2.0.0",
     "reveal.js": "^3.9.2",

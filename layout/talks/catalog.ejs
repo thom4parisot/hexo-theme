@@ -1,42 +1,50 @@
-<section class="aside container next" id="catalog">
-  <h2><%= __('more.talks') %></h2>
+<section class="aside" id="catalog">
+  <header class="next container">
+    <h2><%= __('more.talks') %></h2>
+  </header>
 
-  <ul class="is-discrete chronology">
+  <ul class="is-discrete talks">
     <% posts.forEach(post => { %>
-    <li>
-      <article>
-        <h3><%= post.title %></h3>
+    <li class="type--<%= post.layout %>">
+      <article class="talk">
+        <header>
+          <h4 class="h6 event-name"><%- post.event.url ? `<a href="${post.event.url}" target="_blank">${post.event.name || post.title}</a>` : post.event.name %></h4>
+          <% if (post.event.name) { %><h3 class="p title"><%= post.title %></h3><% } %>
+        </header>
 
         <ul class="metadata is-inline is-dotted">
-          <li class="metadata--date"><time class="metadata" datetime="<%= date_xml(post.date) %>"><%= date(post.date) %></time></li>
           <li class="metadata--type"><%= __(`talk.${post.layout}`)%></li>
-          <%_ if (Array.isArray(post.with)) { %><li class="metadata--co-host"><%= __('with') _%>
-            <%- post.with.map(el => somebody(el)).map(({name, url}) => `<a href="${url}" target="_blank" rel="noopener">${name}</a>`).join(', ') _%>
-          </li><% } _%>
-          <li class="metadata--location"><%- post.event.name ? __('hosted.by', post.event.url, post.event.name) : __('hosted.organized') %>
-            <%= __('hosted.in', post.event.location) %>
-          </li>
-          <li class="metadata--artifacts"><%_ if (post.external || post.slides) { %>
+          <li class="metadata--date"><time class="metadata" datetime="<%= date_xml(post.date) %>"><%= date(post.date) %></time></li>
+          <li class="metadata--location"><%= post.event.location %></li>
+          <%_ if (post.external || post.slides) { %>
+            <li class="metadata--artifact">
               <%- partial('icon', {id: 'browse'}) -%>
               <a href="<%= url_for(post.external || post.path) %>" rel="bookmark" lang="<%= post.lang || config.language %>" class="<%= post.external ? 'external' : '' %>"><%= __('slideshow') %></a>
-            <% } _%>
-            <%_ if (post.event && !post.event.name) { %>
-              <%- partial('icon', {id: 'bookmarks'}) -%>
-              <a href="<%= post.event.url %>" target="_blank" rel="noreferrer noopener" lang="<%= post.lang || config.language %>"><%= __('hosted.page') %></a>
-            <% } _%>
-            <%_ if (post.event && post.video) { %>
+            </li>
+          <% } _%>
+          <%_ if (post.event && post.video) { %>
+            <li class="metadata--artifact">
               <%- partial('icon', {id: 'youtube'}) -%>
               <a href="<%= post.video %>"><%= __('watch') %></a>
-            <% } _%>
-            <%_ if (post.event && post.audio) { %>
+            </li>
+          <% } _%>
+          <%_ if (post.event && post.audio) { %>
+            <li class="metadata--artifact">
               <%- partial('icon', {id: 'youtube'}) -%>
               <a href="<%= post.audio %>"><%= __('listen') %></a>
-            <% } _%></li>
+            </li>
+          <% } _%>
         </ul>
 
         <% if (post.content) { %>
         <details>
           <summary><%= __('read_more.summary') %></summary>
+
+          <ul class="metadata is-inline is-dotted">
+            <%_ if (Array.isArray(post.with)) { %><li class="metadata--co-host"><%= __('with') _%>
+              <%- post.with.map(el => somebody(el)).map(({name, url}) => `<a href="${url}" target="_blank" rel="noopener">${name}</a>`).join(', ') _%>
+            </li><% } _%>
+          </ul>
           <%- post.content %>
         </details>
         <% } %>
