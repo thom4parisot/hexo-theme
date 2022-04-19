@@ -35,7 +35,7 @@
     "normalize.css": "^8.0.1",
     "reading-time": "^1.2.0",
     "reveal-random-colors": "^2.0.0",
-    "reveal.js": "^3.9.2",
+    "reveal.js": "^4.3.0",
     "somebody": "^2.0.0"
   },
   "devDependencies": {
