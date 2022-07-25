@@ -878,19 +878,13 @@ header.header a {
  * w: http://animista.net, t: @cssanimista
  * ---------------------------------------------- */
 
-#search:not([focus-within]),
+/* #search:not(:focus-within),
 #search:not(:target) {
   display: none;
 }
-
-#search:not(:focus-within),
-#search:not(:target) {
-  display: none;
-}
-
 #search:target {
   display: block;
-}
+} */
 
 #search form {
   display: flex;
