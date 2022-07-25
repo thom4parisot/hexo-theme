@@ -19,7 +19,7 @@
 
 <section id="search" class="container<%= page.display_search ? ' is-active' : ''%>">
   <form action="#" role="search">
-    <input autofocus type="search" name="q" placeholder="<%= __('explain.search') %>" spellcheck autocomplete required><button type="submit"><%- partial('icon', {id: 'search', alt: __('search.label')}) %></button>
+    <input type="search" name="q" placeholder="<%= __('explain.search') %>" spellcheck autocomplete required><button type="submit"><%- partial('icon', {id: 'search', alt: __('search.label')}) %></button>
   </form>
 
   <ul class="search-results is-discrete with-metadata"></ul>
