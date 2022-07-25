@@ -15,9 +15,9 @@
 
     <% if (is_post(post)) { %>
     <ul class="metadata is-inline is-dotted">
-      <li><time class="dt-published" datetime="<%= post.date.toISOString() %>">
-        <%= date(post.date) %>
-      </time></li>
+      <li>
+        <time class="dt-published" datetime="<%= post.date.toISOString() %>"><%= date(post.date) %></time>
+      </li>
       <% if (post.categories.findOne({name: 'Journal'})) { %>
       <li>#Journal</li>
         <% const categories = post.categories.filter(c => c.name !== 'Journal').map(({name}) => name) %>
@@ -74,7 +74,7 @@
 
   <% if (is_post() && post.layout === 'post' && post.categories.first()) { %>
   <% const category = post.categories.first() %>
-  <% const aside = post.categories.first().posts.find({ date: {$lt: post.date}}).sort('date', -1).limit(5) %>
+  <% const aside = post.categories.first().posts.find({ date: {$lt: post.date}}).sort('date', -1).limit(4) %>
   <% if (aside.length) { %>
   <aside class="next" aria-labelledby="next-content-title">
     <h2 id="next-content-title"><%= __('more.topic', category.name)%></h2>
@@ -93,8 +93,8 @@
 
   <% if (is_post() && post.layout === 'journal') { %>
   <% const category = post.categories.last() %>
-  <% const next = category.posts.find({ date: {$gte: post.date} }).sort('date', -1).limit(5) %>
-  <% const previous = category.posts.find({ date: {$lt: post.date} }).sort('date', -1).limit(5) %>
+  <% const next = category.posts.find({ date: {$gte: post.date} }).sort('date', -1).limit(4) %>
+  <% const previous = category.posts.find({ date: {$lt: post.date} }).sort('date', -1).limit(4) %>
   <% const aside = [].concat(next.toArray(), previous.toArray()) %>
   <% if (aside.length && category !== post.categories.first()) { %>
   <aside class="next" aria-labelledby="next-category-title">

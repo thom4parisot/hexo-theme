@@ -1,6 +1,9 @@
 .container {
-  margin: 2rem auto;
+  margin: calc(var(--main-font-gap) * 2) auto;
   max-width: 46rem;
+}
+.container.with-aside {
+  max-width: calc(46rem + 12rem);
 }
 
 @media(min-width: 738px) {

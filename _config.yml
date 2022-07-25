@@ -27,19 +27,19 @@ summary:
 links:
   - label: Writings
     href: /
-  - label: Livre Node.js
-    href: https://apprendre-nodejs.fr/v1/
-    lang: fr
-  - label: Presentations
+  - label: Talks
     href: /talks/
   - label: Reading Notes
     href: /reading-notes/
   - label: Photography
     href: /photography/
-  - label: Hire me
+  - label: Work
     href: https://détour.studio
   - label: About
     href: /about/
+  - label: Livre "Apprendre Node.js"
+    href: https://apprendre-nodejs.fr/v1/
+    lang: fr
 
 less:
   layouts:

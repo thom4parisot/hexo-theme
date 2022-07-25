@@ -58,9 +58,9 @@ hosted:
 explain:
   disqus: |
     Comments are hosted on Disqus.com.
-    I do not load them to protect your privacy.
-    Use a privacy shield (eg: uBlock Origin, Better or Brave) to prevent
-    abusive data collection and tracking.
+    They are not initially loaded to protect your privacy.
+    Use a privacy shield (eg: Firefox browser and/or uBlock Origin extension) to prevent
+    abusive data collection on your behalf.
   search: Type what you are looking for
 
 more:

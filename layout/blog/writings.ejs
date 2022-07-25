@@ -2,29 +2,27 @@
   <header class="leading">
     <%- markdown(theme.summary.home) %>
   </header>
+</section>
 
-  <h3 class="h2 next"><%= __('most_recent_post') %></h3>
+<section class="container with-aside">
+  <article itemscope itemtype="https://schema.org/Article" class="article article__card" id="latest-writing" aria-label="<%= post.title %>" aria-describedby="latest-writing-content" lang="<%= post.lang || config.language %>">
+    <h2 class="h3" itemprop="name"><a href="<%= url_for(post.path) %>" rel="bookmark"><%= post.title %></a></h2>
 
-  <article class="article" id="latest-writing" aria-label="<%= post.title %>" aria-describedby="latest-writing-content" lang="<%= post.lang || config.language %>">
-    <header>
-      <div class="<%= ['cover', post.cover && post.cover.type].filter(d=>d).join(' ') %>">
-        <% if (post.cover) { %><img src="<%= post.image %>" alt="" class="is-responsive is-cover"><% } %>
-      </div>
+    <div class="<%= ['cover', post.cover && post.cover.type].filter(d=>d).join(' ') %>">
+      <% if (post.cover) { %><img src="<%= post.image %>" itemprop="thumbnailUrl" alt="" class="is-responsive"><% } %>
+    </div>
 
-      <h2 class="h3"><a href="<%= url_for(post.path) %>" rel="bookmark"><%= post.title %></a></h2>
+    <ul class="metadata is-inline is-dotted">
+      <li>
+        <time itemprop="datePublished" class="dt-published" datetime="<%= post.date.toISOString() %>"><%= date(post.date) %></time>
+      </li>
+      <li itemprop="timeRequired"><%= readingTime(post.content).text %></li>
+    </ul>
 
-      <ul class="metadata is-inline is-dotted">
-        <li><time class="dt-published" datetime="<%= post.date.toISOString() %>">
-          <%= date(post.date) %>
-        </time></li>
-        <li><%= readingTime(post.content).text %></li>
-      </ul>
-    </header>
-
-    <div class="summary" id="latest-writing-content"><%- post.description || post.excerpt %></div>
+    <div class="summary" itemprop="abstract" id="latest-writing-content"><%- post.description || post.excerpt %></div>
 
     <p class="read-more">
-      <a href="<%= url_for(post.path) %>">
+      <a href="<%= url_for(post.path) %>" itemprop="url">
         <%- partial('icon', {id: 'bookmarks'}) -%><%= _p('read_more.article') %>
       </a>
     </p>

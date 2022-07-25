@@ -1,7 +1,7 @@
-html {
+body {
   font-family: var(--type-body);
   font-size: 100%;
-  line-height: 1.3;
+  line-height: var(--main-font-lineHeight); /* ~24px */
 }
 
   @media (width >= 768px) {
@@ -15,8 +15,9 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--type-headlines);
   font-style: normal;
   font-weight: bold;
-  line-height: 1.250;
-  margin: 0;
+  line-height: var(--main-font-gap);
+  margin: 0 0 var(--main-font-gap) 0;
+  padding: 0;
   hyphens: auto;
   word-break: break-word;
 }
@@ -27,62 +28,66 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, .h1 {
-  font-size:2rem;
-  padding:1.5rem 0;
+  font-size: 2rem;
+  line-height: calc(var(--main-font-gap) * 2);
 }
 h2, .h2 {
-  font-size:1.75rem;
-  padding:1.82143rem 0;
+  font-size: 1.75rem;
+  line-height: calc(var(--main-font-gap) * 2);
 }
 h3, .h3 {
   font-size: 1.5rem;
-  padding: 1.75rem 0;
+  line-height: calc(var(--main-font-gap) * 1);
 }
 h4, .h4 {
   font-size: 1.3rem;
-  padding: 1.5rem 0;
+  line-height: calc(var(--main-font-gap) * 1);
 }
 h5, .h5 {
   font-size: 1.1667rem;
-  padding: 1.82142rem 0;
+  line-height: calc(var(--main-font-gap) * 1);
 }
 h6, .h6 {
   font-size: 1rem;
-  padding: 1.5rem 0;
+  line-height: calc(var(--main-font-gap) * 1);
 }
 
   @media (width >= 768px) {
     h1, .h1 {
-      font-size:3.42308rem;
-      padding:1.38345rem 0;
+      font-size: 3.42308rem;
+      line-height: calc(var(--main-font-gap) * 3);
     }
     h2, .h2 {
-      font-size:2.61538rem;
-      padding:1.28673rem 0;
+      font-size: 2.61538rem;
+      line-height: calc(var(--main-font-gap) * 3);
     }
     h3, .h3 {
-      font-size:2.11538rem;
-      padding:1.44313rem 0;
+      font-size: 2rem;
+      line-height: calc(var(--main-font-gap) * 2);
     }
     h4, .h4 {
       font-size: 1.61538rem;
-      padding:1.30946rem 0;
+      line-height: calc(var(--main-font-gap) * 2);
     }
     h5, .h5 {
-      font-size:1.30769rem;
-      padding:1.2869rem 0;
+      font-size: 1.30769rem;
+      line-height: calc(var(--main-font-gap) * 2);
     }
     h6, .h6 {
       font-size: 1rem;
-      padding:1.25rem 0;
+      line-height: calc(var(--main-font-gap) * 1);
     }
   }
 
-.p {
-  font-size: 1rem;
+p, .p {
   font-weight: normal;
   padding: 0;
-  margin: 0 0 .5em;
+  line-height: var(--main-font-gap);
+  margin: 0 0 var(--main-font-gap);
+}
+
+ul, ol {
+  margin: 0 0 var(--main-font-gap) 0;
 }
 
 address {
@@ -91,8 +96,7 @@ address {
 
 blockquote {
   color: var(--commented);
-  margin-left: 0;
-  margin-right: 0;
+  margin: var(--main-font-gap) 0;
 	position: relative;
 }
   blockquote::before,
@@ -135,11 +139,13 @@ blockquote {
 
 .leading {
   font-size: 1.30rem;
+  line-height: calc(var(--main-font-gap) * 2);
 
   @media (width >= 738px) {
     font-size: 1.80rem;
 
     p {
+      line-height: inherit;
       max-width: 80%;
     }
   }

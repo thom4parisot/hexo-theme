@@ -4,9 +4,9 @@
 <main role="main">
   <%- partial('blog/writings', {
     post: posts.first(),
-    entries: posts.slice(1, 6),
-    readingNotes: site.pages.find({ layout: 'reading-note' }).sort('date', -1).limit(5),
-    journalEntries: site.posts.find({ layout: 'journal' }).sort('date', -1).limit(5),
+    entries: posts.slice(1, 5),
+    readingNotes: site.pages.find({ layout: 'reading-note' }).sort('date', -1).limit(4),
+    journalEntries: site.posts.find({ layout: 'journal' }).sort('date', -1).limit(4),
   }) %>
 
   <%- partial('blog/book', { page: site.data.book }) %>
