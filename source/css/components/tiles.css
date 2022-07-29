@@ -23,7 +23,7 @@
   }
 }
 
-@media (width > 1024px) {
+@media (width >= 1280px) {
   .tiles {
     grid-template-columns: repeat(4, calc(var(--main-font-gap) * 12));
     grid-template-rows: calc(var(--main-font-gap) * 12);

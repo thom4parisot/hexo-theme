@@ -14,20 +14,14 @@ article section.highlight {
 }
 
 article.article.article__card {
-
-}
-
-@media (width >= 768px) {
-  article.article.article__card {
-    display: grid;
-    column-gap: var(--main-font-gap);
-    grid-template-areas:
-      "cover"
-      "header"
-      "metadata"
-      "content"
-      "footer";
-  }
+  display: grid;
+  column-gap: var(--main-font-gap);
+  grid-template-areas:
+    "cover"
+    "header"
+    "metadata"
+    "content"
+    "footer";
 }
 
 @media (width > 1024px) {
@@ -68,12 +62,12 @@ article .cover {
   border-top-left-radius: 7px;
   line-height: 0;
   overflow: hidden;
+  margin-bottom: calc(var(--main-font-gap) - 4px);
 }
   @media (width >= 768px) {
     article .cover {
       max-height: calc(var(--main-font-gap) * 8);
       min-height: 300px;
-      margin-bottom: calc(var(--main-font-gap) - 4px);
     }
   }
 

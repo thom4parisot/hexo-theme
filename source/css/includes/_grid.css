@@ -6,19 +6,13 @@
   max-width: calc(46rem + 12rem);
 }
 
-@media(min-width: 738px) {
+@media screen and (min-width: 1280px) {
   .side-by-side {
     display: flex;
     gap: 4rem;
     justify-content: center;
   }
 
-  .side-by-side > * {
-    flex: 0 0 50%;
-  }
-}
-
-@media(min-width: 1025px) {
   .side-by-side > * {
     flex: 0 0 33%;
   }

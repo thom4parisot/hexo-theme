@@ -26,8 +26,15 @@ ol.is-discrete {
 ul.with-metadata > li,
 ol.with-metadata > li {
   display: flex;
+  flex-direction: column;
   padding: calc(var(--main-font-gap) / 4) 0;
   position: relative;
+
+  @media screen and (min-width: 768px) {
+    & {
+      flex-direction: row;
+    }
+  }
 
   a:after {
     content: "";
