@@ -7,6 +7,8 @@ disqus_shortname: oncletom
 graph:
   twitter:        thom4parisot
   mastodon:       https://diaspodon.fr/@thom4
+  pro:            https://détour.studio
+  old:            https://oncletom.io
 webmentions:
   url: https://webmention.io/thom4.net
   features:

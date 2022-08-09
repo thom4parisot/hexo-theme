@@ -38,7 +38,10 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_GB">
 <meta property="og:site_name" content="<%= config.title %>">
+<link rel="me authn" href="https://twitter.com/<%= theme.graph.twitter %>">
 <link rel="me" href="<%= theme.graph.mastodon %>">
+<link rel="me" href="<%= theme.graph.pro %>">
+<link rel="me" href="<%= theme.graph.old %>">
 <% if (theme.webmentions) { -%>
 <% Object.entries(theme.webmentions.features).forEach(f => { -%>
 <link rel="<%= f[0] %>" href="<%= theme.webmentions.url %>/<%= f[1] %>">
