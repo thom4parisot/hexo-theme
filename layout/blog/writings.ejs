@@ -1,9 +1,3 @@
-<section class="container <%= typeof classNames === 'string' ? classNames : '' %>">
-  <header class="leading">
-    <%- markdown(theme.summary.home) %>
-  </header>
-</section>
-
 <section class="container with-aside">
   <article itemscope itemtype="https://schema.org/Article" class="article article__card" id="latest-writing" aria-label="<%= post.title %>" aria-describedby="latest-writing-content" lang="<%= post.lang || config.language %>">
     <h2 class="h3" itemprop="name"><a href="<%= url_for(post.path) %>" rel="bookmark"><%= post.title %></a></h2>
