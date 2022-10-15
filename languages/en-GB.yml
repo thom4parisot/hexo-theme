@@ -57,10 +57,8 @@ hosted:
 
 explain:
   disqus: |
-    Comments are hosted on Disqus.com.
-    They are not initially loaded to protect your privacy.
-    Use a privacy shield (eg: Firefox browser and/or uBlock Origin extension) to prevent
-    abusive data collection on your behalf.
+    Comments no longer works at the moment.
+    I used to host them on Disqus.com but decided to quit this platform.
   search: Type what you are looking for
 
 more:

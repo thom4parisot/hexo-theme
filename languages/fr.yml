@@ -72,10 +72,8 @@ hosted:
 
 explain:
   disqus: |
-    Les commentaires sont hébergés sur Disqus.com.
-    Ils ne sont pas chargés par défaut afin de protéger votre vie privée.
-    Utilisez un bloqueur de traceurs (type Firefox ou extension uBlock Origin) pour
-    vous protéger du pistage à votre insu.
+    Les comments ne s'affichent pas pour l'instant.
+    Ils étaient hébergés sur Disqus.com jusqu'à ce que je prenne la décision d'arrêter le recours à cette plate-forme.
   search: Mots à rechercher sur ce site
 
 categories:
