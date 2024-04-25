@@ -150,6 +150,10 @@
 
 .background-dark,
 .background-contrasted {
+    a:link, a:visited {
+      --link-foreground: var(--light-shade);
+    }
+
     strong {
       background: color(var(--brand-color) tint(80%));
       color: #fff;
