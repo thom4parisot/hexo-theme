@@ -28,7 +28,6 @@
   },
   "homepage": "https://github.com/thom4parisot/hexo-theme#readme",
   "dependencies": {
-    "clsx": "^1.1.1",
     "group-array": "^1.0.0",
     "markdown-it": "^9.1.0",
     "markdown-it-attrs": "^3.0.3",
