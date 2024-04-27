@@ -148,10 +148,13 @@
   }
 }
 
-.background-dark,
-.background-contrasted {
+[data-state="background-dark"],
+[data-state="background-contrasted"] {
+    color: #fff;
+    text-shadow: 1px 1px rgba(255, 255, 255, .5);
+
     a:link, a:visited {
-      --link-foreground: var(--light-shade);
+      --link-foreground: var(--light-shade) !important;
     }
 
     strong {
@@ -161,14 +164,9 @@
     }
 }
 
-.background-dark {
-  .slide-background.present::before {
+.background-dark .slide-background.present {
+  &::before {
     background-color: rgba(0, 0, 0, 0.1);
-  }
-
-  .slides .present {
-    color: #fff;
-    text-shadow: 1px 1px rgba(255, 255, 255, .5);
   }
 }
 
