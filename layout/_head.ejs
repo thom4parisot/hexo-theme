@@ -23,6 +23,7 @@
 <% if (is_home() || is_archive()){ -%><link rel="prefetch" href="<%= page.posts.first().permalink %>"><% } %>
 <% if (page.next){ -%><link rel="prefetch" href="<%= page.next.permalink %>"><% } %>
 <% if (page.prev){ -%><link rel="prefetch" href="<%= page.prev.permalink %>"><% } %>
+<meta name="fediverse:creator" content="<%= theme.graph.fediverse_creator %>">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@<%= theme.graph.twitter %>">
 <meta name="twitter:creator" content="@<%= theme.graph.twitter %>">

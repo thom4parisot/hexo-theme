@@ -4,13 +4,14 @@ author: Thomas Parisot
 email: hi@thom4.net
 
 graph:
-  twitter:        thom4parisot
-  mastodon:       https://diaspodon.fr/@thom4
-  github:         https://github.com/thom4parisot
-  gitlab:         https://gitlab.com/thom4parisot
-  framagit:       https://framagit.org/thom4parisot
-  pro:            https://détour.studio
-  old:            https://oncletom.io
+  twitter:            thom4parisot
+  mastodon:           https://diaspodon.fr/@thom4
+  fediverse_creator:  '@thom4@diaspodon.fr'
+  github:             https://github.com/thom4parisot
+  gitlab:             https://gitlab.com/thom4parisot
+  framagit:           https://framagit.org/thom4parisot
+  pro:                https://détour.studio
+  old:                https://oncletom.io
 webmentions:
   url: https://webmention.io/thom4.net
   features:
