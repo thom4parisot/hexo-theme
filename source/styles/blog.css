@@ -1640,19 +1640,91 @@ section.aside h2 {
 
 .talks {
   display: grid;
-  grid-gap: 2rem;
-  gap: 2rem;
-  grid-template-columns: 1fr 1fr;
-  max-width: 1440x;
+  grid-gap: 3rem;
+  gap: 3rem;
+  grid-template-columns: 1fr;
 }
 
-.talks .talk .event-name {
-  padding: 0;
-}
+.talks .talk {
+    grid-template-columns: auto !important;
+    grid-template-rows: auto !important;
+    grid-template-areas: "cover"
+      "header"
+      "metadata"
+      "content" !important;
+    grid-gap: calc(calc(16px * 1.5) / 2) !important;
+    gap: calc(calc(16px * 1.5) / 2) !important;
+    grid-gap: calc(var(--main-font-gap) / 2) !important;
+    gap: calc(var(--main-font-gap) / 2) !important;
+  }
 
 .talks .talk .title {
-  max-width: 46rem;
-}
+      max-width: 46rem;
+    }
+
+.talks .talk .cover img {
+      height: auto !important;
+      width: 100% !important;
+      aspect-ratio: 16 / 9;
+    }
+
+.talks .talk .metadata {
+      list-style-type: none;
+      padding: 0;
+    }
+
+.talks .talk .metadata .icon {
+        vertical-align: middle;
+      }
+
+.talks .talk .metadata > li {
+        margin: 0;
+        padding: 0;
+      }
+
+.talks .talk .event-name {
+  font-size: 1.1667rem;
+  line-height: calc(calc(16px * 1.5) * 1);
+  line-height: calc(var(--main-font-gap) * 1);
+    }
+
+@media (min-width: 768px) {
+
+  .talks .talk .event-name {
+      font-size: 1.30769rem;
+      line-height: calc(calc(16px * 1.5) * 2);
+      line-height: calc(var(--main-font-gap) * 2);
+    }
+  }
+
+.talks .talk .event-name {
+      line-height: 1.25;
+      padding: 0;
+    }
+
+@media (min-width: 1025px) {
+    .talks {
+      grid-row-gap: 0 !important;
+      row-gap: 0 !important;
+      grid-column-gap: 1rem !important;
+      -moz-column-gap: 1rem !important;
+           column-gap: 1rem !important;
+      grid-template-columns: 1fr 1fr;
+      max-width: 1440x;
+    }
+
+    .talks .talk {
+      grid-template-columns: 3fr 2fr !important;
+      grid-template-rows: auto auto 1fr !important;
+      grid-template-areas: "cover header"
+        "cover metadata"
+        "cover content" !important;
+      grid-gap: calc(calc(16px * 1.5) / 1.5) !important;
+      gap: calc(calc(16px * 1.5) / 1.5) !important;
+      grid-gap: calc(var(--main-font-gap) / 1.5) !important;
+      gap: calc(var(--main-font-gap) / 1.5) !important;
+    }
+  }
 
 /* a11y-light theme */
 

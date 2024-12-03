@@ -74,7 +74,11 @@ more:
   photography_archives: Browse my photography archives
   photography_feed: Get the pictures RSS feed
   comments: Read and react to comments
-  talks: Talks, workshops and events
+  talks: Talks and conferences
+  workshops: Workshops
+
+featured:
+  talks: Featured Presentations
 
 categories:
   Journal: |

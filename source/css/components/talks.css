@@ -1,14 +1,63 @@
 .talks {
   display: grid;
-  gap: 2rem;
-  grid-template-columns: 1fr 1fr;
-  max-width: 1440x;
-}
+  gap: 3rem;
+  grid-template-columns: 1fr;
 
-.talks .talk .event-name {
-  padding: 0;
-}
+  .talk {
+    grid-template-columns: auto !important;
+    grid-template-rows: auto !important;
+    grid-template-areas: "cover"
+      "header"
+      "metadata"
+      "content" !important;
+    gap: calc(var(--main-font-gap) / 2) !important;
 
-.talks .talk .title {
-  max-width: 46rem;
+    .title {
+      max-width: 46rem;
+    }
+
+    .cover img {
+      height: auto !important;
+      width: 100% !important;
+      aspect-ratio: 16 / 9;
+    }
+
+    .metadata {
+      list-style-type: none;
+      padding: 0;
+
+      .icon {
+        vertical-align: middle;
+      }
+
+      > li {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .event-name {
+      @extend h5;
+      line-height: 1.25;
+      padding: 0;
+    }
+  }
+
+  @media (width > 1024px) {
+    & {
+      row-gap: 0 !important;
+      column-gap: 1rem !important;
+      grid-template-columns: 1fr 1fr;
+      max-width: 1440x;
+    }
+
+    .talk {
+      grid-template-columns: 3fr 2fr !important;
+      grid-template-rows: auto auto 1fr !important;
+      grid-template-areas: "cover header"
+        "cover metadata"
+        "cover content" !important;
+      gap: calc(var(--main-font-gap) / 1.5) !important;
+    }
+  }
 }

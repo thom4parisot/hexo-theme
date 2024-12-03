@@ -1,21 +1,28 @@
-<section class="aside" id="catalog">
+<section id="featured">
   <header class="next container">
-    <h2><%= __('more.talks') %></h2>
+    <h1><%= __('featured.talks') %></h1>
   </header>
 
-  <ul class="is-discrete talks">
-    <% posts.forEach(post => { %>
+  <ul class="is-discrete talks talks--featured">
+    <% site.categories.findOne({ name: 'Featured' }).posts.sort('date', -1).forEach(post => { %>
     <li class="type--<%= post.layout %>">
-      <article class="talk">
-        <header>
-          <h4 class="h6 event-name"><%- post.event.url ? `<a href="${post.event.url}" target="_blank">${post.event.name || post.title}</a>` : post.event.name %></h4>
-          <% if (post.event.name) { %><h3 class="p title"><%= post.title %></h3><% } %>
-        </header>
+      <article class="article article__card talk">
+        <h2 class="event-name"><%- post.title || post.event.name %></h2>
 
-        <ul class="metadata is-inline is-dotted">
-          <li class="metadata--type"><%= __(`talk.${post.layout}`)%></li>
-          <li class="metadata--date"><time class="metadata" datetime="<%= date_xml(post.date) %>"><%= date(post.date) %></time></li>
-          <li class="metadata--location"><%= post.event.location %></li>
+        <div class="cover full">
+          <img src="<%- url_for_page(post.path) %><%- post.cover %>" alt="" role="presentation">
+        </div>
+
+        <ul class="metadata">
+          <%_ if (post.cohost) { %>
+            <li class="metadata--co-host"><%= __('with') _%>
+            <%- post.cohost.map(el => somebody(el)).map(({name, url}) => `<a href="${url}" target="_blank" rel="noopener">${name}</a>`).join(', ') _%>
+          </li>
+          <% } _%>
+          <li class="metadata--event">
+            <%- partial('icon', {id: 'at'}) -%>
+            <a href="<%- post.event.url %>" target="_blank"><%- post.event.name %></a>
+          </li>
           <%_ if (post.external || post.slides) { %>
             <li class="metadata--artifact">
               <%- partial('icon', {id: 'browse'}) -%>
@@ -26,6 +33,7 @@
             <li class="metadata--artifact">
               <%- partial('icon', {id: 'youtube'}) -%>
               <a href="<%= post.video %>"><%= __('watch') %></a>
+              (<%= post.event.duration %> minutes)
             </li>
           <% } _%>
           <%_ if (post.event && post.audio) { %>
@@ -36,19 +44,41 @@
           <% } _%>
         </ul>
 
-        <% if (post.content) { %>
-        <details>
-          <summary><%= __('read_more.summary') %></summary>
-
-          <ul class="metadata is-inline is-dotted">
-            <%_ if (Array.isArray(post.with)) { %><li class="metadata--co-host"><%= __('with') _%>
-              <%- post.with.map(el => somebody(el)).map(({name, url}) => `<a href="${url}" target="_blank" rel="noopener">${name}</a>`).join(', ') _%>
-            </li><% } _%>
-          </ul>
-          <%- post.content %>
-        </details>
+        <% if (post.description) { %>
+        <div class="summary"><%= post.description %></div>
         <% } %>
       </article>
+    </li>
+    <% }) %>
+  </ul>
+</section>
+
+<section id="talks">
+  <header class="next container">
+    <h1><%= __('more.talks') %></h1>
+  </header>
+
+  <ul class="is-discrete with-metadata">
+    <% const nonFeaturedCategories = site.categories.findOne({ name: { $in: ['Talk'], $nin: ['Featured']} }) %>
+    <% site.categories.findOne({ name: { $in: ['Talk'], $nin: ['Featured']} }).posts.sort('date', -1).forEach(post => { %>
+    <li>
+      <time class="metadata" datetime="<%= date_xml(post.date) %>"><%= date(post.date) %></time>
+      <%- post.event.url ? `<a href="${post.event.url}" target="_blank">${post.title || post.event.name}</a>` : (post.title || post.event.name) %>
+    </li>
+    <% }) %>
+  </ul>
+</section>
+
+<section class="aside aside--half" id="workshops">
+  <header class="next container">
+    <h1><%= __('more.workshops') %></h1>
+  </header>
+
+  <ul class="is-discrete with-metadata">
+    <% site.categories.findOne({ name: 'Workshop' }).posts.sort('date', -1).forEach(post => { %>
+    <li>
+      <time class="metadata" datetime="<%= date_xml(post.date) %>"><%= date(post.date) %></time>
+      <%- post.event.url ? `<a href="${post.event.url}" target="_blank">${post.title || post.event.name}</a>` : (post.title || post.event.name) %>
     </li>
     <% }) %>
   </ul>

@@ -47,7 +47,11 @@ more:
   photography_archives: Toutes les archives photographiques
   photography_feed: Fil RSS des photos
   comments: Lire et répondre aux commentaires
-  talks: Présentations, ateliers et conférences
+  talks: Présentations et conférences
+  workshops: Ateliers et animations
+
+featured:
+  talks: Présentations clées
 
 load:
   comments: Affiche les commentaires

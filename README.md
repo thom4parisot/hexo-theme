@@ -2,6 +2,8 @@
 
 Hexo theme for my portfolio and stuff.
 
+Icons from [FontAwesome](https://fontawesome.com/).
+
 # Develop
 
 ```bash
