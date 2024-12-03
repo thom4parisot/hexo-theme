@@ -148,13 +148,10 @@
   }
 }
 
-[data-state="background-dark"],
-[data-state="background-contrasted"] {
-    color: #fff;
-    text-shadow: 1px 1px rgba(255, 255, 255, .5);
-
+.background-dark,
+.background-contrasted {
     a:link, a:visited {
-      --link-foreground: var(--light-shade) !important;
+      --link-foreground: var(--light-shade);
     }
 
     strong {
@@ -164,9 +161,14 @@
     }
 }
 
-.background-dark .slide-background.present {
-  &::before {
+.background-dark {
+  .slide-background.present::before {
     background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .slides .present {
+    color: #fff;
+    text-shadow: 1px 1px rgba(255, 255, 255, .5);
   }
 }
 

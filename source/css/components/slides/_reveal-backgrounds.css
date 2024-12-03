@@ -1,7 +1,9 @@
 .contrasted,
 .attention {
-  background-color: var(--dark-accent);
-  color: #fff;
+  body {
+    background-color: var(--dark-accent);
+    color: #fff;
+  }
 
   strong {
     background: #fff;
@@ -14,5 +16,7 @@
 }
 
 .attention {
-  background-color: #000;
+  body {
+    background-color: #000;
+  }
 }

@@ -1,7 +1,9 @@
 
 .code {
-  background-color: #23241f;    /*monokai background color*/
-  color: #fff;
+  body {
+    background-color: #23241f;    /*monokai background color*/
+    color: #fff;
+  }
 
   .reveal {
     pre {
