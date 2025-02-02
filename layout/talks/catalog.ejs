@@ -14,9 +14,9 @@
         </div>
 
         <ul class="metadata">
-          <%_ if (post.cohost) { %>
+          <%_ if (post.with) { %>
             <li class="metadata--co-host"><%= __('with') _%>
-            <%- post.cohost.map(el => somebody(el)).map(({name, url}) => `<a href="${url}" target="_blank" rel="noopener">${name}</a>`).join(', ') _%>
+            <%- post.with.map(el => somebody(el)).map(({name, url}) => `<a href="${url}" target="_blank" rel="noopener">${name}</a>`).join(', ') _%>
           </li>
           <% } _%>
           <li class="metadata--event">
