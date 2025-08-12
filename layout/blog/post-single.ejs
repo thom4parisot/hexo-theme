@@ -32,6 +32,15 @@
   </header>
 
   <section id="read" class="post__content post__content--text e-content">
+    <% if (post.alternate?.type.startsWith('audio/')) { %>
+    <video controls preload="metadata" class="alternate alternate--audio" aria-label="<%= post.alternate.label %>">
+      <source type="<%= post.alternate.type -%>" src="<%= url_for(post.alternate.src) -%>">
+      <% if (post.alternate.subtitles) { %>
+      <track src="<%= url_for(post.alternate.subtitles) %>" kind="subtitles" srclang="fr" label="Français" default>
+      <% } %>
+    </video>
+    <% } %>
+
     <%- post.content %>
   </section>
 

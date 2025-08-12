@@ -1410,6 +1410,26 @@ article.article .post__content h4 {
   position: absolute;
 }
 
+.post__content .spacer {
+  opacity: .1;
+}
+
+article.article .post__content .alternate.alternate--audio {
+  aspect-ratio: 16 / 3;
+  border: 4px solid #FE821F;
+  border: 4px solid var(--brand-color);
+  border-radius: 8px;
+  margin: 0 0 1.5em;
+  width: 100%;
+}
+
+article.article .post__content .alternate.alternate--audio::cue {
+    background-color: transparent;
+    color: currentColor;
+    font-size: 1.4em;
+    text-align: left;
+  }
+
 .post__content table {
   border-collapse: collapse;
   margin: calc(16px * 1.5) 0;
